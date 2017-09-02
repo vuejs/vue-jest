@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'hello',
+        name: 'basic',
         computed: {
             headingClasses: function headingClasses() {
                 return {

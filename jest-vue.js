@@ -88,9 +88,6 @@ module.exports = {
     if (map) {
       output += '\n' + convert.fromJSON(map.toString()).toComment()
     }
-    var wstream = fs.createWriteStream('myOutput.txt')
-    wstream.write(convert.fromJSON(map.toString()).toComment())
-    wstream.end()
 
     return output
   }
