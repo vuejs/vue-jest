@@ -1,0 +1,23 @@
+#OS files
+.DS_Store
+node_modules
+
+# Editor files
+/.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+**.swp
+*.sw*
+coverage
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock

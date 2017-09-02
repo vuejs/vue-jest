@@ -1,0 +1,53 @@
+{
+  "name": "jest-vue",
+  "version": "1.0.0",
+  "description": "Jest Vue transform",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint jest-vue.js test",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && npm run unit",
+    "unit": "cross-env BABEL_ENV=test jest --no-cache --coverage --coverageDirectory test/coverage"
+  },
+  "author": "Edd Yerburgh",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "cross-env": "^5.0.2",
+    "eslint": "^4.3.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-vue": "^2.1.0",
+    "eslint-plugin-vue-libs": "^1.2.0",
+    "find-babel-config": "^1.1.0",
+    "jest": "^20.0.4",
+    "sourcemap": "^0.1.0",
+    "vue": "^2.4.2",
+    "vue-template-compiler": "^2.4.2",
+    "vue-template-es2015-compiler": "^1.5.3",
+    "vue-test-utils": "https://github.com/vuejs/vue-test-utils"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/jest-vue.js"
+    },
+    "mapCoverage": true
+  },
+  "peerDependencies": {
+    "vue-template-compiler": "^2.4.2"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "convert-source-map": "^1.5.0",
+    "object-assign": "^4.1.1",
+    "source-map": "^0.5.6"
+  }
+}
