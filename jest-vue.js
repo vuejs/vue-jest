@@ -9,10 +9,6 @@ var convert = require('convert-source-map')
 const splitRE = /\r?\n/g;
 
 function generateSourceMap (script, output, filePath, content, inputMap) {
-  //console.log(output)
-  // hot-reload source map busting
-  console.log(path.basename(filePath))
-  console.log(filePath)
   var hashedFilename = path.basename(filePath)
   var map = new sourceMap.SourceMapGenerator()
   map.setSourceContent(hashedFilename, content)
@@ -93,14 +89,7 @@ module.exports = {
       if (map) {
         output += '\n' + convert.fromJSON(map.toString()).toComment()
       }
-        // console.log(generateSourceMap(script, output, path, src, inputMap))
-        // console.log('inputMap', inputMap, '\n')
-        // console.log('src', src, '\n')
-        // console.log('path', path, '\n')
 
-        //console.log('\n', output, '\n')
-        //console.log(output)
-        // console.log('script', script, '\n')
     return {
       code: output,
       map: map
