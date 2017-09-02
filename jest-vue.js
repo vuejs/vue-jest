@@ -4,7 +4,7 @@ const sourceMap = require('source-map')
 const path = require('path')
 const compileTemplate = require('./template-compiler')
 const convert = require('convert-source-map')
-
+const fs = require('fs')
 const splitRE = /\r?\n/g
 
 function generateSourceMap (script, output, filePath, content, inputMap) {
@@ -54,6 +54,7 @@ function addTemplateMapping (content, parts, output, map, beforeLines) {
     })
   }
 }
+
 module.exports = {
   process (src, path) {
     var parts = vueCompiler.parseComponent(src, { pad: true })
@@ -87,10 +88,10 @@ module.exports = {
     if (map) {
       output += '\n' + convert.fromJSON(map.toString()).toComment()
     }
+    var wstream = fs.createWriteStream('myOutput.txt')
+    wstream.write(convert.fromJSON(map.toString()).toComment())
+    wstream.end()
 
-    return {
-      code: output,
-      map: map
-    }
+    return output
   }
 }

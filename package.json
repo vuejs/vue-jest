@@ -33,6 +33,7 @@
   "jest": {
     "moduleFileExtensions": [
       "js",
+      "json",
       "vue"
     ],
     "transform": {
