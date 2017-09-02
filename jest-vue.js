@@ -1,12 +1,11 @@
 const vueCompiler = require('vue-template-compiler')
 const babel = require('babel-core')
-const vueNextCompiler = require('vue-template-es2015-compiler')
-var assign = require('object-assign')
-var sourceMap = require('source-map')
+const sourceMap = require('source-map')
 const path = require('path')
 const compileTemplate = require('./template-compiler')
-var convert = require('convert-source-map')
-const splitRE = /\r?\n/g;
+const convert = require('convert-source-map')
+
+const splitRE = /\r?\n/g
 
 function generateSourceMap (script, output, filePath, content, inputMap) {
   var hashedFilename = path.basename(filePath)
@@ -66,29 +65,28 @@ module.exports = {
       plugins: ['transform-runtime']
     })
 
-    const script = result.code;
-    const template = parts.template;
+    const script = result.code
 
-    const inputMap = result.map;
-    const map = generateSourceMap(script, '', path, src, inputMap);
+    const inputMap = result.map
+    const map = generateSourceMap(script, '', path, src, inputMap)
     let output = ';(function(){\n' + script + '\n})()\n' +
       'if (module.exports.__esModule) module.exports = module.exports.default\n' +
       'var __vue__options__ = (typeof module.exports === "function"' +
       '? module.exports.options' +
-      ': module.exports)\n';
-      var beforeLines
-        if (map) {
-          beforeLines = output.split(splitRE).length
-        }
-        output += '__vue__options__.render = ' + renderFunctions.render + '\n' +
+      ': module.exports)\n'
+    var beforeLines
+    if (map) {
+      beforeLines = output.split(splitRE).length
+    }
+    output += '__vue__options__.render = ' + renderFunctions.render + '\n' +
       '__vue__options__.staticRenderFns = ' + renderFunctions.staticRenderFns + '\n'
-      if (map) {
-        addTemplateMapping(script, parts, output, map, beforeLines)
-      }
+    if (map) {
+      addTemplateMapping(script, parts, output, map, beforeLines)
+    }
 
-      if (map) {
-        output += '\n' + convert.fromJSON(map.toString()).toComment()
-      }
+    if (map) {
+      output += '\n' + convert.fromJSON(map.toString()).toComment()
+    }
 
     return {
       code: output,
