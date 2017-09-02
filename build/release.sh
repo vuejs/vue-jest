@@ -11,9 +11,6 @@ then
   # run tests
   npm test 2>/dev/null
 
-  # build
-  VERSION=$VERSION npm run build
-
   # commit
   git add -A
   git commit -m "[build] $VERSION"
