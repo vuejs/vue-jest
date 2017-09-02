@@ -1,12 +1,25 @@
 import Vue from 'vue'
-import Hello from './resources/Basic.vue'
+import Basic from './resources/Basic.vue'
 import jestVue from '../jest-vue'
 import { resolve } from 'path'
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 
 test('processes .vue files', () => {
-  const vm = new Vue(Hello).$mount()
+  const vm = new Vue(Basic).$mount()
   expect(typeof vm.$el).toBe('object')
+})
+
+test('processes .vue files using .babelrc if it exists in route', () => {
+  const babelRcPath = resolve(__dirname, '../.babelrc')
+  const babelRcOriginal = readFileSync(babelRcPath, { encoding: 'utf8' })
+  writeFileSync(babelRcPath, '{"presets": ["es2015", "stage-2"],"plugins": ["istanbul"]}')
+  const filePath = resolve(__dirname, './resources/Basic.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+
+  const output = jestVue.process(fileString, filePath)
+  writeFileSync(babelRcPath, babelRcOriginal)
+  // coverageData.hash is added by babel-plugin-istanbul, added to root .babelrc for this test only
+  expect(output).toContain('coverageData.hash')
 })
 
 test('generates inline sourcemap', () => {
