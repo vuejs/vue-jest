@@ -3,16 +3,10 @@ const compileTemplate = require('./lib/template-compiler')
 const generateSourceMap = require('./lib/generate-source-map')
 const addTemplateMapping = require('./lib/add-template-mapping')
 const convertSourceMap = require('convert-source-map')
-const typescript = require('typescript')
 const compileBabel = require('./lib/compilers/babel-compiler')
+const compileTypescript = require('./lib/compilers/typescript-compiler')
 
 const splitRE = /\r?\n/g
-
-function compileTypescript (scriptContent) {
-  return {
-    code: typescript.transpile(scriptContent)
-  }
-}
 
 function processScript (scriptPart) {
   if (scriptPart.lang === 'typescript' || scriptPart.lang === 'ts') {
