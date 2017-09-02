@@ -1,4 +1,4 @@
-# vue-jest
+# jest-vue
 
 Jest Vue transformer with source map support
 
