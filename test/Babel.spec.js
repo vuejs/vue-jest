@@ -2,11 +2,24 @@ import Vue from 'vue'
 import Basic from './resources/Basic.vue'
 import jestVue from '../jest-vue'
 import { resolve } from 'path'
-import { readFileSync, writeFileSync } from 'fs'
+import {
+  readFileSync,
+  writeFileSync,
+  renameSync
+} from 'fs'
 
 test('processes .vue files', () => {
   const vm = new Vue(Basic).$mount()
   expect(typeof vm.$el).toBe('object')
+})
+
+test('processes .vue files with default babel if there is no .babelrc', () => {
+  const babelRcPath = resolve(__dirname, '../.babelrc')
+  const tempPath = resolve(__dirname, '../.renamed')
+  renameSync(babelRcPath, tempPath)
+  const vm = new Vue(Basic).$mount()
+  expect(typeof vm.$el).toBe('object')
+  renameSync(tempPath, babelRcPath)
 })
 
 test('processes .vue files using .babelrc if it exists in route', () => {
