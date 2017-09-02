@@ -2,7 +2,7 @@
   "name": "jest-vue",
   "version": "0.1.0",
   "description": "Jest Vue transform",
-  "main": "index.js",
+  "main": "jest-vue.js",
   "scripts": {
     "lint": "eslint jest-vue.js test",
     "lint:fix": "npm run lint -- --fix",
