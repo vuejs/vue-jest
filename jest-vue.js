@@ -3,20 +3,39 @@ const babel = require('babel-core')
 const compileTemplate = require('./lib/template-compiler')
 const generateSourceMap = require('./lib/generate-source-map')
 const addTemplateMapping = require('./lib/add-template-mapping')
+const convertSourceMap = require('convert-source-map')
+const typescript = require('typescript')
 
-const convert = require('convert-source-map')
 const splitRE = /\r?\n/g
+
+function compileBabel (scriptContent) {
+  return babel.transform(scriptContent, {
+    sourceMaps: true,
+    presets: ['es2015'],
+    plugins: ['transform-runtime']
+  })
+}
+
+function compileTypescript (scriptContent) {
+  return {
+    code: typescript.transpile(scriptContent)
+  }
+}
+
+function processScript (scriptPart) {
+  if (scriptPart.lang === 'typescript' || scriptPart.lang === 'ts') {
+    return compileTypescript(scriptPart.content)
+  }
+
+  return compileBabel(scriptPart.content)
+}
 
 module.exports = {
   process (src, path) {
     var parts = vueCompiler.parseComponent(src, { pad: true })
     const renderFunctions = compileTemplate(parts.template.content)
 
-    const result = babel.transform(parts.script.content, {
-      sourceMaps: true,
-      presets: ['es2015'],
-      plugins: ['transform-runtime']
-    })
+    const result = processScript(parts.script)
 
     const script = result.code
 
@@ -38,7 +57,7 @@ module.exports = {
     }
 
     if (map) {
-      output += '\n' + convert.fromJSON(map.toString()).toComment()
+      output += '\n' + convertSourceMap.fromJSON(map.toString()).toComment()
     }
 
     return output
