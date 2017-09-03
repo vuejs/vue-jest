@@ -31,12 +31,12 @@ Example repositories testing Vue components with jest and jest-vue:
 
 jest-vue compiles the script and template of SFCs into a JavaScript file that Jest can run. **It does not currently compile the style section**.
 
-## Supported script languages
+### Supported script languages
 
-- **typescript** (lang="ts", lang="typescript")
-- **coffeescript** (lang="coffee")
+- **typescript** (`lang="ts"`, `lang="typescript"`)
+- **coffeescript** (`lang="coffee"`)
 
-## Supported template languages
+### Supported template languages
 
-- **pug** (lang="pug")
-- **jade** (lang="jade", lang="jade")
+- **pug** (`lang="pug"`)
+- **jade** (`lang="jade"`)
