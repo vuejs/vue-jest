@@ -1,3 +1,11 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/eddyerburgh/vue-jest/compare/v0.3.0...v0.4.0) (2017-09-03)
+
+
+### Features
+
+* **errors:** throw errors with standard format ([d5dcb6b](https://github.com/eddyerburgh/vue-jest/commit/d5dcb6b))
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/eddyerburgh/vue-jest/compare/v0.2.0...v0.3.0) (2017-09-03)
 
