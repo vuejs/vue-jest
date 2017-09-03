@@ -19,3 +19,10 @@ To define jest-vue as a transformer for your .vue code, map .vue files to the ba
   ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
 },
 ```
+
+## Examples
+
+Example repositories testing Vue components with jest and jest-vue:
+
+- [Avoriaz with Jest](https://github.com/eddyerburgh/avoriaz-jest-example)
+- [Vue Test Utils with Jest](https://github.com/eddyerburgh/vue-test-utils-jest-example)
