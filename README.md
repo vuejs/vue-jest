@@ -34,7 +34,7 @@ jest-vue compiles the script and template of SFCs into a JavaScript file that Je
 ### Supported script languages
 
 - **typescript** (`lang="ts"`, `lang="typescript"`)
-- **coffeescript** (`lang="coffee"`)
+- **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
 ### Supported template languages
 

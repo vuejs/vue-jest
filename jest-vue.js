@@ -14,7 +14,7 @@ function processScript (scriptPart) {
     return compileTypescript(scriptPart.content)
   }
 
-  if (scriptPart.lang === 'coffee') {
+  if (scriptPart.lang === 'coffee' || scriptPart.lang === 'coffeescript') {
     return compileCoffeeScript(scriptPart.content)
   }
 
