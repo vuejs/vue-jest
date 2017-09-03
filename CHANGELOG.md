@@ -16,7 +16,7 @@
 * **typescript:** generate (incomplete) TypeScript source maps ([455cd98](https://github.com/eddyerburgh/vue-jest/commit/455cd98))
 
 <a name="0.1.1"></a>
-# 0.1.0 (2017-09-02)
+# 0.1.1 (2017-09-02)
 
 ### Bug Fixes
 
