@@ -25,7 +25,7 @@ test('processes .vue files with default babel if there is no .babelrc', () => {
 test('processes .vue files using .babelrc if it exists in route', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const babelRcOriginal = readFileSync(babelRcPath, { encoding: 'utf8' })
-  writeFileSync(babelRcPath, '{"presets": ["es2015", "stage-2"],"plugins": ["istanbul"]}')
+  writeFileSync(babelRcPath, '{"presets": ["es2015"],"plugins": ["istanbul"]}')
   const filePath = resolve(__dirname, './resources/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
