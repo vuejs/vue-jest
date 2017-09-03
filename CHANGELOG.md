@@ -1,3 +1,11 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/eddyerburgh/vue-jest/compare/v0.2.0...v0.3.0) (2017-09-03)
+
+
+### Features
+
+* **coffeescript:** add support for lang=coffeescript ([b63a424](https://github.com/eddyerburgh/vue-jest/commit/b63a424))
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/eddyerburgh/vue-jest/compare/v0.1.1...v0.2.0) (2017-09-03)
 
