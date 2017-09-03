@@ -20,7 +20,26 @@ To define jest-vue as a transformer for your .vue code, map .vue files to the ba
 },
 ```
 
-## Examples
+To use source maps, you need to set `mapCoverage` to `true`. A full config will look like this.
+
+```json
+{
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/jest-vue.js"
+    },
+    "mapCoverage": true
+  }
+}
+```
+
+## Example Projects
 
 Example repositories testing Vue components with jest and jest-vue:
 
