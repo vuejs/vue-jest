@@ -24,8 +24,8 @@ module.exports = {
     const result = processScript(parts.script)
 
     const script = result.code
+    const inputMap = result.sourceMap
 
-    const inputMap = result.map
     const map = generateSourceMap(script, '', path, src, inputMap)
     let output = ';(function(){\n' + script + '\n})()\n' +
       'if (module.exports.__esModule) module.exports = module.exports.default\n' +
