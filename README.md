@@ -30,7 +30,7 @@ To use source maps, you need to set `mapCoverage` to `true`. A full config will 
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/jest-vue.js"
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
     },
     "mapCoverage": true
   }
