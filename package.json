@@ -3,6 +3,17 @@
   "version": "0.2.0",
   "description": "Jest Vue transform",
   "main": "jest-vue.js",
+  "keywords": [
+    "jest",
+    "vue",
+    "jest vue",
+    "jest vue transform",
+    "jest vue preprocessor",
+    "jest-vue",
+    "vue jest",
+    "vue jest transform",
+    "vue jest preprocessor"
+  ],
   "scripts": {
     "lint": "eslint jest-vue.js test",
     "lint:fix": "npm run lint -- --fix",
