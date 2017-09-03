@@ -17,6 +17,7 @@
     "babel-jest": "^20.0.3",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
+    "coffee-script": "^1.12.7",
     "conventional-changelog": "^1.1.5",
     "cross-env": "^5.0.2",
     "eslint": "^4.3.0",

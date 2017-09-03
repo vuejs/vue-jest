@@ -5,12 +5,17 @@ const addTemplateMapping = require('./lib/add-template-mapping')
 const convertSourceMap = require('convert-source-map')
 const compileBabel = require('./lib/compilers/babel-compiler')
 const compileTypescript = require('./lib/compilers/typescript-compiler')
+const compileCoffeeScript = require('./lib/compilers/coffee-compiler')
 
 const splitRE = /\r?\n/g
 
 function processScript (scriptPart) {
   if (scriptPart.lang === 'typescript' || scriptPart.lang === 'ts') {
     return compileTypescript(scriptPart.content)
+  }
+
+  if (scriptPart.lang === 'coffee') {
+    return compileCoffeeScript(scriptPart.content)
   }
 
   return compileBabel(scriptPart.content)
