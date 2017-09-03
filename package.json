@@ -24,9 +24,11 @@
     "eslint-plugin-vue": "^2.1.0",
     "eslint-plugin-vue-libs": "^1.2.0",
     "jest": "^20.0.4",
+    "pug": "^2.0.0-rc.3",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2",
-    "vue-template-es2015-compiler": "^1.5.3"
+    "vue-template-es2015-compiler": "^1.5.3",
+    "vue-test-utils": "git+https://github.com/vuejs/vue-test-utils.git"
   },
   "peerDependencies": {
     "vue": "^2.x",

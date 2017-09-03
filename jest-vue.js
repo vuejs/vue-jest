@@ -19,7 +19,7 @@ function processScript (scriptPart) {
 module.exports = {
   process (src, path) {
     var parts = vueCompiler.parseComponent(src, { pad: true })
-    const renderFunctions = compileTemplate(parts.template.content)
+    const renderFunctions = compileTemplate(parts.template)
 
     const result = processScript(parts.script)
 
