@@ -20,7 +20,7 @@
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && npm run unit",
-    "unit": "cross-env BABEL_ENV=test jest --no-cache --coverage --coverageDirectory test/coverage"
+    "unit": "cross-env BABEL_ENV=test jest --no-cache --coverage --coverageDirectory test/coverage --runInBand"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",

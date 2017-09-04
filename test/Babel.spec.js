@@ -17,9 +17,34 @@ test('processes .vue files with default babel if there is no .babelrc', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const tempPath = resolve(__dirname, '../.renamed')
   renameSync(babelRcPath, tempPath)
-  const vm = new Vue(Basic).$mount()
-  expect(typeof vm.$el).toBe('object')
+  const filePath = resolve(__dirname, './resources/Basic.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+  try {
+    jestVue.process(fileString, filePath)
+  } catch (err) {
+    renameSync(tempPath, babelRcPath)
+    throw err
+  }
   renameSync(tempPath, babelRcPath)
+})
+
+test('logs info when there is no .babelrc', () => {
+  const babelRcPath = resolve(__dirname, '../.babelrc')
+  const tempPath = resolve(__dirname, '../.renamed')
+  renameSync(babelRcPath, tempPath)
+  const info = jest.spyOn(global.console, 'info')
+  const filePath = resolve(__dirname, './resources/Basic.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+
+  jestVue.process(fileString, filePath)
+  try {
+    expect(info).toHaveBeenCalledWith('\n[jest-vue] Info: no .babelrc found, defaulting to default babel options\n')
+  } catch (err) {
+    renameSync(tempPath, babelRcPath)
+    throw err
+  }
+  renameSync(tempPath, babelRcPath)
+  jest.resetModules()
 })
 
 test('processes .vue files using .babelrc if it exists in route', () => {
