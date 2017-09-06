@@ -1,3 +1,11 @@
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/eddyerburgh/vue-jest/compare/v0.5.0...v0.5.1) (2017-09-06)
+
+
+### Bug Fixes
+
+* get .babelrc from cwd ([6baf3c7](https://github.com/eddyerburgh/vue-jest/commit/6baf3c7))
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/eddyerburgh/vue-jest/compare/v0.4.0...v0.5.0) (2017-09-06)
 
