@@ -1,3 +1,18 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/eddyerburgh/vue-jest/compare/v0.4.0...v0.5.0) (2017-09-06)
+
+
+### Bug Fixes
+
+* remove stage-2 from .babelrc ([890b3c9](https://github.com/eddyerburgh/vue-jest/commit/890b3c9))
+* remove stage-2 from babel.spec ([836e469](https://github.com/eddyerburgh/vue-jest/commit/836e469))
+
+
+### Features
+
+* **babel:** log when no .babelrc could be found ([199d969](https://github.com/eddyerburgh/vue-jest/commit/199d969))
+* **babel:** support babelrc in package.json ([fd58a77](https://github.com/eddyerburgh/vue-jest/commit/fd58a77))
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/eddyerburgh/vue-jest/compare/v0.3.0...v0.4.0) (2017-09-03)
 
