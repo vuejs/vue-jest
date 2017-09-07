@@ -1,3 +1,11 @@
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/eddyerburgh/vue-jest/compare/v0.5.1...v0.5.2) (2017-09-07)
+
+
+### Bug Fixes
+
+* remove template from branch coverage ([a23d3c1](https://github.com/eddyerburgh/vue-jest/commit/a23d3c1)), closes [#3](https://github.com/eddyerburgh/vue-jest/issues/3)
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/eddyerburgh/vue-jest/compare/v0.5.0...v0.5.1) (2017-09-06)
 
