@@ -7,6 +7,11 @@ import {
   writeFileSync,
   renameSync
 } from 'fs'
+const clearModule = require('clear-module')
+
+beforeEach(() => {
+  clearModule.all()
+})
 
 test('processes .vue files', () => {
   const vm = new Vue(Basic).$mount()
