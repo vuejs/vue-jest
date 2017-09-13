@@ -19,7 +19,7 @@
     "lint:fix": "npm run lint -- --fix",
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
-    "test": "npm run lint && npm run unit",
+    "test": "npm run lint && ./test.sh",
     "unit": "cross-env BABEL_ENV=test jest --no-cache --coverage --coverageDirectory test/coverage --runInBand"
   },
   "author": "Edd Yerburgh",

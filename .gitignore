@@ -15,6 +15,7 @@ coverage
 # Logs
 logs
 *.log
+temp-dir
 
 # Runtime data
 pids
