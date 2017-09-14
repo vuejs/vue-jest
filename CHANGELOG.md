@@ -1,3 +1,13 @@
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/eddyerburgh/vue-jest/compare/v0.5.2...v0.5.3) (2017-09-14)
+
+
+### Performance Improvements
+
+* add getCacheKey function ([621ede0](https://github.com/eddyerburgh/vue-jest/commit/621ede0))
+* cache .babelrc search ([e60a6c3](https://github.com/eddyerburgh/vue-jest/commit/e60a6c3))
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/eddyerburgh/vue-jest/compare/v0.5.1...v0.5.2) (2017-09-07)
 
