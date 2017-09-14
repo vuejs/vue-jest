@@ -15,7 +15,7 @@
     "vue jest preprocessor"
   ],
   "scripts": {
-    "lint": "eslint jest-vue.js test",
+    "lint": "eslint lib jest-vue.js test",
     "lint:fix": "npm run lint -- --fix",
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
