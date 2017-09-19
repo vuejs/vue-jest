@@ -45,10 +45,6 @@
     "vue-test-utils": "git+https://github.com/vuejs/vue-test-utils.git"
   },
   "peerDependencies": {
-    "coffee-script": "^1.x",
-    "jade": "^1.x",
-    "pug": "^2.x",
-    "typescript": "^2.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
