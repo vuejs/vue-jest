@@ -1,6 +1,6 @@
 {
   "name": "jest-vue",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Jest Vue transform",
   "main": "jest-vue.js",
   "keywords": [
