@@ -39,12 +39,16 @@
     "jade": "^1.11.0",
     "jest": "^20.0.4",
     "pug": "^2.0.0-rc.3",
+    "typescript": "^2.5.2",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2",
-    "vue-template-es2015-compiler": "^1.5.3",
     "vue-test-utils": "git+https://github.com/vuejs/vue-test-utils.git"
   },
   "peerDependencies": {
+    "coffee-script": "^1.x",
+    "jade": "^1.x",
+    "pug": "^2.x",
+    "typescript": "^2.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
@@ -58,7 +62,7 @@
     "js-beautify": "^1.6.14",
     "object-assign": "^4.1.1",
     "source-map": "^0.5.6",
-    "typescript": "^2.5.2"
+    "vue-template-es2015-compiler": "^1.5.3"
   },
   "jest": {
     "moduleFileExtensions": [
