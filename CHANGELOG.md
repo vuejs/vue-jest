@@ -1,3 +1,11 @@
+<a name="0.5.4"></a>
+## [0.5.4](https://github.com/eddyerburgh/vue-jest/compare/v0.5.3...v0.5.4) (2017-09-19)
+
+
+### Bug Fixes
+
+* make tests work with pure render functions ([52ce64a](https://github.com/eddyerburgh/vue-jest/commit/52ce64a))
+
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/eddyerburgh/vue-jest/compare/v0.5.2...v0.5.3) (2017-09-14)
 
