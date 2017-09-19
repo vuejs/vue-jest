@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'dsss',
+    name: 'RenderFunction',
     render (createElement) {
       return createElement('section', [this.$slots.default])
     }
