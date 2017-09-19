@@ -1,3 +1,11 @@
+<a name="0.5.6"></a>
+## [0.5.6](https://github.com/eddyerburgh/vue-jest/compare/v0.5.5...v0.5.6) (2017-09-19)
+
+
+### Bug Fixes
+
+* remove compiler peerDependencies and require inside functions ([cce605b](https://github.com/eddyerburgh/vue-jest/commit/cce605b))
+
 <a name="0.5.5"></a>
 ## [0.5.5](https://github.com/eddyerburgh/vue-jest/compare/v0.5.4...v0.5.5) (2017-09-19)
 
