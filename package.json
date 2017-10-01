@@ -20,7 +20,8 @@
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && ./test.sh",
-    "unit": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "unit": "./test.sh",
+    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
