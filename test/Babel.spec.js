@@ -7,9 +7,11 @@ import {
   writeFileSync,
   renameSync
 } from 'fs'
-const clearModule = require('clear-module')
+import clearModule from 'clear-module'
+import cache from '../lib/cache'
 
 beforeEach(() => {
+  cache.flushAll()
   clearModule.all()
 })
 
