@@ -20,7 +20,7 @@
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && ./test.sh",
-    "unit": "cross-env BABEL_ENV=test jest test --runInBand --coverage --coverageDirectory test/coverage"
+    "unit": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
@@ -31,7 +31,6 @@
     "clear-module": "^2.1.0",
     "coffee-script": "^1.12.7",
     "conventional-changelog": "^1.1.5",
-    "cross-env": "^5.0.2",
     "eslint": "^4.3.0",
     "eslint-plugin-html": "^3.1.1",
     "eslint-plugin-vue": "^2.1.0",
@@ -58,6 +57,7 @@
     "js-beautify": "^1.6.14",
     "object-assign": "^4.1.1",
     "source-map": "^0.5.6",
+    "tsconfig": "^7.0.0",
     "vue-template-es2015-compiler": "^1.5.3"
   },
   "jest": {
