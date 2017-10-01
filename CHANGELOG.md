@@ -1,3 +1,15 @@
+<a name="0.6.0"></a>
+## [0.6.0](https://github.com/eddyerburgh/vue-jest/compare/v0.5.5...v0.6.0) (2017-10-01)
+
+### Bug Fixes
+
+* get tsconfig when compiling typescript ([7ce2ee6](https://github.com/eddyerburgh/vue-jest/commit/7ce2ee6))
+
+### Performance Improvements
+
+* cache .babelrc ([2e1f555](https://github.com/eddyerburgh/vue-jest/commit/2e1f555))
+* cache tsconf.json ([e119cd3](https://github.com/eddyerburgh/vue-jest/commit/e119cd3))
+
 <a name="0.5.6"></a>
 ## [0.5.6](https://github.com/eddyerburgh/vue-jest/compare/v0.5.5...v0.5.6) (2017-09-19)
 
