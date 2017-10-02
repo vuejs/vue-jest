@@ -1,3 +1,10 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/eddyerburgh/vue-jest/compare/v0.6.0...v0.7.0) (2017-10-02)
+
+### Bug Fixes
+
+* use babel env in babel-compiler ([2e83e7b](https://github.com/eddyerburgh/vue-jest/commit/7ce2ee6))
+
 <a name="0.6.0"></a>
 ## [0.6.0](https://github.com/eddyerburgh/vue-jest/compare/v0.5.5...v0.6.0) (2017-10-01)
 
