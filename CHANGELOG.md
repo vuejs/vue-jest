@@ -1,6 +1,14 @@
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/eddyerburgh/vue-jest/compare/v0.7.1...v0.7.2) (2017-10-06)
+
+
+### Bug Fixes
+
+* use babel to compile TS ([3467128](https://github.com/eddyerburgh/vue-jest/commit/3467128))
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/eddyerburgh/vue-jest/compare/v0.7.0...v0.7.1) (2017-10-06)
-
 
 ### Bug Fixes
 
