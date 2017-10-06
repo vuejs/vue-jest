@@ -5,7 +5,7 @@
       "dom",
       "es6"
     ],
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "types": ["vue-typescript-import-dts", "jest", "node"],
     "isolatedModules": false,
