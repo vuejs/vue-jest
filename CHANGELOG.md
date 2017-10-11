@@ -1,3 +1,11 @@
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/eddyerburgh/jest-vue/compare/v0.8.0...v0.8.1) (2017-10-11)
+
+
+### Bug Fixes
+
+* use the absolute path to babel preset ([#12](https://github.com/eddyerburgh/jest-vue/issues/12)) ([60bccff](https://github.com/eddyerburgh/jest-vue/commit/60bccff))
+
 <a name="0.8.0"></a>
 # [2.0.0](https://github.com/eddyerburgh/jest-vue/compare/v0.7.2...v0.8.0) (2017-10-10)
 
