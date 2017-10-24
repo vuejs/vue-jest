@@ -2,6 +2,16 @@
 
 Jest Vue transformer with source map support
 
+## DEPRECATED
+
+this package has been renamed to vue-jest
+
+You can download vue-jest with the following command:
+
+```
+npm install --save-dev vue-jest
+```
+
 ## Usage
 
 ```
