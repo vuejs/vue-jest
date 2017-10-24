@@ -1,7 +1,7 @@
 import { shallow } from 'vue-test-utils'
 import { resolve } from 'path'
 import TypeScript from './resources/TypeScript.vue'
-import jestVue from '../jest-vue'
+import jestVue from '../vue-jest'
 import { readFileSync } from 'fs'
 import cache from '../lib/cache'
 

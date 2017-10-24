@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Basic from './resources/Basic.vue'
-import jestVue from '../jest-vue'
+import jestVue from '../vue-jest'
 import { resolve } from 'path'
 import {
   readFileSync,
@@ -45,7 +45,7 @@ test('logs info when there is no .babelrc', () => {
 
   jestVue.process(fileString, filePath)
   try {
-    expect(info).toHaveBeenCalledWith('\n[jest-vue] Info: no .babelrc found, defaulting to default babel options\n')
+    expect(info).toHaveBeenCalledWith('\n[vue-jest] Info: no .babelrc found, defaulting to default babel options\n')
   } catch (err) {
     renameSync(tempPath, babelRcPath)
     throw err

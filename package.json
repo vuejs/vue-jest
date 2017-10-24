@@ -1,21 +1,21 @@
 {
-  "name": "jest-vue",
+  "name": "vue-jest",
   "version": "0.8.1",
   "description": "Jest Vue transform",
-  "main": "jest-vue.js",
+  "main": "vue-jest.js",
   "keywords": [
     "jest",
     "vue",
     "jest vue",
     "jest vue transform",
     "jest vue preprocessor",
-    "jest-vue",
+    "vue jest",
     "vue jest",
     "vue jest transform",
     "vue jest preprocessor"
   ],
   "scripts": {
-    "lint": "eslint lib jest-vue.js test",
+    "lint": "eslint lib vue-jest.js test",
     "lint:fix": "npm run lint -- --fix",
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
@@ -68,7 +68,7 @@
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/jest-vue.js"
+      ".*\\.(vue)$": "<rootDir>/vue-jest.js"
     },
     "mapCoverage": true
   }
