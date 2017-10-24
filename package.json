@@ -21,7 +21,8 @@
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && ./test.sh",
     "unit": "./test.sh",
-    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage",
+    "preinstall": "echo jest-vue has been renamed to vue-jest. Please install vue-jest for the latest version"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
