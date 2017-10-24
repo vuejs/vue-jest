@@ -1,3 +1,15 @@
+<a name="1.0.0"></a>
+
+Renamed to vue-jest.
+
+### Features
+
+* **functional components:** support for functional components
+* **tsx:** add tsx support
+
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/eddyerburgh/vue-jest/compare/v0.7.1...v0.7.2) (2017-10-06)
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/eddyerburgh/vue-jest/compare/v0.8.0...v0.8.1) (2017-10-11)
 
