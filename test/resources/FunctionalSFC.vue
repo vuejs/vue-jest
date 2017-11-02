@@ -3,3 +3,4 @@
         {{ props.msg }}
     </div>
 </template>
+
