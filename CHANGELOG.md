@@ -1,3 +1,11 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/eddyerburgh/vue-jest/compare/v1.0.1...v1.0.2) (2017-11-05)
+
+
+### Bug Fixes
+
+* add callback and array prop detection in functional template ([#23](https://github.com/eddyerburgh/vue-jest/issues/23)) ([82f7a7e](https://github.com/eddyerburgh/vue-jest/commit/82f7a7e))
+
 <a name="1.0.0"></a>
 
 Renamed to vue-jest.
