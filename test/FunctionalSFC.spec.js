@@ -3,7 +3,7 @@ import FunctionalSFC from './resources/FunctionalSFC.vue'
 
 let wrapper
 const clickSpy = jest.fn()
-beforeEach(()=> {
+beforeEach(() => {
   wrapper = shallow(FunctionalSFC, {
     propsData: { msg: { id: 1, title: 'foo' }, onClick: clickSpy }
   })
