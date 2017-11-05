@@ -1,4 +1,4 @@
-import extractProps from '../lib/process-functional'
+import extractProps from '../lib/extract-props'
 
 describe('when extracting props with props. prefix from functional template content', () => {
   it('extracts interpolated props ', () => {
