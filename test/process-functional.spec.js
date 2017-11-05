@@ -12,4 +12,20 @@ describe('when extracting props with props. prefix from functional template cont
 
     expect(extractProps(content)).toBe("[ 'foo' ]")
   })
+
+  it('extracts props with nested structure', () => {
+    const content = '<div> {{props.msg1.foo }} {{props.msg1.bar}}</div>'
+
+    expect(extractProps(content)).toBe("[ 'msg1' ]")
+  })
+
+  it('extracts callback props', () => {
+    const content = '<button @click="props.onClick(props.msg)">{{props.msg.title}}</button>'
+    expect(extractProps(content)).toBe("[ 'onClick', 'msg' ]")
+  })
+
+  it('extracts array props', () => {
+    const content = '<div>{{props.msg[title]}}</div>'
+    expect(extractProps(content)).toBe("[ 'msg' ]")
+  })
 })
