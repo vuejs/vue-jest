@@ -1,6 +1,3 @@
 <template functional>
-    <div class="hello">
-        {{ props.msg }}
-    </div>
+    <button @click="props.onClick(props.msg.id)">{{props.msg.title}}</button>
 </template>
-

@@ -1,5 +1,5 @@
 <template>
-    <FunctionalSFC msg="TEST"/>
+    <FunctionalSFC :msg="{id: 1, title: 'foo'}" :onClick="() => {}"/>
 </template>
 
 <script>

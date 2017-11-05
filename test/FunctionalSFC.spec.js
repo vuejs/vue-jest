@@ -1,10 +1,21 @@
 import { shallow } from 'vue-test-utils'
 import FunctionalSFC from './resources/FunctionalSFC.vue'
 
-test('processes .vue file with functional template', () => {
-  const wrapper = shallow(FunctionalSFC, {
-    propsData: { msg: 'Hello' }
+let wrapper
+const clickSpy = jest.fn()
+beforeEach(() => {
+  wrapper = shallow(FunctionalSFC, {
+    propsData: { msg: { id: 1, title: 'foo' }, onClick: clickSpy }
   })
-  expect(wrapper.is('div')).toBe(true)
-  expect(wrapper.text().trim()).toBe('Hello')
+})
+
+describe('Processes .vue file with functional template', () => {
+  it('with nested props', () => {
+    expect(wrapper.text().trim()).toBe('foo')
+  })
+
+  it('with callback prop', () => {
+    wrapper.trigger('click')
+    expect(clickSpy).toHaveBeenCalledWith(1)
+  })
 })

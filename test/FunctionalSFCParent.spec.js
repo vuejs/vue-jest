@@ -3,5 +3,5 @@ import FunctionalSFCParent from './resources/FunctionalSFCParent.vue'
 
 test('processes .vue file with functional template from parent', () => {
   const wrapper = mount(FunctionalSFCParent)
-  expect(wrapper.text().trim()).toBe('TEST')
+  expect(wrapper.text().trim()).toBe('foo')
 })
