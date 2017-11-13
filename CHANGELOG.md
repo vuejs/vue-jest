@@ -1,6 +1,12 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/eddyerburgh/vue-jest/compare/v1.0.2...v1.0.3) (2017-13-05)
+
+### Bug Fixes
+
+* handle cases where script block is empty
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/eddyerburgh/vue-jest/compare/v1.0.1...v1.0.2) (2017-11-05)
-
 
 ### Bug Fixes
 
