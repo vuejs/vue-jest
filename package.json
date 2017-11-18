@@ -71,5 +71,9 @@
       ".*\\.(vue)$": "<rootDir>/vue-jest.js"
     },
     "mapCoverage": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyerburgh/vue-jest.git"
   }
 }
