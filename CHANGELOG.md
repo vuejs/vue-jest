@@ -1,5 +1,12 @@
+<a name="1.1.0"></a>
+## [1.1.0](https://github.com/eddyerburgh/vue-jest/compare/v1.0.3...v1.1.0) (2017-11-22)
+
+### Features
+
+* **HAML:** support for HAML components
+
 <a name="1.0.3"></a>
-## [1.0.3](https://github.com/eddyerburgh/vue-jest/compare/v1.0.2...v1.0.3) (2017-13-05)
+## [1.0.3](https://github.com/eddyerburgh/vue-jest/compare/v1.0.2...v1.0.3) (2017-11-13)
 
 ### Bug Fixes
 
