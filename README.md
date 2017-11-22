@@ -57,3 +57,4 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 
 - **pug** (`lang="pug"`)
 - **jade** (`lang="jade"`)
+- **haml** (`lang="haml"`)
