@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Basic from './resources/Basic.vue'
+import BasicSrc from './resources/BasicSrc.vue'
 import jestVue from '../vue-jest'
 import { resolve } from 'path'
 import {
@@ -17,6 +18,11 @@ beforeEach(() => {
 
 test('processes .vue files', () => {
   const vm = new Vue(Basic).$mount()
+  expect(typeof vm.$el).toBe('object')
+})
+
+test('processes .vue files using src attributes', () => {
+  const vm = new Vue(BasicSrc).$mount()
   expect(typeof vm.$el).toBe('object')
 })
 
