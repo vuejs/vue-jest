@@ -1,3 +1,12 @@
+<a name="v1.3.0"></a>
+# [v1.3.0](https://github.com/eddyerburgh/vue-jest/compare/v1.2.0...v1.3.0) (2017-12-05)
+
+
+### Features
+
+* return source map object ([92b664e](https://github.com/eddyerburgh/vue-jest/commit/92b664e))
+
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://github.com/eddyerburgh/vue-jest/compare/v1.1.0...v1.2.0) (2017-11-27)
 
