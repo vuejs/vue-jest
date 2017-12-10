@@ -29,7 +29,7 @@
     "babel-jest": "^20.0.3",
     "babel-plugin-istanbul": "^4.1.4",
     "clear-module": "^2.1.0",
-    "coffee-script": "^1.12.7",
+    "coffeescript": "^2.0.3",
     "conventional-changelog": "^1.1.5",
     "eslint": "^4.3.0",
     "eslint-plugin-html": "^3.1.1",
