@@ -1,8 +1,8 @@
 import loadBabelConfig from '../lib/load-babel-config'
 import { resolve } from 'path'
 import {
-//   writeFileSync,
-  copyFileSync,
+  createReadStream,
+  createWriteStream,
   readFileSync,
   renameSync
 } from 'fs'
@@ -36,7 +36,7 @@ describe('load-babel-config.js', () => {
   it('reads default babel if there is .babelrc', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
     const babelRcCopiedPath = resolve(__dirname, '../.babelrc_cp')
-    copyFileSync(babelRcPath, babelRcCopiedPath)
+    createReadStream(babelRcPath).pipe(createWriteStream(babelRcCopiedPath))
     const babelRcOriginal = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
     const babelConfig = loadBabelConfig()
     expect(babelConfig).toEqual(babelRcOriginal)
