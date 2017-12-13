@@ -1,3 +1,18 @@
+<a name="v1.4.1"></a>
+## [v1.4.1](https://github.com/eddyerburgh/vue-jest/compare/v1.3.0...v1.4.1) (2017-12-13)
+
+
+### Bug Fixes
+
+* replace coffee-script with coffeescript ([#34](https://github.com/eddyerburgh/vue-jest/issues/34)) ([2ec4144](https://github.com/eddyerburgh/vue-jest/commit/2ec4144))
+
+
+### Features
+
+* transpile coffeescript written in ES6 ([#35](https://github.com/eddyerburgh/vue-jest/issues/35)) ([c5448c7](https://github.com/eddyerburgh/vue-jest/commit/c5448c7))
+* **sourceMap:** Add source mapping for external scripts ([#37](https://github.com/eddyerburgh/vue-jest/issues/37)) ([213ac68](https://github.com/eddyerburgh/vue-jest/commit/213ac68))
+
+
 <a name="v1.4.0"></a>
 # [v1.4.0](https://github.com/eddyerburgh/vue-jest/compare/v1.3.0...v1.4.0) (2017-12-13)
 
