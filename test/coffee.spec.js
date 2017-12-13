@@ -91,11 +91,4 @@ describe('Test CoffeeScript - coffee.spec.js', () => {
     // coverageData.hash is added by babel-plugin-istanbul, added to root .babelrc for this test only
     expect(output.code).toContain('coverageData.hash')
   })
-
-  test('generates inline sourcemap for coffeescript', () => {
-    const filePath = resolve(__dirname, './resources/CoffeeScriptES6.vue')
-    const fileString = readFileSync(filePath, { encoding: 'utf8' })
-    const output = jestVue.process(fileString, filePath)
-    expect(output.map).toMatchSnapshot()
-  })
 })
