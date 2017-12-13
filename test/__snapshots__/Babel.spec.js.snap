@@ -44,3 +44,40 @@ Object {
   "version": 3,
 }
 `;
+
+exports[`generates inline sourcemap for .vue files using src attributes 1`] = `
+Object {
+  "mappings": ";;;;;;;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAHA;AAKA;AAPA;AASA;AACA;AACA;AACA;AAFA;AAIA;AACA;AACA;AACA;AACA;AAHA;AAjBA",
+  "names": Array [],
+  "sources": Array [
+    "BasicSrc.vue",
+  ],
+  "sourcesContent": Array [
+    "export default {
+  name: 'basic',
+  computed: {
+    headingClasses: function headingClasses () {
+      return {
+        red: this.isCrazy,
+        blue: !this.isCrazy,
+        shadow: this.isCrazy
+      }
+    }
+  },
+  data: function data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      isCrazy: false
+    }
+  },
+  methods: {
+    toggleClass: function toggleClass () {
+      this.isCrazy = !this.isCrazy
+    }
+  }
+}
+",
+  ],
+  "version": 3,
+}
+`;
