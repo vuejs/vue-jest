@@ -15,22 +15,20 @@ describe('load-babel-config.js', () => {
     clearModule.all()
   })
 
-  it('reads default babel if there is no .babelrc', () => {
+  it('returns undefined if there is no .babelrc', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
-    const babelRcOriginal = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
     const tempPath = resolve(__dirname, '../.renamed')
     renameSync(babelRcPath, tempPath)
     const babelConfig = loadBabelConfig()
     try {
-      expect(babelConfig).not.toBe(babelRcOriginal)
+      expect(babelConfig).toBe(undefined)
     } catch (err) {
       renameSync(tempPath, babelRcPath)
       throw err
     }
     renameSync(tempPath, babelRcPath)
     const babelConfigCached = loadBabelConfig()
-    expect(babelConfigCached).not.toBe(babelConfig)
-    expect(babelConfigCached).toEqual(babelConfig)
+    expect(babelConfigCached).toBe(undefined)
   })
 
   it('reads default babel if there is .babelrc', () => {

@@ -27,7 +27,7 @@ test('processes .vue files using src attributes', () => {
   expect(typeof vm.$el).toBe('object')
 })
 
-test('processes .vue files with default babel if there is no .babelrc', () => {
+test('skip processing if there is no .babelrc', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const tempPath = resolve(__dirname, '../.renamed')
   renameSync(babelRcPath, tempPath)
@@ -52,7 +52,7 @@ test('logs info when there is no .babelrc', () => {
 
   jestVue.process(fileString, filePath)
   try {
-    expect(info).toHaveBeenCalledWith('\n[vue-jest] Info: no .babelrc found, defaulting to default babel options\n')
+    expect(info).toHaveBeenCalledWith('\n[vue-jest] Info: no .babelrc found, skipping babel compilation\n')
   } catch (err) {
     renameSync(tempPath, babelRcPath)
     throw err

@@ -3,6 +3,10 @@
   "version": "1.4.0",
   "description": "Jest Vue transform",
   "main": "vue-jest.js",
+  "files": [
+    "vue-jest.js",
+    "lib"
+  ],
   "keywords": [
     "jest",
     "vue",
@@ -26,8 +30,10 @@
   "author": "Edd Yerburgh",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.25.0",
     "babel-jest": "^20.0.3",
     "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-env": "^1.6.1",
     "clear-module": "^2.1.0",
     "coffeescript": "^2.0.3",
     "conventional-changelog": "^1.1.5",
@@ -45,12 +51,11 @@
     "vue-test-utils": "git+https://github.com/vuejs/vue-test-utils.git"
   },
   "peerDependencies": {
+    "babel-core": "^6.25.0 || ^7.0.0-0",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
-    "babel-core": "^6.25.0",
-    "babel-preset-vue-app": "^1.3.1",
     "chalk": "^2.1.0",
     "find-babel-config": "^1.1.0",
     "js-beautify": "^1.6.14",
