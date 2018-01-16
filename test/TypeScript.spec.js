@@ -2,7 +2,7 @@ import { shallow } from 'vue-test-utils'
 import { resolve } from 'path'
 import TypeScript from './resources/TypeScript.vue'
 import jestVue from '../vue-jest'
-import { readFileSync } from 'fs'
+import { readFileSync, renameSync } from 'fs'
 import cache from '../lib/cache'
 
 beforeEach(() => {
@@ -11,6 +11,14 @@ beforeEach(() => {
 
 test('processes .vue files', () => {
   shallow(TypeScript)
+})
+
+test('processes .vue files without .babelrc', () => {
+  const babelRcPath = resolve(__dirname, '../.babelrc')
+  const tempPath = resolve(__dirname, '../.renamed')
+  renameSync(babelRcPath, tempPath)
+  shallow(TypeScript)
+  renameSync(tempPath, babelRcPath)
 })
 
 test.skip('generates inline sourcemap', () => {
