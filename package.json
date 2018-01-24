@@ -45,6 +45,7 @@
     "jade": "^1.11.0",
     "jest": "^20.0.4",
     "pug": "^2.0.0-rc.3",
+    "stylus": "^0.54.5",
     "typescript": "^2.5.2",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2",
@@ -58,6 +59,7 @@
   "dependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "chalk": "^2.1.0",
+    "extract-from-css": "^0.4.4",
     "find-babel-config": "^1.1.0",
     "js-beautify": "^1.6.14",
     "node-cache": "^4.1.1",
