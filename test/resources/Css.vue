@@ -13,8 +13,13 @@ export default {
     background-color: red;
   }
 </style>
-<style>
+<style module>
   .testB {
+    background-color: blue;
+  }
+</style>
+<style>
+  .testC {
     background-color: blue;
   }
 </style>
