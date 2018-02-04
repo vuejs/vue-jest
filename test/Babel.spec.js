@@ -52,7 +52,7 @@ test('logs info when there is no .babelrc', () => {
 
   jestVue.process(fileString, filePath)
   try {
-    expect(info).toHaveBeenCalledWith('\n[vue-jest] Info: no .babelrc found, skipping babel compilation\n')
+    expect(info).toHaveBeenCalledWith('\n[vue-jest]: no .babelrc found, skipping babel compilation\n')
   } catch (err) {
     renameSync(tempPath, babelRcPath)
     throw err
