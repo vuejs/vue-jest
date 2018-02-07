@@ -82,12 +82,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eddyerburgh/vue-jest.git"
+    "url": "git+https://github.com/webforgeeu/vue-jest"
   },
   "bugs": {
-    "url": "https://github.com/eddyerburgh/vue-jest/issues"
+    "url": "https://github.com/webforgeeu/vue-jest/issues"
   },
-  "homepage": "https://github.com/eddyerburgh/vue-jest#readme",
+  "homepage": "https://github.com/webforgeeu/vue-jest#readme",
   "directories": {
     "lib": "lib",
     "test": "test"
