@@ -1,11 +1,13 @@
-# vue-jest
+# vue-jest-kn
 
-Jest Vue transformer with source map support
+Jest Vue transformer with source map support<br />
+custom tsconfig support - temporary npm, please avoid usage as it will be deleted sooner than later
+
 
 ## Usage
 
 ```
-npm install --save-dev vue-jest
+npm install --save-dev vue-jest-kn
 ```
 
 ## Setup
@@ -14,7 +16,7 @@ To define vue-jest as a transformer for your .vue files, you need to map .vue fi
 
 ```
 "transform": {
-  ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+  ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest-kn"
 },
 ```
 
@@ -30,7 +32,7 @@ To use source maps, you need to set `mapCoverage` to `true`. A full config will 
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest-kn"
     },
     "mapCoverage": true
   }
