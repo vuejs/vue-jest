@@ -1,5 +1,6 @@
 import { shallow } from 'vue-test-utils'
 import Stylus from './resources/Stylus.vue'
+import StylusRelative from './resources/StylusRelative.vue'
 
 describe('processes .vue file with Stylus style', () => {
   let wrapper
@@ -17,5 +18,9 @@ describe('processes .vue file with Stylus style', () => {
 
   it('should not bind from style tags without a module', () => {
     expect(wrapper.vm.$style.testC).toBeFalsy()
+  })
+
+  it('should handle relative imports', () => {
+    expect(() => shallow(StylusRelative)).not.toThrow()
   })
 })
