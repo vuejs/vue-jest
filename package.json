@@ -1,7 +1,7 @@
 {
-  "name": "vue-jest",
+  "name": "vue-jest-kn",
   "version": "2.0.1",
-  "description": "Jest Vue transform",
+  "description": "Jest Vue transform that loads a custom tsconfig - temporary",
   "main": "vue-jest.js",
   "files": [
     "vue-jest.js",
@@ -27,7 +27,7 @@
     "unit": "./test.sh",
     "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
-  "author": "Edd Yerburgh",
+  "author": "Edd Yerburgh, Lars Eggert",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -82,6 +82,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eddyerburgh/vue-jest.git"
+    "url": "git+https://github.com/webforgeeu/vue-jest"
+  },
+  "bugs": {
+    "url": "https://github.com/webforgeeu/vue-jest/issues"
+  },
+  "homepage": "https://github.com/webforgeeu/vue-jest#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
