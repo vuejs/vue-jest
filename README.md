@@ -18,7 +18,7 @@ To define vue-jest as a transformer for your .vue files, you need to map .vue fi
 },
 ```
 
-To use source maps, you need to set `mapCoverage` to `true`. A full config will look like this.
+A full config will look like this.
 
 ```json
 {
@@ -31,11 +31,12 @@ To use source maps, you need to set `mapCoverage` to `true`. A full config will 
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
-    },
-    "mapCoverage": true
+    }
   }
 }
 ```
+
+If you're on a version of Jest older than 22.4.0, you need to set `mapCoverage` to `true` in order to use source maps.
 
 ## Example Projects
 
