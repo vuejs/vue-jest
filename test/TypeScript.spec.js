@@ -38,7 +38,12 @@ test('processes without sourcemap', () => {
   const filePath = resolve(__dirname, './resources/TypeScript.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
-  expect(() => jestVue.process(fileString, filePath)).not.toThrow()
+  try {
+    expect(() => jestVue.process(fileString, filePath)).not.toThrow()
+  } catch (err) {
+    writeFileSync(configPath, tsconfigString)
+    throw err
+  }
 
   writeFileSync(configPath, tsconfigString)
 })
