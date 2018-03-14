@@ -2,7 +2,7 @@ import { shallow } from 'vue-test-utils'
 import { resolve } from 'path'
 import TypeScript from './resources/TypeScript.vue'
 import jestVue from '../vue-jest'
-import { readFileSync, renameSync } from 'fs'
+import { readFileSync, renameSync, writeFileSync } from 'fs'
 import cache from '../lib/cache'
 
 beforeEach(() => {
@@ -27,4 +27,18 @@ test.skip('generates inline sourcemap', () => {
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
   const output = jestVue.process(fileString, filePath)
   expect(output).toContain(expectedMap)
+})
+
+test('processes without sourcemap', () => {
+  const configPath = resolve(__dirname, '../tsconfig.json')
+  const tsconfigString = readFileSync(configPath, { encoding: 'utf8' })
+  const tsconfig = JSON.parse(tsconfigString)
+  tsconfig.compilerOptions.sourceMap = false
+  writeFileSync(configPath, JSON.stringify(tsconfig))
+  const filePath = resolve(__dirname, './resources/TypeScript.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+
+  expect(() => jestVue.process(fileString, filePath)).not.toThrow()
+
+  writeFileSync(configPath, tsconfigString)
 })
