@@ -53,6 +53,7 @@
   },
   "peerDependencies": {
     "babel-core": "^6.25.0 || ^7.0.0-0",
+    "node-sass": "^4.7.2",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
