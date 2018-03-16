@@ -64,16 +64,20 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 
 - **stylus** (`lang="stylus"`, `lang="styl"`)
 - **scss** (`lang="scss"`)
-  - To import globally included files (ie. variables, mixins, etc.), include them in the `vueJest` configuration resources:
-  ```
+  - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
+  ```js
   // package.json
   {
-    "vueJest": {
-      resources: {
-        "scss": [
-          "./node_modules/package/_mixins.scss",
-          "./src/assets/css/globals.scss"
-        ]
+    "jest": {
+      "globals": {
+        "vue-jest": {
+          "resources": {
+            "scss": [
+              "./node_modules/package/_mixins.scss",
+              "./src/assets/css/globals.scss"
+            ]
+          }
+        }
       }
     }
   }
