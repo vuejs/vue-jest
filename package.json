@@ -44,6 +44,7 @@
     "hamljs": "^0.6.2",
     "jade": "^1.11.0",
     "jest": "^20.0.4",
+    "node-sass": "^4.7.2",
     "pug": "^2.0.0-rc.3",
     "stylus": "^0.54.5",
     "typescript": "^2.5.2",
@@ -53,7 +54,6 @@
   },
   "peerDependencies": {
     "babel-core": "^6.25.0 || ^7.0.0-0",
-    "node-sass": "^4.7.2",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
