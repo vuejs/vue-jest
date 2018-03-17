@@ -47,7 +47,7 @@ Example repositories testing Vue components with jest and vue-jest:
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **It does not currently compile the style section**.
+vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS and Stylus are the only style languages that are compiled**.
 
 ### Supported script languages
 
@@ -59,3 +59,26 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 - **pug** (`lang="pug"`)
 - **jade** (`lang="jade"`)
 - **haml** (`lang="haml"`)
+
+### Supported style languages
+
+- **stylus** (`lang="stylus"`, `lang="styl"`)
+- **scss** (`lang="scss"`)
+  - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
+  ```js
+  // package.json
+  {
+    "jest": {
+      "globals": {
+        "vue-jest": {
+          "resources": {
+            "scss": [
+              "./node_modules/package/_mixins.scss",
+              "./src/assets/css/globals.scss"
+            ]
+          }
+        }
+      }
+    }
+  }
+  ```
