@@ -79,12 +79,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/vue-jest.js"
     },
-    "mapCoverage": true,
-    "globals": {
-      "vue-jest": {
-        "experimentalStyles": true
-      }
-    }
+    "mapCoverage": true
   },
   "repository": {
     "type": "git",
