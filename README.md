@@ -82,3 +82,23 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
     }
   }
   ```
+
+  ## CSS options
+
+`experimentalCSSCompile`: `Boolean` Default true. Turn off CSS compilation
+`hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
+`resources`:
+
+```js
+  // package.json
+  {
+    "jest": {
+      "globals": {
+        "vue-jest": {
+          "hideStyleWarn": true,
+          "experimentalCSSCompile": true
+        }
+      }
+    }
+  }
+  ```
