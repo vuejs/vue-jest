@@ -4,8 +4,7 @@
 
 <style lang="scss">
   @import "./styles/transitions";
-  @import '~@design'
-
+  @import "~@design";
 
   .testA {
     background-color: red;

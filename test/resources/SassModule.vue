@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style.testA"></div>
+  <div>
+    <div :class="$style.testA"></div>
+    <div :class="[ $style.testA ]"></div>
+    <div :class="{[$style.testB]: true }"></div>
+    <div :class="[$style.testA, { [$style.testB]: true }]"></div>
+  </div>
 </template>
 
 <style module lang="scss">
@@ -7,6 +12,9 @@
 
   .testA {
     background-color: red;
+  }
+  .testB {
+    background-color: blue;
   }
 </style>
 
