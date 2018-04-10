@@ -57,6 +57,22 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 ### Supported template languages
 
 - **pug** (`lang="pug"`)
+  - To give options for the Pug compiler, enter them into the Jest configuration.
+  The options will be passed to pug.compile().
+  ```js
+    // package.json
+    {
+      "jest": {
+        "globals": {
+          "vue-jest": {
+            "pug": {
+              "basedir": "mybasedir"
+            }
+          }
+        }
+      }
+    }
+  ``` 
 - **jade** (`lang="jade"`)
 - **haml** (`lang="haml"`)
 
