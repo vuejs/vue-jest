@@ -4,8 +4,8 @@
 
 <style lang="scss">
   @import "./styles/transitions";
-  @import "./styles/vue-imports";
-  @import "~__root/test/resources/styles/globals/vue-imports";
+  @import "./styles/direct-imports";
+  @import "~__root/test/resources/styles/globals/direct-imports";
   @import "~@design";
 
   .testA {
