@@ -1,0 +1,7 @@
+@import "./scss-imports";
+@import "./globals/global-classes-relative-sfc";
+@import "~__root/test/resources/styles/globals/global-classes-moduleNameMapper-sfc";
+
+.vueImportModuleNameMapperClass {
+    background-color: blue;
+}

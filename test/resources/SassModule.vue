@@ -4,11 +4,14 @@
     <div :class="[ $style.testA ]"></div>
     <div :class="{[$style.testB]: true }"></div>
     <div :class="[$style.testA, { [$style.testB]: true }]"></div>
+    <div :class="$style.thisIsAGlobalClass"></div>
   </div>
 </template>
 
 <style module lang="scss">
   @import "./styles/transitions";
+  @import "./styles/vue-imports";
+  @import "~__root/test/resources/styles/vue-imports-moduleNameMapper";
 
   .testA {
     background-color: red;
