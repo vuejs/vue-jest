@@ -26,3 +26,11 @@ test('supports global pug options and extends templates correctly from .pug file
   expect(compiled.code).toContain('pug-base')
   expect(compiled.code).toContain('pug-extended')
 })
+
+test('supports relative paths when extending templates from .pug files', () => {
+  const filePath = resolve(__dirname, './resources/PugRelativeExtends.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+  const compiled = jestVue.process(fileString, filePath)
+  expect(compiled.code).toContain('pug-relative-base')
+  expect(compiled.code).toContain('pug-extended')
+})
