@@ -33,6 +33,9 @@ describe('processes .vue files which combine scss/sass and modules', () => {
     it('does inject classes from directly imported files via moduleNameMapper', () => {
       expect(wrapper.vm.$style.directImportModuleNameMapperClass).toBeDefined()
     })
+    it('does inject classes from directly imported files via moduleNameMapper for more than one rule', () => {
+      expect(wrapper.vm.$style.directImportMultipleModuleNameMapperClass).toBeDefined()
+    })
     it('does inject classes from files imported recursively by relative path', () => {
       expect(wrapper.vm.$style.globalClassesRelativeDirect).toBeDefined()
     })
@@ -46,16 +49,19 @@ describe('processes .vue files which combine scss/sass and modules', () => {
     beforeEach(() => {
       wrapper = shallow(SassModule)
     })
-    it('does inject classes from directly imported files by relative path', () => {
+    it('does inject classes from imports within scss files by relative path', () => {
       expect(wrapper.vm.$style.scssImportClass).toBeDefined()
     })
-    it('does inject classes from directly imported files via moduleNameMapper', () => {
+    it('does inject classes from imports within scss files via moduleNameMapper', () => {
       expect(wrapper.vm.$style.scssImportModuleNameMapperClass).toBeDefined()
     })
-    it('and injects imports therein if specified relatively', () => {
+    it('does inject classes from imports within scss files via moduleNameMapper for more than one rule', () => {
+      expect(wrapper.vm.$style.scssImportMultipleModuleNameMapperClass).toBeDefined()
+    })
+    it('does inject classes from imports within scss files imported recursively by relative path', () => {
       expect(wrapper.vm.$style.globalClassesRelative).toBeDefined()
     })
-    it('and injects imports therein if specified via moduleNameMapper', () => {
+    it('does inject classes from imports within scss files imported recursively via moduleNameMapper', () => {
       expect(wrapper.vm.$style.globalClassesModuleNameMapper).toBeDefined()
     })
   })

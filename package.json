@@ -81,7 +81,8 @@
     },
     "mapCoverage": true,
     "moduleNameMapper": {
-      "^~?__root/(.*)$": "<rootDir>/$1"
+      "^~?__root/(.*)$": "<rootDir>/$1",
+      "^~?__test/(.*)$": "<rootDir>/test/$1"
     }
   },
   "repository": {

@@ -12,6 +12,7 @@
   @import "./styles/transitions";
   @import "./styles/direct-imports";
   @import "~__root/test/resources/styles/direct-imports-moduleNameMapper";
+  @import "~__test/resources/styles/direct-imports-multiple-moduleNameMapper";
 
   .testA {
     background-color: red;
