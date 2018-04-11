@@ -47,7 +47,7 @@ Example repositories testing Vue components with jest and vue-jest:
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS and Stylus are the only style languages that are compiled**.
+vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS, SASS and Stylus are the only style languages that are compiled**.
 
 ### Supported script languages
 
@@ -79,7 +79,10 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 ### Supported style languages
 
 - **stylus** (`lang="stylus"`, `lang="styl"`)
+- **sass** (`lang="sass"`)
+  - The SASS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
 - **scss** (`lang="scss"`)
+  - The SCSS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
   - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
   ```js
   // package.json

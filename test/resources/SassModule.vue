@@ -8,24 +8,17 @@
   </div>
 </template>
 
-<style module lang="scss">
-  @import "./styles/transitions";
-  @import "./styles/direct-imports";
-  @import "~__root/test/resources/styles/direct-imports-moduleNameMapper";
-  @import "~__test/resources/styles/direct-imports-multiple-moduleNameMapper";
+<style module lang="sass">
+  @import "./styles/sass/direct-imports"
+  @import "~__root/test/resources/styles/sass/direct-imports-moduleNameMapper"
+  @import "~__test/resources/styles/sass/direct-imports-multiple-moduleNameMapper"
 
-  .testA {
-    background-color: red;
-  }
-  .testB {
-    background-color: blue;
-  }
-</style>
-
-<style module lang="scss">
-  @import "./styles/direct-imports-second";
+  .testA
+    background-color: red
+  .testB
+    background-color: blue
 </style>
 
 <style module lang="sass">
-  $primary-color: #333
+  @import "./styles/sass/direct-imports-second"
 </style>
