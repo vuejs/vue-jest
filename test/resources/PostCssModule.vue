@@ -3,8 +3,6 @@
 </template>
 
 <style module lang="postcss">
-  @import "./styles/transitions";
-
   .testPcss {
     background-color: purple;
   }

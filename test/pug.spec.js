@@ -7,7 +7,7 @@ import { readFileSync } from 'fs'
 test('processes .vue file with pug template', () => {
   const wrapper = shallow(Pug)
   expect(wrapper.is('div')).toBe(true)
-  expect(wrapper.hasClass('pug')).toBe(true)
+  expect(wrapper.classes()).toContain('pug')
 })
 
 test('supports global pug options and extends templates correctly from .pug files', () => {

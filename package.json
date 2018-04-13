@@ -79,7 +79,11 @@
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/vue-jest.js"
     },
-    "mapCoverage": true
+    "mapCoverage": true,
+    "moduleNameMapper": {
+      "^~?__root/(.*)$": "<rootDir>/$1",
+      "^~?__test/(.*)$": "<rootDir>/test/$1"
+    }
   },
   "repository": {
     "type": "git",

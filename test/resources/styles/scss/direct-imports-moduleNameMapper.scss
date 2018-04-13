@@ -1,0 +1,7 @@
+@import "./scss-imports";
+@import "./globals/global-classes-relative-direct";
+@import "~__root/test/resources/styles/scss/globals/global-classes-moduleNameMapper-direct";
+
+.directImportModuleNameMapperClass {
+    background-color: blue;
+}

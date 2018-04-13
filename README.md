@@ -4,7 +4,7 @@ Jest Vue transformer with source map support
 
 ## Usage
 
-```
+```bash
 npm install --save-dev vue-jest
 ```
 
@@ -12,10 +12,13 @@ npm install --save-dev vue-jest
 
 To define vue-jest as a transformer for your .vue files, you need to map .vue files to the vue-jest module.
 
-```
-"transform": {
-  ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
-},
+```json
+{
+  "jest": {
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    }
+}
 ```
 
 A full config will look like this.
@@ -47,7 +50,7 @@ Example repositories testing Vue components with jest and vue-jest:
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS and Stylus are the only style languages that are compiled**.
+vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS, SASS and Stylus are the only style languages that are compiled**.
 
 ### Supported script languages
 
@@ -59,8 +62,8 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 - **pug** (`lang="pug"`)
   - To give options for the Pug compiler, enter them into the Jest configuration.
   The options will be passed to pug.compile().
-  ```js
-    // package.json
+
+  ```json
     {
       "jest": {
         "globals": {
@@ -72,41 +75,44 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
         }
       }
     }
-  ``` 
+  ```
+
 - **jade** (`lang="jade"`)
 - **haml** (`lang="haml"`)
 
 ### Supported style languages
 
 - **stylus** (`lang="stylus"`, `lang="styl"`)
+- **sass** (`lang="sass"`)
+  - The SASS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
 - **scss** (`lang="scss"`)
+  - The SCSS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
   - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
-  ```js
-  // package.json
-  {
-    "jest": {
-      "globals": {
-        "vue-jest": {
-          "resources": {
-            "scss": [
-              "./node_modules/package/_mixins.scss",
-              "./src/assets/css/globals.scss"
-            ]
+
+    ```json
+    {
+      "jest": {
+        "globals": {
+          "vue-jest": {
+            "resources": {
+              "scss": [
+                "./node_modules/package/_mixins.scss",
+                "./src/assets/css/globals.scss"
+              ]
+            }
           }
         }
       }
     }
-  }
-  ```
+    ```
 
-  ## CSS options
+## CSS options
 
 `experimentalCSSCompile`: `Boolean` Default true. Turn off CSS compilation
 `hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
 `resources`:
 
-```js
-  // package.json
+  ```json
   {
     "jest": {
       "globals": {

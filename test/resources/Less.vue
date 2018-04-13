@@ -3,8 +3,6 @@
 </template>
 
 <style lang="less">
-  @import "./styles/transitions";
-
   .testLess {
     background-color: red;
   }
