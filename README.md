@@ -69,6 +69,18 @@ To define a tsconfig file that vue-jest will use when transpiling typescript, yo
 }
 ```
 
+To define a babelrc file that vue-jest will use when transpiling javascript, you can specify it in the jest globals
+
+```json
+{
+  "jest": {
+    "vue-jest": {
+      "babelRcFile": "jest.babelrc"
+    }
+  }
+}
+```
+
 ### Supported template languages
 
 - **pug** (`lang="pug"`)
