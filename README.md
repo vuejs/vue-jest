@@ -57,6 +57,30 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 - **typescript** (`lang="ts"`, `lang="typescript"`)
 - **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
+To define a tsconfig file that vue-jest will use when transpiling typescript, you can specify it in the jest globals
+
+```json
+{
+  "jest": {
+    "vue-jest": {
+      "tsConfigFile": "tsconfig.jest.json"
+    }
+  }
+}
+```
+
+To define a babelrc file that vue-jest will use when transpiling javascript, you can specify it in the jest globals
+
+```json
+{
+  "jest": {
+    "vue-jest": {
+      "babelRcFile": "jest.babelrc"
+    }
+  }
+}
+```
+
 ### Supported template languages
 
 - **pug** (`lang="pug"`)
