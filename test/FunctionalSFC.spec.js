@@ -25,4 +25,15 @@ describe('Processes .vue file with functional template', () => {
     // note: for new version of @vue/vue-utils we can use wrapper.isFunctionalComponent for this
     expect(wrapper.vm._vnode.fnOptions.functional).toBe(true)
   })
+
+  it('handles slot', () => {
+    wrapper = shallow(FunctionalSFC, {
+      context: {
+        props: { msg: { id: 1, title: '' }},
+        children: ['this is a slot']
+      }
+    })
+
+    expect(wrapper.text()).toBe('this is a slot')
+  })
 })
