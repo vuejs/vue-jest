@@ -64,4 +64,15 @@ describe('load-babel-config.js', () => {
       throw err
     }
   })
+
+  it('supports babel.config.js', () => {
+    const babelConfigPath = resolve(__dirname, '../babel.config.js')
+    const config = {
+      plugins: ['foo']
+    }
+    writeFileSync(babelConfigPath, `module.exports = ${JSON.stringify(config)}`)
+    const babelConfig = loadBabelConfig({})
+    expect(babelConfig).toEqual(config)
+    unlinkSync(babelConfigPath)
+  })
 })
