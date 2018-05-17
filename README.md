@@ -62,8 +62,10 @@ To define a tsconfig file that vue-jest will use when transpiling typescript, yo
 ```json
 {
   "jest": {
-    "vue-jest": {
-      "tsConfigFile": "tsconfig.jest.json"
+    "globals": {
+      "vue-jest": {
+        "tsConfigFile": "tsconfig.jest.json"
+      }
     }
   }
 }
@@ -74,8 +76,10 @@ To define a babelrc file that vue-jest will use when transpiling javascript, you
 ```json
 {
   "jest": {
-    "vue-jest": {
-      "babelRcFile": "jest.babelrc"
+    "globals": {
+      "vue-jest": {
+        "babelRcFile": "jest.babelrc"
+      }
     }
   }
 }
