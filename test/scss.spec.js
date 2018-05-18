@@ -1,6 +1,7 @@
-import { shallow } from 'vue-test-utils'
+import { shallow, mount } from 'vue-test-utils'
 import Scss from './resources/Scss.vue'
 import ScssModule from './resources/ScssModule.vue'
+import ScssModuleFunctional from './resources/ScssModuleFunctional.vue'
 
 describe('processes .vue file with scss style', () => {
   it('does not error on scss', () => {
@@ -9,19 +10,33 @@ describe('processes .vue file with scss style', () => {
   it('does not error on scss module', () => {
     expect(() => shallow(ScssModule)).not.toThrow()
   })
+  it('does not error on scss module when functional', () => {
+    expect(() => mount(ScssModuleFunctional)).not.toThrow()
+  })
 })
 
 describe('processes .vue files which combine scss and modules', () => {
   let wrapper
+  let functionalWrapper
+
   beforeEach(() => {
     wrapper = shallow(ScssModule)
+    functionalWrapper = mount(ScssModuleFunctional)
   })
+
   it('does inject classes to $style', () => {
     expect(wrapper.vm.$style).toBeDefined()
     expect(wrapper.vm.$style.testA).toBeDefined()
     expect(wrapper.vm.$style.testA).toEqual('testA')
     expect(wrapper.vm.$style.testB).toBeDefined()
     expect(wrapper.vm.$style.testB).toEqual('testB')
+  })
+
+  it('does inject classes to $style for functional components', () => {
+    expect(functionalWrapper.findAll('.testAFunctional')).toHaveLength(3)
+    expect(functionalWrapper.findAll('.testBFunctional')).toHaveLength(2)
+    expect(functionalWrapper.findAll('.otherTestAFunctional')).toHaveLength(1)
+    expect(functionalWrapper.findAll('.otherTestBFunctional')).toHaveLength(1)
   })
 
   describe('entrypoint: direct import in SFC', () => {
