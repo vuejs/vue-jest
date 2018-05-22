@@ -1,6 +1,7 @@
-import { shallow } from 'vue-test-utils'
+import { shallow, mount } from 'vue-test-utils'
 import Sass from './resources/Sass.vue'
 import SassModule from './resources/SassModule.vue'
+import SassModuleFunctional from './resources/SassModuleFunctional.vue'
 
 describe('processes .vue file with sass style', () => {
   it('does not error on sass', () => {
@@ -9,19 +10,33 @@ describe('processes .vue file with sass style', () => {
   it('does not error on sass module', () => {
     expect(() => shallow(SassModule)).not.toThrow()
   })
+  it('does not error on sass module when functional', () => {
+    expect(() => mount(SassModuleFunctional)).not.toThrow()
+  })
 })
 
 describe('processes .vue files which combine sass and modules', () => {
   let wrapper
+  let functionalWrapper
+
   beforeEach(() => {
     wrapper = shallow(SassModule)
+    functionalWrapper = mount(SassModuleFunctional)
   })
+
   it('does inject classes to $style', () => {
     expect(wrapper.vm.$style).toBeDefined()
     expect(wrapper.vm.$style.testA).toBeDefined()
     expect(wrapper.vm.$style.testA).toEqual('testA')
     expect(wrapper.vm.$style.testB).toBeDefined()
     expect(wrapper.vm.$style.testB).toEqual('testB')
+  })
+
+  it('does inject classes to $style for functional components', () => {
+    expect(functionalWrapper.findAll('.testAFunctional')).toHaveLength(3)
+    expect(functionalWrapper.findAll('.testBFunctional')).toHaveLength(2)
+    expect(functionalWrapper.findAll('.otherTestAFunctional')).toHaveLength(1)
+    expect(functionalWrapper.findAll('.otherTestBFunctional')).toHaveLength(1)
   })
 
   describe('entrypoint: direct import in SFC', () => {
