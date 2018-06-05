@@ -33,7 +33,7 @@ A full config will look like this.
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+      "^.+\\.vue$": "<rootDir>/node_modules/vue-jest"
     }
   }
 }
