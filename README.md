@@ -16,7 +16,7 @@ To define vue-jest as a transformer for your .vue files, you need to map .vue fi
 {
   "jest": {
     "transform": {
-      "^.+\\.vue$": "<rootDir>/node_modules/vue-jest"
+      "^.+\\.vue$": "vue-jest"
     }
 }
 ```
@@ -32,8 +32,8 @@ A full config will look like this.
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.vue$": "<rootDir>/node_modules/vue-jest"
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue-jest"
     }
   }
 }
