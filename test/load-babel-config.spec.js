@@ -19,16 +19,21 @@ describe('load-babel-config.js', () => {
 
   it('returns undefined if there is no .babelrc', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcPath2 = resolve(__dirname, '../../.babelrc')
     const tempPath = resolve(__dirname, '../.renamed')
+    const tempPath2 = resolve(__dirname, '../../.renamed')
     renameSync(babelRcPath, tempPath)
+    renameSync(babelRcPath2, tempPath2)
     const babelConfig = loadBabelConfig({})
     try {
       expect(babelConfig).toBe(undefined)
     } catch (err) {
       renameSync(tempPath, babelRcPath)
+      renameSync(tempPath2, babelRcPath2)
       throw err
     }
     renameSync(tempPath, babelRcPath)
+    renameSync(tempPath2, babelRcPath2)
     const babelConfigCached = loadBabelConfig()
     expect(babelConfigCached).toBe(undefined)
   })
