@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import FunctionalSFCParent from './resources/FunctionalSFCParent.vue'
 
 test('processes .vue file with functional template from parent', () => {

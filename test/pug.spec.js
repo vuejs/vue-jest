@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils'
+import { shallowMount } from '@vue/test-utils'
 import { resolve } from 'path'
 import Pug from './resources/Pug.vue'
 import jestVue from '../vue-jest'
 import { readFileSync } from 'fs'
 
 test('processes .vue file with pug template', () => {
-  const wrapper = shallow(Pug)
+  const wrapper = shallowMount(Pug)
   expect(wrapper.is('div')).toBe(true)
   expect(wrapper.classes()).toContain('pug')
 })
