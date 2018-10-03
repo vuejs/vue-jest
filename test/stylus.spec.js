@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils'
+import { shallowMount } from '@vue/test-utils'
 import Stylus from './resources/Stylus.vue'
 import StylusRelative from './resources/StylusRelative.vue'
 import { resolve } from 'path'
@@ -8,7 +8,7 @@ import jestVue from '../vue-jest'
 describe('processes .vue file with Stylus style', () => {
   let wrapper
   beforeAll(() => {
-    wrapper = shallow(Stylus)
+    wrapper = shallowMount(Stylus)
   })
 
   it('should bind from style tags with named module', () => {
@@ -24,7 +24,7 @@ describe('processes .vue file with Stylus style', () => {
   })
 
   it('should handle relative imports', () => {
-    expect(() => shallow(StylusRelative)).not.toThrow()
+    expect(() => shallowMount(StylusRelative)).not.toThrow()
   })
 
   it('does not attempty to compile if experimentalStyles flag is passed', () => {

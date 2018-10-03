@@ -1,4 +1,4 @@
-import { shallow, mount } from 'vue-test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import Coffee from './resources/Coffee.vue'
 import CoffeeScript from './resources/CoffeeScript.vue'
 import CoffeeES6 from './resources/CoffeeES6.vue'
@@ -20,19 +20,19 @@ describe('Test CoffeeScript - coffee.spec.js', () => {
   })
 
   test('processes .vue file with lang set to coffee', () => {
-    shallow(Coffee)
+    shallowMount(Coffee)
   })
 
   test('processes .vue file with lang set to coffeescript', () => {
-    shallow(CoffeeScript)
+    shallowMount(CoffeeScript)
   })
 
   test('processes .vue file with lang set to coffee (ES6)', () => {
-    shallow(CoffeeES6)
+    shallowMount(CoffeeES6)
   })
 
   test('processes .vue file with lang set to coffeescript (ES6)', () => {
-    shallow(CoffeeScriptES6)
+    shallowMount(CoffeeScriptES6)
   })
 
   test('processes .vue file with lang set to coffeescript (ES6)', () => {

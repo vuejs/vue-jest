@@ -1,14 +1,14 @@
-import { shallow, mount } from 'vue-test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import Scss from './resources/Scss.vue'
 import ScssModule from './resources/ScssModule.vue'
 import ScssModuleFunctional from './resources/ScssModuleFunctional.vue'
 
 describe('processes .vue file with scss style', () => {
   it('does not error on scss', () => {
-    expect(() => shallow(Scss)).not.toThrow()
+    expect(() => shallowMount(Scss)).not.toThrow()
   })
   it('does not error on scss module', () => {
-    expect(() => shallow(ScssModule)).not.toThrow()
+    expect(() => shallowMount(ScssModule)).not.toThrow()
   })
   it('does not error on scss module when functional', () => {
     expect(() => mount(ScssModuleFunctional)).not.toThrow()
@@ -20,7 +20,7 @@ describe('processes .vue files which combine scss and modules', () => {
   let functionalWrapper
 
   beforeEach(() => {
-    wrapper = shallow(ScssModule)
+    wrapper = shallowMount(ScssModule)
     functionalWrapper = mount(ScssModuleFunctional)
   })
 
@@ -42,7 +42,7 @@ describe('processes .vue files which combine scss and modules', () => {
   describe('entrypoint: direct import in SFC', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(ScssModule)
+      wrapper = shallowMount(ScssModule)
     })
     it('does inject classes from directly imported files by relative path', () => {
       expect(wrapper.vm.$style.directImportClass).toBeDefined()
@@ -69,7 +69,7 @@ describe('processes .vue files which combine scss and modules', () => {
   describe('entrypoint: import inside previously imported stylesheet', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(ScssModule)
+      wrapper = shallowMount(ScssModule)
     })
     it('does inject classes from imports within scss files by relative path', () => {
       expect(wrapper.vm.$style.scssImportClass).toBeDefined()
@@ -96,7 +96,7 @@ describe('processes .vue files which combine scss and modules', () => {
   describe('multiple modules', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(ScssModule)
+      wrapper = shallowMount(ScssModule)
     })
     it('does inject classes from scss if multiple modules are present', () => {
       expect(wrapper.vm.$style.directImportSecondClass).toBeDefined()

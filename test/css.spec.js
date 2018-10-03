@@ -1,10 +1,10 @@
-import { shallow } from 'vue-test-utils'
+import { shallowMount } from '@vue/test-utils'
 import Css from './resources/Css.vue'
 
 describe('processes .vue file with Css style', () => {
   let wrapper
   beforeAll(() => {
-    wrapper = shallow(Css)
+    wrapper = shallowMount(Css)
   })
 
   it('should bind from style tags with named module', () => {

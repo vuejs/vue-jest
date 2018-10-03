@@ -1,10 +1,10 @@
-import { shallow } from 'vue-test-utils'
+import { shallowMount } from '@vue/test-utils'
 import FunctionalSFC from './resources/FunctionalSFC.vue'
 
 let wrapper
 const clickSpy = jest.fn()
 beforeEach(() => {
-  wrapper = shallow(FunctionalSFC, {
+  wrapper = shallowMount(FunctionalSFC, {
     context: {
       props: { msg: { id: 1, title: 'foo' }, onClick: clickSpy }
     }
@@ -22,12 +22,11 @@ describe('Processes .vue file with functional template', () => {
   })
 
   it('is functional', () => {
-    // note: for new version of @vue/vue-utils we can use wrapper.isFunctionalComponent for this
-    expect(wrapper.vm._vnode.fnOptions.functional).toBe(true)
+    expect(wrapper.isFunctionalComponent).toBe(true)
   })
 
   it('handles slot', () => {
-    wrapper = shallow(FunctionalSFC, {
+    wrapper = shallowMount(FunctionalSFC, {
       context: {
         props: { msg: { id: 1, title: '' }},
         children: ['this is a slot']

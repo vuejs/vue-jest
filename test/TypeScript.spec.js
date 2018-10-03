@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils'
+import { shallowMount } from '@vue/test-utils'
 import { resolve } from 'path'
 import TypeScript from './resources/TypeScript.vue'
 import jestVue from '../vue-jest'
@@ -10,14 +10,14 @@ beforeEach(() => {
 })
 
 test('processes .vue files', () => {
-  shallow(TypeScript)
+  shallowMount(TypeScript)
 })
 
 test('processes .vue files without .babelrc', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const tempPath = resolve(__dirname, '../.renamed')
   renameSync(babelRcPath, tempPath)
-  shallow(TypeScript)
+  shallowMount(TypeScript)
   renameSync(tempPath, babelRcPath)
 })
 
