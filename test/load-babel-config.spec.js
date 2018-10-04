@@ -79,6 +79,20 @@ describe('load-babel-config.js', () => {
     process.chdir('..')
   })
 
+  it('reads .babelrc from the current working directory', () => {
+    const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    const newBabelRcPath = resolve(__dirname, '../test/.babelrc')
+    const newBabelRcContent = '{"env":{}}'
+    process.chdir('test')
+    writeFileSync(newBabelRcPath, newBabelRcContent)
+    const babelConfig = loadBabelConfig({})
+    expect(babelConfig).toEqual(JSON.parse(newBabelRcContent))
+    expect(babelConfig).not.toEqual(babelRcContent)
+    unlinkSync(newBabelRcPath)
+    process.chdir('..')
+  })
+
   it('supports babel.config.js', () => {
     const babelConfigPath = resolve(__dirname, '../babel.config.js')
     const config = {
