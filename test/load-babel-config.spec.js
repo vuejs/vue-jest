@@ -19,16 +19,21 @@ describe('load-babel-config.js', () => {
 
   it('returns undefined if there is no .babelrc', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcPath2 = resolve(__dirname, '../../.babelrc')
     const tempPath = resolve(__dirname, '../.renamed')
+    const tempPath2 = resolve(__dirname, '../../.renamed')
     renameSync(babelRcPath, tempPath)
+    renameSync(babelRcPath2, tempPath2)
     const babelConfig = loadBabelConfig({})
     try {
       expect(babelConfig).toBe(undefined)
     } catch (err) {
       renameSync(tempPath, babelRcPath)
+      renameSync(tempPath2, babelRcPath2)
       throw err
     }
     renameSync(tempPath, babelRcPath)
+    renameSync(tempPath2, babelRcPath2)
     const babelConfigCached = loadBabelConfig()
     expect(babelConfigCached).toBe(undefined)
   })
@@ -63,6 +68,29 @@ describe('load-babel-config.js', () => {
       renameSync(tempPath, babelRcCopiedPath)
       throw err
     }
+  })
+
+  it('reads .babelrc if it is below the current working directory', () => {
+    const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    process.chdir('test')
+    const babelConfig = loadBabelConfig({})
+    expect(babelConfig).toEqual(babelRcContent)
+    process.chdir('..')
+  })
+
+  it('reads .babelrc from the current working directory', () => {
+    const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    const newBabelRcPath = resolve(__dirname, '../test/.babelrc')
+    const newBabelRcContent = '{"env":{}}'
+    process.chdir('test')
+    writeFileSync(newBabelRcPath, newBabelRcContent)
+    const babelConfig = loadBabelConfig({})
+    expect(babelConfig).toEqual(JSON.parse(newBabelRcContent))
+    expect(babelConfig).not.toEqual(babelRcContent)
+    unlinkSync(newBabelRcPath)
+    process.chdir('..')
   })
 
   it('supports babel.config.js', () => {
