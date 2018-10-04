@@ -70,6 +70,15 @@ describe('load-babel-config.js', () => {
     }
   })
 
+  it('reads .babelrc if it is below the current working directory', () => {
+    const babelRcPath = resolve(__dirname, '../.babelrc')
+    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    process.chdir('test')
+    const babelConfig = loadBabelConfig({})
+    expect(babelConfig).toEqual(babelRcContent)
+    process.chdir('..')
+  })
+
   it('supports babel.config.js', () => {
     const babelConfigPath = resolve(__dirname, '../babel.config.js')
     const config = {
