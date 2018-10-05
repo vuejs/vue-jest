@@ -1,3 +1,5 @@
+import deprecate from '../lib/deprecate'
+const tsc = require('tsconfig')
 import { defaultConfig, loadTypescriptConfig } from '../lib/load-typescript-config'
 import { resolve } from 'path'
 import {
@@ -36,7 +38,10 @@ describe('load-typescript-config.js', () => {
     expect(tsconfigCachedConfig).toEqual(defaultConfig)
   })
 
-  it('returns the tsconfig specified in jest globals', () => {
+  it('[DEPRECATED] returns the tsconfig specified in jest globals', () => {
+    const replace = deprecate.replace
+    deprecate.replace = jest.fn()
+
     const jestGlobalTsConfigPath = resolve(__dirname, '../tsconfig.jest.json')
 
     writeFileSync(jestGlobalTsConfigPath, JSON.stringify({
@@ -48,10 +53,11 @@ describe('load-typescript-config.js', () => {
     const tsconfig = loadTypescriptConfig({
       tsConfigFile: jestGlobalTsConfigPath
     })
-
     expect(tsconfig).toEqual(jestGlobalTsConfig)
+    expect(deprecate.replace).toHaveBeenCalledWith('tsConfigFile', 'tsConfig')
 
     unlinkSync(jestGlobalTsConfigPath)
+    deprecate.replace = replace
   })
 
   it('reads default tsconfig if there is tsconfig.json', () => {
@@ -71,5 +77,61 @@ describe('load-typescript-config.js', () => {
       renameSync(tempPath, tsconfigCopiedPath)
       throw err
     }
+  })
+
+  describe('tsConfig option', () => {
+    it('supports a path to a ts configuration file', () => {
+      const tsConfigPath = resolve(__dirname, '../some-ts-config.json')
+      const config = {
+        importHelpers: true
+      }
+      writeFileSync(tsConfigPath, JSON.stringify(config))
+      const tsConfig = loadTypescriptConfig({
+        tsConfig: tsConfigPath
+      })
+      expect(tsConfig).toEqual(config)
+    })
+
+    it('supports a boolean "true" indicating to search for ts config', () => {
+      const config = {
+        importHelpers: true
+      }
+      tsc.loadSync = jest.fn(() => ({ path: true, config }))
+      const tsConfig = loadTypescriptConfig({
+        tsConfig: true
+      })
+      expect(tsc.loadSync).toHaveBeenCalled()
+      expect(tsConfig).toEqual(config)
+      tsc.loadSync.mockRestore()
+    })
+
+    it('supports a boolean "false" indicating to use the default ts config options', () => {
+      const config = {
+        importHelpers: true
+      }
+      tsc.loadSync = jest.fn(() => ({ path: true, config }))
+      const defaultTsConfig = loadTypescriptConfig({
+        tsConfig: false
+      })
+      expect(tsc.loadSync).not.toHaveBeenCalled()
+      expect(defaultTsConfig).toEqual(defaultConfig)
+    })
+
+    it('supports an inline ts configuration object', () => {
+      const config = {
+        importHelpers: true
+      }
+      const tsConfig = loadTypescriptConfig({
+        tsConfig: config
+      })
+      expect(tsConfig).toEqual(config)
+    })
+
+    it('defaults to searching for ts config if option is not provided', () => {
+      tsc.loadSync = jest.fn(() => ({}))
+      loadTypescriptConfig({})
+      expect(tsc.loadSync).toHaveBeenCalled()
+      tsc.loadSync.mockRestore()
+    })
   })
 })
