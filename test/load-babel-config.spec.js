@@ -1,3 +1,4 @@
+import findBabelConfig from 'find-babel-config'
 import loadBabelConfig from '../lib/load-babel-config'
 import { resolve } from 'path'
 import {
@@ -10,6 +11,7 @@ import {
 } from 'fs'
 import clearModule from 'clear-module'
 import cache from '../lib/cache'
+import deprecate from '../lib/deprecate'
 
 describe('load-babel-config.js', () => {
   beforeEach(() => {
@@ -38,7 +40,10 @@ describe('load-babel-config.js', () => {
     expect(babelConfigCached).toBe(undefined)
   })
 
-  it('reads babelrc from jest globals if exists', () => {
+  it('[DEPRECATED] reads babelrc from jest globals if exists', () => {
+    const replace = deprecate.replace
+    deprecate.replace = jest.fn()
+
     const jestGlobalBabelPath = resolve(__dirname, '../jest.babelrc')
     writeFileSync(jestGlobalBabelPath, JSON.stringify({
       plugins: ['foo']
@@ -48,7 +53,9 @@ describe('load-babel-config.js', () => {
       babelRcFile: 'jest.babelrc'
     })
     expect(babelConfig).toEqual(jestGlobalBabelConfig)
+    expect(deprecate.replace).toHaveBeenCalledWith('babelRcFile', 'babelConfig')
     unlinkSync(jestGlobalBabelPath)
+    deprecate.replace = replace
   })
 
   it('reads default babel if there is .babelrc', () => {
@@ -102,5 +109,55 @@ describe('load-babel-config.js', () => {
     const babelConfig = loadBabelConfig({})
     expect(babelConfig).toEqual(config)
     unlinkSync(babelConfigPath)
+  })
+
+  describe('babelConfig option', () => {
+    it('supports a path to a babel configuration file', () => {
+      const babelConfigPath = resolve(__dirname, '../some-babel-config.js')
+      const config = {
+        plugins: ['foo']
+      }
+      writeFileSync(babelConfigPath, `module.exports = ${JSON.stringify(config)}`)
+      const babelConfig = loadBabelConfig({
+        babelConfig: babelConfigPath
+      })
+      expect(babelConfig).toEqual(config)
+    })
+
+    it('supports a boolean indicating whether or not to search for babel config', () => {
+      const config = {
+        plugins: ['foo']
+      }
+      findBabelConfig.sync = jest.fn(() => ({ file: true, config }))
+      const noBabelConfig = loadBabelConfig({
+        babelConfig: false
+      })
+      expect(findBabelConfig.sync).not.toHaveBeenCalled()
+      expect(noBabelConfig).toBeUndefined()
+
+      const babelConfig = loadBabelConfig({
+        babelConfig: true
+      })
+      expect(findBabelConfig.sync).toHaveBeenCalled()
+      expect(babelConfig).toEqual(config)
+      findBabelConfig.sync.mockRestore()
+    })
+
+    it('supports an inline babel configuration object', () => {
+      const config = {
+        plugins: ['foo']
+      }
+      const babelConfig = loadBabelConfig({
+        babelConfig: config
+      })
+      expect(babelConfig).toEqual(config)
+    })
+
+    it('defaults to searching for babel config if option is not provided', () => {
+      findBabelConfig.sync = jest.fn(() => ({}))
+      loadBabelConfig({})
+      expect(findBabelConfig.sync).toHaveBeenCalled()
+      findBabelConfig.sync.mockRestore()
+    })
   })
 })
