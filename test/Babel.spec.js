@@ -112,12 +112,12 @@ test('generates inline sourcemap', () => {
   const filePath = resolve(__dirname, './resources/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
   const output = jestVue.process(fileString, filePath)
-  expect(output.map).toMatchSnapshot()
+  expect(output.code).toMatchSnapshot()
 })
 
 test('generates inline sourcemap for .vue files using src attributes', () => {
   const filePath = resolve(__dirname, './resources/BasicSrc.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
   const output = jestVue.process(fileString, filePath)
-  expect(output.map).toMatchSnapshot()
+  expect(output.code).toMatchSnapshot()
 })
