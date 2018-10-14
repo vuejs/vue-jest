@@ -1,83 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generates inline sourcemap 1`] = `
-Object {
-  "mappings": ";;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;;;AAGA;AACA;AACA;AACA;AACA;AACA;AACA;AAHA;AAKA;AAPA;AASA;AACA;AACA;AACA;AAFA;AAIA;AACA;AACA;AACA;AACA;AAHA;AAjBA",
-  "names": Array [],
-  "sources": Array [
-    "Basic.vue",
-  ],
-  "sourcesContent": Array [
-    "<template>
-    <div class=\\"hello\\">
-        <h1 :class=\\"headingClasses\\">{{ msg }}</h1>
-    </div>
-</template>
+";(function(){
+'use strict';
 
-<script>
-    export default {
-        name: 'basic',
-        computed: {
-            headingClasses: function headingClasses() {
-                return {
-                    red: this.isCrazy,
-                    blue: !this.isCrazy,
-                    shadow: this.isCrazy,
-                };
-            },
-        },
-        data: function data() {
+Object.defineProperty(exports, \\"__esModule\\", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    name: 'basic',
+    computed: {
+        headingClasses: function headingClasses() {
             return {
-                msg: 'Welcome to Your Vue.js App',
-                isCrazy: false,
+                red: this.isCrazy,
+                blue: !this.isCrazy,
+                shadow: this.isCrazy
             };
-        },
-        methods: {
-            toggleClass: function toggleClass() {
-                this.isCrazy = !this.isCrazy;
-            },
-        },
-    };
-</script>
-",
-  ],
-  "version": 3,
-}
+        }
+    },
+    data: function data() {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+            isCrazy: false
+        };
+    },
+    methods: {
+        toggleClass: function toggleClass() {
+            this.isCrazy = !this.isCrazy;
+        }
+    }
+};
+})()
+var defaultExport = (module.exports.__esModule) ? module.exports.default : module.exports;var __vue__options__ = (typeof defaultExport === \\"function\\"? defaultExport.options: defaultExport)
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\\"hello\\"},[_c('h1',{class:_vm.headingClasses},[_vm._v(_vm._s(_vm.msg))])])}
+__vue__options__.staticRenderFns = []
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJhc2ljLnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQVBBO0FBU0E7QUFDQTtBQUNBO0FBQ0E7QUFGQTtBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFIQTtBQWpCQSIsInNvdXJjZXNDb250ZW50IjpbIjx0ZW1wbGF0ZT5cbiAgICA8ZGl2IGNsYXNzPVwiaGVsbG9cIj5cbiAgICAgICAgPGgxIDpjbGFzcz1cImhlYWRpbmdDbGFzc2VzXCI+e3sgbXNnIH19PC9oMT5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzY3JpcHQ+XG4gICAgZXhwb3J0IGRlZmF1bHQge1xuICAgICAgICBuYW1lOiAnYmFzaWMnLFxuICAgICAgICBjb21wdXRlZDoge1xuICAgICAgICAgICAgaGVhZGluZ0NsYXNzZXM6IGZ1bmN0aW9uIGhlYWRpbmdDbGFzc2VzKCkge1xuICAgICAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgICAgIHJlZDogdGhpcy5pc0NyYXp5LFxuICAgICAgICAgICAgICAgICAgICBibHVlOiAhdGhpcy5pc0NyYXp5LFxuICAgICAgICAgICAgICAgICAgICBzaGFkb3c6IHRoaXMuaXNDcmF6eSxcbiAgICAgICAgICAgICAgICB9O1xuICAgICAgICAgICAgfSxcbiAgICAgICAgfSxcbiAgICAgICAgZGF0YTogZnVuY3Rpb24gZGF0YSgpIHtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgbXNnOiAnV2VsY29tZSB0byBZb3VyIFZ1ZS5qcyBBcHAnLFxuICAgICAgICAgICAgICAgIGlzQ3Jhenk6IGZhbHNlLFxuICAgICAgICAgICAgfTtcbiAgICAgICAgfSxcbiAgICAgICAgbWV0aG9kczoge1xuICAgICAgICAgICAgdG9nZ2xlQ2xhc3M6IGZ1bmN0aW9uIHRvZ2dsZUNsYXNzKCkge1xuICAgICAgICAgICAgICAgIHRoaXMuaXNDcmF6eSA9ICF0aGlzLmlzQ3Jhenk7XG4gICAgICAgICAgICB9LFxuICAgICAgICB9LFxuICAgIH07XG48L3NjcmlwdD5cbiJdfQ=="
 `;
 
 exports[`generates inline sourcemap for .vue files using src attributes 1`] = `
-Object {
-  "mappings": ";;;;;;;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAHA;AAKA;AAPA;AASA;AACA;AACA;AACA;AAFA;AAIA;AACA;AACA;AACA;AACA;AAHA;AAjBA",
-  "names": Array [],
-  "sources": Array [
-    "BasicSrc.vue",
-  ],
-  "sourcesContent": Array [
-    "export default {
+";(function(){
+'use strict';
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = {
   name: 'basic',
   computed: {
-    headingClasses: function headingClasses () {
+    headingClasses: function headingClasses() {
       return {
         red: this.isCrazy,
         blue: !this.isCrazy,
         shadow: this.isCrazy
-      }
+      };
     }
   },
-  data: function data () {
+  data: function data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       isCrazy: false
-    }
+    };
   },
   methods: {
-    toggleClass: function toggleClass () {
-      this.isCrazy = !this.isCrazy
+    toggleClass: function toggleClass() {
+      this.isCrazy = !this.isCrazy;
     }
   }
-}
-",
-  ],
-  "version": 3,
-}
+};
+})()
+var defaultExport = (module.exports.__esModule) ? module.exports.default : module.exports;var __vue__options__ = (typeof defaultExport === \\"function\\"? defaultExport.options: defaultExport)
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\\"hello\\"},[_c('h1',{class:_vm.headingClasses},[_vm._v(_vm._s(_vm.msg))])])}
+__vue__options__.staticRenderFns = []
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJhc2ljU3JjLnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBUEE7QUFTQTtBQUNBO0FBQ0E7QUFDQTtBQUZBO0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUhBO0FBakJBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQge1xuICBuYW1lOiAnYmFzaWMnLFxuICBjb21wdXRlZDoge1xuICAgIGhlYWRpbmdDbGFzc2VzOiBmdW5jdGlvbiBoZWFkaW5nQ2xhc3NlcyAoKSB7XG4gICAgICByZXR1cm4ge1xuICAgICAgICByZWQ6IHRoaXMuaXNDcmF6eSxcbiAgICAgICAgYmx1ZTogIXRoaXMuaXNDcmF6eSxcbiAgICAgICAgc2hhZG93OiB0aGlzLmlzQ3JhenlcbiAgICAgIH1cbiAgICB9XG4gIH0sXG4gIGRhdGE6IGZ1bmN0aW9uIGRhdGEgKCkge1xuICAgIHJldHVybiB7XG4gICAgICBtc2c6ICdXZWxjb21lIHRvIFlvdXIgVnVlLmpzIEFwcCcsXG4gICAgICBpc0NyYXp5OiBmYWxzZVxuICAgIH1cbiAgfSxcbiAgbWV0aG9kczoge1xuICAgIHRvZ2dsZUNsYXNzOiBmdW5jdGlvbiB0b2dnbGVDbGFzcyAoKSB7XG4gICAgICB0aGlzLmlzQ3JhenkgPSAhdGhpcy5pc0NyYXp5XG4gICAgfVxuICB9XG59XG4iXX0="
 `;
