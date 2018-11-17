@@ -5,11 +5,7 @@ import CoffeeES6 from './resources/CoffeeES6.vue'
 import CoffeeScriptES6 from './resources/CoffeeScriptES6.vue'
 import jestVue from '../vue-jest'
 import { resolve } from 'path'
-import {
-  readFileSync,
-  writeFileSync,
-  renameSync
-} from 'fs'
+import { readFileSync, writeFileSync, renameSync } from 'fs'
 import clearModule from 'clear-module'
 import cache from '../lib/cache'
 
@@ -60,7 +56,10 @@ describe('Test CoffeeScript - coffee.spec.js', () => {
     const tempPath = resolve(__dirname, '../.renamed')
     const packagePath = resolve(__dirname, '../package.json')
     const packageOriginal = readFileSync(packagePath, { encoding: 'utf8' })
-    writeFileSync(packagePath, '{ "babel": {"presets": ["env"],"plugins": ["istanbul"]}}')
+    writeFileSync(
+      packagePath,
+      '{ "babel": {"presets": ["env"],"plugins": ["istanbul"]}}'
+    )
     renameSync(babelRcPath, tempPath)
     const filePath = resolve(__dirname, './resources/CoffeeScriptES6.vue')
     const fileString = readFileSync(filePath, { encoding: 'utf8' })

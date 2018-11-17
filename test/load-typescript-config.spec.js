@@ -1,4 +1,3 @@
-const tsc = require('tsconfig')
 import {
   defaultConfig,
   loadTypescriptConfig
@@ -13,6 +12,7 @@ import {
 } from 'fs'
 import clearModule from 'clear-module'
 import cache from '../lib/cache'
+const tsc = require('tsconfig')
 
 describe('load-typescript-config.js', () => {
   beforeEach(() => {

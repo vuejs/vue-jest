@@ -1,9 +1,11 @@
 {
   "root": true,
-  "plugins": [
-    "vue"
-  ],
   "extends": [
-    "plugin:vue-libs/recommended",
-  ]
+    "standard",
+    "prettier",
+    "prettier/standard"
+  ],
+  "rules": {
+    "no-new": 0
+  }
 }

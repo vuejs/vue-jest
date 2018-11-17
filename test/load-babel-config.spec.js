@@ -43,7 +43,9 @@ describe('load-babel-config.js', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
     const babelRcCopiedPath = resolve(__dirname, '../.babelrc_cp')
     createReadStream(babelRcPath).pipe(createWriteStream(babelRcCopiedPath))
-    const babelRcOriginal = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    const babelRcOriginal = JSON.parse(
+      readFileSync(babelRcPath, { encoding: 'utf8' })
+    )
     const babelConfig = loadBabelConfig({})
     expect(babelConfig).toEqual(babelRcOriginal)
     const tempPath = resolve(__dirname, '../.renamed')
@@ -60,7 +62,9 @@ describe('load-babel-config.js', () => {
 
   it('reads .babelrc if it is below the current working directory', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
-    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    const babelRcContent = JSON.parse(
+      readFileSync(babelRcPath, { encoding: 'utf8' })
+    )
     process.chdir('test')
     const babelConfig = loadBabelConfig({})
     expect(babelConfig).toEqual(babelRcContent)
@@ -69,7 +73,9 @@ describe('load-babel-config.js', () => {
 
   it('reads .babelrc from the current working directory', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
-    const babelRcContent = JSON.parse(readFileSync(babelRcPath, { encoding: 'utf8' }))
+    const babelRcContent = JSON.parse(
+      readFileSync(babelRcPath, { encoding: 'utf8' })
+    )
     const newBabelRcPath = resolve(__dirname, '../test/.babelrc')
     const newBabelRcContent = '{"env":{}}'
     process.chdir('test')
@@ -98,7 +104,10 @@ describe('load-babel-config.js', () => {
       const config = {
         plugins: ['foo']
       }
-      writeFileSync(babelConfigPath, `module.exports = ${JSON.stringify(config)}`)
+      writeFileSync(
+        babelConfigPath,
+        `module.exports = ${JSON.stringify(config)}`
+      )
       const babelConfig = loadBabelConfig({
         globals: {
           'vue-jest': {

@@ -39,10 +39,7 @@ describe('processes .vue file with Stylus style', () => {
       globals: {
         'vue-jest': { experimentalCSSCompile: false }
       },
-      moduleFileExtensions: [
-        'js',
-        'vue'
-      ]
+      moduleFileExtensions: ['js', 'vue']
     })
   })
 })
