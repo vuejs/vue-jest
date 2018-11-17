@@ -1,14 +1,15 @@
-import deprecate from '../lib/deprecate'
-const tsc = require('tsconfig')
-import { defaultConfig, loadTypescriptConfig } from '../lib/load-typescript-config'
+import tsc from 'tsconfig'
+import {
+  defaultConfig,
+  loadTypescriptConfig
+} from '../lib/load-typescript-config'
 import { resolve } from 'path'
 import {
   createReadStream,
   createWriteStream,
   readFileSync,
   writeFileSync,
-  renameSync,
-  unlinkSync
+  renameSync
 } from 'fs'
 import clearModule from 'clear-module'
 import cache from '../lib/cache'
@@ -38,33 +39,13 @@ describe('load-typescript-config.js', () => {
     expect(tsconfigCachedConfig).toEqual(defaultConfig)
   })
 
-  it('[DEPRECATED] returns the tsconfig specified in jest globals', () => {
-    const replace = deprecate.replace
-    deprecate.replace = jest.fn()
-
-    const jestGlobalTsConfigPath = resolve(__dirname, '../tsconfig.jest.json')
-
-    writeFileSync(jestGlobalTsConfigPath, JSON.stringify({
-      allowJs: false
-    }))
-
-    const jestGlobalTsConfig = JSON.parse(readFileSync(jestGlobalTsConfigPath, { encoding: 'utf8' }))
-
-    const tsconfig = loadTypescriptConfig({
-      tsConfigFile: jestGlobalTsConfigPath
-    })
-    expect(tsconfig).toEqual(jestGlobalTsConfig)
-    expect(deprecate.replace).toHaveBeenCalledWith('tsConfigFile', 'tsConfig')
-
-    unlinkSync(jestGlobalTsConfigPath)
-    deprecate.replace = replace
-  })
-
   it('reads default tsconfig if there is tsconfig.json', () => {
     const tsconfigPath = resolve(__dirname, '../tsconfig.json')
     const tsconfigCopiedPath = resolve(__dirname, '../.tsconfig.json_cp')
     createReadStream(tsconfigPath).pipe(createWriteStream(tsconfigCopiedPath))
-    const tsconfigOriginal = JSON.parse(readFileSync(tsconfigPath, { encoding: 'utf8' }))
+    const tsconfigOriginal = JSON.parse(
+      readFileSync(tsconfigPath, { encoding: 'utf8' })
+    )
     const tsconfig = loadTypescriptConfig({})
     expect(tsconfig).toEqual(tsconfigOriginal)
     const tempPath = resolve(__dirname, '../.renamed')
@@ -87,7 +68,11 @@ describe('load-typescript-config.js', () => {
       }
       writeFileSync(tsConfigPath, JSON.stringify(config))
       const tsConfig = loadTypescriptConfig({
-        tsConfig: tsConfigPath
+        globals: {
+          'vue-jest': {
+            tsConfig: tsConfigPath
+          }
+        }
       })
       expect(tsConfig).toEqual(config)
     })
@@ -98,7 +83,11 @@ describe('load-typescript-config.js', () => {
       }
       tsc.loadSync = jest.fn(() => ({ path: true, config }))
       const tsConfig = loadTypescriptConfig({
-        tsConfig: true
+        globals: {
+          'vue-jest': {
+            tsConfig: true
+          }
+        }
       })
       expect(tsc.loadSync).toHaveBeenCalled()
       expect(tsConfig).toEqual(config)
@@ -111,7 +100,11 @@ describe('load-typescript-config.js', () => {
       }
       tsc.loadSync = jest.fn(() => ({ path: true, config }))
       const defaultTsConfig = loadTypescriptConfig({
-        tsConfig: false
+        globals: {
+          'vue-jest': {
+            tsConfig: false
+          }
+        }
       })
       expect(tsc.loadSync).not.toHaveBeenCalled()
       expect(defaultTsConfig).toEqual(defaultConfig)

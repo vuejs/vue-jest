@@ -11,7 +11,6 @@ import {
 } from 'fs'
 import clearModule from 'clear-module'
 import cache from '../lib/cache'
-import deprecate from '../lib/deprecate'
 
 describe('load-babel-config.js', () => {
   beforeEach(() => {
@@ -38,24 +37,6 @@ describe('load-babel-config.js', () => {
     renameSync(tempPath2, babelRcPath2)
     const babelConfigCached = loadBabelConfig()
     expect(babelConfigCached).toBe(undefined)
-  })
-
-  it('[DEPRECATED] reads babelrc from jest globals if exists', () => {
-    const replace = deprecate.replace
-    deprecate.replace = jest.fn()
-
-    const jestGlobalBabelPath = resolve(__dirname, '../jest.babelrc')
-    writeFileSync(jestGlobalBabelPath, JSON.stringify({
-      plugins: ['foo']
-    }))
-    const jestGlobalBabelConfig = JSON.parse(readFileSync(jestGlobalBabelPath, { encoding: 'utf8' }))
-    const babelConfig = loadBabelConfig({
-      babelRcFile: 'jest.babelrc'
-    })
-    expect(babelConfig).toEqual(jestGlobalBabelConfig)
-    expect(deprecate.replace).toHaveBeenCalledWith('babelRcFile', 'babelConfig')
-    unlinkSync(jestGlobalBabelPath)
-    deprecate.replace = replace
   })
 
   it('reads default babel if there is .babelrc', () => {
@@ -119,7 +100,11 @@ describe('load-babel-config.js', () => {
       }
       writeFileSync(babelConfigPath, `module.exports = ${JSON.stringify(config)}`)
       const babelConfig = loadBabelConfig({
-        babelConfig: babelConfigPath
+        globals: {
+          'vue-jest': {
+            babelConfig: babelConfigPath
+          }
+        }
       })
       expect(babelConfig).toEqual(config)
     })
@@ -130,7 +115,11 @@ describe('load-babel-config.js', () => {
       }
       findBabelConfig.sync = jest.fn(() => ({ file: true, config }))
       const noBabelConfig = loadBabelConfig({
-        babelConfig: false
+        globals: {
+          'vue-jest': {
+            babelConfig: false
+          }
+        }
       })
       expect(findBabelConfig.sync).not.toHaveBeenCalled()
       expect(noBabelConfig).toBeUndefined()
@@ -148,7 +137,11 @@ describe('load-babel-config.js', () => {
         plugins: ['foo']
       }
       const babelConfig = loadBabelConfig({
-        babelConfig: config
+        globals: {
+          'vue-jest': {
+            babelConfig: config
+          }
+        }
       })
       expect(babelConfig).toEqual(config)
     })

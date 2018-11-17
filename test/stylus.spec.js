@@ -27,13 +27,22 @@ describe('processes .vue file with Stylus style', () => {
     expect(() => shallowMount(StylusRelative)).not.toThrow()
   })
 
-  it('does not attempty to compile if experimentalStyles flag is passed', () => {
+  it('does not attempt to compile if experimentalStyles flag is passed', () => {
     const filePath = resolve(__dirname, './resources/Basic.vue')
     const fileString = readFileSync(filePath, { encoding: 'utf8' })
     const fileStringWithInvalidSass = `
       ${fileString}
+
       <style lang="stylus">@something</style>
     `
-    jestVue.process(fileStringWithInvalidSass, filePath, { globals: { 'vue-jest': { experimentalCSSCompile: false }}})
+    jestVue.process(fileStringWithInvalidSass, filePath, {
+      globals: {
+        'vue-jest': { experimentalCSSCompile: false }
+      },
+      moduleFileExtensions: [
+        'js',
+        'vue'
+      ]
+    })
   })
 })
