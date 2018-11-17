@@ -18,4 +18,5 @@ test('processes .vue files', () => {
 test('processes .vue files using src attributes', () => {
   const vm = new Vue(BasicSrc).$mount()
   expect(typeof vm.$el).toBe('object')
+  vm.toggleClass()
 })
