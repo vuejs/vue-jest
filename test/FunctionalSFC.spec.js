@@ -28,7 +28,7 @@ describe('Processes .vue file with functional template', () => {
   it('handles slot', () => {
     wrapper = shallowMount(FunctionalSFC, {
       context: {
-        props: { msg: { id: 1, title: '' }},
+        props: { msg: { id: 1, title: '' } },
         children: ['this is a slot']
       }
     })

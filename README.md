@@ -28,11 +28,7 @@ A full config will look like this.
 ```json
 {
   "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
+    "moduleFileExtensions": ["js", "json", "vue"],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest"
@@ -63,7 +59,7 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 
 You can change the behavior of `vue-jest` by using `jest.globals`.
 
-> *Tip:* Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
+> _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
 
 #### babelConfig
 
@@ -112,14 +108,10 @@ Provide inline [Babel options](https://babeljs.io/docs/en/options):
               }
             ]
           ],
-          "plugins": [
-            "syntax-dynamic-import"
-          ],
+          "plugins": ["syntax-dynamic-import"],
           "env": {
             "test": {
-              "plugins": [
-                "dynamic-import-node"
-              ]
+              "plugins": ["dynamic-import-node"]
             }
           }
         }
@@ -132,8 +124,9 @@ Provide inline [Babel options](https://babeljs.io/docs/en/options):
 ##### String
 
 If a string is provided, it will be an assumed path to a babel configuration file (e.g. `.babelrc`, `.babelrc.js`).
+
 - Config file should export a Babel configuration object.
-- Should *not* point to a [project-wide configuration file (babel.config.js)](https://babeljs.io/docs/en/config-files#project-wide-configuration), which exports a function.
+- Should _not_ point to a [project-wide configuration file (babel.config.js)](https://babeljs.io/docs/en/config-files#project-wide-configuration), which exports a function.
 
 ```json
 {
@@ -216,21 +209,22 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
 ### Supported template languages
 
 - **pug** (`lang="pug"`)
+
   - To give options for the Pug compiler, enter them into the Jest configuration.
-  The options will be passed to pug.compile().
+    The options will be passed to pug.compile().
 
   ```json
-    {
-      "jest": {
-        "globals": {
-          "vue-jest": {
-            "pug": {
-              "basedir": "mybasedir"
-            }
+  {
+    "jest": {
+      "globals": {
+        "vue-jest": {
+          "pug": {
+            "basedir": "mybasedir"
           }
         }
       }
     }
+  }
   ```
 
 - **jade** (`lang="jade"`)
@@ -242,6 +236,7 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
 - **sass** (`lang="sass"`)
   - The SASS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
 - **scss** (`lang="scss"`)
+
   - The SCSS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
   - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
 
@@ -268,15 +263,15 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
 `hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
 `resources`:
 
-  ```json
-  {
-    "jest": {
-      "globals": {
-        "vue-jest": {
-          "hideStyleWarn": true,
-          "experimentalCSSCompile": true
-        }
+```json
+{
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "hideStyleWarn": true,
+        "experimentalCSSCompile": true
       }
     }
   }
-  ```
+}
+```

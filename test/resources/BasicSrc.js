@@ -1,7 +1,7 @@
 export default {
   name: 'basic',
   computed: {
-    headingClasses: function headingClasses () {
+    headingClasses: function headingClasses() {
       return {
         red: this.isCrazy,
         blue: !this.isCrazy,
@@ -9,14 +9,14 @@ export default {
       }
     }
   },
-  data: function data () {
+  data: function data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       isCrazy: false
     }
   },
   methods: {
-    toggleClass: function toggleClass () {
+    toggleClass: function toggleClass() {
       this.isCrazy = !this.isCrazy
     }
   }
