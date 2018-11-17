@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>{{exclamationMarks}}</div>
 </template>
 
 <script lang="ts">

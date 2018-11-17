@@ -1,8 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
-import { resolve } from 'path'
 import Pug from './resources/Pug.vue'
-import jestVue from '../vue-jest'
-import { readFileSync } from 'fs'
+import PugRelative from './resources/PugRelativeExtends.vue'
+import PugExtends from './resources/PugExtends.vue'
 
 test('processes .vue file with pug template', () => {
   const wrapper = shallowMount(Pug)
@@ -11,26 +10,13 @@ test('processes .vue file with pug template', () => {
 })
 
 test('supports global pug options and extends templates correctly from .pug files', () => {
-  const filePath = resolve(__dirname, './resources/PugExtends.vue')
-  const fileString = readFileSync(filePath, { encoding: 'utf8' })
-  const compiled = jestVue.process(fileString, filePath, {
-    globals: {
-      'vue-jest': {
-        pug: {
-          basedir: 'test'
-        }
-      }
-    }
-  })
-
-  expect(compiled.code).toContain('pug-base')
-  expect(compiled.code).toContain('pug-extended')
+  const wrapper = shallowMount(PugExtends)
+  expect(wrapper.is('div')).toBe(true)
+  expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
 test('supports relative paths when extending templates from .pug files', () => {
-  const filePath = resolve(__dirname, './resources/PugRelativeExtends.vue')
-  const fileString = readFileSync(filePath, { encoding: 'utf8' })
-  const compiled = jestVue.process(fileString, filePath)
-  expect(compiled.code).toContain('pug-relative-base')
-  expect(compiled.code).toContain('pug-extended')
+  const wrapper = shallowMount(PugRelative)
+  expect(wrapper.is('div')).toBe(true)
+  expect(wrapper.find('.pug-relative-base').exists()).toBeTruthy()
 })
