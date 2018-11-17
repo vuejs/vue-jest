@@ -1,4 +1,4 @@
-import tsc from 'tsconfig'
+const tsc = require('tsconfig')
 import {
   defaultConfig,
   loadTypescriptConfig
