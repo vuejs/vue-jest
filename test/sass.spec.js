@@ -20,11 +20,13 @@ describe('processes .vue files which combine sass and modules', () => {
   let functionalWrapper
 
   beforeEach(() => {
+    // console.log('shallowMount', JSON.stringify(SassModule, null, 2))
+    // console.log('shallowMount', SassModule.render)
     wrapper = shallowMount(SassModule)
     functionalWrapper = mount(SassModuleFunctional)
   })
 
-  it('does inject classes to $style', () => {
+  it.only('does inject classes to $style', () => {
     expect(wrapper.vm.$style).toBeDefined()
     expect(wrapper.vm.$style.testA).toBeDefined()
     expect(wrapper.vm.$style.testA).toEqual('testA')

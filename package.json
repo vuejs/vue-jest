@@ -26,11 +26,12 @@
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && ./test.sh",
     "unit": "./test.sh",
-    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "unit:run": "jest test/sass.spec.js --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
   "devDependencies": {
+    "@vue/component-compiler-utils": "^2.3.0",
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^6.25.0",
     "babel-jest": "^23.6.0",
