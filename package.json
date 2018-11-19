@@ -26,7 +26,8 @@
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && ./test.sh",
     "unit": "./test.sh",
-    "unit:run": "jest test/sass.spec.js --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage",
+    "unit:debug": "node --inspect-brk node_modules/.bin/jest test/sass.spec.js --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
@@ -54,7 +55,7 @@
     "lint-staged": "^8.0.5",
     "node-sass": "^4.7.2",
     "prettier": "^1.15.2",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^2.0.3",
     "stylus": "^0.54.5",
     "typescript": "^2.5.2",
     "vue": "^2.4.2",
