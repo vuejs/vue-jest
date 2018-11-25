@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import Css from './resources/Css.vue'
+import StyleModule from './resources/StyleModule.vue'
 
 describe('processes .vue file with Css style', () => {
   let wrapper
@@ -17,5 +18,9 @@ describe('processes .vue file with Css style', () => {
 
   it('should not bind from style tags without a module', () => {
     expect(wrapper.vm.$style.testC).toBeFalsy()
+  })
+
+  it('handles style modules', () => {
+    shallowMount(StyleModule)
   })
 })
