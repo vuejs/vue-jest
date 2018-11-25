@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
-    "lint": "eslint '{,!(node_modules)/**/}*.js'",
+    "lint": "eslint '{,!(node_modules|temp-dir)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
