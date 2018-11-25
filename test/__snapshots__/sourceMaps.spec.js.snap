@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates source maps for .vue files 1`] = `
+"var exports = {}
+        'use strict';
+
+Object.defineProperty(exports, \\"__esModule\\", {
+    value: true
+});
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    name: 'basic',
+    computed: {
+        headingClasses: function headingClasses() {
+            return {
+                red: this.isCrazy,
+                blue: !this.isCrazy,
+                shadow: this.isCrazy
+            };
+        }
+    },
+    data: function data() {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+            isCrazy: false
+        };
+    },
+    methods: {
+        toggleClass: function toggleClass() {
+            this.isCrazy = !this.isCrazy;
+        }
+    }
+};
+
+        if(!exports.default) {
+          exports.default = {}
+        }
+        var __options__ = module.exports = exports.default
+        Object.keys(exports).forEach(k => module.exports[k] = exports[k])
+      var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(\\"div\\", { staticClass: \\"hello\\" }, [
+    _c(\\"h1\\", { class: _vm.headingClasses }, [_vm._v(_vm._s(_vm.msg))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+      __options__.render = render
+      __options__.staticRenderFns = staticRenderFns
+      
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJhc2ljLnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQVBBO0FBU0E7QUFDQTtBQUNBO0FBQ0E7QUFGQTtBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFIQTtBQWpCQSIsInNvdXJjZXNDb250ZW50IjpbIjx0ZW1wbGF0ZT5cbiAgICA8ZGl2IGNsYXNzPVwiaGVsbG9cIj5cbiAgICAgICAgPGgxIDpjbGFzcz1cImhlYWRpbmdDbGFzc2VzXCI+e3sgbXNnIH19PC9oMT5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cbjxzY3JpcHQ+XG4gICAgZXhwb3J0IGRlZmF1bHQge1xuICAgICAgICBuYW1lOiAnYmFzaWMnLFxuICAgICAgICBjb21wdXRlZDoge1xuICAgICAgICAgICAgaGVhZGluZ0NsYXNzZXM6IGZ1bmN0aW9uIGhlYWRpbmdDbGFzc2VzKCkge1xuICAgICAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgICAgIHJlZDogdGhpcy5pc0NyYXp5LFxuICAgICAgICAgICAgICAgICAgICBibHVlOiAhdGhpcy5pc0NyYXp5LFxuICAgICAgICAgICAgICAgICAgICBzaGFkb3c6IHRoaXMuaXNDcmF6eSxcbiAgICAgICAgICAgICAgICB9O1xuICAgICAgICAgICAgfSxcbiAgICAgICAgfSxcbiAgICAgICAgZGF0YTogZnVuY3Rpb24gZGF0YSgpIHtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgbXNnOiAnV2VsY29tZSB0byBZb3VyIFZ1ZS5qcyBBcHAnLFxuICAgICAgICAgICAgICAgIGlzQ3Jhenk6IGZhbHNlLFxuICAgICAgICAgICAgfTtcbiAgICAgICAgfSxcbiAgICAgICAgbWV0aG9kczoge1xuICAgICAgICAgICAgdG9nZ2xlQ2xhc3M6IGZ1bmN0aW9uIHRvZ2dsZUNsYXNzKCkge1xuICAgICAgICAgICAgICAgIHRoaXMuaXNDcmF6eSA9ICF0aGlzLmlzQ3Jhenk7XG4gICAgICAgICAgICB9LFxuICAgICAgICB9LFxuICAgIH07XG48L3NjcmlwdD5cbiJdfQ=="
+`;
+
+exports[`generates source maps using src attributes 1`] = `
+"var exports = {}
+        'use strict';
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = {
+  name: 'basic',
+  computed: {
+    headingClasses: function headingClasses() {
+      return {
+        red: this.isCrazy,
+        blue: !this.isCrazy,
+        shadow: this.isCrazy
+      };
+    }
+  },
+  data: function data() {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      isCrazy: false
+    };
+  },
+  methods: {
+    toggleClass: function toggleClass() {
+      this.isCrazy = !this.isCrazy;
+    }
+  }
+};
+
+        if(!exports.default) {
+          exports.default = {}
+        }
+        var __options__ = module.exports = exports.default
+        Object.keys(exports).forEach(k => module.exports[k] = exports[k])
+      var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(\\"div\\", { staticClass: \\"hello\\" }, [
+    _c(\\"h1\\", { class: _vm.headingClasses }, [_vm._v(_vm._s(_vm.msg))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+      __options__.render = render
+      __options__.staticRenderFns = staticRenderFns
+      
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJhc2ljU3JjLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFQQTtBQVNBO0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSEE7QUFqQkEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCB7XG4gIG5hbWU6ICdiYXNpYycsXG4gIGNvbXB1dGVkOiB7XG4gICAgaGVhZGluZ0NsYXNzZXM6IGZ1bmN0aW9uIGhlYWRpbmdDbGFzc2VzKCkge1xuICAgICAgcmV0dXJuIHtcbiAgICAgICAgcmVkOiB0aGlzLmlzQ3JhenksXG4gICAgICAgIGJsdWU6ICF0aGlzLmlzQ3JhenksXG4gICAgICAgIHNoYWRvdzogdGhpcy5pc0NyYXp5XG4gICAgICB9XG4gICAgfVxuICB9LFxuICBkYXRhOiBmdW5jdGlvbiBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBtc2c6ICdXZWxjb21lIHRvIFlvdXIgVnVlLmpzIEFwcCcsXG4gICAgICBpc0NyYXp5OiBmYWxzZVxuICAgIH1cbiAgfSxcbiAgbWV0aG9kczoge1xuICAgIHRvZ2dsZUNsYXNzOiBmdW5jdGlvbiB0b2dnbGVDbGFzcygpIHtcbiAgICAgIHRoaXMuaXNDcmF6eSA9ICF0aGlzLmlzQ3JhenlcbiAgICB9XG4gIH1cbn1cbiJdfQ=="
+`;

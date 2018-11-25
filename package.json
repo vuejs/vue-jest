@@ -20,20 +20,19 @@
   ],
   "scripts": {
     "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
-    "lint": "eslint '{,!(node_modules)/**/}*.js'",
+    "lint": "eslint '{,!(node_modules|temp-dir)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
     "release": "build/release.sh",
     "release:note": "node build/gen-release-note.js",
-    "test": "npm run lint && ./test.sh",
-    "unit": "./test.sh",
-    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "./test.sh",
+    "test:unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^6.25.0",
-    "babel-jest": "^23.6.0",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.1",
     "clear-module": "^2.1.0",
@@ -53,7 +52,7 @@
     "lint-staged": "^8.0.5",
     "node-sass": "^4.7.2",
     "prettier": "^1.15.2",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^2.0.3",
     "stylus": "^0.54.5",
     "typescript": "^2.5.2",
     "vue": "^2.4.2",
@@ -66,16 +65,14 @@
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
+    "@vue/component-compiler-utils": "^2.3.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
     "find-babel-config": "^1.1.0",
-    "js-beautify": "^1.6.14",
     "node-cache": "^4.1.1",
-    "object-assign": "^4.1.1",
     "source-map": "^0.5.6",
-    "tsconfig": "^7.0.0",
-    "vue-template-es2015-compiler": "^1.6.0"
+    "tsconfig": "^7.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
