@@ -33,7 +33,6 @@
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^6.25.0",
-    "babel-jest": "^23.6.0",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.1",
     "clear-module": "^2.1.0",
@@ -71,12 +70,9 @@
     "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
     "find-babel-config": "^1.1.0",
-    "js-beautify": "^1.6.14",
     "node-cache": "^4.1.1",
-    "object-assign": "^4.1.1",
     "source-map": "^0.5.6",
-    "tsconfig": "^7.0.0",
-    "vue-template-es2015-compiler": "^1.6.0"
+    "tsconfig": "^7.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
