@@ -143,7 +143,7 @@ describe('load-babel-config.js', () => {
       findBabelConfig.sync.mockRestore()
     })
 
-    it('should skip configuring babel if false is provided', () => {
+    it('should skip configuring babel if a falsey config is provided', () => {
       const config = {
         plugins: ['foo']
       }
