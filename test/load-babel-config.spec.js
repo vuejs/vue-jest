@@ -143,6 +143,27 @@ describe('load-babel-config.js', () => {
       findBabelConfig.sync.mockRestore()
     })
 
+    it('should skip configuring babel if false is provided', () => {
+      const config = {
+        plugins: ['foo']
+      }
+      findBabelConfig.sync = jest.fn(() => ({ file: true, config }))
+      const noBabelConfig = loadBabelConfig({
+        babelConfig: false
+      })
+      expect(findBabelConfig.sync).not.toHaveBeenCalled()
+      expect(noBabelConfig).toBeUndefined()
+
+      const babelConfigPath = resolve(__dirname, '../babel.config.js')
+      writeFileSync(babelConfigPath, `module.exports = ${JSON.stringify(config)}`)
+      const babelConfig = loadBabelConfig({
+        babelConfig: false
+      })
+      expect(babelConfig).toBeUndefined()
+      unlinkSync(babelConfigPath)
+      findBabelConfig.sync.mockRestore()
+    })
+
     it('supports an inline babel configuration object', () => {
       const config = {
         plugins: ['foo']
