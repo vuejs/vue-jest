@@ -76,7 +76,7 @@ test('uses babelrc in package.json if none in .babelrc', () => {
   const tempPath = resolve(__dirname, '../.renamed')
   const packagePath = resolve(__dirname, '../package.json')
   const packageOriginal = readFileSync(packagePath, { encoding: 'utf8' })
-  writeFileSync(packagePath, '{ "babel": {"presets": ["env"],"plugins": ["istanbul"]}}')
+  writeFileSync(packagePath, '{ "babel": {"presets": ["@babel/env"],"plugins": ["istanbul"]}}')
   renameSync(babelRcPath, tempPath)
   const filePath = resolve(__dirname, './resources/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
@@ -98,7 +98,7 @@ test('uses babelrc in package.json if none in .babelrc', () => {
 test('processes .vue files using .babelrc if it exists in route', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const babelRcOriginal = readFileSync(babelRcPath, { encoding: 'utf8' })
-  writeFileSync(babelRcPath, '{"presets": ["env"],"plugins": ["istanbul"]}')
+  writeFileSync(babelRcPath, '{"presets": ["@babel/env"],"plugins": ["istanbul"]}')
   const filePath = resolve(__dirname, './resources/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
