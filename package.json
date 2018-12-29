@@ -26,17 +26,19 @@
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "./test.sh",
-    "test:unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "test:unit:run": "jest test/coffee.spec.js --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.0-beta.25",
-    "babel-core": "^6.25.0",
-    "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.0.0-alpha.9",
+    "babel-plugin-istanbul": "^5.1.0",
     "clear-module": "^2.1.0",
-    "coffeescript": "^2.0.3",
+    "coffeescript": "^2.3.2",
     "conventional-changelog": "^1.1.5",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
@@ -48,7 +50,7 @@
     "hamljs": "^0.6.2",
     "husky": "^1.1.4",
     "jade": "^1.11.0",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0-alpha.9",
     "lint-staged": "^8.0.5",
     "node-sass": "^4.7.2",
     "prettier": "^1.15.2",
@@ -59,20 +61,18 @@
     "vue-template-compiler": "^2.4.2"
   },
   "peerDependencies": {
-    "babel-core": "^6.25.0 || ^7.0.0-0",
-    "jest": "^23.x",
+    "@babel/core": "^7.x",
+    "jest": "^24.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "@vue/component-compiler-utils": "^2.3.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
-    "find-babel-config": "^1.1.0",
-    "node-cache": "^4.1.1",
     "source-map": "^0.5.6",
-    "tsconfig": "^7.0.0"
+    "ts-jest": "^23.10.5"
   },
   "jest": {
     "moduleFileExtensions": [

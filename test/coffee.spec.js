@@ -7,11 +7,9 @@ import jestVue from '../vue-jest'
 import { resolve } from 'path'
 import { readFileSync, writeFileSync, renameSync } from 'fs'
 import clearModule from 'clear-module'
-import cache from '../lib/cache'
 
 describe('Test CoffeeScript - coffee.spec.js', () => {
   beforeEach(() => {
-    cache.flushAll()
     clearModule.all()
   })
 
@@ -51,20 +49,22 @@ describe('Test CoffeeScript - coffee.spec.js', () => {
     renameSync(tempPath, babelRcPath)
   })
 
-  test('processes .vue files with lang set to coffeescript, uses babelrc in package.json if none in .babelrc', () => {
+  test.only('processes .vue files with lang set to coffeescript, uses babelrc in package.json if none in .babelrc', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
     const tempPath = resolve(__dirname, '../.renamed')
     const packagePath = resolve(__dirname, '../package.json')
     const packageOriginal = readFileSync(packagePath, { encoding: 'utf8' })
     writeFileSync(
       packagePath,
-      '{ "babel": {"presets": ["env"],"plugins": ["istanbul"]}}'
+      '{ "babel": {"presets": ["@babel/preset-env"],"plugins": ["babel-plugin-istanbul"]}}'
     )
     renameSync(babelRcPath, tempPath)
     const filePath = resolve(__dirname, './resources/CoffeeScriptES6.vue')
     const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
     try {
+      console.log('pre process')
+      jest.resetModules()
       const output = jestVue.process(fileString, filePath)
       expect(output.code).toContain('coverageData.hash')
     } catch (err) {
@@ -81,7 +81,10 @@ describe('Test CoffeeScript - coffee.spec.js', () => {
   test('processes .vue files with lang set to coffeescript using .babelrc if it exists in route', () => {
     const babelRcPath = resolve(__dirname, '../.babelrc')
     const babelRcOriginal = readFileSync(babelRcPath, { encoding: 'utf8' })
-    writeFileSync(babelRcPath, '{"presets": ["env"],"plugins": ["istanbul"]}')
+    writeFileSync(
+      babelRcPath,
+      '{"presets": ["@babel/preset-env"],"plugins": ["babel-plugin-istanbul"]}'
+    )
     const filePath = resolve(__dirname, './resources/CoffeeScriptES6.vue')
     const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
