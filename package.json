@@ -37,6 +37,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-istanbul": "^5.1.0",
+    "babel-preset-env": "^1.7.0",
     "clear-module": "^3.1.0",
     "coffeescript": "^2.3.2",
     "conventional-changelog": "^3.0.5",
