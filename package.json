@@ -31,12 +31,12 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.7.0",
     "clear-module": "^3.1.0",
     "coffeescript": "^2.3.2",
