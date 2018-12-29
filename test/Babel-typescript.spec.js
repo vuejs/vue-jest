@@ -21,7 +21,7 @@ test('babel 7 configuration expects filename [default: "unknown"] to compile', (
   writeFileSync(babelRcPath, '{"presets": ["@babel/env"]}')
 
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { babelVersion: 7 })).not.toThrow()
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined)).not.toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
@@ -41,20 +41,21 @@ test('renders typescript syntax from <script>...</script>', () => {
   // which version of babel is used to transform in lib/compilers/babel-compiler
   // line 27
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown', babelVersion: 7 })).not.toThrow()
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown' })).not.toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
   }
 
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: undefined, babelVersion: 7 })).toThrow()
+    writeFileSync(babelRcPath, '{ "presets": ["@babel/env","@babel/typescript"], "plugins": ["istanbul"] }')
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: undefined })).toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
   }
 
-  const output = jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown', babelVersion: 7 })
+  const output = jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown' })
   expect(output.code).toContain('coverageData.hash')
   writeFileSync(babelRcPath, babelRcOriginal)
 })
