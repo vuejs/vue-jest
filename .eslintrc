@@ -1,9 +1,4 @@
 {
-  "env": {
-    "node": true,
-    "jest": true,
-    "browser": true
-  },
   "root": true,
   "plugins": [
     "vue"

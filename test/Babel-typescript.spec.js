@@ -12,7 +12,7 @@ beforeEach(() => {
   cache.flushAll()
   clearModule.all()
 })
-test.only('babel configuration expects filename [default: "unknown"] to compile', () => {
+test('babel 7 configuration expects filename [default: "unknown"] to compile', () => {
   const babelRcPath = resolve(__dirname, '../.babelrc')
   const babelRcOriginal = readFileSync(babelRcPath, { encoding: 'utf8' })
   const filePath = resolve(__dirname, './resources/TypeScript.vue')
@@ -21,14 +21,17 @@ test.only('babel configuration expects filename [default: "unknown"] to compile'
   writeFileSync(babelRcPath, '{"presets": ["@babel/env"],"plugins": ["istanbul"]}')
 
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown', version: 7 })).not.toThrow()
+    // babelVersion is not valid babel property, passing it to determine
+    // which version of babel is used to transform in lib/compilers/babel-compiler
+    // line 27
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown', babelVersion: 7 })).not.toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
   }
 
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: undefined })).toThrow()
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: undefined, babelVersion: 7 })).toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
