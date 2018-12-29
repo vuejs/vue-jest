@@ -18,10 +18,10 @@ test.only('babel configuration expects filename [default: "unknown"] to compile'
   const filePath = resolve(__dirname, './resources/TypeScript.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
-  writeFileSync(babelRcPath, '{"presets": ["env"],"plugins": ["istanbul"]}')
+  writeFileSync(babelRcPath, '{"presets": ["@babel/env"],"plugins": ["istanbul"]}')
 
   try {
-    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown' })).not.toThrow()
+    expect(() => jestVue.process(fileString, filePath, undefined, undefined, { filename: 'unknown', version: 7 })).not.toThrow()
   } catch (err) {
     writeFileSync(babelRcPath, babelRcOriginal)
     throw err
