@@ -41,7 +41,7 @@ A full config might look like this:
 
 ## Supported langs
 
-vue-jest compiles `<script />`, `<template />`, and `<style />` blocks into a JavaScript file that Jest can run.
+vue-jest compiles `<script />`, `<template />`, and `<style />` blocks with supported `lang` attributes into JavaScript that Jest can run.
 
 ### Script languages
 
@@ -101,7 +101,7 @@ To pass options to the language compiler, add them to `jest.globals.vue-jest`:
 
 You can configure vue-jest with `jest.globals`.
 
-> _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
+_Tip: Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file_
 
 ### options
 
