@@ -1,8 +1,6 @@
 # vue-jest
 
-Jest Vue transformer with source map support
-
-> **NOTE:** This is documentation for `vue-jest@3.x`. [View the vue-jest@2.x documentation](https://github.com/vuejs/vue-jest/tree/e694fc7ce11ae1ac1c778ed7c4402515c5f0d5aa)
+Jest transformer for Vue single file components
 
 ## Usage
 
@@ -55,156 +53,21 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 - **typescript** (`lang="ts"`, `lang="typescript"`)
 - **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
+### babel options
+
+vue-jest uses babel-jest to resolve your babel options.
+
+### tsconfig
+
+vue-jest uses ts-jest to resolve your `tsconfig` file.
+
+If you wish to pass in a custom location for your tsconfig file, use the [ts-jest configuration options](https://kulshekhar.github.io/ts-jest/user/config/#options).
+
 ### Global Jest options
 
 You can change the behavior of `vue-jest` by using `jest.globals`.
 
 > _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
-
-#### babelConfig
-
-Provide `babelConfig` in one of the following formats:
-
-- `<Boolean>`
-- `<Object>`
-- `<String>`
-
-##### Boolean
-
-- `true` - Enable Babel processing. `vue-jest` will try to find Babel configuration using [find-babel-config](https://www.npmjs.com/package/find-babel-config).
-
-> This is the default behavior if [babelConfig](#babelconfig) is not defined.
-
-- `false` - Skip Babel processing entirely:
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "babelConfig": false
-      }
-    }
-  }
-}
-```
-
-##### Object
-
-Provide inline [Babel options](https://babeljs.io/docs/en/options):
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "babelConfig": {
-          "presets": [
-            [
-              "env",
-              {
-                "useBuiltIns": "entry",
-                "shippedProposals": true
-              }
-            ]
-          ],
-          "plugins": ["syntax-dynamic-import"],
-          "env": {
-            "test": {
-              "plugins": ["dynamic-import-node"]
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-##### String
-
-If a string is provided, it will be an assumed path to a babel configuration file (e.g. `.babelrc`, `.babelrc.js`).
-
-- Config file should export a Babel configuration object.
-- Should _not_ point to a [project-wide configuration file (babel.config.js)](https://babeljs.io/docs/en/config-files#project-wide-configuration), which exports a function.
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "babelConfig": "path/to/.babelrc.js"
-      }
-    }
-  }
-}
-```
-
-To use the [Config Function API](https://babeljs.io/docs/en/config-files#config-function-api), use inline options instead. i.e.:
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "babelConfig": {
-          "configFile": "path/to/babel.config.js"
-        }
-      }
-    }
-  }
-}
-```
-
-#### tsConfig
-
-Provide `tsConfig` in one of the following formats:
-
-- `<Boolean>`
-- `<Object>`
-- `<String>`
-
-##### Boolean
-
-- `true` - Process TypeScript files using custom configuration. `vue-jest` will try to find TypeScript configuration using [tsconfig.loadSync](https://www.npmjs.com/package/tsconfig#api).
-
-> This is the default behavior if [tsConfig](#tsConfig) is not defined.
-
-- `false` - Process TypeScript files using the [default configuration provided by vue-jest](https://github.com/vuejs/vue-jest/blob/master/lib/load-typescript-config.js#L5-L27).
-
-##### Object
-
-Provide inline [TypeScript compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html):
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "tsConfig": {
-          "importHelpers": true
-        }
-      }
-    }
-  }
-}
-```
-
-##### String
-
-If a string is provided, it will be an assumed path to a TypeScript configuration file:
-
-```json
-{
-  "jest": {
-    "globals": {
-      "vue-jest": {
-        "tsConfig": "path/to/tsconfig.json"
-      }
-    }
-  }
-}
-```
 
 ### Supported template languages
 
