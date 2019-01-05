@@ -54,7 +54,7 @@ vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile te
 
 _Note: engines that compile asynchronously are not supported_
 
-To pass options to the language compiler, add them to the `vue-jest` options:
+To pass options to the language compiler, add them to the `jest.globals.vue-jest` options:
 
 ```json
 {
@@ -99,13 +99,15 @@ To pass options to the language compiler, add them to the `vue-jest` options:
 
 ## Configuration
 
-You can change the behavior of `vue-jest` by using `jest.globals`.
+You can configure vue-jest with `jest.globals`.
 
 > _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
 
-`experimentalCSSCompile`: `Boolean` Default true. Turn off CSS compilation
+### options
 
-`hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
+`experimentalCSSCompile`: `Boolean` Turn off CSS compilation (default `true`)
+
+`hideStyleWarn`: `Boolean` Hide warnings about CSS compilation (default `false`)
 
 ```json
 {
