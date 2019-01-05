@@ -1,6 +1,5 @@
 const { spawnSync } = require('child_process')
 const path = require('path')
-// const os =  require('os')
 const fs = require('fs')
 
 function runTest(dir) {
