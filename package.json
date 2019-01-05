@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
-    "lint": "eslint '{,!(node_modules)/**/}*.js'",
+    "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
     "release": "scripts/release.sh",
     "release:note": "node scripts/gen-release-note.js",
