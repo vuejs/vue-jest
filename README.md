@@ -12,7 +12,7 @@ npm install --save-dev vue-jest
 
 To define `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
 
-```json
+```js
 {
   "jest": {
     "transform": {
@@ -21,9 +21,9 @@ To define `vue-jest` as a transformer for your `.vue` files, map them to the `vu
 }
 ```
 
-A full config will look like this.
+A full config might look like this:
 
-```json
+```js
 {
   "jest": {
     "moduleFileExtensions": ["js", "json", "vue"],
@@ -35,45 +35,26 @@ A full config will look like this.
 }
 ```
 
-If you're on a version of Jest older than 22.4.0, you need to set `mapCoverage` to `true` in order to use source maps.
+## Examples
 
-## Example Projects
-
-Example repositories testing Vue components with jest and vue-jest:
-
-- [Avoriaz with Jest](https://github.com/eddyerburgh/avoriaz-jest-example)
 - [Vue Test Utils with Jest](https://github.com/eddyerburgh/vue-test-utils-jest-example)
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS, SASS and Stylus are the only style languages that are compiled**.
+vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run.
 
 ### Supported script languages
 
 - **typescript** (`lang="ts"`, `lang="typescript"`)
 - **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
-### babel options
-
-vue-jest uses babel-jest to resolve your babel options.
-
-### tsconfig
-
-vue-jest uses ts-jest to resolve your `tsconfig` file.
-
-If you wish to pass in a custom location for your tsconfig file, use the [ts-jest configuration options](https://kulshekhar.github.io/ts-jest/user/config/#options).
-
-### Global Jest options
-
-You can change the behavior of `vue-jest` by using `jest.globals`.
-
-> _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
-
 ### Supported template languages
 
-vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile template languages.
+vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile template languages. See the list of [supported engines](https://github.com/tj/consolidate.js/#supported-template-engines).
 
-To pass options to the language compiler, add them to as vue-jest options:
+_Note: engines that compile asynchronously are not supported_
+
+To pass options to the language compiler, add them to the `vue-jest` options:
 
 ```json
 {
@@ -116,11 +97,15 @@ To pass options to the language compiler, add them to as vue-jest options:
     }
     ```
 
-## CSS options
+## Configuration
+
+You can change the behavior of `vue-jest` by using `jest.globals`.
+
+> _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
 
 `experimentalCSSCompile`: `Boolean` Default true. Turn off CSS compilation
+
 `hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
-`resources`:
 
 ```json
 {
@@ -134,3 +119,13 @@ To pass options to the language compiler, add them to as vue-jest options:
   }
 }
 ```
+
+### babel options
+
+vue-jest uses babel-jest to resolve babel options.
+
+### tsconfig
+
+vue-jest uses ts-jest to resolve your `tsconfig` file.
+
+If you wish to pass in a custom location for your tsconfig file, use the [ts-jest configuration options](https://kulshekhar.github.io/ts-jest/user/config/#options).
