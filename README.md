@@ -2,6 +2,8 @@
 
 Jest transformer for Vue single file components
 
+_Note: These are the docs for v4—for older documentation [see the v3 docs](https://github.com/vuejs/vue-jest/tree/v3)_
+
 ## Usage
 
 ```bash
