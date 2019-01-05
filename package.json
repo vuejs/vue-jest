@@ -26,7 +26,7 @@
     "release:note": "node build/gen-release-note.js",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "./test.sh",
-    "test:unit:run": "jest test/coffee.spec.js --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "test:unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
@@ -34,7 +34,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.0-beta.25",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.0.0-alpha.9",
     "babel-plugin-istanbul": "^5.1.0",
     "clear-module": "^2.1.0",
@@ -56,7 +55,7 @@
     "prettier": "^1.15.2",
     "pug": "^2.0.3",
     "stylus": "^0.54.5",
-    "typescript": "^2.5.2",
+    "typescript": "^3.2.2",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2"
   },
@@ -81,8 +80,8 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/vue-jest.js"
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "./vue-jest.js"
     },
     "moduleNameMapper": {
       "^~?__root/(.*)$": "<rootDir>/$1",
