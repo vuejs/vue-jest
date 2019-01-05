@@ -1,6 +1,6 @@
 const { spawnSync } = require('child_process')
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 function runTest(dir) {
   const run = command => {
@@ -16,7 +16,9 @@ function runTest(dir) {
     }
   }
 
-  run('rm -rf node_modules package-lock.json')
+  fs.removeSync(`${dir}/node_modules`)
+  fs.removeSync(`${dir}/package-lock.json`)
+
   run('npm install')
   run('npm run test')
 }
