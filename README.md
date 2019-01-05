@@ -45,8 +45,8 @@ vue-jest compiles `<script />`, `<template />`, and `<style />` blocks into a Ja
 
 ### Script languages
 
-- **typescript** (`lang="ts"`, `lang="typescript"`)
-- **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
+- **TypeScript** (`ts`, `typescript`)
+- **CoffeeScript** (`coffee`, `coffeescript`)
 
 ### Template languages
 
@@ -54,9 +54,9 @@ vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile te
 
 _Note: engines that compile asynchronously are not supported_
 
-To pass options to the language compiler, add them to the `jest.globals.vue-jest` options:
+To pass options to the language compiler, add them to `jest.globals.vue-jest`:
 
-```json
+```js
 {
   "jest": {
     "globals": {
@@ -72,15 +72,15 @@ To pass options to the language compiler, add them to the `jest.globals.vue-jest
 
 ### Style languages
 
-- **stylus** (`lang="stylus"`, `lang="styl"`)
-- **sass** (`lang="sass"`)
+- Stylus (`stylus`, `styl`)
+- Sass (`sass`)
   - The SASS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
-- **scss** (`lang="scss"`)
+- SCSS (`scss`)
 
   - The SCSS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
   - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
 
-    ```json
+    ```js
     {
       "jest": {
         "globals": {
