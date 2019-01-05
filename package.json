@@ -61,7 +61,8 @@
     "vue-template-compiler": "^2.4.2"
   },
   "peerDependencies": {
-    "babel-core": "^6.25.0 || ^7.0.0-0",
+    "babel-core": "^6.25.0 || ^7.x",
+    "@babel/core": "7.x",
     "jest": "^23.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
