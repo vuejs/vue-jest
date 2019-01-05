@@ -41,14 +41,14 @@ A full config might look like this:
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run.
+vue-jest compiles `<script />`, `<template />`, and `<style />` blocks into a JavaScript file that Jest can run.
 
-### Supported script languages
+### Script languages
 
 - **typescript** (`lang="ts"`, `lang="typescript"`)
 - **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
-### Supported template languages
+### Template languages
 
 vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile template languages. See the list of [supported engines](https://github.com/tj/consolidate.js/#supported-template-engines).
 
@@ -70,7 +70,7 @@ To pass options to the language compiler, add them to the `jest.globals.vue-jest
 }
 ```
 
-### Supported style languages
+### Style languages
 
 - **stylus** (`lang="stylus"`, `lang="styl"`)
 - **sass** (`lang="sass"`)
