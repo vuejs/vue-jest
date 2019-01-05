@@ -71,27 +71,23 @@ You can change the behavior of `vue-jest` by using `jest.globals`.
 
 ### Supported template languages
 
-- **pug** (`lang="pug"`)
+vue-jest uses [consolidate](https://github.com/tj/consolidate.js/) to compile template languages.
 
-  - To give options for the Pug compiler, enter them into the Jest configuration.
-    The options will be passed to pug.compile().
+To pass options to the language compiler, add them to as vue-jest options:
 
-  ```json
-  {
-    "jest": {
-      "globals": {
-        "vue-jest": {
-          "pug": {
-            "basedir": "mybasedir"
-          }
+```json
+{
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "pug": {
+          "basedir": "mybasedir"
         }
       }
     }
   }
-  ```
-
-- **jade** (`lang="jade"`)
-- **haml** (`lang="haml"`)
+}
+```
 
 ### Supported style languages
 
