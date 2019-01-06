@@ -1,10 +1,17 @@
 const { spawnSync } = require('child_process')
 const path = require('path')
 const fs = require('fs-extra')
-const info = require('../lib/utils').info
-const success = require('../lib/utils').success
+const chalk = require('chalk')
 
 const IGNORE_FILES = ['.DS_Store']
+
+function success(msg) {
+  console.info(chalk.green('\n[vue-jest]: ' + msg + '\n'))
+}
+
+function info(msg) {
+  console.info(chalk.blue('\n[vue-jest]: ' + msg + '\n'))
+}
 
 function runTest(dir) {
   const resolvedPath = path.resolve(__dirname, '__projects__', dir)
