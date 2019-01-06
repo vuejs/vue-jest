@@ -18,7 +18,7 @@ function runTest(dir, i) {
       shell: true
     })
     if (status !== 0) {
-      throw new Error()
+      process.exit(status)
     }
   }
 
