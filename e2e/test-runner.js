@@ -6,7 +6,7 @@ const success = require('../lib/utils').success
 
 const IGNORE_FILES = ['.DS_Store']
 
-function runTest(dir, i) {
+function runTest(dir) {
   const resolvedPath = path.resolve(__dirname, '__projects__', dir)
 
   const run = command => {
