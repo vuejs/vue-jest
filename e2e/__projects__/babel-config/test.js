@@ -21,6 +21,7 @@ import PostCss from './components/PostCss.vue'
 import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import Jsx from './components/Jsx.vue'
+import Constructor from './components/Constructor.vue'
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
@@ -60,22 +61,27 @@ test('generates source maps using src attributes', () => {
 
 test('processes .vue file using jsx', () => {
   const wrapper = mount(Jsx)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
+})
+
+test('processes extended functions', () => {
+  const wrapper = mount(Constructor)
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes .vue file with lang set to coffee', () => {
   const wrapper = mount(Coffee)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes .vue file with lang set to coffeescript', () => {
   const wrapper = mount(CoffeeScript)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes .vue files with lang set to typescript', () => {
   const wrapper = mount(TypeScript)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes functional components', () => {
@@ -102,30 +108,30 @@ test('handles missing script block', () => {
 
 test('processes .vue file with jade template', () => {
   const wrapper = mount(Jade)
-  expect(wrapper.is('div')).toBe(true)
+  expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.classes()).toContain('jade')
 })
 
 it('processes Less', () => {
   const wrapper = mount(Less)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 it('processes PostCSS', () => {
   const wrapper = mount(PostCss)
-  expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes pug templates', () => {
   const wrapper = mount(Pug)
-  expect(wrapper.is('div')).toBe(true)
+  expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.classes()).toContain('pug-base')
   expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
 test('supports relative paths when extending templates from .pug files', () => {
   const wrapper = mount(PugRelative)
-  expect(wrapper.is('div')).toBe(true)
+  expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.find('.pug-relative-base').exists()).toBeTruthy()
 })
 

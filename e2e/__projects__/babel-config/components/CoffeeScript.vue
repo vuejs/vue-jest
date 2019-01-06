@@ -3,6 +3,6 @@
 </template>
 
 <script lang="coffeescript">
-module.exports =
+export default
     data: -> {}
 </script>
