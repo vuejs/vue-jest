@@ -20,6 +20,7 @@ import Less from './components/Less.vue'
 import PostCss from './components/PostCss.vue'
 import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
+import Jsx from './components/Jsx.vue'
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
@@ -55,6 +56,11 @@ test('generates source maps using src attributes', () => {
   })
 
   expect(code).toMatchSnapshot()
+})
+
+test('processes .vue file using jsx', () => {
+  const wrapper = mount(Jsx)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 test('processes .vue file with lang set to coffee', () => {
