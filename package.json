@@ -21,8 +21,7 @@
     "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
     "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
-    "release": "scripts/release.sh",
-    "release:note": "node scripts/gen-release-note.js",
+    "release": "semantic-release",
     "test": "npm run lint && npm run test:e2e",
     "test:e2e": "node e2e/test-runner"
   },
@@ -53,6 +52,7 @@
     "node-sass": "^4.7.2",
     "prettier": "^1.15.2",
     "pug": "^2.0.3",
+    "semantic-release": "^15.13.2",
     "stylus": "^0.54.5",
     "typescript": "^3.2.2",
     "vue": "^2.4.2",
