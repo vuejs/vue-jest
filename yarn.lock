@@ -2200,6 +2200,13 @@ eslint-plugin-standard@^4.0.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-4.0.0.tgz#f845b45109c99cd90e77796940a344546c8f6b5c"
   integrity sha512-OwxJkR6TQiYMmt1EsNRMe5qG3GsbjlcOhbGUBY4LtavF9DsLaTcoR+j2Tdjqi23oUwKNUqX7qcn5fPStafMdlA==
 
+eslint-plugin-vue@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-5.1.0.tgz#d0d373334be8140d698ec4e1fb83f09faa48081b"
+  integrity sha512-C7avvbGLb9J1PyGiFolPcGR4ljUc+dKm5ZJdrUKXwXFxHHx4SqOmRI29AsFyW7PbCGcnOvIlaq7NJS6HDIak+g==
+  dependencies:
+    vue-eslint-parser "^4.0.2"
+
 eslint-scope@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-4.0.0.tgz#50bf3071e9338bcdc43331794a0cb533f0136172"
@@ -2260,6 +2267,15 @@ eslint@^5.12.0:
     strip-json-comments "^2.0.1"
     table "^5.0.2"
     text-table "^0.2.0"
+
+espree@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-4.1.0.tgz#728d5451e0fd156c04384a7ad89ed51ff54eb25f"
+  integrity sha512-I5BycZW6FCVIub93TeVY1s7vjhP9CY6cXCznIRfiig7nRviKZYdRnj/sHEWC6A7WE9RDWOFq9+7OsWSYz8qv2w==
+  dependencies:
+    acorn "^6.0.2"
+    acorn-jsx "^5.0.0"
+    eslint-visitor-keys "^1.0.0"
 
 espree@^5.0.0:
   version "5.0.0"
@@ -6523,6 +6539,18 @@ void-elements@^2.0.1, void-elements@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
+vue-eslint-parser@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-4.0.3.tgz#80cf162e484387b2640371ad21ba1f86e0c10a61"
+  integrity sha512-AUeQsYdO6+7QXCems+WvGlrXd37PHv/zcRQSQdY1xdOMwdFAPEnMBsv7zPvk0TPGulXkK/5p/ITgrjiYB7k3ag==
+  dependencies:
+    debug "^4.1.0"
+    eslint-scope "^4.0.0"
+    eslint-visitor-keys "^1.0.0"
+    espree "^4.1.0"
+    esquery "^1.0.1"
+    lodash "^4.17.11"
 
 vue-template-compiler@^2.4.2:
   version "2.5.21"

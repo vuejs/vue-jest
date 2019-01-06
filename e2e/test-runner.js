@@ -1,12 +1,18 @@
 const { spawnSync } = require('child_process')
 const path = require('path')
 const fs = require('fs-extra')
+const info = require('../lib/utils').info
+const success = require('../lib/utils').success
 
-function runTest(dir) {
+const IGNORE_FILES = ['.DS_Store']
+
+function runTest(dir, i) {
+  const resolvedPath = path.resolve(__dirname, '__projects__', dir)
+
   const run = command => {
-    const [cmd, ...args] = command.split(' '[0])
+    const [cmd, ...args] = command.split(' ')
     const { status } = spawnSync(cmd, args, {
-      cwd: dir,
+      cwd: resolvedPath,
       env: { PATH: process.env.PATH },
       stdio: 'inherit',
       shell: true
@@ -16,20 +22,31 @@ function runTest(dir) {
     }
   }
 
-  fs.removeSync(`${dir}/node_modules`)
-  fs.removeSync(`${dir}/package-lock.json`)
+  const log = msg => info(`(${dir}) ${msg}`)
 
-  run('npm install')
+  log('Running tests')
+
+  log('Removing node_modules')
+  fs.removeSync(`${resolvedPath}/node_modules`)
+
+  log('Removing package-lock.json')
+  fs.removeSync(`${resolvedPath}/package-lock.json`)
+
+  log('Installing node_modules')
+  run('npm install --silent')
+
+  log('Running tests')
   run('npm run test')
+
+  success(`(${dir}) Complete`)
 }
 
 async function testRunner(dir) {
-  const directories = fs.readdirSync(path.resolve(__dirname, '__projects__'))
+  const directories = fs
+    .readdirSync(path.resolve(__dirname, '__projects__'))
+    .filter(d => !IGNORE_FILES.includes(d))
 
-  directories.forEach(directory => {
-    const resolvedPath = path.resolve(__dirname, '__projects__', directory)
-    runTest(path.resolve(__dirname, '__projects__', resolvedPath))
-  })
+  directories.forEach(runTest)
 }
 
 testRunner()
