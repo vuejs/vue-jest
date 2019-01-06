@@ -2,9 +2,8 @@
   "name": "vue-jest",
   "version": "3.0.0",
   "description": "Jest Vue transform",
-  "main": "vue-jest.js",
+  "main": "lib/index.js",
   "files": [
-    "vue-jest.js",
     "lib"
   ],
   "keywords": [
@@ -20,13 +19,12 @@
   ],
   "scripts": {
     "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
-    "lint": "eslint '{,!(node_modules|temp-dir)/**/}*.js'",
+    "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
-    "release": "build/release.sh",
-    "release:note": "node build/gen-release-note.js",
-    "test": "npm run lint && npm run test:unit",
-    "test:unit": "./test.sh",
-    "test:unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+    "release": "scripts/release.sh",
+    "release:note": "node scripts/gen-release-note.js",
+    "test": "npm run lint && npm run test:e2e",
+    "test:e2e": "node e2e/test-runner"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
@@ -36,17 +34,17 @@
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
-    "babel-plugin-istanbul": "^5.1.0",
-    "clear-module": "^2.1.0",
     "coffeescript": "^2.3.2",
     "conventional-changelog": "^1.1.5",
-    "eslint": "^5.9.0",
+    "eslint": "^5.12.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.1.0",
+    "fs-extra": "^7.0.1",
     "hamljs": "^0.6.2",
     "husky": "^1.1.4",
     "jade": "^1.11.0",
@@ -61,41 +59,19 @@
     "vue-template-compiler": "^2.4.2"
   },
   "peerDependencies": {
-    "babel-core": "^6.25.0 || ^7.x",
     "@babel/core": "7.x",
+    "babel-core": "^6.25.0 || ^7.x",
     "jest": "^23.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@vue/component-compiler-utils": "^2.3.0",
+    "@vue/component-compiler-utils": "^2.4.0",
     "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
     "source-map": "^0.5.6",
     "ts-jest": "^23.10.5"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "./vue-jest.js"
-    },
-    "moduleNameMapper": {
-      "^~?__root/(.*)$": "<rootDir>/$1",
-      "^~?__test/(.*)$": "<rootDir>/test/$1"
-    },
-    "globals": {
-      "vue-jest": {
-        "pug": {
-          "basedir": "test"
-        }
-      }
-    }
   },
   "repository": {
     "type": "git",
