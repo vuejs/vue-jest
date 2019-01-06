@@ -58,11 +58,13 @@ test('generates source maps using src attributes', () => {
 })
 
 test('processes .vue file with lang set to coffee', () => {
-  mount(Coffee)
+  const wrapper = mount(Coffee)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 test('processes .vue file with lang set to coffeescript', () => {
-  mount(CoffeeScript)
+  const wrapper = mount(CoffeeScript)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 test('processes .vue files with lang set to typescript', () => {
@@ -99,11 +101,13 @@ test('processes .vue file with jade template', () => {
 })
 
 it('processes Less', () => {
-  mount(Less)
+  const wrapper = mount(Less)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 it('processes PostCSS', () => {
-  mount(PostCss)
+  const wrapper = mount(PostCss)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 test('processes pug templates', () => {
@@ -139,5 +143,6 @@ it('processes SCSS', () => {
 })
 
 test('process Stylus', () => {
-  mount(Stylus)
+  const wrapper = mount(Stylus)
+  expect(wrapper.vm).toBeTruthy()
 })

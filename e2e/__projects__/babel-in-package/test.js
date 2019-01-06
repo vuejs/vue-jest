@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils'
 import TypeScript from './components/TypeScript.vue'
 import Basic from './components/Basic.vue'
 import Coffee from './components/Coffee.vue'
-import CoffeeScript from './components/CoffeeScript.vue'
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
@@ -10,11 +9,8 @@ test('processes .vue files', () => {
 })
 
 test('processes .vue file with lang set to coffee', () => {
-  mount(Coffee)
-})
-
-test('processes .vue file with lang set to coffeescript', () => {
-  mount(CoffeeScript)
+  const wrapper = mount(Coffee)
+  expect(wrapper.vm).toBeTruthy()
 })
 
 test('processes .vue files with lang set to typescript', () => {
