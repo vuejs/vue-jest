@@ -36,7 +36,7 @@ test('renders typescript syntax from <script>...</script>', () => {
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
   // istanbul causes filename to be undefined, resulting babel error
-  writeFileSync(babelRcPath, '{ "presets": ["@babel/env","@babel/typescript"], "plugins": ["istanbul"] }')
+  writeFileSync(babelRcPath, '{ "presets": ["@babel/env","@babel/typescript"], "plugins": ["@babel/transform-typescript","istanbul"] }')
   // babelVersion is not valid babel property, passing it to determine
   // which version of babel is used to transform in lib/compilers/babel-compiler
   // line 27

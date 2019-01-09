@@ -32,27 +32,28 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "@babel/preset-typescript": "7.0.0-beta.42",
-    "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-jest": "^23.6.0",
-    "babel-plugin-istanbul": "^5.1.0",
-    "babel-preset-env": "^1.7.0",
-    "clear-module": "^3.1.0",
-    "coffeescript": "^2.3.2",
-    "conventional-changelog": "^3.0.5",
+    "@babel/preset-typescript": "^7.1.0",
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clear-module": "^2.1.0",
+    "coffeescript": "^2.0.3",
+    "conventional-changelog": "^1.1.5",
     "eslint": "^4.3.0",
     "eslint-plugin-html": "^3.1.1",
     "eslint-plugin-vue": "^2.1.0",
     "eslint-plugin-vue-libs": "^1.2.0",
     "hamljs": "^0.6.2",
     "jade": "^1.11.0",
-    "jest": "^23.6.0",
-    "node-sass": "^4.11.0",
-    "pug": "^2.0.3",
+    "jest": "^20.0.4",
+    "node-sass": "^4.10.0",
+    "pug": "^2.0.0-rc.3",
     "stylus": "^0.54.5",
-    "typescript": "^3.2.2",
-    "vue": "^2.5.21",
-    "vue-template-compiler": "^2.5.21"
+    "typescript": "^2.5.2",
+    "vue": "^2.4.2",
+    "vue-template-compiler": "^2.4.2"
   },
   "peerDependencies": {
     "babel-core": "6.x || ^7.0.0-bridge.0",
@@ -60,19 +61,16 @@
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "chalk": "^2.4.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
     "find-babel-config": "^1.1.0",
-    "js-beautify": "^1.8.9",
-    "node-cache": "^4.2.0",
+    "js-beautify": "^1.6.14",
+    "node-cache": "^4.1.1",
     "object-assign": "^4.1.1",
     "source-map": "^0.5.6",
     "tsconfig": "^7.0.0",
     "vue-template-es2015-compiler": "^1.6.0"
-  },
-  "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -84,6 +82,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/vue-jest.js"
     },
+    "mapCoverage": true,
     "moduleNameMapper": {
       "^~?__root/(.*)$": "<rootDir>/$1",
       "^~?__test/(.*)$": "<rootDir>/test/$1"
