@@ -40,6 +40,12 @@
       "vue-jest": {
         "pug": {
           "basedir": "./"
+        },
+        "cssTransform": {
+          "scss": {
+            "post": "./cssPostTransform.js",
+            "pre": "./cssPreTransform.js"
+          }
         }
       }
     }

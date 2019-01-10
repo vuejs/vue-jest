@@ -13,3 +13,8 @@
 .d
   background-color: blue
 </style>
+
+<style lang="sass" module themed>
+.e
+  background-color: blue
+</style>

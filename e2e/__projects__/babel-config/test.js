@@ -145,6 +145,7 @@ it('processes Sass', () => {
   expect(wrapper.vm.$style.a).toEqual('a')
   expect(wrapper.vm.$style.b).toEqual('b')
   expect(wrapper.vm.$style.c).toEqual('c')
+  expect(wrapper.vm.$style.light).toBeUndefined()
 })
 
 it('processes SCSS', () => {
@@ -152,6 +153,21 @@ it('processes SCSS', () => {
   expect(wrapper.vm.$style.a).toEqual('a')
   expect(wrapper.vm.$style.b).toEqual('b')
   expect(wrapper.vm.$style.c).toEqual('c')
+})
+
+test('processes SCSS using user specified post transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.light.a).toBeUndefined()
+  expect(wrapper.vm.$style.light.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.g).toEqual('g')
+  expect(wrapper.html()).toMatchSnapshot()
+})
+
+test('processes SCSS using user specified pre transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.g).toEqual('g')
+  expect(wrapper.html()).toMatchSnapshot()
 })
 
 test('process Stylus', () => {
