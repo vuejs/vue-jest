@@ -25,6 +25,7 @@ import Constructor from './components/Constructor.vue'
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
+  expect(wrapper.vm.msg).toEqual('Welcome to Your Vue.js App')
   wrapper.vm.toggleClass()
 })
 
@@ -119,7 +120,9 @@ it('processes Less', () => {
 
 it('processes PostCSS', () => {
   const wrapper = mount(PostCss)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.is('section')).toBeTruthy()
+  expect(wrapper.vm.$style.red).toEqual('red')
+  expect(wrapper.html()).toMatchSnapshot()
 })
 
 test('processes pug templates', () => {
