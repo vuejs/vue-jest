@@ -1,18 +1,18 @@
 <template>
   <section>
-    <div :class="$style.testPcss"></div>
-    <div :class="$style.red"></div>
+    <div :class="$style.a"></div>
+    <div :class="$style.b"></div>
   </section>
 </template>
 
-<style lang="postcss">
-.testPcss {
+<style module lang="postcss">
+.a {
   background: color(purple a(90%));
 }
 </style>
 
 <style module lang="pcss">
-.red {
+.b {
   background: color(red a(90%));
 }
 </style>

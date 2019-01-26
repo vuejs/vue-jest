@@ -8,13 +8,14 @@ import PostCss from './components/PostCss.vue'
 test('processes Less', () => {
   const wrapper = mount(Less)
   expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.vm.$style.a).toEqual('a')
 })
 
 test('processes PostCSS', () => {
   const wrapper = mount(PostCss)
   expect(wrapper.is('section')).toBeTruthy()
-  expect(wrapper.vm.$style.red).toEqual('red')
-  expect(wrapper.html()).toMatchSnapshot()
+  expect(wrapper.vm.$style.a).toEqual('a')
+  expect(wrapper.vm.$style.b).toEqual('b')
 })
 
 test('processes Sass', () => {
@@ -35,4 +36,6 @@ test('processes SCSS with resources', () => {
 test('process Stylus', () => {
   const wrapper = mount(Stylus)
   expect(wrapper.vm).toBeTruthy()
+  expect(wrapper.vm.css.a).toEqual('a')
+  expect(wrapper.vm.$style.b).toEqual('b')
 })
