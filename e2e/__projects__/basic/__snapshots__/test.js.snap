@@ -140,9 +140,3 @@ __options__.staticRenderFns = staticRenderFns
 
 //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJhc2ljU3JjLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFQQTtBQVNBO0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSEE7QUFqQkEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCB7XG4gIG5hbWU6ICdiYXNpYycsXG4gIGNvbXB1dGVkOiB7XG4gICAgaGVhZGluZ0NsYXNzZXM6IGZ1bmN0aW9uIGhlYWRpbmdDbGFzc2VzKCkge1xuICAgICAgcmV0dXJuIHtcbiAgICAgICAgcmVkOiB0aGlzLmlzQ3JhenksXG4gICAgICAgIGJsdWU6ICF0aGlzLmlzQ3JhenksXG4gICAgICAgIHNoYWRvdzogdGhpcy5pc0NyYXp5XG4gICAgICB9XG4gICAgfVxuICB9LFxuICBkYXRhOiBmdW5jdGlvbiBkYXRhKCkge1xuICAgIHJldHVybiB7XG4gICAgICBtc2c6ICdXZWxjb21lIHRvIFlvdXIgVnVlLmpzIEFwcCcsXG4gICAgICBpc0NyYXp5OiBmYWxzZVxuICAgIH1cbiAgfSxcbiAgbWV0aG9kczoge1xuICAgIHRvZ2dsZUNsYXNzOiBmdW5jdGlvbiB0b2dnbGVDbGFzcygpIHtcbiAgICAgIHRoaXMuaXNDcmF6eSA9ICF0aGlzLmlzQ3JhenlcbiAgICB9XG4gIH1cbn1cbiJdfQ=="
 `;
-
-exports[`processes PostCSS 1`] = `"<section><div></div> <div class=\\"red\\"></div></section>"`;
-
-exports[`processes SCSS using user specified post transforms 1`] = `"<div class=\\"testA\\"><span class=\\"g\\"></span> <span class=\\"f\\"></span></div>"`;
-
-exports[`processes SCSS using user specified pre transforms 1`] = `"<div class=\\"testA\\"><span class=\\"g\\"></span> <span class=\\"f\\"></span></div>"`;
