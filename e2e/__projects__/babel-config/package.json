@@ -21,6 +21,8 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "jest": "^23.6.0",
     "node-sass": "^4.11.0",
+    "postcss": "^7.0.13",
+    "postcss-color-function": "^4.0.1",
     "vue-jest": "file:../../../"
   },
   "jest": {
@@ -40,6 +42,11 @@
       "vue-jest": {
         "pug": {
           "basedir": "./"
+        },
+        "transform": {
+          "^scss$": "./scssTransform.js",
+          "^pcss|postcss$": "./pcssTransform.js",
+          "^js$": "./babel-transformer.js"
         }
       }
     }

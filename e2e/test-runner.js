@@ -43,7 +43,7 @@ function runTest(dir) {
   run('npm install --silent')
 
   log('Running tests')
-  run('npm run test')
+   run('npm run test')
 
   success(`(${dir}) Complete`)
 }

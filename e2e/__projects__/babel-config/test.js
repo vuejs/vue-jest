@@ -25,6 +25,7 @@ import Constructor from './components/Constructor.vue'
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
+  expect(wrapper.vm.msg).toEqual('Welcome to Your Vue.js App')
   wrapper.vm.toggleClass()
 })
 
@@ -119,7 +120,9 @@ it('processes Less', () => {
 
 it('processes PostCSS', () => {
   const wrapper = mount(PostCss)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.is('section')).toBeTruthy()
+  expect(wrapper.vm.$style.red).toEqual('red')
+  expect(wrapper.html()).toMatchSnapshot()
 })
 
 test('processes pug templates', () => {
@@ -145,6 +148,7 @@ it('processes Sass', () => {
   expect(wrapper.vm.$style.a).toEqual('a')
   expect(wrapper.vm.$style.b).toEqual('b')
   expect(wrapper.vm.$style.c).toEqual('c')
+  expect(wrapper.vm.$style.light).toBeUndefined()
 })
 
 it('processes SCSS', () => {
@@ -152,6 +156,21 @@ it('processes SCSS', () => {
   expect(wrapper.vm.$style.a).toEqual('a')
   expect(wrapper.vm.$style.b).toEqual('b')
   expect(wrapper.vm.$style.c).toEqual('c')
+})
+
+test('processes SCSS using user specified post transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.light.a).toBeUndefined()
+  expect(wrapper.vm.$style.light.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.g).toEqual('g')
+  expect(wrapper.html()).toMatchSnapshot()
+})
+
+test('processes SCSS using user specified pre transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.g).toEqual('g')
+  expect(wrapper.html()).toMatchSnapshot()
 })
 
 test('process Stylus', () => {
