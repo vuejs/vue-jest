@@ -18,7 +18,7 @@
     "vue jest preprocessor"
   ],
   "scripts": {
-    "format": "prettier --no-semi --single-quote --write '{,!(node_modules)/**/}*.{js,json,md}'",
+    "format": "prettier --no-semi --single-quote --write '**/*.{js,json,md}'",
     "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
     "release": "semantic-release",
