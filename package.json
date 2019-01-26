@@ -19,10 +19,11 @@
   ],
   "scripts": {
     "format": "prettier --no-semi --single-quote --write '**/*.{js,json,md}'",
+    "format:check": "prettier --no-semi --single-quote --check '**/*.{js,json,md}'",
     "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint -- --fix",
     "release": "semantic-release",
-    "test": "npm run lint && npm run test:e2e",
+    "test": "npm run lint && npm run format:check && npm run test:e2e",
     "test:e2e": "node e2e/test-runner"
   },
   "author": "Edd Yerburgh",
@@ -51,7 +52,7 @@
     "less": "^3.9.0",
     "lint-staged": "^8.0.5",
     "node-sass": "^4.7.2",
-    "prettier": "^1.15.2",
+    "prettier": "^1.16.1",
     "pug": "^2.0.3",
     "semantic-release": "^15.13.2",
     "stylus": "^0.54.5",
