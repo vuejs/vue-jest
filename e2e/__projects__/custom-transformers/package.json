@@ -1,5 +1,5 @@
 {
-  "name": "babel-config",
+  "name": "custom-transformers",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,11 +15,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.0-beta.28",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "node-sass": "^4.11.0",
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
@@ -40,12 +36,9 @@
     },
     "globals": {
       "vue-jest": {
-        "pug": {
-          "basedir": "./"
-        },
         "transform": {
-          "^scss$": "./scssTransform.js",
-          "^pcss|postcss$": "./pcssTransform.js",
+          "^scss$": "./scss-transformer.js",
+          "^pcss|postcss$": "./pcss-transformer.js",
           "^js$": "./babel-transformer.js"
         }
       }

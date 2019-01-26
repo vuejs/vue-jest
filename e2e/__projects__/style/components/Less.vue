@@ -3,11 +3,7 @@
 </template>
 
 <style module lang="less">
-.testLess {
+.a {
   background-color: @primary-color;
 }
-</style>
-
-<style lang="less">
-@primary-color: #333;
 </style>

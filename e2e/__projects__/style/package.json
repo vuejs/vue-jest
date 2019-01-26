@@ -1,5 +1,5 @@
 {
-  "name": "babel-in-package",
+  "name": "style",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -16,6 +16,8 @@
     "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.0-beta.28",
     "jest": "^24.0.0",
+    "node-sass": "^4.11.0",
+    "postcss": "^7.0.13",
     "vue-jest": "file:../../../"
   },
   "jest": {
@@ -27,11 +29,21 @@
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest"
+    },
+    "moduleNameMapper": {
+      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
+    },
+    "globals": {
+      "vue-jest": {
+        "resources": {
+          "scss": [
+            "variables.scss"
+          ],
+          "less": [
+            "variables.less"
+          ]
+        }
+      }
     }
-  },
-  "babel": {
-    "presets": [
-      "@babel/env"
-    ]
   }
 }

@@ -1,11 +1,8 @@
 import { mount } from '@vue/test-utils'
 import TypeScript from './components/TypeScript.vue'
-import Stylus from './components/Stylus.vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 import jestVue from 'vue-jest'
-import Scss from './components/Scss.vue'
-import Sass from './components/Sass.vue'
 import RenderFunction from './components/RenderFunction.vue'
 import Jade from './components/Jade.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
@@ -16,8 +13,6 @@ import Coffee from './components/Coffee.vue'
 import CoffeeScript from './components/CoffeeScript.vue'
 import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
 import NoScript from './components/NoScript.vue'
-import Less from './components/Less.vue'
-import PostCss from './components/PostCss.vue'
 import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import Jsx from './components/Jsx.vue'
@@ -113,18 +108,6 @@ test('processes .vue file with jade template', () => {
   expect(wrapper.classes()).toContain('jade')
 })
 
-it('processes Less', () => {
-  const wrapper = mount(Less)
-  expect(wrapper.is('div')).toBeTruthy()
-})
-
-it('processes PostCSS', () => {
-  const wrapper = mount(PostCss)
-  expect(wrapper.is('section')).toBeTruthy()
-  expect(wrapper.vm.$style.red).toEqual('red')
-  expect(wrapper.html()).toMatchSnapshot()
-})
-
 test('processes pug templates', () => {
   const wrapper = mount(Pug)
   expect(wrapper.is('div')).toBeTruthy()
@@ -141,39 +124,4 @@ test('supports relative paths when extending templates from .pug files', () => {
 test('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
   expect(wrapper.is('section')).toBe(true)
-})
-
-it('processes Sass', () => {
-  const wrapper = mount(Sass)
-  expect(wrapper.vm.$style.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
-  expect(wrapper.vm.$style.c).toEqual('c')
-  expect(wrapper.vm.$style.light).toBeUndefined()
-})
-
-it('processes SCSS', () => {
-  const wrapper = mount(Scss)
-  expect(wrapper.vm.$style.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
-  expect(wrapper.vm.$style.c).toEqual('c')
-})
-
-test('processes SCSS using user specified post transforms', () => {
-  const wrapper = mount(Scss)
-  expect(wrapper.vm.$style.light.a).toBeUndefined()
-  expect(wrapper.vm.$style.light.f).toEqual('f')
-  expect(wrapper.vm.$style.dark.f).toEqual('f')
-  expect(wrapper.vm.$style.dark.g).toEqual('g')
-  expect(wrapper.html()).toMatchSnapshot()
-})
-
-test('processes SCSS using user specified pre transforms', () => {
-  const wrapper = mount(Scss)
-  expect(wrapper.vm.$style.g).toEqual('g')
-  expect(wrapper.html()).toMatchSnapshot()
-})
-
-test('process Stylus', () => {
-  const wrapper = mount(Stylus)
-  expect(wrapper.vm).toBeTruthy()
 })
