@@ -28,7 +28,7 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "babel-jest",
+      "^.+\\.js$": "./babel-transformer.js",
       "^.+\\.vue$": "vue-jest"
     },
     "moduleNameMapper": {
