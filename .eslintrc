@@ -4,6 +4,6 @@
     "vue"
   ],
   "extends": [
-    "plugin:vue-libs/recommended",
+    "plugin:vue-libs/recommended"
   ]
 }
