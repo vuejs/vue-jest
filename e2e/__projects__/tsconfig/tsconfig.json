@@ -1,0 +1,9 @@
+{
+  "extends": "./config/base-tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "es6"],
+    "moduleResolution": "node",
+    "types": ["vue-typescript-import-dts", "node"]
+  }
+}
