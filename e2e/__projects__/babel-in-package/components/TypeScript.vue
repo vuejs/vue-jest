@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import TypeScriptChild from './TypeScriptChild.vue'
-
 export default {
   computed: {
     exclamationMarks(): string {
