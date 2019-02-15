@@ -23,8 +23,9 @@
     "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
     "lint:fix": "npm run lint --fix",
     "release": "semantic-release",
-    "test": "npm run lint && npm run format:check && npm run test:e2e",
-    "test:e2e": "node e2e/test-runner"
+    "test": "npm run lint && npm run format:check && npm run test:e2e && npm run test:unit",
+    "test:e2e": "node e2e/test-runner",
+    "test:unit": "jest --no-cache --coverage"
   },
   "author": "Edd Yerburgh",
   "license": "MIT",
@@ -71,8 +72,7 @@
     "@vue/component-compiler-utils": "^2.4.0",
     "chalk": "^2.1.0",
     "extract-from-css": "^0.4.4",
-    "source-map": "^0.5.6",
-    "ts-jest": "^23.10.5"
+    "source-map": "^0.5.6"
   },
   "repository": {
     "type": "git",
@@ -87,6 +87,28 @@
     "*.{js,json,css,md,vue}": [
       "npm run format",
       "git add"
+    ]
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/e2e"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/e2e",
+      "<rootDir>/__mocks__"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
     ]
   }
 }

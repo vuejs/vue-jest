@@ -1,0 +1,3 @@
+{
+  "extends": "./__mocks__/tsconfig.json"
+}

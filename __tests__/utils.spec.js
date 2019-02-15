@@ -1,4 +1,5 @@
-import { getTSConfig } from 'vue-jest/lib/utils'
+import { getTSConfig } from '../lib/utils'
+import { resolve } from 'path'
 import ts from 'typescript'
 
 describe('tsconfig options', () => {
@@ -12,17 +13,6 @@ describe('tsconfig options', () => {
     const { compilerOptions } = getTSConfig()
     expect(compilerOptions.strictNullChecks).toBeTruthy()
     expect(compilerOptions.module).toBe(ts.ModuleKind.ES2015)
-  })
-
-  test('should read tsconfig from ts-jest when used in jest config', () => {
-    const { compilerOptions } = getTSConfig({
-      globals: {
-        'ts-jest': {
-          tsConfig: './tsconfig.json'
-        }
-      }
-    })
-    expect(compilerOptions.outDir).toBe('$$ts-jest$$')
   })
 
   test('should read from tsConfig object when specified in vue-jest config', () => {
@@ -44,7 +34,7 @@ describe('tsconfig options', () => {
     const { compilerOptions } = getTSConfig({
       globals: {
         'vue-jest': {
-          tsConfig: './config/base-tsconfig.json'
+          tsConfig: resolve(__dirname, '../__mocks__/config/base-tsconfig.json')
         }
       }
     })
