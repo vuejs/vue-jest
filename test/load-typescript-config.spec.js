@@ -87,7 +87,7 @@ describe('load-typescript-config.js', () => {
       }
       writeFileSync(tsConfigPath, JSON.stringify(config))
       const tsConfig = loadTypescriptConfig({
-        tsConfig: tsConfigPath
+        tsConfig: 'some-ts-config.json'
       })
       expect(tsConfig).toEqual(config)
     })
