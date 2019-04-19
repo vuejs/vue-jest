@@ -10,6 +10,14 @@ Jest Vue transformer with source map support
 npm install --save-dev vue-jest
 ```
 
+### Usage with Babel 7
+
+If you use the latest Version of [jest](https://github.com/facebook/jest) and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install the needed peer-dependency of `vue-jest`
+
+```bash
+npm install --save-dev babel-core@7.0.0-bridge.0
+```
+
 ## Setup
 
 To define `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
