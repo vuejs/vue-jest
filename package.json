@@ -46,7 +46,7 @@
     "jade": "^1.11.0",
     "jest": "^20.0.4",
     "node-sass": "^4.10.0",
-    "postcss-custom-properties": "^9.0.2",
+    "postcss-css-variables": "^0.13.0",
     "pug": "^2.0.0-rc.3",
     "stylus": "^0.54.5",
     "typescript": "^2.5.2",
