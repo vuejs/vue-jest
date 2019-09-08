@@ -87,6 +87,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eddyerburgh/vue-jest.git"
+    "url": "git+https://github.com/vuejs/vue-jest.git"
   }
 }
