@@ -15,7 +15,7 @@ npm install --save-dev vue-jest
 If you use the latest Version of [jest](https://github.com/facebook/jest) and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install the needed peer-dependency of `vue-jest`
 
 ```bash
-npm install --save-dev babel-core@7.0.0-bridge.0
+npm install --save-dev babel-core@bridge
 ```
 
 ## Setup
