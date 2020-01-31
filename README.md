@@ -12,7 +12,7 @@ npm install --save-dev vue-jest
 
 ### Usage with Babel 7
 
-If you use [jest](https://github.com/facebook/jest) < 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
+If you use [jest](https://github.com/facebook/jest) > 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
 
 ```bash
 npm install --save-dev babel-core@bridge
