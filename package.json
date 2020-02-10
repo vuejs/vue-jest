@@ -1,6 +1,6 @@
 {
   "name": "vue-jest",
-  "version": "3.0.4",
+  "version": "1.0.0",
   "description": "Jest Vue transform",
   "main": "vue-jest.js",
   "files": [
@@ -87,6 +87,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-jest.git"
+    "url": "git+https://github.com/robinwp/vue-jest.git"
   }
 }
