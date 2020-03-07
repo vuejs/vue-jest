@@ -51,24 +51,25 @@
     "jest": "^24.0.0",
     "less": "^3.9.0",
     "lint-staged": "^8.0.5",
-    "node-sass": "^4.7.2",
     "prettier": "^1.16.1",
     "pug": "^2.0.3",
     "semantic-release": "^15.13.2",
     "stylus": "^0.54.5",
     "typescript": "^3.2.2",
     "vue": "^2.4.2",
-    "vue-template-compiler": "^2.4.2"
+    "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
     "@babel/core": "7.x",
     "jest": "^24.x",
+    "node-sass": "^4.x",
+    "sass": "^1.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@vue/component-compiler-utils": "^2.4.0",
+    "@vue/component-compiler-utils": "^3.1.1",
     "chalk": "^2.1.0",
     "convert-source-map": "^1.6.0",
     "extract-from-css": "^0.4.4",
