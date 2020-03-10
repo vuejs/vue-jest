@@ -1,7 +1,8 @@
-import { mount } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import TypeScript from './components/TypeScript.vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
+import VueI18n from 'vue-i18n'
 import jestVue from 'vue-jest'
 import RenderFunction from './components/RenderFunction.vue'
 import Jade from './components/Jade.vue'
@@ -12,6 +13,10 @@ import { randomExport } from './components/NamedExport.vue'
 import Coffee from './components/Coffee.vue'
 import CoffeeScript from './components/CoffeeScript.vue'
 import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
+import I18nJSONInline from './components/I18nJSONInline.vue'
+import I18nJSONFromSrc from './components/I18nJSONFromSrc.vue'
+import I18nYamlInline from './components/I18nYamlInline.vue'
+import I18nMergingMultipleBlocks from './components/I18nMergingMultipleBlocks.vue'
 import NoScript from './components/NoScript.vue'
 import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
@@ -124,4 +129,43 @@ test('supports relative paths when extending templates from .pug files', () => {
 test('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
   expect(wrapper.is('section')).toBe(true)
+})
+
+describe('I18n Processor', () => {
+  const setup = (opts = { locale: 'en' }) => {
+    const localVue = createLocalVue()
+    localVue.use(VueI18n)
+    const i18n = new VueI18n(opts)
+    return { i18n, localVue }
+  }
+
+  test('processes SFC with i18n JSON inline custom block', () => {
+    const { i18n, localVue } = setup()
+    const wrapper = mount(I18nJSONInline, { i18n, localVue })
+    expect(wrapper.text()).toBe('Hello i18n in SFC!')
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('processes SFC with i18n JSON in external src attribute', () => {
+    const { i18n, localVue } = setup()
+    const wrapper = mount(I18nJSONFromSrc, { i18n, localVue })
+    expect(wrapper.text()).toBe('Hello i18n in SFC!')
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('processes SFC with i18n Yaml Inline', () => {
+    const { i18n, localVue } = setup()
+    const wrapper = mount(I18nYamlInline, { i18n, localVue })
+    expect(wrapper.text()).toBe('hello world!')
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('merges data blocks', () => {
+    const { i18n, localVue } = setup()
+    const wrapper = mount(I18nMergingMultipleBlocks, { i18n, localVue })
+    expect(wrapper.text()).toBe('hello world!')
+    expect(typeof wrapper.vm.$t('additionalKey')).toEqual('string')
+
+    expect(wrapper).toMatchSnapshot()
+  })
 })

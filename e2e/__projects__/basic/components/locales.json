@@ -1,0 +1,7 @@
+{
+  "en": {
+    "hello": "Hello i18n in SFC!",
+    "helloMultipleBlocks": "hello",
+    "additionalKey": "This is an additional key"
+  }
+}
