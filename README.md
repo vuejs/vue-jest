@@ -20,6 +20,7 @@ To define `vue-jest` as a transformer for your `.vue` files, map them to the `vu
     "transform": {
       "^.+\\.vue$": "vue-jest"
     }
+  }
 }
 ```
 
