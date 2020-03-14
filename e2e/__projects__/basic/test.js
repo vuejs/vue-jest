@@ -1,3 +1,4 @@
+import BasicSrc from './components/BasicSrc.vue'
 import Coffee from './components/Coffee.vue'
 import Basic from './components/Basic.vue'
 import TypeScript from './components/TypeScript.vue'
@@ -7,15 +8,17 @@ import { readFileSync } from 'fs'
 import RenderFunction from './components/RenderFunction.vue'
 import Jade from './components/Jade.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
-import BasicSrc from './components/BasicSrc.vue'
-// import { randomExport } from './components/NamedExport.vue'
 import CoffeeScript from './components/CoffeeScript.vue'
 import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
 import NoScript from './components/NoScript.vue'
 import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
-import Jsx from './components/Jsx.vue'
-import Constructor from './components/Constructor.vue'
+// TODO: Figure this out
+// import { randomExport } from './components/NamedExport.vue'
+// TODO: JSX for Vue 3? TSX?
+// import Jsx from './components/Jsx.vue'
+// TODO: Is Vue.extend even a thing anymore?
+// import Constructor from './components/Constructor.vue'
 
 const { createApp } = require('vue')
 
@@ -26,20 +29,17 @@ function mount(Component) {
   const app = createApp(Component).mount(el)
 }
 
-test('processes .vue files', () => {
-  const wrapper = mount(Basic)
-  console.log(document.body.outerHTML)
-  // expect(wrapper.vm.msg).toEqual('Welcome to Your Vue.js App')
-  // wrapper.vm.toggleClass()
+xtest('processes .vue files', () => {
+  mount(Basic)
+  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
 
-  /*
 test('processes .vue files with src attributes', () => {
-  const wrapper = mount(BasicSrc)
-  wrapper.vm.toggleClass()
+  mount(BasicSrc)
+  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
 
-test('handles named exports', () => {
+xtest('handles named exports', () => {
   expect(randomExport).toEqual(42)
 })
 
@@ -65,74 +65,73 @@ xtest('generates source maps using src attributes', () => {
   expect(code).toMatchSnapshot()
 })
 
-test('processes .vue file using jsx', () => {
+xtest('processes .vue file using jsx', () => {
   const wrapper = mount(Jsx)
   expect(wrapper.is('div')).toBeTruthy()
 })
 
-test('processes extended functions', () => {
+xtest('processes extended functions', () => {
   const wrapper = mount(Constructor)
   expect(wrapper.is('div')).toBeTruthy()
 })
 
 test('processes .vue file with lang set to coffee', () => {
-  const wrapper = mount(Coffee)
-  expect(wrapper.is('div')).toBeTruthy()
+  mount(Coffee)
+  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
 
 test('processes .vue file with lang set to coffeescript', () => {
-  const wrapper = mount(CoffeeScript)
-  expect(wrapper.is('div')).toBeTruthy()
+  mount(CoffeeScript)
+  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
 
 test('processes .vue files with lang set to typescript', () => {
   const wrapper = mount(TypeScript)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(document.querySelector('#parent').textContent).toBe('Parent')
+  expect(document.querySelector('#child').textContent).toBe('Child')
 })
 
-test('processes functional components', () => {
+// TODO: How do functional components work in Vue 3?
+xtest('processes functional components', () => {
   const clickSpy = jest.fn()
-  const wrapper = mount(FunctionalSFC, {
-    context: {
-      props: { msg: { id: 1, title: 'foo' }, onClick: clickSpy }
-    }
-  })
-  expect(wrapper.text().trim()).toBe('foo')
-  wrapper.trigger('click')
-  expect(clickSpy).toHaveBeenCalledWith(1)
+  mount(FunctionalSFC)
+  console.log(document.body.outerHTML)
+  //expect(wrapper.text().trim()).toBe('foo')
+  // expect(clickSpy).toHaveBeenCalledWith(1)
 })
 
-test('processes SFC with functional template from parent', () => {
-  const wrapper = mount(FunctionalSFCParent)
-  expect(wrapper.text().trim()).toBe('foo')
+// TODO: this one too
+xtest('processes SFC with functional template from parent', () => {
+  mount(FunctionalSFCParent)
+  expect(document.querySelector('div').textContent).toBe('foo')
+  // expect(wrapper.text().trim()).toBe('foo')
 })
 
 test('handles missing script block', () => {
-  const wrapper = mount(NoScript)
-  expect(wrapper.contains('footer'))
+  mount(NoScript)
+  expect(document.querySelector('.footer').textContent).toBe("I'm footer!")
 })
 
-test('processes .vue file with jade template', () => {
+xtest('processes .vue file with jade template', () => {
   const wrapper = mount(Jade)
   expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.classes()).toContain('jade')
 })
 
-test('processes pug templates', () => {
+xtest('processes pug templates', () => {
   const wrapper = mount(Pug)
   expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.classes()).toContain('pug-base')
   expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
-test('supports relative paths when extending templates from .pug files', () => {
+xtest('supports relative paths when extending templates from .pug files', () => {
   const wrapper = mount(PugRelative)
   expect(wrapper.is('div')).toBeTruthy()
   expect(wrapper.find('.pug-relative-base').exists()).toBeTruthy()
 })
 
-test('processes SFC with no template', () => {
+xtest('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
   expect(wrapper.is('section')).toBe(true)
 })
-*/
