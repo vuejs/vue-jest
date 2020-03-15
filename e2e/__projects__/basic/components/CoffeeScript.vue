@@ -1,5 +1,5 @@
 <template>
-  <div />
+  <h1>CoffeeScript</h1>
 </template>
 
 <script lang="coffeescript">

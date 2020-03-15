@@ -1,3 +1,4 @@
+import Pug from './components/Pug.vue'
 import BasicSrc from './components/BasicSrc.vue'
 import Coffee from './components/Coffee.vue'
 import Basic from './components/Basic.vue'
@@ -6,12 +7,10 @@ import { resolve } from 'path'
 import { readFileSync } from 'fs'
 // import jestVue from 'vue-jest'
 import RenderFunction from './components/RenderFunction.vue'
-import Jade from './components/Jade.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
 import CoffeeScript from './components/CoffeeScript.vue'
 import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
 import NoScript from './components/NoScript.vue'
-import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 // TODO: Figure this out
 // import { randomExport } from './components/NamedExport.vue'
@@ -23,13 +22,14 @@ import PugRelative from './components/PugRelativeExtends.vue'
 const { createApp } = require('vue')
 
 function mount(Component) {
+  document.getElementsByTagName('html')[0].innerHTML = ''
   const el = document.createElement('div')
   el.id = 'app'
   document.body.appendChild(el)
   const app = createApp(Component).mount(el)
 }
 
-xtest('processes .vue files', () => {
+test('processes .vue files', () => {
   mount(Basic)
   expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
@@ -77,12 +77,12 @@ xtest('processes extended functions', () => {
 
 test('processes .vue file with lang set to coffee', () => {
   mount(Coffee)
-  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
+  expect(document.querySelector('h1').textContent).toBe('Coffee')
 })
 
 test('processes .vue file with lang set to coffeescript', () => {
   mount(CoffeeScript)
-  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
+  expect(document.querySelector('h1').textContent).toBe('CoffeeScript')
 })
 
 test('processes .vue files with lang set to typescript', () => {
@@ -112,23 +112,18 @@ test('handles missing script block', () => {
   expect(document.querySelector('.footer').textContent).toBe("I'm footer!")
 })
 
-xtest('processes .vue file with jade template', () => {
-  const wrapper = mount(Jade)
-  expect(wrapper.is('div')).toBeTruthy()
-  expect(wrapper.classes()).toContain('jade')
+test('processes pug templates', () => {
+  mount(Pug)
+  expect(document.querySelector('.pug-base')).toBeTruthy()
+  expect(document.querySelector('.pug-extended')).toBeTruthy()
+  // expect(wrapper.is('div')).toBeTruthy()
+  // expect(wrapper.classes()).toContain('pug-base')
+  // expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
-xtest('processes pug templates', () => {
-  const wrapper = mount(Pug)
-  expect(wrapper.is('div')).toBeTruthy()
-  expect(wrapper.classes()).toContain('pug-base')
-  expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
-})
-
-xtest('supports relative paths when extending templates from .pug files', () => {
-  const wrapper = mount(PugRelative)
-  expect(wrapper.is('div')).toBeTruthy()
-  expect(wrapper.find('.pug-relative-base').exists()).toBeTruthy()
+test('supports relative paths when extending templates from .pug files', () => {
+  mount(PugRelative)
+  expect(document.querySelector('.pug-relative-base')).toBeTruthy()
 })
 
 xtest('processes SFC with no template', () => {

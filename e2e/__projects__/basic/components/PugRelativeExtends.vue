@@ -1,7 +1,7 @@
 <template lang="pug">
-  extends ./relative/PugRelativeBase.pug
-  block component
-    div(class="pug-extended")
+extends ./relative/PugRelativeBase.pug
+block component
+  div(class="pug-extended")
 </template>
 
 <script>
