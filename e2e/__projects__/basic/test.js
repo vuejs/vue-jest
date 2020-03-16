@@ -1,3 +1,5 @@
+import { h } from 'vue'
+
 import Pug from './components/Pug.vue'
 import BasicSrc from './components/BasicSrc.vue'
 import Coffee from './components/Coffee.vue'
@@ -16,17 +18,20 @@ import PugRelative from './components/PugRelativeExtends.vue'
 // import { randomExport } from './components/NamedExport.vue'
 // TODO: JSX for Vue 3? TSX?
 // import Jsx from './components/Jsx.vue'
-// TODO: Is Vue.extend even a thing anymore?
-// import Constructor from './components/Constructor.vue'
 
 const { createApp } = require('vue')
 
-function mount(Component) {
+function mount(Component, props, slots) {
   document.getElementsByTagName('html')[0].innerHTML = ''
   const el = document.createElement('div')
   el.id = 'app'
   document.body.appendChild(el)
-  const app = createApp(Component).mount(el)
+  const Parent = {
+    render() {
+      return h(Component, props, slots)
+    }
+  }
+  const app = createApp(Parent).mount(el)
 }
 
 test('processes .vue files', () => {
@@ -65,16 +70,6 @@ xtest('generates source maps using src attributes', () => {
   expect(code).toMatchSnapshot()
 })
 
-xtest('processes .vue file using jsx', () => {
-  const wrapper = mount(Jsx)
-  expect(wrapper.is('div')).toBeTruthy()
-})
-
-xtest('processes extended functions', () => {
-  const wrapper = mount(Constructor)
-  expect(wrapper.is('div')).toBeTruthy()
-})
-
 test('processes .vue file with lang set to coffee', () => {
   mount(Coffee)
   expect(document.querySelector('h1').textContent).toBe('Coffee')
@@ -85,26 +80,15 @@ test('processes .vue file with lang set to coffeescript', () => {
   expect(document.querySelector('h1').textContent).toBe('CoffeeScript')
 })
 
+test('processes SFC with no template', () => {
+  const wrapper = mount(RenderFunction, {}, { default: () => h('div', { id: 'slot' }) })
+  expect(document.querySelector('#slot')).toBeTruthy()
+})
+
 test('processes .vue files with lang set to typescript', () => {
   const wrapper = mount(TypeScript)
   expect(document.querySelector('#parent').textContent).toBe('Parent')
   expect(document.querySelector('#child').textContent).toBe('Child')
-})
-
-// TODO: How do functional components work in Vue 3?
-xtest('processes functional components', () => {
-  const clickSpy = jest.fn()
-  mount(FunctionalSFC)
-  console.log(document.body.outerHTML)
-  //expect(wrapper.text().trim()).toBe('foo')
-  // expect(clickSpy).toHaveBeenCalledWith(1)
-})
-
-// TODO: this one too
-xtest('processes SFC with functional template from parent', () => {
-  mount(FunctionalSFCParent)
-  expect(document.querySelector('div').textContent).toBe('foo')
-  // expect(wrapper.text().trim()).toBe('foo')
 })
 
 test('handles missing script block', () => {
@@ -116,9 +100,6 @@ test('processes pug templates', () => {
   mount(Pug)
   expect(document.querySelector('.pug-base')).toBeTruthy()
   expect(document.querySelector('.pug-extended')).toBeTruthy()
-  // expect(wrapper.is('div')).toBeTruthy()
-  // expect(wrapper.classes()).toContain('pug-base')
-  // expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
 test('supports relative paths when extending templates from .pug files', () => {
@@ -126,7 +107,21 @@ test('supports relative paths when extending templates from .pug files', () => {
   expect(document.querySelector('.pug-relative-base')).toBeTruthy()
 })
 
-xtest('processes SFC with no template', () => {
-  const wrapper = mount(RenderFunction)
-  expect(wrapper.is('section')).toBe(true)
+// TODO: How do functional components work in Vue 3?
+xtest('processes functional components', () => {
+  const clickSpy = jest.fn()
+  mount(FunctionalSFC)
 })
+
+// TODO: How do functional components work in Vue 3?
+xtest('processes SFC with functional template from parent', () => {
+  mount(FunctionalSFCParent)
+  expect(document.querySelector('div').textContent).toBe('foo')
+})
+
+// TODO: JSX in Vue 3?
+xtest('processes .vue file using jsx', () => {
+  const wrapper = mount(Jsx)
+  expect(document.querySelector('#jsx')).toBeTruthy()
+})
+

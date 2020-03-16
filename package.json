@@ -39,6 +39,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.8.7",
     "@vue/compiler-sfc": "3.0.0-alpha.8",
+    "pug": "^2.0.4",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3",
     "vue": "3.0.0-alpha.8"

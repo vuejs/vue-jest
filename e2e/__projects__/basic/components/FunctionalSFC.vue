@@ -3,3 +3,11 @@
     {{ props.msg.title }} <slot></slot>
   </div>
 </template>
+
+<script>
+export default {
+  setup(p, c) {
+    console.log(p, c)
+  }
+}
+</script>
