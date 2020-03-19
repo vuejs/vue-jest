@@ -63,10 +63,6 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 - **typescript** (`lang="ts"`, `lang="typescript"`)
 - **coffeescript** (`lang="coffee"`, `lang="coffeescript"`)
 
-### Natively Supported Vue custom blocks
-
-- **vue-i18n** (`<i18n lang="json">`, `<i18n lang="yaml">`)
-
 ### Global Jest options
 
 You can change the behavior of `vue-jest` by using `jest.globals`.
