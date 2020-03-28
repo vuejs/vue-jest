@@ -1,4 +1,4 @@
-import { h } from 'vue'
+const { createApp, h } = require('vue')
 
 import Pug from './components/Pug.vue'
 import BasicSrc from './components/BasicSrc.vue'
@@ -7,7 +7,7 @@ import Basic from './components/Basic.vue'
 import TypeScript from './components/TypeScript.vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
-// import jestVue from 'vue-jest'
+import jestVue from '../../../'
 import RenderFunction from './components/RenderFunction.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
 import CoffeeScript from './components/CoffeeScript.vue'
@@ -18,8 +18,6 @@ import PugRelative from './components/PugRelativeExtends.vue'
 // import { randomExport } from './components/NamedExport.vue'
 // TODO: JSX for Vue 3? TSX?
 // import Jsx from './components/Jsx.vue'
-
-const { createApp } = require('vue')
 
 function mount(Component, props, slots) {
   document.getElementsByTagName('html')[0].innerHTML = ''
@@ -48,7 +46,7 @@ xtest('handles named exports', () => {
   expect(randomExport).toEqual(42)
 })
 
-xtest('generates source maps for .vue files', () => {
+test.only('generates source maps for .vue files', () => {
   const filePath = resolve(__dirname, './components/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
@@ -56,7 +54,8 @@ xtest('generates source maps for .vue files', () => {
     moduleFileExtensions: ['js', 'vue']
   })
 
-  expect(code).toMatchSnapshot()
+  console.log(code)
+  // expect(code).toMatchSnapshot()
 })
 
 xtest('generates source maps using src attributes', () => {

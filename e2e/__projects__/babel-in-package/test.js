@@ -1,19 +1,35 @@
-import { mount } from '@vue/test-utils'
+const { createApp, h } = require('vue')
+
 import TypeScript from './components/TypeScript.vue'
 import Basic from './components/Basic.vue'
 import Coffee from './components/Coffee.vue'
 
+function mount(Component, props, slots) {
+  document.getElementsByTagName('html')[0].innerHTML = ''
+  const el = document.createElement('div')
+  el.id = 'app'
+  document.body.appendChild(el)
+  const Parent = {
+    render() {
+      return h(Component, props, slots)
+    }
+  }
+  const app = createApp(Parent).mount(el)
+}
+
+
 test('processes .vue files', () => {
-  const wrapper = mount(Basic)
-  wrapper.vm.toggleClass()
+  mount(Basic)
+  expect(document.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
 })
 
 test('processes .vue file with lang set to coffee', () => {
-  const wrapper = mount(Coffee)
-  expect(wrapper.vm).toBeTruthy()
+  mount(Coffee)
+  expect(document.querySelector('h1').textContent).toBe('Coffee')
 })
 
 test('processes .vue files with lang set to typescript', () => {
-  const wrapper = mount(TypeScript)
-  expect(wrapper.vm).toBeTruthy()
+  mount(TypeScript)
+  expect(document.querySelector('#parent').textContent).toBe('Parent')
+  expect(document.querySelector('#child').textContent).toBe('Child')
 })
