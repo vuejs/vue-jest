@@ -1,8 +1,9 @@
 <script>
+import { h } from 'vue'
 export default {
   name: 'RenderFunction',
-  render(createElement) {
-    return createElement('section', [this.$slots.default])
+  render() {
+    return h('section', this.$slots.default())
   }
 }
 </script>
