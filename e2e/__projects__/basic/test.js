@@ -15,8 +15,9 @@ import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
 import NoScript from './components/NoScript.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import { randomExport } from './components/NamedExport.vue'
+
 // TODO: JSX for Vue 3? TSX?
-// import Jsx from './components/Jsx.vue'
+import Jsx from './components/Jsx.vue'
 
 function mount(Component, props, slots) {
   document.getElementsByTagName('html')[0].innerHTML = ''
@@ -28,7 +29,7 @@ function mount(Component, props, slots) {
       return h(Component, props, slots)
     }
   }
-  const app = createApp(Parent).mount(el)
+  createApp(Parent).mount(el)
 }
 
 test('processes .vue files', () => {
@@ -82,16 +83,12 @@ test('processes .vue file with lang set to coffeescript', () => {
 })
 
 test('processes SFC with no template', () => {
-  const wrapper = mount(
-    RenderFunction,
-    {},
-    { default: () => h('div', { id: 'slot' }) }
-  )
+  mount(RenderFunction, {}, { default: () => h('div', { id: 'slot' }) })
   expect(document.querySelector('#slot')).toBeTruthy()
 })
 
 test('processes .vue files with lang set to typescript', () => {
-  const wrapper = mount(TypeScript)
+  mount(TypeScript)
   expect(document.querySelector('#parent').textContent).toBe('Parent')
   expect(document.querySelector('#child').textContent).toBe('Child')
 })
@@ -114,7 +111,7 @@ test('supports relative paths when extending templates from .pug files', () => {
 
 // TODO: How do functional components work in Vue 3?
 xtest('processes functional components', () => {
-  const clickSpy = jest.fn()
+  // const clickSpy = jest.fn()
   mount(FunctionalSFC)
 })
 
@@ -126,6 +123,6 @@ xtest('processes SFC with functional template from parent', () => {
 
 // TODO: JSX in Vue 3?
 xtest('processes .vue file using jsx', () => {
-  const wrapper = mount(Jsx)
+  mount(Jsx)
   expect(document.querySelector('#jsx')).toBeTruthy()
 })

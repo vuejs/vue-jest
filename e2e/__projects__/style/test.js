@@ -24,42 +24,42 @@ function mount(Component, props, slots) {
 
 xtest('processes Less', () => {
   mount(Less)
-  expect(wrapper.is('div')).toBeTruthy()
-  expect(wrapper.vm.$style.a).toEqual('a')
+  // expect(wrapper.is('div')).toBeTruthy()
+  // expect(wrapper.vm.$style.a).toEqual('a')
 })
 
 xtest('processes PostCSS', () => {
   mount(PostCss)
-  expect(wrapper.is('section')).toBeTruthy()
-  expect(wrapper.vm.$style.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
+  // expect(wrapper.is('section')).toBeTruthy()
+  // expect(wrapper.vm.$style.a).toEqual('a')
+  // expect(wrapper.vm.$style.b).toEqual('b')
 })
 
 xtest('processes Sass', () => {
   mount(Sass)
-  expect(wrapper.vm.$style.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
-  expect(wrapper.vm.$style.c).toEqual('c')
-  expect(wrapper.vm.$style.light).toBeUndefined()
+  // expect(wrapper.vm.$style.a).toEqual('a')
+  // expect(wrapper.vm.$style.b).toEqual('b')
+  // expect(wrapper.vm.$style.c).toEqual('c')
+  // expect(wrapper.vm.$style.light).toBeUndefined()
 })
 
 xtest('processes SCSS with resources', () => {
   mount(Scss)
-  expect(wrapper.vm.$style.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
-  expect(wrapper.vm.$style.c).toEqual('c')
+  // expect(wrapper.vm.$style.a).toEqual('a')
+  // expect(wrapper.vm.$style.b).toEqual('b')
+  // expect(wrapper.vm.$style.c).toEqual('c')
 })
 
 xtest('process Stylus', () => {
   mount(Stylus)
-  expect(wrapper.vm).toBeTruthy()
-  expect(wrapper.vm.css.a).toEqual('a')
-  expect(wrapper.vm.$style.b).toEqual('b')
+  // expect(wrapper.vm).toBeTruthy()
+  // expect(wrapper.vm.css.a).toEqual('a')
+  // expect(wrapper.vm.$style.b).toEqual('b')
 })
 
 xtest('process External', () => {
   mount(External)
-  expect(wrapper.vm).toBeTruthy()
-  expect(wrapper.vm.$style.xtestClass).toEqual('xtestClass')
-  expect(wrapper.vm.css.a).toEqual('a')
+  // expect(wrapper.vm).toBeTruthy()
+  // expect(wrapper.vm.$style.xtestClass).toEqual('xtestClass')
+  // expect(wrapper.vm.css.a).toEqual('a')
 })

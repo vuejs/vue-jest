@@ -1,6 +1,4 @@
 import { createApp, h } from 'vue'
-import { resolve } from 'path'
-import { readFileSync } from 'fs'
 
 import TypeScript from './components/TypeScript.vue'
 import Basic from './components/Basic.vue'
@@ -16,7 +14,7 @@ function mount(Component, props, slots) {
       return h(Component, props, slots)
     }
   }
-  const app = createApp(Parent).mount(el)
+  createApp(Parent).mount(el)
 }
 
 test('processes .vue files', () => {
@@ -32,7 +30,7 @@ test('processes .vue file with lang set to coffee', () => {
 })
 
 test('processes .vue files with lang set to typescript', () => {
-  const wrapper = mount(TypeScript)
+  mount(TypeScript)
   expect(document.querySelector('#parent').textContent).toBe('Parent')
   expect(document.querySelector('#child').textContent).toBe('Child')
 })
