@@ -7,16 +7,17 @@
   "scripts": {
     "test": "jest --no-cache --coverage test.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vue/compiler-sfc": "3.0.0-alpha.10",
+    "vue": "3.0.0-alpha.10"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "@vue/compiler-sfc": "3.0.0-alpha.10",
-    "jest": "^25.2.3",
+    "jest": "^24.0.0",
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
-    "sass": "^1.23.7",
-    "vue": "3.0.0-alpha.10"
+    "sass": "^1.23.7"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -26,7 +27,7 @@
     ],
     "transform": {
       "^.+\\.js$": "./babel-transformer.js",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "../../../lib"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
