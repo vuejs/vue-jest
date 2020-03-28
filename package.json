@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "@vue/compiler-sfc": "3.0.0-alpha.10",
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
@@ -57,18 +58,15 @@
     "semantic-release": "^15.13.2",
     "stylus": "^0.54.5",
     "typescript": "^3.2.2",
-    "vue": "^2.4.2",
-    "vue-template-compiler": "^2.4.2"
+    "vue": "3.0.0-alpha.10"
   },
   "peerDependencies": {
     "@babel/core": "7.x",
     "jest": "^24.x",
-    "vue": "^2.x",
-    "vue-template-compiler": "^2.x"
+    "vue": "^2.x"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@vue/component-compiler-utils": "^3.1.0",
     "chalk": "^2.1.0",
     "convert-source-map": "^1.6.0",
     "extract-from-css": "^0.4.4",
