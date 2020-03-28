@@ -1,4 +1,4 @@
-const { createApp, h } = require('vue')
+import { createApp, h } from 'vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
