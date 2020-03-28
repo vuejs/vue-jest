@@ -25,3 +25,4 @@ pids
 *.pid.lock
 
 package-lock.json
+yarn-error.log
