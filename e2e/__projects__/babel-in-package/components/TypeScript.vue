@@ -1,17 +1,18 @@
 <template>
   <div>
-    {{ exclamationMarks }}
+    <div id="parent">
+      {{ exclamationMarks }}
+    </div>
     <type-script-child />
   </div>
 </template>
 
 <script lang="ts">
 import TypeScriptChild from './TypeScriptChild.vue'
-
 export default {
   computed: {
     exclamationMarks(): string {
-      return 'string'
+      return 'Parent'
     }
   },
   components: {

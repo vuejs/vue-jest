@@ -1,12 +1,12 @@
 <template>
-  <div>{{ exclamationMarks }}</div>
+  <div id="child">{{ exclamationMarks }}</div>
 </template>
 
 <script lang="ts">
 export default {
   computed: {
     exclamationMarks(): string {
-      return 'string'
+      return 'Child'
     }
   }
 }
