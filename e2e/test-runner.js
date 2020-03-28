@@ -36,14 +36,14 @@ function runTest(dir) {
   log('Removing node_modules')
   fs.removeSync(`${resolvedPath}/node_modules`)
 
-  log('Removing package-lock.json')
-  fs.removeSync(`${resolvedPath}/package-lock.json`)
+  log('Removing yarn-lock.json')
+  fs.removeSync(`${resolvedPath}/yarn-lock.json`)
 
   log('Installing node_modules')
-  run('npm install --silent')
+  run('yarn install --silent')
 
   log('Running tests')
-  run('npm run test')
+  run('yarn test')
 
   success(`(${dir}) Complete`)
 }
