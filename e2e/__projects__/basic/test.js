@@ -58,7 +58,7 @@ test('handles named exports', () => {
   expect(randomExport).toEqual(42)
 })
 
-xtest('generates source maps for .vue files', () => {
+test('generates source maps for .vue files', () => {
   const filePath = resolve(__dirname, './components/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
