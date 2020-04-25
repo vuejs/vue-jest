@@ -6,7 +6,7 @@
 export default {
   computed: {
     exclamationMarks(): string {
-      return {}
+      return 'string'
     }
   }
 }
