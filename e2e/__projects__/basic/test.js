@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils'
-import TypeScript from './components/TypeScript.vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
-import jestVue from 'vue-jest'
+
+import jestVue from '../../../'
+import TypeScript from './components/TypeScript.vue'
 import RenderFunction from './components/RenderFunction.vue'
 import Jade from './components/Jade.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
@@ -17,6 +18,30 @@ import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import Jsx from './components/Jsx.vue'
 import Constructor from './components/Constructor.vue'
+
+const originalWarn = console.warn
+afterEach(() => (console.warn = originalWarn))
+let consoleOutput = []
+const mockedWarn = output => consoleOutput.push(output)
+beforeEach(() => (console.warn = mockedWarn))
+
+test('shows ts diagnostic errors', () => {
+  const filePath = resolve(__dirname, './components/TsWithError.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+
+  const result = jestVue.process(fileString, filePath, {
+    moduleFileExtensions: ['js', 'vue', 'ts'],
+    globals: {
+      'vue-jest': {
+        enableExperimentalTsDiagnostics: true
+      }
+    }
+  })
+
+  expect(consoleOutput[0]).toContain(
+    `TsWithError.vue (8,11): Type '{}' is not assignable to type 'string'`
+  )
+})
 
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
@@ -33,7 +58,7 @@ test('handles named exports', () => {
   expect(randomExport).toEqual(42)
 })
 
-test('generates source maps for .vue files', () => {
+xtest('generates source maps for .vue files', () => {
   const filePath = resolve(__dirname, './components/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 

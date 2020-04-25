@@ -19,7 +19,7 @@
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "jest": "^24.0.0",
-    "vue-jest": "file:../../../"
+    "vue-jest": "../../../"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -29,13 +29,14 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "../../../"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
     },
     "globals": {
       "vue-jest": {
+        "enableExperimentalTsDiagnostics": true,
         "pug": {
           "basedir": "./"
         }
