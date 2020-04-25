@@ -29,7 +29,7 @@ test('shows ts diagnostic errors', () => {
   const filePath = resolve(__dirname, './components/TsWithError.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
-  const result = jestVue.process(fileString, filePath, {
+  jestVue.process(fileString, filePath, {
     moduleFileExtensions: ['js', 'vue', 'ts'],
     globals: {
       'vue-jest': {
