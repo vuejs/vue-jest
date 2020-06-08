@@ -2,20 +2,12 @@
 
 Jest Vue transformer with source map support
 
-> **NOTE:** This is documentation for `vue-jest@3.x`. [View the vue-jest@2.x documentation](https://github.com/vuejs/vue-jest/tree/e694fc7ce11ae1ac1c778ed7c4402515c5f0d5aa)
+> **NOTE:** This is documentation for `vue-jest@4.x`. [View the vue-jest@3.x documentation](https://github.com/vuejs/vue-jest/tree/v3)
 
 ## Usage
 
 ```bash
 npm install --save-dev vue-jest
-```
-
-### Usage with Babel 7
-
-If you use [jest](https://github.com/facebook/jest) < 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
-
-```bash
-npm install --save-dev babel-core@bridge
 ```
 
 ## Setup
@@ -28,6 +20,7 @@ To define `vue-jest` as a transformer for your `.vue` files, map them to the `vu
     "transform": {
       "^.+\\.vue$": "vue-jest"
     }
+  }
 }
 ```
 
@@ -44,8 +37,6 @@ A full config will look like this.
   }
 }
 ```
-
-If you're on a version of Jest older than 22.4.0, you need to set `mapCoverage` to `true` in order to use source maps.
 
 ## Example Projects
 

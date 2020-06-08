@@ -48,7 +48,7 @@
     "hamljs": "^0.6.2",
     "husky": "^1.1.4",
     "jade": "^1.11.0",
-    "jest": "^24.0.0",
+    "jest": "^25.1.0",
     "less": "^3.9.0",
     "lint-staged": "^8.0.5",
     "prettier": "^1.16.1",
@@ -62,7 +62,7 @@
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "jest": "^24.x",
+    "jest": "^25.x",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
@@ -73,7 +73,7 @@
     "convert-source-map": "^1.6.0",
     "extract-from-css": "^0.4.4",
     "source-map": "0.5.6",
-    "ts-jest": "^24.0.0"
+    "ts-jest": "^25.2.1"
   },
   "repository": {
     "type": "git",
