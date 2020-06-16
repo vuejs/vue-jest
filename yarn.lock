@@ -5675,6 +5675,13 @@ merge2@^1.2.3, merge2@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
 
+micromatch@4.x, micromatch@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
+  dependencies:
+    braces "^3.0.1"
+    picomatch "^2.0.5"
+
 micromatch@^2.3.11:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -5710,13 +5717,6 @@ micromatch@^3.1.4, micromatch@^3.1.8:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
-
-micromatch@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
-  dependencies:
-    braces "^3.0.1"
-    picomatch "^2.0.5"
 
 mime-db@1.43.0:
   version "1.43.0"
@@ -7360,16 +7360,16 @@ resolve@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-resolve@1.x, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1:
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8"
-  dependencies:
-    path-parse "^1.0.6"
-
 resolve@^1.1.6, resolve@^1.3.2, resolve@^1.8.1:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.9.0.tgz#a14c6fdfa8f92a7df1d996cb7105fa744658ea06"
   integrity sha512-TZNye00tI67lwYvzxCxHGjwTNlUV70io54/Ed4j6PscB8xVfuBJpRenI/o6dVk0cY0PYTY27AgCoGGxRnYuItQ==
+  dependencies:
+    path-parse "^1.0.6"
+
+resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8"
   dependencies:
     path-parse "^1.0.6"
 
@@ -7545,18 +7545,18 @@ semver-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-2.0.0.tgz#a93c2c5844539a770233379107b38c7b4ac9d338"
 
-"semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.1:
+"semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
+
+semver@6.x, semver@^6.0.0, semver@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
+  integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 semver@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
-
-semver@^6.0.0, semver@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
-  integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 semver@^7.1.1:
   version "7.1.3"
@@ -8309,10 +8309,10 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-ts-jest@^25.2.1:
-  version "25.2.1"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-25.2.1.tgz#49bf05da26a8b7fbfbc36b4ae2fcdc2fef35c85d"
-  integrity sha512-TnntkEEjuXq/Gxpw7xToarmHbAafgCaAzOpnajnFC6jI7oo1trMzAHA04eWpc3MhV6+yvhE8uUBAmN+teRJh0A==
+ts-jest@25.5.x:
+  version "25.5.1"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-25.5.1.tgz#2913afd08f28385d54f2f4e828be4d261f4337c7"
+  integrity sha512-kHEUlZMK8fn8vkxDjwbHlxXRB9dHYpyzqKIGDNxbzs+Rz+ssNDSDNusEK8Fk/sDd4xE6iKoQLfFkFVaskmTJyw==
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
@@ -8320,10 +8320,10 @@ ts-jest@^25.2.1:
     json5 "2.x"
     lodash.memoize "4.x"
     make-error "1.x"
+    micromatch "4.x"
     mkdirp "0.x"
-    resolve "1.x"
-    semver "^5.5"
-    yargs-parser "^16.1.0"
+    semver "6.x"
+    yargs-parser "18.x"
 
 tslib@^1.10.0, tslib@^1.9.0:
   version "1.11.1"
@@ -8838,19 +8838,19 @@ yaml@^1.7.2:
   dependencies:
     "@babel/runtime" "^7.8.7"
 
+yargs-parser@18.x:
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
+  integrity sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
+
 yargs-parser@^10.0.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-10.1.0.tgz#7202265b89f7e9e9f2e5765e0fe735a905edbaa8"
   dependencies:
     camelcase "^4.1.0"
-
-yargs-parser@^16.1.0:
-  version "16.1.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-16.1.0.tgz#73747d53ae187e7b8dbe333f95714c76ea00ecf1"
-  integrity sha512-H/V41UNZQPkUMIT5h5hiwg4QKIY1RPvoBV4XcjUbRM8Bk2oKqqyZ0DIEbTFZB0XjbtSPG8SAa/0DxCQmiRgzKg==
-  dependencies:
-    camelcase "^5.0.0"
-    decamelize "^1.2.0"
 
 yargs-parser@^18.1.0:
   version "18.1.0"
