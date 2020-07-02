@@ -8,8 +8,9 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import TypeScriptChild from './TypeScriptChild.vue'
-export default {
+export default defineComponent({
   computed: {
     exclamationMarks(): string {
       return 'Parent'
@@ -18,5 +19,5 @@ export default {
   components: {
     TypeScriptChild
   }
-}
+})
 </script>
