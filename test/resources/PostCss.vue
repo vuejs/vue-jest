@@ -1,10 +1,16 @@
 <template>
-  <div class="testPcss"></div>
+  <div class="testPcss">
+    <span class="nestedCom"></span>
+  </div>
 </template>
 
 <style lang="postcss">
   .testPcss {
     background-color: purple;
+
+    & .nestedCom {
+      background-color: purple;
+    }
   }
 </style>
 
