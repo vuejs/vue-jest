@@ -1,6 +1,6 @@
 # vue-jest
 
-Jest Vue transformer with source map support
+Jest transformer for Vue single file components
 
 > **NOTE:** This is documentation for `vue-jest@4.x`. [View the vue-jest@3.x documentation](https://github.com/vuejs/vue-jest/tree/v3)
 
@@ -8,11 +8,12 @@ Jest Vue transformer with source map support
 
 ```bash
 npm install --save-dev vue-jest
+yarn add vue-jest --dev
 ```
 
 ## Setup
 
-To define `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
+To use `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
 
 ```json
 {
@@ -38,16 +39,15 @@ A full config will look like this.
 }
 ```
 
-## Example Projects
+## Examples
 
 Example repositories testing Vue components with jest and vue-jest:
 
-- [Avoriaz with Jest](https://github.com/eddyerburgh/avoriaz-jest-example)
 - [Vue Test Utils with Jest](https://github.com/eddyerburgh/vue-test-utils-jest-example)
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS, SASS and Stylus are the only style languages that are compiled**.
+vue-jest compiles `<script />`, `<template />`, and `<style />` blocks with supported `lang` attributes into JavaScript that Jest can run.
 
 ### Supported script languages
 
