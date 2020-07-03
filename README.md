@@ -11,6 +11,15 @@ npm install --save-dev vue-jest
 yarn add vue-jest --dev
 ```
 
+### Usage with Babel 7
+
+If you use [jest](https://github.com/facebook/jest) > 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
+
+```bash
+npm install --save-dev babel-core@bridge
+yarn add babel-core@bridge --dev
+```
+
 ## Setup
 
 To use `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
