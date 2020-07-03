@@ -1,13 +1,14 @@
 # vue-jest
 
-Jest Vue transformer with source map support
+Jest transformer for Vue single file components
 
-> **NOTE:** This is documentation for `vue-jest@3.x`. [View the vue-jest@2.x documentation](https://github.com/vuejs/vue-jest/tree/e694fc7ce11ae1ac1c778ed7c4402515c5f0d5aa)
+> **NOTE:** This is documentation for `vue-jest@4.x`. [View the vue-jest@3.x documentation](https://github.com/vuejs/vue-jest/tree/v3)
 
 ## Usage
 
 ```bash
 npm install --save-dev vue-jest
+yarn add vue-jest --dev
 ```
 
 ### Usage with Babel 7
@@ -16,11 +17,12 @@ If you use [jest](https://github.com/facebook/jest) > 24.0.0 and [babel-jest](ht
 
 ```bash
 npm install --save-dev babel-core@bridge
+yarn add babel-core@bridge --dev
 ```
 
 ## Setup
 
-To define `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
+To use `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
 
 ```json
 {
@@ -28,6 +30,7 @@ To define `vue-jest` as a transformer for your `.vue` files, map them to the `vu
     "transform": {
       "^.+\\.vue$": "vue-jest"
     }
+  }
 }
 ```
 
@@ -45,18 +48,15 @@ A full config will look like this.
 }
 ```
 
-If you're on a version of Jest older than 22.4.0, you need to set `mapCoverage` to `true` in order to use source maps.
-
-## Example Projects
+## Examples
 
 Example repositories testing Vue components with jest and vue-jest:
 
-- [Avoriaz with Jest](https://github.com/eddyerburgh/avoriaz-jest-example)
 - [Vue Test Utils with Jest](https://github.com/eddyerburgh/vue-test-utils-jest-example)
 
 ## Supported langs
 
-vue-jest compiles the script and template of SFCs into a JavaScript file that Jest can run. **Currently, SCSS, SASS and Stylus are the only style languages that are compiled**.
+vue-jest compiles `<script />`, `<template />`, and `<style />` blocks with supported `lang` attributes into JavaScript that Jest can run.
 
 ### Supported script languages
 
@@ -67,7 +67,64 @@ vue-jest compiles the script and template of SFCs into a JavaScript file that Je
 
 You can change the behavior of `vue-jest` by using `jest.globals`.
 
+#### Supporting custom blocks
+
+A great feature of the Vue SFC compiler is that it can support custom blocks. You might want to use those blocks in your tests. To render out custom blocks for testing purposes, you'll need to write a transformer. Once you have your transformer, you'll add an entry to vue-jest's transform map. This is how [vue-i18n's](https://github.com/kazupon/vue-i18n) `<i18n>` custom blocks are supported in unit tests.
+
+A `package.json` Example
+
+```json
+{
+  "jest": {
+    "moduleFileExtensions": ["js", "json", "vue"],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue-jest"
+    },
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "your-custom-block": "./custom-block-processor.js"
+        }
+      }
+    }
+  }
+}
+```
+
 > _Tip:_ Need programmatic configuration? Use the [--config](https://jestjs.io/docs/en/cli.html#config-path) option in Jest CLI, and export a `.js` file
+
+A `jest.config.js` Example - If you're using a dedicated configuration file like you can reference and require your processor in the config file instead of using a file reference.
+
+```js
+module.exports = {
+  globals: {
+    'vue-jest': {
+      transform: {
+        'your-custom-block': require('./custom-block-processor')
+      }
+    }
+  }
+}
+```
+
+#### Writing a processor
+
+Processors must return an object with a "process" method, like so...
+
+```js
+module.exports = {
+  /**
+   * Process the content inside of a custom block and prepare it for execution in a testing environment
+   * @param {SFCCustomBlock[]} blocks All of the blocks matching your type, returned from `@vue/component-compiler-utils`
+   * @param {string} vueOptionsNamespace The internal namespace for a component's Vue Options in vue-jest
+   * @param {string} filename The SFC file being processed
+   * @param {Object} config The full Jest config
+   * @returns {string} The code to be output after processing all of the blocks matched by this type
+   */
+  process(blocks, vueOptionsNamepsace, filename, config) {}
+}
+```
 
 #### babelConfig
 

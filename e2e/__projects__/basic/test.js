@@ -6,6 +6,7 @@ import jestVue from 'vue-jest'
 import RenderFunction from './components/RenderFunction.vue'
 import Jade from './components/Jade.vue'
 import FunctionalSFC from './components/FunctionalSFC.vue'
+import FunctionalSFCRender from './components/FunctionalSFCRender.vue'
 import Basic from './components/Basic.vue'
 import BasicSrc from './components/BasicSrc.vue'
 import { randomExport } from './components/NamedExport.vue'
@@ -90,6 +91,12 @@ test('processes functional components', () => {
   expect(wrapper.text().trim()).toBe('foo')
   wrapper.trigger('click')
   expect(clickSpy).toHaveBeenCalledWith(1)
+})
+
+test('processes functional components using render function', () => {
+  const wrapper = mount(FunctionalSFCRender)
+  const CSS_CLASSES = ['ModuleClass']
+  expect(wrapper.classes().toString()).toBe(CSS_CLASSES.toString())
 })
 
 test('processes SFC with functional template from parent', () => {

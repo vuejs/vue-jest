@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.10
+      - image: circleci/node:10.16.3
 
     working_directory: ~/repo
 
@@ -12,16 +12,16 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - node-8-dependencies-{{ checksum "package.json" }}
+          - node-10-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
-          - node-8-dependencies-
+          - node-10-dependencies-
 
       - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
-          key: node-8-dependencies-{{ checksum "package.json" }}
+          key: node-10-dependencies-{{ checksum "package.json" }}
 
       # run tests!
       - run: npm run test
