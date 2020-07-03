@@ -261,6 +261,7 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
       }
     }
     ```
+- **postcss** (`lang="pcss"`, `lang="postcss"`)
 
 ## CSS options
 
