@@ -30,6 +30,7 @@
       "^.+\\.vue$": "vue-jest"
     },
     "moduleNameMapper": {
+      "^~tmp/(.*)": "/tmp/$1",
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
     },
     "globals": {
