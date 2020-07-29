@@ -4,6 +4,7 @@
 
 <style lang="scss" module>
 @import '~__styles/scss-a';
+@import '~vue-jest-test/partial.scss';
 
 .c {
   background-color: $primary-color;
