@@ -298,11 +298,23 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
 ### Supported style languages
 
 - **stylus** (`lang="stylus"`, `lang="styl"`)
-- **sass** (`lang="sass"`)
-  - The SASS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
+- **sass** (`lang="sass"`), and
 - **scss** (`lang="scss"`)
 
-  - The SCSS compiler supports jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases.
+  - The Sass compiler supports Jest's [moduleNameMapper](https://facebook.github.io/jest/docs/en/configuration.html#modulenamemapper-object-string-string) which is the suggested way of dealing with Webpack aliases. Webpack's `sass-loader` uses a [special syntax](https://github.com/webpack-contrib/sass-loader/blob/v9.0.2/README.md#resolving-import-at-rules) for indicating non-relative imports, so you'll likely need to copy this syntax into your `moduleNameMapper` entries if you make use of it. For aliases of bare imports (imports that require node module resolution), the aliased value must also be prepended with this `~` or `vue-jest`'s custom resolver won't recognize it.
+    ```json
+    {
+      "jest": {
+        "moduleNameMapper": {
+          "^~foo/(.*)": "<rootDir>/foo/$1",
+          // @import '~foo'; -> @import 'path/to/project/foo';
+          "^~bar/(.*)": "~baz/lib/$1"
+          // @import '~bar/qux'; -> @import 'path/to/project/node_modules/baz/lib/qux';
+          // Notice how the tilde (~) was needed on the bare import to baz.
+        }
+      }
+    }
+    ```
   - To import globally included files (ie. variables, mixins, etc.), include them in the Jest configuration at `jest.globals['vue-jest'].resources.scss`:
 
     ```json
