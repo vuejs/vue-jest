@@ -65,7 +65,7 @@
     "babel-jest": ">= 24 < 27",
     "jest": ">= 24 < 27 ",
     "ts-jest": ">= 24 < 27 ",
-    "vue": "^2.x"
+    "vue": "^3.0.0-0"
   },
   "peerDependenciesMeta": {
     "ts-jest": {
