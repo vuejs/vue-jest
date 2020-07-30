@@ -63,7 +63,7 @@
   "peerDependencies": {
     "@babel/core": "7.x",
     "jest": "^24.x",
-    "vue": "^2.x"
+    "vue": "^3.0.0-0"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
