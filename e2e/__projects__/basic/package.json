@@ -10,8 +10,7 @@
   "devDependencies": {
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "jest": "^24.0.0"
+    "babel-plugin-transform-vue-jsx": "^3.7.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -22,9 +21,6 @@
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "../../../lib/index.js"
-    },
-    "moduleNameMapper": {
-      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
     },
     "globals": {
       "vue-jest": {

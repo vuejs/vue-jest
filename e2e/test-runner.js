@@ -44,20 +44,6 @@ function runTest(dir) {
     run('yarn install --silent --no-lockfile')
   }
 
-  // For tests that need vue-jest to successfully `require.resolve()` a file in
-  // the project directory's node_modules, we can't symlink vue-jest from a
-  // parent directory (as node module resolution walks up the file tree,
-  // starting from the realpath of the caller), we must copy it.
-  if (
-    !fs.existsSync(`${resolvedPath}/node_modules/vue-jest`) ||
-    !fs.lstatSync(`${resolvedPath}/node_modules/vue-jest`).isSymbolicLink()
-  ) {
-    log('Copying vue-jest into node_modules')
-    fs.mkdirSync(`${resolvedPath}/node_modules/vue-jest`, { recursive: true })
-    run(`cp ${cwd}/package.json node_modules/vue-jest/`)
-    run(`cp -r ${cwd}/lib node_modules/vue-jest/`)
-  }
-
   log('Running tests')
   run('yarn test')
 
