@@ -40,11 +40,8 @@ function runTest(dir) {
     log('Removing node_modules')
     fs.removeSync(`${resolvedPath}/node_modules`)
 
-    log('Removing yarn-lock.json')
-    fs.removeSync(`${resolvedPath}/yarn-lock.json`)
-
     log('Installing node_modules')
-    run('yarn install --silent')
+    run('yarn install --silent --no-lockfile')
   }
 
   // For tests that need vue-jest to successfully `require.resolve()` a file in
