@@ -34,7 +34,7 @@
     "@vue/compiler-sfc": "3.0.0-alpha.10",
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.9.0",
     "coffeescript": "^2.3.2",
     "conventional-changelog": "^1.1.5",
     "eslint": "^5.12.0",
@@ -62,8 +62,15 @@
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "jest": "^24.x",
+    "babel-jest": ">= 24 < 27",
+    "jest": ">= 24 < 27 ",
+    "ts-jest": ">= 24 < 27 ",
     "vue": "^3.0.0-0"
+  },
+  "peerDependenciesMeta": {
+    "ts-jest": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
