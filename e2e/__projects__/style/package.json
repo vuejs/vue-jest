@@ -4,9 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "scripts": {
-    "test": "jest --no-cache test.js"
-  },
   "devDependencies": {
     "postcss": "^7.0.13"
   },

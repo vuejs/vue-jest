@@ -5,6 +5,8 @@ const chalk = require('chalk')
 
 const IGNORE_FILES = ['.DS_Store']
 const cwd = process.cwd()
+const bin = `${cwd}/node_modules/.bin`
+const nyc = `${bin}/nyc --cwd '${cwd}' -n 'lib/**'` // -s
 
 // Can be run as `yarn test:e2e --cache` to forego reinstalling node_modules, or
 // `yarn test:e2e <projects dir>`, or `yarn test:e2e --cache <projects dir>`.
@@ -45,7 +47,7 @@ function runTest(dir) {
   }
 
   log('Running tests')
-  run('yarn test')
+  run(`${nyc} -t ${resolvedPath}/.nyc_output ${bin}/jest --no-cache`)
 
   success(`(${dir}) Complete`)
 }

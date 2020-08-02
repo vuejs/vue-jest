@@ -4,9 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "scripts": {
-    "test": "jest --no-cache --coverage test.js"
-  },
   "devDependencies": {
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
