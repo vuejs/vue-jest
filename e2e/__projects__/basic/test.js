@@ -58,27 +58,27 @@ test('generates source maps using src attributes', () => {
 
 test('processes .vue file using jsx', () => {
   const wrapper = mount(Jsx)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('processes extended functions', () => {
   const wrapper = mount(Constructor)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('processes .vue file with lang set to coffee', () => {
   const wrapper = mount(Coffee)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('processes .vue file with lang set to coffeescript', () => {
   const wrapper = mount(CoffeeScript)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('processes .vue files with lang set to typescript', () => {
   const wrapper = mount(TypeScript)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('processes functional components', () => {
@@ -106,29 +106,29 @@ test('processes SFC with functional template from parent', () => {
 
 test('handles missing script block', () => {
   const wrapper = mount(NoScript)
-  expect(wrapper.contains('footer'))
+  expect(wrapper.element.tagName).toBe('FOOTER')
 })
 
 test('processes .vue file with jade template', () => {
   const wrapper = mount(Jade)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
   expect(wrapper.classes()).toContain('jade')
 })
 
 test('processes pug templates', () => {
   const wrapper = mount(Pug)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
   expect(wrapper.classes()).toContain('pug-base')
   expect(wrapper.find('.pug-extended').exists()).toBeTruthy()
 })
 
 test('supports relative paths when extending templates from .pug files', () => {
   const wrapper = mount(PugRelative)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
   expect(wrapper.find('.pug-relative-base').exists()).toBeTruthy()
 })
 
 test('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
-  expect(wrapper.is('section')).toBe(true)
+  expect(wrapper.element.tagName).toBe('SECTION')
 })

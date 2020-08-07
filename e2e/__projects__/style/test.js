@@ -8,13 +8,13 @@ import External from './components/External.vue'
 
 test('processes Less', () => {
   const wrapper = mount(Less)
-  expect(wrapper.is('div')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('DIV')
   expect(wrapper.vm.$style.a).toEqual('a')
 })
 
 test('processes PostCSS', () => {
   const wrapper = mount(PostCss)
-  expect(wrapper.is('section')).toBeTruthy()
+  expect(wrapper.element.tagName).toBe('SECTION')
   expect(wrapper.vm.$style.a).toEqual('a')
   expect(wrapper.vm.$style.b).toEqual('b')
 })
