@@ -62,7 +62,7 @@
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "jest": "^25.x",
+    "jest": "^25.5.0",
     "vue": "^2.x",
     "vue-template-compiler": "^2.x"
   },
