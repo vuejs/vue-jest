@@ -38,22 +38,22 @@ test('generates source maps for .vue files', () => {
   const filePath = resolve(__dirname, './components/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
-  const { code } = jestVue.process(fileString, filePath, {
+  const { map } = jestVue.process(fileString, filePath, {
     moduleFileExtensions: ['js', 'vue']
   })
 
-  expect(code).toMatchSnapshot()
+  expect(map).toMatchSnapshot()
 })
 
 test('generates source maps using src attributes', () => {
   const filePath = resolve(__dirname, './components/SourceMapsSrc.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
 
-  const { code } = jestVue.process(fileString, filePath, {
+  const { map } = jestVue.process(fileString, filePath, {
     moduleFileExtensions: ['js', 'vue']
   })
 
-  expect(code).toMatchSnapshot()
+  expect(map).toMatchSnapshot()
 })
 
 test('processes .vue file using jsx', () => {
