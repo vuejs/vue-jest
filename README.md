@@ -122,7 +122,7 @@ module.exports = {
    * @param {Object} config The full Jest config
    * @returns {string} The code to be output after processing all of the blocks matched by this type
    */
-  process({blocks, vueOptionsNamepsace, filename, config}) {}
+  process({ blocks, vueOptionsNamepsace, filename, config }) {}
 }
 ```
 
