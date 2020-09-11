@@ -45,12 +45,11 @@ function runTest(dir) {
     log('Removing package-lock.json')
     fs.removeSync(`${resolvedPath}/package-lock.json`)
 
-    log(`Installing node_modules and jest@${jestVersion}`)
-  } else {
-    log(`Installing jest@${jestVersion}`)
+    log('Installing node_modules')
+    run(`npm install --silent`)
   }
 
-  // Install Jest and other dependencies
+  log(`Installing jest@${jestVersion}`)
   run(`npm install jest@${jestVersion} --save-dev --silent`)
 
   // For tests that need vue-jest to successfully `require.resolve()` a file in
