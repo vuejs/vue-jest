@@ -65,10 +65,14 @@
     "babel-jest": ">= 24 < 27",
     "jest": ">= 24 < 27 ",
     "ts-jest": ">= 24 < 27 ",
+    "typescript": ">= 3.x",
     "vue": "^3.0.0-0"
   },
   "peerDependenciesMeta": {
     "ts-jest": {
+      "optional": true
+    },
+    "typescript": {
       "optional": true
     }
   },
