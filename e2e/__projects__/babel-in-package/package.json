@@ -8,6 +8,7 @@
     "test": "jest --no-cache test.js"
   },
   "dependencies": {
+    "source-map": "0.5.6",
     "vue": "^2.5.21",
     "vue-template-compiler": "^2.5.21"
   },
@@ -16,7 +17,7 @@
     "@babel/preset-env": "^7.2.3",
     "@vue/test-utils": "^1.0.5",
     "jest": "^24.0.0",
-    "vue-jest": "file:../../../"
+    "ts-jest": "^26.3.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -26,7 +27,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "file:../../../"
     }
   },
   "babel": {
