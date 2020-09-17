@@ -1,6 +1,6 @@
 {
   "name": "vue-jest",
-  "version": "5.0.0-alpha.2",
+  "version": "5.0.0-alpha.3",
   "description": "Jest Vue transform",
   "main": "lib/index.js",
   "files": [
@@ -33,7 +33,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@vue/compiler-sfc": "3.0.0-alpha.10",
-    "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
     "coffeescript": "^2.3.2",
@@ -68,10 +67,14 @@
     "babel-jest": ">= 24 < 27",
     "jest": ">= 24 < 27 ",
     "ts-jest": ">= 24 < 27 ",
+    "typescript": ">= 3.x",
     "vue": "^3.0.0-0"
   },
   "peerDependenciesMeta": {
     "ts-jest": {
+      "optional": true
+    },
+    "typescript": {
       "optional": true
     }
   },
