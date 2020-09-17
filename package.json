@@ -18,12 +18,12 @@
     "vue jest preprocessor"
   ],
   "scripts": {
-    "format": "prettier --no-semi --single-quote --write '**/*.{js,json,md}'",
-    "format:check": "prettier --no-semi --single-quote --check '**/*.{js,json,md}'",
-    "lint": "eslint --ignore-path .gitignore '{,!(node_modules)/**/}*.js'",
-    "lint:fix": "npm run lint --fix",
+    "format": "prettier --no-semi --single-quote --write \"**/*.{js,json,md}\"",
+    "format:check": "prettier --no-semi --single-quote --check \"**/*.{js,json,md}\"",
+    "lint": "eslint --ignore-path .gitignore \"{,!(node_modules)/**/}*.js\"",
+    "lint:fix": "yarn lint --fix",
     "release": "semantic-release",
-    "test": "npm run lint && npm run format:check && npm run test:e2e",
+    "test": "yarn lint && yarn format:check && yarn test:e2e",
     "test:e2e": "node e2e/test-runner"
   },
   "author": "Edd Yerburgh",
@@ -85,7 +85,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md,vue}": [
-      "npm run format",
+      "yarn format",
       "git add"
     ]
   }
