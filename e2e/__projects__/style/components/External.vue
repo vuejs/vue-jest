@@ -6,6 +6,8 @@
 
 <style module src="./styles/external.css" />
 
+<style module="$style2" src="~__styles/external.css" />
+
 <style module="css">
 .a {
   background: color(red a(90%));
