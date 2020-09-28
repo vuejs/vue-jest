@@ -45,5 +45,6 @@ test('process External', () => {
   const wrapper = mount(External)
   expect(wrapper.vm).toBeTruthy()
   expect(wrapper.vm.$style.testClass).toEqual('testClass')
+  expect(wrapper.vm.$style2.testClass).toEqual('testClass')
   expect(wrapper.vm.css.a).toEqual('a')
 })
