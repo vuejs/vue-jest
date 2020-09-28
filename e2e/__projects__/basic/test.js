@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import TypeScript from './components/TypeScript.vue'
+import TemplateString from './components/TemplateString.vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 import jestVue from 'vue-jest'
@@ -79,6 +80,15 @@ test('processes .vue file with lang set to coffeescript', () => {
 test('processes .vue files with lang set to typescript', () => {
   const wrapper = mount(TypeScript)
   expect(wrapper.element.tagName).toBe('DIV')
+})
+
+test('processes .vue files with template strings in the template', () => {
+  const wrapper = mount(TemplateString)
+  expect(wrapper.attributes('data-sth')).toBe(`
+      query {
+        id
+      }
+    `)
 })
 
 test('processes functional components', () => {
