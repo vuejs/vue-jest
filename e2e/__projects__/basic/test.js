@@ -18,7 +18,7 @@ import { randomExport } from './components/NamedExport.vue'
 import ScriptSetup from './components/ScriptSetup.vue'
 
 // TODO: JSX for Vue 3? TSX?
-// import Jsx from './components/Jsx.vue'
+import Jsx from './components/Jsx.vue'
 
 function mount(Component, props, slots) {
   document.getElementsByTagName('html')[0].innerHTML = ''
