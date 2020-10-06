@@ -2,19 +2,19 @@ import { createApp, h } from 'vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
-// import BasicSrc from './components/BasicSrc.vue'
-// import Pug from './components/Pug.vue'
-// import Coffee from './components/Coffee.vue'
-// import Basic from './components/Basic.vue'
-// import TypeScript from './components/TypeScript.vue'
-// import jestVue from '../../../'
-// import RenderFunction from './components/RenderFunction.vue'
-// import FunctionalSFC from './components/FunctionalSFC.vue'
-// import CoffeeScript from './components/CoffeeScript.vue'
-// import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
-// import NoScript from './components/NoScript.vue'
-// import PugRelative from './components/PugRelativeExtends.vue'
-// import { randomExport } from './components/NamedExport.vue'
+import BasicSrc from './components/BasicSrc.vue'
+import Pug from './components/Pug.vue'
+import Coffee from './components/Coffee.vue'
+import Basic from './components/Basic.vue'
+import TypeScript from './components/TypeScript.vue'
+import jestVue from '../../../'
+import RenderFunction from './components/RenderFunction.vue'
+import FunctionalSFC from './components/FunctionalSFC.vue'
+import CoffeeScript from './components/CoffeeScript.vue'
+import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
+import NoScript from './components/NoScript.vue'
+import PugRelative from './components/PugRelativeExtends.vue'
+import { randomExport } from './components/NamedExport.vue'
 import ScriptSetup from './components/ScriptSetup.vue'
 
 // TODO: JSX for Vue 3? TSX?
@@ -33,7 +33,7 @@ function mount(Component, props, slots) {
   createApp(Parent).mount(el)
 }
 
-test.only('supports <script setup>', () => {
+test('supports <script setup>', () => {
   mount(ScriptSetup)
   expect(document.body.outerHTML).toContain('Count: 5')
 })
