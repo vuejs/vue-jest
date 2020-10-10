@@ -15,6 +15,7 @@ import FunctionalSFCParent from './components/FunctionalSFCParent.vue'
 import NoScript from './components/NoScript.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import { randomExport } from './components/NamedExport.vue'
+import ScriptSetup from './components/ScriptSetup.vue'
 
 // TODO: JSX for Vue 3? TSX?
 import Jsx from './components/Jsx.vue'
@@ -31,6 +32,11 @@ function mount(Component, props, slots) {
   }
   createApp(Parent).mount(el)
 }
+
+test('supports <script setup>', () => {
+  mount(ScriptSetup)
+  expect(document.body.outerHTML).toContain('Count: 5')
+})
 
 test('processes .vue files', () => {
   mount(Basic)
