@@ -36,6 +36,7 @@ function mount(Component, props, slots) {
 test('supports <script setup>', () => {
   mount(ScriptSetup)
   expect(document.body.outerHTML).toContain('Count: 5')
+  expect(document.body.outerHTML).toContain('Welcome to Your Vue.js App')
 })
 
 test('processes .vue files', () => {
