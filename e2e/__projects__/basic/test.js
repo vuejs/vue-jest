@@ -6,6 +6,7 @@ import BasicSrc from './components/BasicSrc.vue'
 import Pug from './components/Pug.vue'
 import Coffee from './components/Coffee.vue'
 import Basic from './components/Basic.vue'
+import ClassComponent from './components/ClassComponent.vue'
 import TypeScript from './components/TypeScript.vue'
 import jestVue from '../../../'
 import RenderFunction from './components/RenderFunction.vue'
@@ -114,6 +115,11 @@ test('processes pug templates', () => {
 test('supports relative paths when extending templates from .pug files', () => {
   mount(PugRelative)
   expect(document.querySelector('.pug-relative-base')).toBeTruthy()
+})
+
+test('supports class component .vue files', () => {
+  mount(ClassComponent, { msg: 'Hello' })
+  expect(document.querySelector('div').textContent).toBe('Hello')
 })
 
 // TODO: How do functional components work in Vue 3?
