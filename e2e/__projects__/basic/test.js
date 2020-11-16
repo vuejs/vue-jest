@@ -1,4 +1,4 @@
-import { createApp, h } from 'vue'
+import { createApp, h, nextTick } from 'vue'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
@@ -118,8 +118,19 @@ test('supports relative paths when extending templates from .pug files', () => {
 })
 
 test('supports class component .vue files', () => {
-  mount(ClassComponent, { msg: 'Hello' })
-  expect(document.querySelector('div').textContent).toBe('Hello')
+  expect.assertions(3)
+  mount(ClassComponent, { msg: 'Props Message' })
+  expect(document.querySelector('[data-computed]').textContent).toBe(
+    'Message: Props Message'
+  )
+  expect(document.querySelector('[data-props]').textContent).toBe(
+    'Props Message'
+  )
+  const event = new window.Event('click')
+  document.querySelector('button').dispatchEvent(event)
+  nextTick().then(() => {
+    expect(document.querySelector('[data-methods]').textContent).toBe('Updated')
+  })
 })
 
 // TODO: How do functional components work in Vue 3?
