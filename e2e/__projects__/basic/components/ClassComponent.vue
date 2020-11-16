@@ -3,7 +3,7 @@
     <h1 data-computed>{{ computedMsg }}</h1>
     <h2 data-props>{{ msg }}</h2>
     <h3 data-methods>{{ dataText }}</h3>
-    <button @click="changeMessage('Hello')" />
+    <button @click="changeMessage" />
   </div>
 </template>
 
