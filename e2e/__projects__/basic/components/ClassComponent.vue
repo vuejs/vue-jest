@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <h1 data-computed>{{ computedMsg }}</h1>
     <h2 data-props>{{ msg }}</h2>
     <h3 data-methods>{{ dataText }}</h3>
@@ -20,7 +20,7 @@ export default class ClassComponent extends Vue {
     return `Message: ${(this.$props as any).msg}`
   }
 
-  changeMessage(text: string): void {
+  changeMessage(): void {
     this.dataText = 'Updated'
   }
 }
