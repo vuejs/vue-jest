@@ -54,7 +54,7 @@
     "prettier": "^1.16.1",
     "pug": "^2.0.3",
     "sass": "^1.23.7",
-    "semantic-release": "^15.13.2",
+    "semantic-release": "^17.2.3",
     "stylus": "^0.54.5",
     "typescript": "^3.2.2",
     "vue": "^2.4.2",
