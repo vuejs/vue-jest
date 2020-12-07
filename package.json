@@ -80,7 +80,7 @@
     "chalk": "^2.1.0",
     "convert-source-map": "^1.6.0",
     "extract-from-css": "^0.4.4",
-    "ts-jest": "^24.0.0"
+    "tsconfig": "^7.0.0"
   },
   "repository": {
     "type": "git",
