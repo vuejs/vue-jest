@@ -33,6 +33,7 @@ var _default = {
 exports[\\"default\\"] = _default;
 \\"use strict\\";
 Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.render = void 0;
 var vue_1 = require(\\"vue\\");
 var _hoisted_1 = { class: \\"hello\\" };
 function render(_ctx, _cache) {
@@ -77,6 +78,7 @@ var _default = {
 exports[\\"default\\"] = _default;
 \\"use strict\\";
 Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.render = void 0;
 var vue_1 = require(\\"vue\\");
 var _hoisted_1 = { class: \\"hello\\" };
 function render(_ctx, _cache) {
