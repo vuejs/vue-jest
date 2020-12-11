@@ -271,6 +271,28 @@ If a string is provided, it will be an assumed path to a TypeScript configuratio
 }
 ```
 
+#### templateCompiler
+
+You can provide [TemplateCompileOptions](https://github.com/vuejs/component-compiler-utils#compiletemplatetemplatecompileoptions-templatecompileresults) in `templateCompiler` section like this:
+
+```json
+{
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "templateCompiler": {
+          "transpileOptions": {
+            "transforms": {
+              "dangerousTaggedTemplateString": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### Supported template languages
 
 - **pug** (`lang="pug"`)
