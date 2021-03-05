@@ -25,3 +25,5 @@ pids
 *.pid.lock
 
 package-lock.json
+/e2e/**/yarn.lock
+
