@@ -15,6 +15,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
+    "jest": "26.x",
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7",

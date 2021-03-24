@@ -16,6 +16,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
+    "jest": "26.x",
     "ts-jest": "^26.3.0",
     "vue-jest": "file:../../../"
   },
