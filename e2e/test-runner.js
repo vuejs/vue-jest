@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const IGNORE_FILES = ['.DS_Store']
 const cwd = process.cwd()
 
-const jestVersion = process.env.JEST_VERSION || '^25'
+const jestVersion = process.env.JEST_VERSION || '^26'
 
 // Can be run as `yarn test:e2e --cache` to forego reinstalling node_modules, or
 // `yarn test:e2e <projects dir>`, or `yarn test:e2e --cache <projects dir>`.
