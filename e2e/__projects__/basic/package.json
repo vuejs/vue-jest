@@ -37,6 +37,13 @@
       "vue-jest": {
         "pug": {
           "basedir": "./"
+        },
+        "templateCompiler": {
+          "transpileOptions": {
+            "transforms": {
+              "dangerousTaggedTemplateString": true
+            }
+          }
         }
       }
     }

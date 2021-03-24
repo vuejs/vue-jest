@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const IGNORE_FILES = ['.DS_Store']
 const cwd = process.cwd()
 
-const jestVersion = process.env.JEST_VERSION || '^25.5.0'
+const jestVersion = process.env.JEST_VERSION || '^25'
 
 // Can be run as `yarn test:e2e --cache` to forego reinstalling node_modules, or
 // `yarn test:e2e <projects dir>`, or `yarn test:e2e --cache <projects dir>`.
@@ -42,15 +42,15 @@ function runTest(dir) {
     log('Removing node_modules')
     fs.removeSync(`${resolvedPath}/node_modules`)
 
-    log('Removing package-lock.json')
-    fs.removeSync(`${resolvedPath}/package-lock.json`)
+    log('Removing yarn.lock')
+    fs.removeSync(`${resolvedPath}/yarn.lock`)
 
     log('Installing node_modules')
-    run(`npm install --silent`)
+    run('yarn install --silent')
   }
 
-  log(`Installing jest@${jestVersion}`)
-  run(`npm install jest@${jestVersion} --save-dev --silent`)
+  log(`Installing jest@${jestVersion} and ts-jest@${jestVersion}`)
+  run(`yarn add jest@${jestVersion} ts-jest@${jestVersion} --dev --silent`)
 
   // For tests that need vue-jest to successfully `require.resolve()` a file in
   // the project directory's node_modules, we can't symlink vue-jest from a
@@ -67,7 +67,7 @@ function runTest(dir) {
   }
 
   log('Running tests')
-  run('npm test')
+  run('yarn test')
 
   success(`(${dir}) Complete`)
 }
