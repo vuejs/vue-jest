@@ -52,7 +52,7 @@
     "less": "^3.9.0",
     "lint-staged": "^8.0.5",
     "prettier": "^1.16.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "sass": "^1.23.7",
     "semantic-release": "^15.13.2",
     "stylus": "^0.54.5",
