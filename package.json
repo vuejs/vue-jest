@@ -29,8 +29,8 @@
   "author": "Edd Yerburgh",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
