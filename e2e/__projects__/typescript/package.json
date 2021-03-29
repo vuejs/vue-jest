@@ -1,0 +1,39 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache ./sub-project/test.js"
+  },
+  "dependencies": {
+    "vue": "3.0.0-alpha.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "jest": "^24.0.0"
+  },
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "tsConfig": "./sub-project/tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "../../../lib/index.js"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  }
+}
