@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.9.0",
     "@vue/compiler-sfc": "^3.0.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^26.0.0",
     "coffeescript": "^2.3.2",
     "conventional-changelog": "^1.1.5",
     "eslint": "^5.12.0",
