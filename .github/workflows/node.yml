@@ -1,0 +1,47 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+      - next
+    paths:
+      - '**'
+      - '!**.md'
+  pull_request:
+    branches:
+      - master
+      - next
+    paths:
+      - '**'
+      - '!**.md'
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node: [10, 12, 14]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - name: Install Project Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Test
+        run: yarn test
