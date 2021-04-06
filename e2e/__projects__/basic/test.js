@@ -3,6 +3,7 @@ import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
 import BasicSrc from './components/BasicSrc.vue'
+import TsSrc from './components/TsSrc.vue'
 import Pug from './components/Pug.vue'
 import Coffee from './components/Coffee.vue'
 import Basic from './components/Basic.vue'
@@ -47,8 +48,15 @@ test('processes .vue files', () => {
   )
 })
 
-test('processes .vue files with src attributes', () => {
+test('processes .vue files with js src attributes', () => {
   mount(BasicSrc)
+  expect(document.querySelector('h1').textContent).toBe(
+    'Welcome to Your Vue.js App'
+  )
+})
+
+test('processes .vue files with ts src attributes', () => {
+  mount(TsSrc)
   expect(document.querySelector('h1').textContent).toBe(
     'Welcome to Your Vue.js App'
   )
