@@ -8,6 +8,8 @@ import Pug from './components/Pug.vue'
 import Coffee from './components/Coffee.vue'
 import Basic from './components/Basic.vue'
 import ClassComponent from './components/ClassComponent.vue'
+import ClassComponentWithMixin from './components/ClassComponentWithMixin.vue'
+import ClassComponentProperty from './components/ClassComponentProperty.vue'
 import TypeScript from './components/TypeScript.vue'
 import jestVue from '../../../'
 import RenderFunction from './components/RenderFunction.vue'
@@ -140,6 +142,25 @@ test('supports class component .vue files', () => {
   nextTick().then(() => {
     expect(document.querySelector('[data-methods]').textContent).toBe('Updated')
   })
+})
+
+test('supports class component .vue files with mixins', () => {
+  expect.assertions(1)
+  mount(ClassComponentWithMixin)
+  expect(document.querySelector('[data-mixin]').textContent).toBe(
+    'Hello world!'
+  )
+})
+
+test('supports class component .vue files using vue-property-decorator', () => {
+  expect.assertions(2)
+  mount(ClassComponentProperty, { msg: 'Props Message' })
+  expect(document.querySelector('[data-computed]').textContent).toBe(
+    'Message: Hello'
+  )
+  expect(document.querySelector('[data-props]').textContent).toBe(
+    'Props Message'
+  )
 })
 
 // TODO: How do functional components work in Vue 3?
