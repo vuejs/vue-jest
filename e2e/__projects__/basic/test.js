@@ -20,6 +20,7 @@ import NoScript from './components/NoScript.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import { randomExport } from './components/NamedExport.vue'
 import ScriptSetup from './components/ScriptSetup.vue'
+import FunctionalRenderFn from './components/FunctionalRenderFn.vue'
 
 // TODO: JSX for Vue 3? TSX?
 import Jsx from './components/Jsx.vue'
@@ -178,4 +179,12 @@ xtest('processes SFC with functional template from parent', () => {
 xtest('processes .vue file using jsx', () => {
   mount(Jsx)
   expect(document.querySelector('#jsx')).toBeTruthy()
+})
+
+test('processes functional component exported as function', () => {
+  mount(FunctionalRenderFn)
+
+  const elem = document.querySelector('#functional-render-fn')
+  expect(elem).toBeTruthy()
+  expect(elem.innerHTML).toBe('Nyan')
 })
