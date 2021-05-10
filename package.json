@@ -62,7 +62,7 @@
     "vue-template-compiler": "^2.x"
   },
   "dependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "chalk": "^2.1.0",
     "deasync": "^0.1.15",
     "extract-from-css": "^0.4.4",
