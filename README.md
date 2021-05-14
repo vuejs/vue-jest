@@ -214,7 +214,9 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
 ## CSS options
 
 `experimentalCSSCompile`: `Boolean` Default true. Turn off CSS compilation
+
 `hideStyleWarn`: `Boolean` Default false. Hide warnings about CSS compilation
+
 `resources`:
 
 ```json
