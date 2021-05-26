@@ -72,10 +72,11 @@ test('handles named exports', () => {
 test('generates source maps for .vue files', () => {
   const filePath = resolve(__dirname, './components/Basic.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
-
-  const { code } = jestVue.process(fileString, filePath, {
+  const config = {
     moduleFileExtensions: ['js', 'vue']
-  })
+  }
+
+  const { code } = jestVue.process(fileString, filePath, { config })
 
   expect(code).toMatchSnapshot()
 })
@@ -83,10 +84,11 @@ test('generates source maps for .vue files', () => {
 test('generates source maps using src attributes', () => {
   const filePath = resolve(__dirname, './components/SourceMapsSrc.vue')
   const fileString = readFileSync(filePath, { encoding: 'utf8' })
-
-  const { code } = jestVue.process(fileString, filePath, {
+  const config = {
     moduleFileExtensions: ['js', 'vue']
-  })
+  }
+
+  const { code } = jestVue.process(fileString, filePath, { config })
 
   expect(code).toMatchSnapshot()
 })

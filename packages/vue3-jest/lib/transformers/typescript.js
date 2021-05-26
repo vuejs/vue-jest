@@ -1,5 +1,5 @@
 const ensureRequire = require('../ensure-require')
-const babelJest = require('babel-jest')
+const babelJest = require('babel-jest').default
 const {
   getBabelOptions,
   getTsJestConfig,
@@ -27,11 +27,12 @@ module.exports = {
       res.sourceMapText !== undefined ? JSON.parse(res.sourceMapText) : ''
 
     // handle ES modules in TS source code in case user uses non commonjs module
-    // output and there is no .babelrc.
+    // output and there is no presets or plugins defined in package.json or babel config file
     let inlineBabelOptions = {}
     if (
       tsconfig.compilerOptions.module !== typescript.ModuleKind.CommonJS &&
-      !babelOptions
+      !(babelOptions.presets && babelOptions.presets.length) &&
+      !(babelOptions.plugins && babelOptions.plugins.length)
     ) {
       inlineBabelOptions = {
         plugins: [require('@babel/plugin-transform-modules-commonjs')]
