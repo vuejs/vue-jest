@@ -18,6 +18,7 @@ function info(msg) {
   console.info(chalk.blue('\n[vue-jest]: ' + msg + '\n'))
 }
 
+// eslint-disable-next-line no-unused-vars
 function runTest(dir) {
   const resolvedPath = path.resolve(__dirname, '__projects__', dir)
 
@@ -71,7 +72,6 @@ async function testRunner() {
   const directories = fs
     .readdirSync(path.resolve(__dirname, '__projects__'))
     .filter(d => !IGNORE_FILES.includes(d))
-
   const matches = args.filter(d => directories.includes(d))
 
   if (matches.length) {

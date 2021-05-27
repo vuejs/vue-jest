@@ -42,7 +42,7 @@ function render(_ctx, _cache) {
     ]));
 }
 exports.render = render;
-;exports.default = {...exports.default, render};"
+;exports.default = {...exports.default, render};;exports.default = {...exports.default, __cssModules: {\\"css\\":{\\"testA\\":\\"testA\\"},\\"$style\\":{\\"testB\\":\\"testB\\"}}}"
 `;
 
 exports[`generates source maps using src attributes 1`] = `

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.testClass">
-    <div class="a" />
+    <div :class="css.a" />
   </div>
 </template>
 
