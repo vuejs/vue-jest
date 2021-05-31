@@ -2,10 +2,10 @@
 //
 import { createApp, h } from 'vue'
 
+import Less from './components/Less.vue'
 import Stylus from './components/Stylus.vue'
 import Scss from './components/Scss.vue'
 import Sass from './components/Sass.vue'
-import Less from './components/Less.vue'
 import PostCss from './components/PostCss.vue'
 import External from './components/External.vue'
 
@@ -22,43 +22,59 @@ function mount(Component, props, slots) {
   createApp(Parent).mount(el)
 }
 
-xtest('processes Less', () => {
+test('processes Less', () => {
   mount(Less)
-  // expect(wrapper.is('div')).toBeTruthy()
-  // expect(wrapper.vm.$style.a).toEqual('a')
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<div><div class="a">a</div><div class="b">b</div></div>'
+  )
 })
 
-xtest('processes PostCSS', () => {
+test('processes PostCSS', () => {
   mount(PostCss)
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<section><div class="c"></div><div class="d"></div></section>'
+  )
   // expect(wrapper.is('section')).toBeTruthy()
   // expect(wrapper.vm.$style.a).toEqual('a')
   // expect(wrapper.vm.$style.b).toEqual('b')
 })
 
-xtest('processes Sass', () => {
+test('processes Sass', () => {
   mount(Sass)
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<div><div class="a"></div><div class="b"></div><div class="c"></div><div class=""></div><div class="e"></div></div>'
+  )
   // expect(wrapper.vm.$style.a).toEqual('a')
   // expect(wrapper.vm.$style.b).toEqual('b')
   // expect(wrapper.vm.$style.c).toEqual('c')
   // expect(wrapper.vm.$style.light).toBeUndefined()
 })
 
-xtest('processes SCSS with resources', () => {
+test('processes SCSS with resources', () => {
   mount(Scss)
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<div><div class="a"></div><div class="b"></div><div class="c"></div><div class=""></div><div class=""></div><div class="f"></div></div>'
+  )
   // expect(wrapper.vm.$style.a).toEqual('a')
   // expect(wrapper.vm.$style.b).toEqual('b')
   // expect(wrapper.vm.$style.c).toEqual('c')
 })
 
-xtest('process Stylus', () => {
+test('process Stylus', () => {
   mount(Stylus)
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<div><div class="a"></div><div class="b"></div></div>'
+  )
   // expect(wrapper.vm).toBeTruthy()
   // expect(wrapper.vm.css.a).toEqual('a')
   // expect(wrapper.vm.$style.b).toEqual('b')
 })
 
-xtest('process External', () => {
+test('process External', () => {
   mount(External)
+  expect(document.getElementById('app').innerHTML).toEqual(
+    '<div class="testClass"><div class="a"></div></div>'
+  )
   // expect(wrapper.vm).toBeTruthy()
   // expect(wrapper.vm.$style.xtestClass).toEqual('xtestClass')
   // expect(wrapper.vm.css.a).toEqual('a')
