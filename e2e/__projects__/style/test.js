@@ -25,7 +25,7 @@ function mount(Component, props, slots) {
 test('processes Less', () => {
   mount(Less)
   expect(document.getElementById('app').innerHTML).toEqual(
-    '<div><div class="a">a</div><div class="b">b</div></div>'
+    '<div><div class="a">a</div><div class="b">b</div><div class="c">c</div><div class="d">d</div></div>'
   )
 })
 
