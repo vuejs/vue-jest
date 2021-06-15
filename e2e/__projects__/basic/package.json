@@ -18,7 +18,13 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "coffeescript": "^2.3.2",
+    "jade": "^1.11.0",
     "jest": "26.x",
+    "pug": "^3.0.1",
+    "sass": "^1.23.7",
+    "ts-jest": "^26.3.0",
+    "typescript": "^3.2.2",
     "vue-jest": "file:../../../"
   },
   "jest": {
