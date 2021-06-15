@@ -16,8 +16,10 @@
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
     "jest": "^26.0.0",
+    "less": "^3.9.0",
     "postcss": "^7.0.13",
-    "sass": "^1.23.7"
+    "sass": "^1.23.7",
+    "stylus": "^0.54.5"
   },
   "jest": {
     "moduleFileExtensions": [
