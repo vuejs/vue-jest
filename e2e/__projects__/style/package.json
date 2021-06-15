@@ -19,8 +19,7 @@
     "less": "^3.9.0",
     "postcss": "^7.0.13",
     "sass": "^1.23.7",
-    "stylus": "^0.54.5",
-    "vue-jest": "file:../../../"
+    "stylus": "^0.54.5"
   },
   "jest": {
     "moduleFileExtensions": [

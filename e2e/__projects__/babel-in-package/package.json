@@ -19,8 +19,7 @@
     "coffeescript": "^2.3.2",
     "jest": "26.x",
     "ts-jest": "^26.3.0",
-    "typescript": "^3.2.2",
-    "vue-jest": "file:../../../"
+    "typescript": "^3.2.2"
   },
   "jest": {
     "moduleFileExtensions": [
