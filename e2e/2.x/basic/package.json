@@ -23,7 +23,8 @@
     "pug": "^3.0.1",
     "sass": "^1.23.7",
     "ts-jest": "^26.3.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "vue-jest": "^4.0.1"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -17,7 +17,8 @@
     "jest": "26.x",
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
-    "sass": "^1.23.7"
+    "sass": "^1.23.7",
+    "vue-jest": "^4.0.1"
   },
   "jest": {
     "moduleFileExtensions": [
