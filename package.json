@@ -1,0 +1,41 @@
+{
+  "name": "vue-jest-monorepo",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "e2e/**"
+    ]
+  },
+  "scripts": {
+    "format": "prettier --no-semi --single-quote --write \"**/*.{js,json,md}\"",
+    "format:check": "prettier --no-semi --single-quote --check \"**/*.{js,json,md}\"",
+    "lint": "eslint --ignore-path .gitignore \"{,!(node_modules)/**/}*.js\"",
+    "lint:fix": "yarn lint --fix",
+    "test": "yarn lint && yarn format:check && yarn workspaces run test"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.1.0",
+    "husky": "^1.1.4",
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.16.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,vue}": [
+      "yarn format",
+      "git add"
+    ]
+  }
+}
