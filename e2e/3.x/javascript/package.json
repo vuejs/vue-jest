@@ -1,7 +1,6 @@
 {
-  "name": "javascript",
+  "name": "vue3-javascript",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {

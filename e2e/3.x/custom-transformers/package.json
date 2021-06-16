@@ -1,7 +1,6 @@
 {
-  "name": "custom-transformers",
+  "name": "vue3-custom-transformers",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
