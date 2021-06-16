@@ -19,7 +19,7 @@
     "postcss": "^7.0.13",
     "sass": "^1.23.7",
     "stylus": "^0.54.5",
-    "vue-jest": "^4.0.1"
+    "vue2-jest": "~26.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -29,7 +29,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "vue2-jest"
     },
     "moduleNameMapper": {
       "^~tmp/(.*)": "/tmp/$1",

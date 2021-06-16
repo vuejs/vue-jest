@@ -24,7 +24,7 @@
     "sass": "^1.23.7",
     "ts-jest": "^26.3.0",
     "typescript": "^3.2.2",
-    "vue-jest": "^4.0.1"
+    "vue2-jest": "~26.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -34,7 +34,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "vue2-jest"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
