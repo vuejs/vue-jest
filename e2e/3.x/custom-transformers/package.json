@@ -19,7 +19,7 @@
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7",
-    "vue-jest": "^5.0.0-alpha.10"
+    "vue3-jest": "^26.0.0-alpha.10"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -29,7 +29,7 @@
     ],
     "transform": {
       "^.+\\.js$": "./babel-transformer.js",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "vue3-jest"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
