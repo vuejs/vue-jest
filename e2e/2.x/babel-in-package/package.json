@@ -1,7 +1,6 @@
 {
-  "name": "babel-in-package",
+  "name": "vue2-babel-in-package",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
