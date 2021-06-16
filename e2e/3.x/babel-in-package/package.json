@@ -16,7 +16,8 @@
     "coffeescript": "^2.3.2",
     "jest": "^26.0.0",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "vue-jest": "^5.0.0-alpha.10"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -26,7 +27,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "../../../lib/index.js"
+      "^.+\\.vue$": "vue-jest"
     }
   },
   "babel": {
