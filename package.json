@@ -1,6 +1,10 @@
 {
   "name": "vue-jest-monorepo",
   "private": true,
+  "engines": {
+    "node": ">=10",
+    "yarn": "^1.21.1"
+  },
   "workspaces": {
     "packages": [
       "packages/*",
