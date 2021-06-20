@@ -1,11 +1,10 @@
 {
-  "name": "style",
+  "name": "vue2-custom-transformers",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "node setup.js && jest --no-cache test.js"
+    "test": "jest --no-cache --coverage test.js"
   },
   "dependencies": {
     "vue": "^2.5.21",
@@ -16,10 +15,10 @@
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
     "jest": "26.x",
-    "less": "^3.9.0",
     "postcss": "^7.0.13",
+    "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7",
-    "stylus": "^0.54.5"
+    "vue2-jest": "~26.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -28,22 +27,18 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.js$": "./babel-transformer.js",
+      "^.+\\.vue$": "vue2-jest"
     },
     "moduleNameMapper": {
-      "^~tmp/(.*)": "/tmp/$1",
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
     },
     "globals": {
       "vue-jest": {
-        "resources": {
-          "scss": [
-            "variables.scss"
-          ],
-          "less": [
-            "variables.less"
-          ]
+        "transform": {
+          "^scss$": "./scss-transformer.js",
+          "^pcss|postcss$": "./pcss-transformer.js",
+          "^js$": "./babel-transformer.js"
         }
       }
     }

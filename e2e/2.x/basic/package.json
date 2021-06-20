@@ -1,7 +1,6 @@
 {
-  "name": "custom-transformers",
+  "name": "vue2-basic",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -15,10 +14,17 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "coffeescript": "^2.3.2",
+    "jade": "^1.11.0",
     "jest": "26.x",
-    "postcss": "^7.0.13",
-    "postcss-color-function": "^4.0.1",
-    "sass": "^1.23.7"
+    "pug": "^3.0.1",
+    "sass": "^1.23.7",
+    "ts-jest": "^26.3.0",
+    "typescript": "^3.2.2",
+    "vue2-jest": "~26.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -27,18 +33,23 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "./babel-transformer.js",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue2-jest"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
     },
     "globals": {
       "vue-jest": {
-        "transform": {
-          "^scss$": "./scss-transformer.js",
-          "^pcss|postcss$": "./pcss-transformer.js",
-          "^js$": "./babel-transformer.js"
+        "pug": {
+          "basedir": "./"
+        },
+        "templateCompiler": {
+          "transpileOptions": {
+            "transforms": {
+              "dangerousTaggedTemplateString": true
+            }
+          }
         }
       }
     }

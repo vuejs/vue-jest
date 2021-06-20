@@ -1,7 +1,6 @@
 {
-  "name": "babel-in-package",
+  "name": "vue2-babel-in-package",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -19,7 +18,8 @@
     "coffeescript": "^2.3.2",
     "jest": "26.x",
     "ts-jest": "^26.3.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "vue2-jest": "~26.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -29,7 +29,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "vue2-jest"
     }
   },
   "babel": {
