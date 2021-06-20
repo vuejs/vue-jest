@@ -37,9 +37,9 @@
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "babel-jest": ">= 24 < 27",
-    "jest": ">= 24 < 27 ",
-    "ts-jest": ">= 24 < 27 ",
+    "babel-jest": "26.x",
+    "jest": "26.x",
+    "ts-jest": "26.x",
     "typescript": ">= 3.x",
     "vue": "^3.0.0-0"
   },
