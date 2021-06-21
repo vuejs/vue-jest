@@ -1,7 +1,6 @@
 {
-  "name": "typescript",
+  "name": "vue3-typescript",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -16,7 +15,8 @@
     "@babel/preset-env": "^7.9.0",
     "jest": "^26.0.0",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "vue3-jest": "^26.0.0-alpha.10"
   },
   "jest": {
     "globals": {
@@ -31,7 +31,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "../../../lib/index.js"
+      "^.+\\.vue$": "vue3-jest"
     }
   },
   "babel": {

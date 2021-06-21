@@ -1,7 +1,6 @@
 {
-  "name": "javascript",
+  "name": "vue3-javascript",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -14,7 +13,8 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "coffeescript": "^2.3.2",
-    "jest": "^26.0.0"
+    "jest": "^26.0.0",
+    "vue3-jest": "^26.0.0-alpha.10"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -24,7 +24,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "../../../lib/index.js"
+      "^.+\\.vue$": "vue3-jest"
     }
   },
   "babel": {
