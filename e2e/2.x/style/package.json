@@ -1,0 +1,51 @@
+{
+  "name": "vue2-style",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node setup.js && jest --no-cache test.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.21",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@vue/test-utils": "^1.1.0",
+    "jest": "26.x",
+    "less": "^3.9.0",
+    "postcss": "^7.0.13",
+    "sass": "^1.23.7",
+    "stylus": "^0.54.5",
+    "vue2-jest": "~26.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue2-jest"
+    },
+    "moduleNameMapper": {
+      "^~tmp/(.*)": "/tmp/$1",
+      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
+    },
+    "globals": {
+      "vue-jest": {
+        "resources": {
+          "scss": [
+            "variables.scss"
+          ],
+          "less": [
+            "variables.less"
+          ]
+        }
+      }
+    }
+  }
+}

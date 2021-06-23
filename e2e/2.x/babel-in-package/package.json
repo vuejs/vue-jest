@@ -1,0 +1,40 @@
+{
+  "name": "vue2-babel-in-package",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache test.js"
+  },
+  "dependencies": {
+    "source-map": "0.5.6",
+    "vue": "^2.5.21",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@vue/test-utils": "^1.1.0",
+    "coffeescript": "^2.3.2",
+    "jest": "26.x",
+    "ts-jest": "^26.3.0",
+    "typescript": "^3.2.2",
+    "vue2-jest": "~26.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue2-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  }
+}
