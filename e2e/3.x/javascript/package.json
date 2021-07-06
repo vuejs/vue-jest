@@ -1,0 +1,35 @@
+{
+  "name": "vue3-javascript",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache test.js"
+  },
+  "dependencies": {
+    "vue": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "coffeescript": "^2.3.2",
+    "jest": "^26.0.0",
+    "vue3-jest": "^26.0.0-alpha.10"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue3-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  }
+}

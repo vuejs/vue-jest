@@ -1,0 +1,42 @@
+{
+  "name": "vue3-typescript",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache ./sub-project/test.js"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.0.3",
+    "vue": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "jest": "^26.0.0",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.2",
+    "vue3-jest": "^26.0.0-alpha.10"
+  },
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "tsConfig": "./sub-project/tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue3-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  }
+}

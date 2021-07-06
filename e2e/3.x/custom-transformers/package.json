@@ -1,0 +1,47 @@
+{
+  "name": "vue3-custom-transformers",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache --coverage test.js"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.0.3",
+    "vue": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^26.0.0",
+    "extract-from-css": "^0.4.4",
+    "jest": "^26.0.0",
+    "postcss": "^7.0.13",
+    "postcss-color-function": "^4.0.1",
+    "sass": "^1.23.7",
+    "vue3-jest": "^26.0.0-alpha.10"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "./babel-transformer.js",
+      "^.+\\.vue$": "vue3-jest"
+    },
+    "moduleNameMapper": {
+      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
+    },
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "^scss$": "./scss-transformer.js",
+          "^pcss|postcss$": "./pcss-transformer.js",
+          "^js$": "./babel-transformer.js"
+        }
+      }
+    }
+  }
+}

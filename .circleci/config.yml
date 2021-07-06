@@ -24,4 +24,4 @@ jobs:
           key: node-10-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run test
+      - run: yarn test

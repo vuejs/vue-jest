@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates source maps for .vue files 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {
+  name: 'basic',
+  computed: {
+    headingClasses: function headingClasses() {
+      return {
+        red: this.isCrazy,
+        blue: !this.isCrazy,
+        shadow: this.isCrazy
+      };
+    }
+  },
+  data: function data() {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      isCrazy: false
+    };
+  },
+  methods: {
+    toggleClass: function toggleClass() {
+      this.isCrazy = !this.isCrazy;
+    }
+  }
+};
+exports[\\"default\\"] = _default;
+\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.render = void 0;
+var vue_1 = require(\\"vue\\");
+var _hoisted_1 = { class: \\"hello\\" };
+function render(_ctx, _cache) {
+    return (vue_1.openBlock(), vue_1.createBlock(\\"div\\", _hoisted_1, [
+        vue_1.createVNode(\\"h1\\", { class: _ctx.headingClasses }, vue_1.toDisplayString(_ctx.msg), 3 /* TEXT, CLASS */)
+    ]));
+}
+exports.render = render;
+;exports.default = {...exports.default, render};;exports.default = {...exports.default, __cssModules: {\\"css\\":{\\"testA\\":\\"testA\\"},\\"$style\\":{\\"testB\\":\\"testB\\"}}}"
+`;
+
+exports[`generates source maps using src attributes 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports[\\"default\\"] = void 0;
+var _default = {
+  name: 'basic',
+  computed: {
+    headingClasses: function headingClasses() {
+      return {
+        red: this.isCrazy,
+        blue: !this.isCrazy,
+        shadow: this.isCrazy
+      };
+    }
+  },
+  data: function data() {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      isCrazy: false
+    };
+  },
+  methods: {
+    toggleClass: function toggleClass() {
+      this.isCrazy = !this.isCrazy;
+    }
+  }
+};
+exports[\\"default\\"] = _default;
+\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.render = void 0;
+var vue_1 = require(\\"vue\\");
+var _hoisted_1 = { class: \\"hello\\" };
+function render(_ctx, _cache) {
+    return (vue_1.openBlock(), vue_1.createBlock(\\"div\\", _hoisted_1, [
+        vue_1.createVNode(\\"h1\\", { class: _ctx.headingClasses }, vue_1.toDisplayString(_ctx.msg), 3 /* TEXT, CLASS */)
+    ]));
+}
+exports.render = render;
+;exports.default = {...exports.default, render};"
+`;
