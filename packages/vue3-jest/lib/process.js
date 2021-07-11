@@ -5,7 +5,7 @@ const babelTransformer = require('babel-jest')
 const typescriptTransformer = require('./transformers/typescript')
 const coffeescriptTransformer = require('./transformers/coffee')
 const _processStyle = require('./process-style')
-// const processCustomBlocks = require('./process-custom-blocks')
+const processCustomBlocks = require('./process-custom-blocks')
 const getVueJestConfig = require('./utils').getVueJestConfig
 const getTsJestConfig = require('./utils').getTsJestConfig
 const logResultErrors = require('./utils').logResultErrors
@@ -14,6 +14,7 @@ const getCustomTransformer = require('./utils').getCustomTransformer
 const loadSrc = require('./utils').loadSrc
 const generateCode = require('./generate-code')
 const mapLines = require('./map-lines')
+const vueComponentNamespace = require('./constants').vueComponentNamespace
 
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
@@ -133,23 +134,28 @@ function processStyle(styles, filename, config) {
 
 module.exports = function(src, filename, config) {
   const { descriptor } = parse(src, { filename })
+  const componentNamespace =
+    getVueJestConfig(config)['componentNamespace'] || vueComponentNamespace
 
   const templateResult = processTemplate(descriptor, filename, config)
   const scriptResult = processScript(descriptor.script, filename, config)
   const scriptSetupResult = processScriptSetup(descriptor, filename, config)
   const stylesResult = processStyle(descriptor.styles, filename, config)
-  // const customBlocksResult = processCustomBlocks(
-  //   descriptor.customBlocks,
-  //   filename,
-  //   config
-  // )
-  const output = generateCode(
+  const customBlocksResult = processCustomBlocks(
+    descriptor.customBlocks,
+    filename,
+    componentNamespace,
+    config
+  )
+  const output = generateCode({
     scriptResult,
     scriptSetupResult,
     templateResult,
+    customBlocksResult,
+    componentNamespace,
     filename,
     stylesResult
-  )
+  })
 
   return {
     code: output.code,

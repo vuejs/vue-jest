@@ -31,7 +31,9 @@
     },
     "globals": {
       "vue-jest": {
-        "custom": "./transformer.js"
+        "transform": {
+          "custom": "./transformer.js"
+        }
       }
     }
   }
