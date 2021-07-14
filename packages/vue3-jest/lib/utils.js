@@ -82,7 +82,9 @@ const getTsJestConfig = function getTsJestConfig(config) {
   const configSet = new ConfigSet(config.config)
   const tsConfig = configSet.typescript || configSet.parsedTsConfig
   // Force es5 to prevent const vue_1 = require('vue') from conflicting
-  return { compilerOptions: { ...tsConfig.options, target: 'es5' } }
+  return {
+    compilerOptions: { ...tsConfig.options, target: 'es5', module: 'commonjs' }
+  }
 }
 
 function isValidTransformer(transformer) {

@@ -1,7 +1,6 @@
 const ensureRequire = require('../ensure-require')
 const babelJest = require('babel-jest').default
 const {
-  getBabelOptions,
   getTsJestConfig,
   stripInlineSourceMap,
   getCustomTransformer,
@@ -14,7 +13,6 @@ module.exports = {
     const typescript = require('typescript')
     const vueJestConfig = getVueJestConfig(config)
     const tsconfig = getTsJestConfig(config)
-    const babelOptions = getBabelOptions(filePath)
 
     const res = typescript.transpileModule(scriptContent, {
       ...tsconfig,
@@ -26,27 +24,11 @@ module.exports = {
     const inputSourceMap =
       res.sourceMapText !== undefined ? JSON.parse(res.sourceMapText) : ''
 
-    // handle ES modules in TS source code in case user uses non commonjs module
-    // output and there is no presets or plugins defined in package.json or babel config file
-    let inlineBabelOptions = {}
-    if (
-      tsconfig.compilerOptions.module !== typescript.ModuleKind.CommonJS &&
-      !(babelOptions.presets && babelOptions.presets.length) &&
-      !(babelOptions.plugins && babelOptions.plugins.length)
-    ) {
-      inlineBabelOptions = {
-        plugins: [require('@babel/plugin-transform-modules-commonjs')]
-      }
-    }
     const customTransformer =
       getCustomTransformer(vueJestConfig['transform'], 'js') || {}
     const transformer = customTransformer.process
       ? customTransformer
-      : babelJest.createTransformer(
-          Object.assign(inlineBabelOptions, {
-            inputSourceMap
-          })
-        )
+      : babelJest.createTransformer({ inputSourceMap })
 
     return transformer.process(res.outputText, filePath, config)
   }
