@@ -49,7 +49,11 @@ const transformContent = function transformContent(
 
 const getVueJestConfig = function getVueJestConfig(jestConfig) {
   return (
-    (jestConfig && jestConfig.globals && jestConfig.globals['vue-jest']) || {}
+    (jestConfig &&
+      jestConfig.config &&
+      jestConfig.config.globals &&
+      jestConfig.config.globals['vue-jest']) ||
+    {}
   )
 }
 const getBabelOptions = function loadBabelOptions(filename, options = {}) {
@@ -74,12 +78,13 @@ const getTsJestConfig = function getTsJestConfig(config) {
     return null
   }
 
-  const createTransformer = require('ts-jest').createTransformer
-  const tr = createTransformer()
-  const configSet = tr.configsFor(config)
+  const { ConfigSet } = require('ts-jest/dist/config/config-set')
+  const configSet = new ConfigSet(config.config)
   const tsConfig = configSet.typescript || configSet.parsedTsConfig
   // Force es5 to prevent const vue_1 = require('vue') from conflicting
-  return { compilerOptions: { ...tsConfig.options, target: 'es5' } }
+  return {
+    compilerOptions: { ...tsConfig.options, target: 'es5', module: 'commonjs' }
+  }
 }
 
 function isValidTransformer(transformer) {

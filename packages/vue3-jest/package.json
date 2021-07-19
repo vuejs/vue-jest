@@ -1,6 +1,6 @@
 {
   "name": "vue3-jest",
-  "version": "26.0.0-alpha.10",
+  "version": "27.0.0-alpha.1",
   "description": "Jest Vue transform",
   "main": "lib/index.js",
   "files": [
@@ -27,19 +27,20 @@
     "@babel/core": "^7.9.0",
     "@vue/compiler-sfc": "^3.0.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^26.0.0",
+    "babel-jest": "^27.0.0",
     "conventional-changelog": "^1.1.5",
-    "jest": "^26.0.0",
+    "jest": "^27.0.0",
+    "jest-cli": "^27.0.0",
     "semantic-release": "^15.13.2",
-    "ts-jest": "^26.4.4",
+    "ts-jest": "^27.0.1",
     "typescript": "^4.1.2",
     "vue": "^3.0.3"
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "babel-jest": "26.x",
-    "jest": "26.x",
-    "ts-jest": "26.x",
+    "babel-jest": "27.x",
+    "jest": "27.x",
+    "ts-jest": "27.x",
     "typescript": ">= 3.x",
     "vue": "^3.0.0-0"
   },

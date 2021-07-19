@@ -1,6 +1,6 @@
 const { parse, compileTemplate, compileScript } = require('@vue/compiler-sfc')
 const { transform } = require('@babel/core')
-const babelTransformer = require('babel-jest')
+const babelTransformer = require('babel-jest').default
 
 const typescriptTransformer = require('./transformers/typescript')
 const coffeescriptTransformer = require('./transformers/coffee')

@@ -3,7 +3,7 @@ const throwError = require('../utils').throwError
 const getBabelOptions = require('../utils').getBabelOptions
 
 module.exports = {
-  process(src, filename, config) {
+  process(src, filename) {
     ensureRequire('coffee', ['coffeescript'])
     const coffee = require('coffeescript')
     const babelOptions = getBabelOptions(filename)
