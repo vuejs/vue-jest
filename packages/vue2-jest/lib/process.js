@@ -10,7 +10,7 @@ const logResultErrors = require('./utils').logResultErrors
 const stripInlineSourceMap = require('./utils').stripInlineSourceMap
 const getCustomTransformer = require('./utils').getCustomTransformer
 const loadSrc = require('./utils').loadSrc
-const babelTransformer = require('babel-jest')
+const babelTransformer = require('babel-jest').default
 const compilerUtils = require('@vue/component-compiler-utils')
 const generateCode = require('./generate-code')
 
