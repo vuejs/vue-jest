@@ -13,7 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
-    "@vue/test-utils": "^1.1.0",
+    "@vue/test-utils": "^2.0.0-rc.10",
     "jest": "^27.0.0",
     "less": "^3.9.0",
     "postcss": "^7.0.13",

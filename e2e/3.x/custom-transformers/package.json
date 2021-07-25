@@ -13,6 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@vue/test-utils": "^2.0.0-rc.10",
     "babel-jest": "^27.0.0",
     "extract-from-css": "^0.4.4",
     "jest": "^27.0.0",
@@ -22,6 +23,7 @@
     "vue3-jest": "^27.0.0-alpha.1"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "moduleFileExtensions": [
       "js",
       "json",
