@@ -32,7 +32,7 @@ function extractClassMap(cssCode) {
 function getPreprocessOptions(lang, filePath, jestConfig) {
   if (lang === 'scss' || lang === 'sass') {
     return {
-      importer: (url, prev, done) => ({
+      importer: (url, prev) => ({
         file: applyModuleNameMapper(
           url,
           prev === 'stdin' ? filePath : prev,
@@ -52,8 +52,15 @@ function getPreprocessOptions(lang, filePath, jestConfig) {
 module.exports = function processStyle(stylePart, filePath, config = {}) {
   const vueJestConfig = getVueJestConfig(config)
 
-  if (stylePart.src && !stylePart.content) {
-    stylePart.content = loadSrc(stylePart.src, filePath)
+  if (stylePart.src && !stylePart.content.trim()) {
+    const cssFilePath = applyModuleNameMapper(
+      stylePart.src,
+      filePath,
+      config.config,
+      stylePart.lang
+    )
+    stylePart.content = loadSrc(cssFilePath, filePath)
+    filePath = cssFilePath
   }
 
   if (vueJestConfig.experimentalCSSCompile === false || !stylePart.content) {
@@ -69,12 +76,22 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
 
   // pre process
   if (transformer.preprocess) {
-    content = transformer.preprocess(content, filePath, config, stylePart.attrs)
+    content = transformer.preprocess(
+      content,
+      filePath,
+      config.config,
+      stylePart.attrs
+    )
   }
 
   // transform
   if (transformer.process) {
-    content = transformer.process(content, filePath, config, stylePart.attrs)
+    content = transformer.process(
+      content,
+      filePath,
+      config.config,
+      stylePart.attrs
+    )
   } else {
     const preprocessOptions = getPreprocessOptions(
       stylePart.lang,
@@ -95,7 +112,12 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
 
   // post process
   if (transformer.postprocess) {
-    return transformer.postprocess(content, filePath, config, stylePart.attrs)
+    return transformer.postprocess(
+      content,
+      filePath,
+      config.config,
+      stylePart.attrs
+    )
   }
 
   return JSON.stringify(extractClassMap(content))

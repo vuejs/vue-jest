@@ -108,7 +108,10 @@ function processTemplate(descriptor, filename, config) {
     return { code: outputText }
   } else {
     // babel
-    const babelify = transform(result.code, { filename: 'file.js' })
+    const babelify = transform(result.code, {
+      filename: 'file.js',
+      presets: ['@babel/preset-env']
+    })
 
     return {
       code: babelify.code
