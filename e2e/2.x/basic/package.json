@@ -19,14 +19,15 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "coffeescript": "^2.3.2",
     "jade": "^1.11.0",
-    "jest": "26.x",
+    "jest": "27.x",
     "pug": "^3.0.1",
     "sass": "^1.23.7",
-    "ts-jest": "^26.3.0",
+    "ts-jest": "^27.0.4",
     "typescript": "^3.2.2",
-    "vue2-jest": "~26.0.0"
+    "vue2-jest": "~27.0.0-alpha.1"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "moduleFileExtensions": [
       "js",
       "json",

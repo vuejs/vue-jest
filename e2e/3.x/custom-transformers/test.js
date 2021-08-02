@@ -1,21 +1,15 @@
-// import { createApp, h } from 'vue'
+import { mount } from '@vue/test-utils'
+import Scss from './components/Scss.vue'
 
-// import Scss from './components/Scss.vue'
+test('processes SCSS using user specified post transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.light.a).toBeUndefined()
+  expect(wrapper.vm.$style.light.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.f).toEqual('f')
+  expect(wrapper.vm.$style.dark.g).toEqual('g')
+})
 
-// function mount(Component, props, slots) {
-//   document.getElementsByTagName('html')[0].innerHTML = ''
-//   const el = document.createElement('div')
-//   el.id = 'app'
-//   document.body.appendChild(el)
-//   const Parent = {
-//     render() {
-//       return h(Component, props, slots)
-//     }
-//   }
-//   createApp(Parent).mount(el)
-// }
-
-// TODO: Figure this out with Vue 3. `$style` no longer exists.
-test.todo('processes SCSS using user specified post transforms')
-
-test.todo('processes SCSS using user specified pre transforms')
+test('processes SCSS using user specified pre transforms', () => {
+  const wrapper = mount(Scss)
+  expect(wrapper.vm.$style.g).toEqual('g')
+})

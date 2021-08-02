@@ -56,7 +56,7 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
     const cssFilePath = applyModuleNameMapper(
       stylePart.src,
       filePath,
-      config,
+      config.config,
       stylePart.lang
     )
     stylePart.content = loadSrc(cssFilePath, filePath)
@@ -86,7 +86,7 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
     const preprocessOptions = getPreprocessOptions(
       stylePart.lang,
       filePath,
-      config
+      config.config
     )
     const result = compileStyle({
       source: content,
