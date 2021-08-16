@@ -23,7 +23,7 @@
     "ts-jest": "^27.0.1",
     "typescript": "^4.1.2",
     "vue-class-component": "^8.0.0-beta.4",
-    "vue3-jest": "^27.0.0-alpha.1",
+    "@vue/vue3-jest": "^27.0.0-alpha.1",
     "vue-property-decorator": "^10.0.0-rc.3"
   },
   "jest": {
@@ -37,7 +37,7 @@
     "transform": {
       "^.+\\.ts$": "ts-jest",
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue3-jest"
+      "^.+\\.vue$": "@vue/vue3-jest"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"

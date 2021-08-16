@@ -17,7 +17,7 @@
     "jest": "^27.0.0",
     "ts-jest": "^27.0.1",
     "typescript": "^4.1.2",
-    "vue3-jest": "^27.0.0-alpha.1"
+    "@vue/vue3-jest": "^27.0.0-alpha.1"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -28,7 +28,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue3-jest"
+      "^.+\\.vue$": "@vue/vue3-jest"
     }
   },
   "babel": {
