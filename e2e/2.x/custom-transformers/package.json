@@ -19,7 +19,7 @@
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7",
-    "vue2-jest": "~27.0.0-alpha.1"
+    "@vue/vue2-jest": "~27.0.0-alpha.1"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -30,7 +30,7 @@
     ],
     "transform": {
       "^.+\\.js$": "./babel-transformer.js",
-      "^.+\\.vue$": "vue2-jest"
+      "^.+\\.vue$": "@vue/vue2-jest"
     },
     "moduleNameMapper": {
       "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"

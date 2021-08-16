@@ -1,5 +1,5 @@
 {
-  "name": "vue3-jest",
+  "name": "@vue/vue3-jest",
   "version": "27.0.0-alpha.2",
   "description": "Jest Vue transform",
   "main": "lib/index.js",
