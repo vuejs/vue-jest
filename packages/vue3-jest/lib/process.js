@@ -93,7 +93,8 @@ function processTemplate(descriptor, filename, config) {
     preprocessOptions: vueJestConfig[template.lang],
     compilerOptions: {
       bindingMetadata: bindings,
-      mode: 'module'
+      mode: 'module',
+      ...vueJestConfig.compilerOptions
     }
   })
 
