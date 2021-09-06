@@ -37,8 +37,10 @@ exports.render = void 0;
 var vue_1 = require(\\"vue\\");
 var _hoisted_1 = { class: \\"hello\\" };
 function render(_ctx, _cache) {
-    return (vue_1.openBlock(), vue_1.createBlock(\\"div\\", _hoisted_1, [
-        vue_1.createVNode(\\"h1\\", { class: _ctx.headingClasses }, vue_1.toDisplayString(_ctx.msg), 3 /* TEXT, CLASS */)
+    return ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)(\\"div\\", _hoisted_1, [
+        (0, vue_1.createElementVNode)(\\"h1\\", {
+            class: (0, vue_1.normalizeClass)(_ctx.headingClasses)
+        }, (0, vue_1.toDisplayString)(_ctx.msg), 3 /* TEXT, CLASS */)
     ]));
 }
 exports.render = render;
@@ -82,8 +84,10 @@ exports.render = void 0;
 var vue_1 = require(\\"vue\\");
 var _hoisted_1 = { class: \\"hello\\" };
 function render(_ctx, _cache) {
-    return (vue_1.openBlock(), vue_1.createBlock(\\"div\\", _hoisted_1, [
-        vue_1.createVNode(\\"h1\\", { class: _ctx.headingClasses }, vue_1.toDisplayString(_ctx.msg), 3 /* TEXT, CLASS */)
+    return ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)(\\"div\\", _hoisted_1, [
+        (0, vue_1.createElementVNode)(\\"h1\\", {
+            class: (0, vue_1.normalizeClass)(_ctx.headingClasses)
+        }, (0, vue_1.toDisplayString)(_ctx.msg), 3 /* TEXT, CLASS */)
     ]));
 }
 exports.render = render;

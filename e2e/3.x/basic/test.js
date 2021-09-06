@@ -20,6 +20,7 @@ import NoScript from './components/NoScript.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import { randomExport } from './components/NamedExport.vue'
 import ScriptSetup from './components/ScriptSetup.vue'
+import ScriptSetupSugarRef from './components/ScriptSetupSugarRef.vue'
 import FunctionalRenderFn from './components/FunctionalRenderFn.vue'
 
 // TODO: JSX for Vue 3? TSX?
@@ -40,6 +41,12 @@ function mount(Component, props, slots) {
 
 test('supports <script setup>', () => {
   mount(ScriptSetup)
+  expect(document.body.outerHTML).toContain('Count: 5')
+  expect(document.body.outerHTML).toContain('Welcome to Your Vue.js App')
+})
+
+test('supports <script setup> with sugar ref', () => {
+  mount(ScriptSetupSugarRef)
   expect(document.body.outerHTML).toContain('Count: 5')
   expect(document.body.outerHTML).toContain('Welcome to Your Vue.js App')
 })
