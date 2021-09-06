@@ -7,7 +7,7 @@
     "test": "jest --no-cache test.js"
   },
   "dependencies": {
-    "vue": "^3.0.3"
+    "vue": "^3.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

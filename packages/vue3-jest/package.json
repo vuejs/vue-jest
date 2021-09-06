@@ -25,7 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@vue/compiler-sfc": "^3.0.3",
+    "@vue/compiler-sfc": "^3.2.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.0.0",
     "conventional-changelog": "^1.1.5",
@@ -34,7 +34,7 @@
     "semantic-release": "^15.13.2",
     "ts-jest": "^27.0.1",
     "typescript": "^4.1.2",
-    "vue": "^3.0.3"
+    "vue": "^3.2.6"
   },
   "peerDependencies": {
     "@babel/core": "7.x",
