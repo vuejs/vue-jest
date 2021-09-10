@@ -25,29 +25,5 @@
     "vue-class-component": "^8.0.0-beta.4",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
     "vue-property-decorator": "^10.0.0-rc.3"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue",
-      "ts"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest",
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "@vue/vue3-jest"
-    },
-    "moduleNameMapper": {
-      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
-    },
-    "globals": {
-      "vue-jest": {
-        "pug": {
-          "basedir": "./"
-        }
-      }
-    }
   }
 }

@@ -21,6 +21,7 @@ import PugRelative from './components/PugRelativeExtends.vue'
 import { randomExport } from './components/NamedExport.vue'
 import ScriptSetup from './components/ScriptSetup.vue'
 import FunctionalRenderFn from './components/FunctionalRenderFn.vue'
+import CompilerDirective from './components/CompilerDirective.vue'
 
 // TODO: JSX for Vue 3? TSX?
 import Jsx from './components/Jsx.vue'
@@ -35,7 +36,9 @@ function mount(Component, props, slots) {
       return h(Component, props, slots)
     }
   }
-  createApp(Parent).mount(el)
+  const app = createApp(Parent)
+  app.directive('test', el => el.setAttribute('data-test', 'value'))
+  app.mount(el)
 }
 
 test('supports <script setup>', () => {
@@ -189,4 +192,11 @@ test('processes functional component exported as function', () => {
   const elem = document.querySelector('#functional-render-fn')
   expect(elem).toBeTruthy()
   expect(elem.innerHTML).toBe('Nyan')
+})
+
+test('ensure compilerOptions is passed down', () => {
+  mount(CompilerDirective)
+
+  const elm = document.querySelector('h1')
+  expect(elm.hasAttribute('data-test')).toBe(false)
 })
