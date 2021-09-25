@@ -4,7 +4,7 @@ Jest transformer for Vue Single File Components.
 
 ## Installation
 
-Since we need to support a variety of Vue and Jest versions, vue-jest don't follow semantic versioning.
+Since we need to support a variety of Vue and Jest versions, vue-jest doesn't follow semantic versioning.
 
 |Vue version|Jest Version|Package|
 |-----------|------------|-------|
