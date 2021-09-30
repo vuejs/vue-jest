@@ -104,6 +104,7 @@ const getCustomTransformer = function getCustomTransformer(
     require(resolvePath(transformerPath))
   ) {
     transformer = require(resolvePath(transformerPath))
+    transformer = transformer.default || transformer
   } else if (typeof transformerPath === 'object') {
     transformer = transformerPath
   }
