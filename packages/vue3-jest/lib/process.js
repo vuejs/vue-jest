@@ -91,6 +91,13 @@ function processTemplate(descriptor, filename, config) {
     bindings = scriptSetupResult.bindings
   }
 
+  // Since Vue 3.2.13, it's possible to use TypeScript in templates,
+  // but this needs the `isTS` option of the compiler.
+  // We could let users set it themselves, but vue-loader and vite automatically add it
+  // if the script is in TypeScript, so let's do the same for a seamless experience.
+  const isTS =
+    descriptor.script && /^typescript$|tsx?$/.test(descriptor.script.lang)
+
   const result = compileTemplate({
     id: filename,
     source: template.content,
@@ -100,6 +107,7 @@ function processTemplate(descriptor, filename, config) {
     compilerOptions: {
       bindingMetadata: bindings,
       mode: 'module',
+      isTS,
       ...vueJestConfig.compilerOptions
     }
   })
