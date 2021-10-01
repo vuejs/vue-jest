@@ -7,7 +7,7 @@ const {
   getVueJestConfig
 } = require('../utils')
 
-module.exports = {
+module.exports = scriptLang => ({
   process(scriptContent, filePath, config) {
     ensureRequire('typescript', ['typescript'])
     const typescript = require('typescript')
@@ -16,7 +16,7 @@ module.exports = {
 
     const res = typescript.transpileModule(scriptContent, {
       ...tsconfig,
-      fileName: filePath
+      fileName: filePath + (scriptLang === 'tsx' ? '.tsx' : '')
     })
 
     res.outputText = stripInlineSourceMap(res.outputText)
@@ -32,4 +32,4 @@ module.exports = {
 
     return transformer.process(res.outputText, filePath, config)
   }
-}
+})
