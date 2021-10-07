@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <h1 :class="headingClasses">{{ msg }}</h1>
+    <!-- Vue 3.2.13 supports TS in templates -->
+    <!-- hence the `!` after `msg` to check if vue-jest supports it as well -->
+    <h1 :class="headingClasses">{{ msg! }}</h1>
   </div>
 </template>
 
