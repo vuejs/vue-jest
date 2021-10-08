@@ -72,7 +72,7 @@ const getTsJestConfig = function getTsJestConfig(config) {
   const configSet = new ConfigSet(config.config)
   var tsConfig = configSet.typescript || configSet.parsedTsConfig
   return {
-    compilerOptions: { ...tsConfig.options, target: 'es5', module: 'commonjs' }
+    compilerOptions: { ...tsConfig.options, module: 'commonjs' }
   }
 }
 

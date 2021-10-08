@@ -14,12 +14,13 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "@vue/test-utils": "^1.1.0",
+    "@vue/vue2-jest": "~27.0.0-alpha.1",
     "coffeescript": "^2.3.2",
     "jest": "27.x",
     "ts-jest": "^27.0.4",
-    "typescript": "^3.2.2",
-    "@vue/vue2-jest": "~27.0.0-alpha.1"
+    "typescript": "^3.2.2"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -35,7 +36,8 @@
   },
   "babel": {
     "presets": [
-      "@babel/env"
+      "@babel/env",
+      "@vue/babel-preset-jsx"
     ]
   }
 }

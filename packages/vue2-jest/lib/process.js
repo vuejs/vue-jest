@@ -17,7 +17,7 @@ const generateCode = require('./generate-code')
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
   if (/^typescript$|tsx?$/.test(lang)) {
-    return transformer || require('./transformers/typescript')
+    return transformer || require('./transformers/typescript')(lang)
   } else if (/^coffee$|coffeescript$/.test(lang)) {
     return transformer || coffeescriptTransformer
   } else {
