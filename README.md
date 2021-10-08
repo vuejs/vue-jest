@@ -232,3 +232,24 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
   }
 }
 ```
+
+## Style options
+
+Possbility to change style loader options (sass, scss, less etc).
+
+`styleOptions`: `Object` Default `{}`.
+
+```json
+{
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "styleOptions": {
+          "quietDeps" // e.q. sass options https://sass-lang.com/documentation/js-api#quietdeps
+          // unfortunately rest options like `data`, `file` doesnt work because @vue/compiler-component-utils internally overwrite options with their values
+        },
+      }
+    }
+  }
+}
+```

@@ -19,7 +19,13 @@ import Pug from './components/Pug.vue'
 import PugRelative from './components/PugRelativeExtends.vue'
 import Jsx from './components/Jsx.vue'
 import Constructor from './components/Constructor.vue'
+import { compileStyle } from '@vue/component-compiler-utils'
+jest.mock('@vue/component-compiler-utils', () => ({
+  ...jest.requireActual('@vue/component-compiler-utils'),
+  compileStyle: jest.fn(() => ({ errors: [], code: '' }))
+}))
 
+beforeEach(() => jest.clearAllMocks())
 test('processes .vue files', () => {
   const wrapper = mount(Basic)
   expect(wrapper.vm.msg).toEqual('Welcome to Your Vue.js App')
@@ -148,4 +154,30 @@ test('supports relative paths when extending templates from .pug files', () => {
 test('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
   expect(wrapper.element.tagName).toBe('SECTION')
+})
+
+test('should pass properly "styleOptions" into "preprocessOptions"', () => {
+  const filePath = resolve(__dirname, './components/Basic.vue')
+  const fileString = readFileSync(filePath, { encoding: 'utf8' })
+  const config = {
+    moduleFileExtensions: ['js', 'vue'],
+    globals: {
+      'vue-jest': {
+        styleOptions: {
+          quietDeps: true
+        }
+      }
+    }
+  }
+
+  jestVue.process(fileString, filePath, {
+    config
+  })
+
+  expect(compileStyle.mock.calls[0][0].preprocessOptions).toStrictEqual({
+    quietDeps: true
+  })
+  expect(compileStyle.mock.calls[1][0].preprocessOptions).toStrictEqual({
+    quietDeps: true
+  })
 })
