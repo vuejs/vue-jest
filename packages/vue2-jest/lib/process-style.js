@@ -92,7 +92,10 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
       source: content,
       filePath,
       preprocessLang: stylePart.lang,
-      preprocessOptions,
+      preprocessOptions: {
+        ...preprocessOptions,
+        ...vueJestConfig.styleOptions
+      },
       scoped: false
     })
     logResultErrors(result)
