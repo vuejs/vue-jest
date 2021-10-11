@@ -40,6 +40,7 @@ function extractClassMap(cssCode) {
 function getPreprocessOptions(lang, filePath, jestConfig) {
   if (lang === 'scss' || lang === 'sass') {
     return {
+      filename: filePath,
       importer: (url, prev, done) => ({
         file: applyModuleNameMapper(
           url,
