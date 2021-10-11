@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const cssExtract = require('extract-from-css')
 const getVueJestConfig = require('./utils').getVueJestConfig
 const compileStyle = require('@vue/component-compiler-utils').compileStyle
@@ -12,12 +11,21 @@ function getGlobalResources(resources, lang) {
   let globalResources = ''
   if (resources && resources[lang]) {
     globalResources = resources[lang]
-      .map(resource => path.resolve(process.cwd(), resource))
-      .filter(resourcePath => fs.existsSync(resourcePath))
-      .map(resourcePath => fs.readFileSync(resourcePath).toString())
-      .join('\n')
+      .map(resource => {
+        const absolutePath = path.resolve(process.cwd(), resource)
+        return `${getImportLine(lang, absolutePath)}\n`
+      })
+      .join('')
   }
   return globalResources
+}
+
+function getImportLine(lang, filePath) {
+  const importLines = {
+    default: `@import "${filePath}";`,
+    sass: `@import "${filePath}"`
+  }
+  return importLines[lang] || importLines.default
 }
 
 function extractClassMap(cssCode) {
