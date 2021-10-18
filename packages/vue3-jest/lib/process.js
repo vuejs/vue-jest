@@ -95,8 +95,10 @@ function processTemplate(descriptor, filename, config) {
   // but this needs the `isTS` option of the compiler.
   // We could let users set it themselves, but vue-loader and vite automatically add it
   // if the script is in TypeScript, so let's do the same for a seamless experience.
-  const isTS =
-    descriptor.script && /^typescript$|tsx?$/.test(descriptor.script.lang)
+  const lang =
+    (descriptor.scriptSetup && descriptor.scriptSetup.lang) ||
+    (descriptor.script && descriptor.script.lang)
+  const isTS = /^typescript$|tsx?$/.test(lang)
 
   const result = compileTemplate({
     id: filename,
