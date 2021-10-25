@@ -1,34 +1,32 @@
 # vue-jest
 
-Jest transformer for Vue single file components
+Jest transformer for Vue Single File Components.
 
-> **NOTE:** This is documentation for `vue-jest@4.x`. [View the vue-jest@3.x documentation](https://github.com/vuejs/vue-jest/tree/v3)
+## Installation
 
-## Usage
+Since we need to support a variety of Vue and Jest versions, vue-jest doesn't follow semantic versioning.
 
-```bash
-npm install --save-dev vue-jest
-yarn add vue-jest --dev
-```
-
-### Usage with Babel 7
-
-If you use [jest](https://github.com/facebook/jest) > 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
+| Vue version | Jest Version      | Package             |
+| ----------- | ----------------- | ------------------- |
+| Vue 2       | Jest 26 and below | `vue-jest@4`        |
+| Vue 3       | Jest 26 and below | `vue-jest@5`        |
+| Vue 2       | Jest 27           | `@vue/vue2-jest@27` |
+| Vue 3       | Jest 27           | `@vue/vue3-jest@27` |
 
 ```bash
-npm install --save-dev babel-core@bridge
-yarn add babel-core@bridge --dev
+npm install --save-dev @vue/vue2-jest@27 # (use the appropriate version)
+yarn add @vue/vue2-jest@27 --dev
 ```
 
 ## Setup
 
-To use `vue-jest` as a transformer for your `.vue` files, map them to the `vue-jest` module:
+To use `vue-jest` as a transformer for your `.vue` files, map them to the appropriate `vue-jest` module:
 
 ```json
 {
   "jest": {
     "transform": {
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "@vue/vue2-jest" // Update to match your installed version
     }
   }
 }
@@ -42,19 +40,22 @@ A full config will look like this.
     "moduleFileExtensions": ["js", "json", "vue"],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "@vue/vue2-jest"
     }
   }
 }
 ```
 
-## Examples
+### Usage with Babel 7
 
-Example repositories testing Vue components with jest and vue-jest:
+If you use [jest](https://github.com/facebook/jest) > 24.0.0 and [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) make sure to install babel-core@bridge
 
-- [Vue Test Utils with Jest](https://github.com/eddyerburgh/vue-test-utils-jest-example)
+```bash
+npm install --save-dev babel-core@bridge
+yarn add babel-core@bridge --dev
+```
 
-## Supported langs
+## Supported languages for SFC sections
 
 vue-jest compiles `<script />`, `<template />`, and `<style />` blocks with supported `lang` attributes into JavaScript that Jest can run.
 
@@ -79,10 +80,10 @@ A `package.json` Example
     "moduleFileExtensions": ["js", "json", "vue"],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "@vue/vue2-jest"
     },
     "globals": {
-      "vue-jest": {
+      "@vue/vue2-jest": {
         "transform": {
           "your-custom-block": "./custom-block-processor.js"
         }
@@ -99,7 +100,7 @@ A `jest.config.js` Example - If you're using a dedicated configuration file like
 ```js
 module.exports = {
   globals: {
-    'vue-jest': {
+    '@vue/vue2-jest': {
       transform: {
         'your-custom-block': require('./custom-block-processor')
       }
@@ -134,7 +135,7 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
 {
   "jest": {
     "globals": {
-      "vue-jest": {
+      "@vue/vue2-jest": {
         "templateCompiler": {
           "transpileOptions": {
             "transforms": {
@@ -159,7 +160,7 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
   {
     "jest": {
       "globals": {
-        "vue-jest": {
+        "@vue/vue2-jest": {
           "pug": {
             "basedir": "mybasedir"
           }
@@ -226,6 +227,27 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
       "vue-jest": {
         "hideStyleWarn": true,
         "experimentalCSSCompile": true
+      }
+    }
+  }
+}
+```
+
+## Style options
+
+Possbility to change style loader options (sass, scss, less etc).
+
+`styleOptions`: `Object` Default `{}`.
+
+```json
+{
+  "jest": {
+    "globals": {
+      "vue-jest": {
+        "styleOptions": {
+          "quietDeps" // e.q. sass options https://sass-lang.com/documentation/js-api#quietdeps
+          // unfortunately rest options like `data`, `file` doesnt work because @vue/compiler-component-utils internally overwrite options with their values
+        },
       }
     }
   }

@@ -7,8 +7,8 @@
     "test": "jest --no-cache --coverage test.js"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.2.6",
-    "vue": "^3.2.6"
+    "@vue/compiler-sfc": "^3.2.19",
+    "vue": "^3.2.19"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
