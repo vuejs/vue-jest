@@ -53,7 +53,7 @@ function processScriptSetup(descriptor, filePath, config) {
   }
   const content = compileScript(descriptor, {
     id: filePath,
-    refTransform: true
+    refTransform: descriptor.scriptSetup.content.includes('$ref')
   })
   const contentMap = mapLines(descriptor.scriptSetup.map, content.map)
 
