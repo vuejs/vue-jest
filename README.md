@@ -14,7 +14,7 @@ Since we need to support a variety of Vue and Jest versions, vue-jest doesn't fo
 | Vue 3       | Jest 27           | `@vue/vue3-jest`    |
 
 ```bash
-npm install --save-dev @vue/vue2-jest
+npm install --save-dev @vue/vue2-jest # (use the appropriate version)
 yarn add @vue/vue2-jest --dev
 ```
 
