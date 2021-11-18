@@ -68,6 +68,34 @@ vue-jest compiles `<script />`, `<template />`, and `<style />` blocks with supp
 
 You can change the behavior of `vue-jest` by using `jest.globals`.
 
+#### Compiler Options in Vue 3
+
+These options can be used to define Vue compiler options in `@vue/vue3-jest`.
+
+For example, to enable `propsDestructureTransform`:
+
+```js
+globals: {
+  'vue-jest': {
+    compilerOptions: {
+      propsDestructureTransform: true
+    }
+  }
+}
+```
+
+or disable `refTransform` (which is enabled by default):
+
+```js
+globals: {
+  'vue-jest': {
+    compilerOptions: {
+      refTransform: false
+    }
+  }
+}
+```
+
 #### Supporting custom blocks
 
 A great feature of the Vue SFC compiler is that it can support custom blocks. You might want to use those blocks in your tests. To render out custom blocks for testing purposes, you'll need to write a transformer. Once you have your transformer, you'll add an entry to vue-jest's transform map. This is how [vue-i18n's](https://github.com/kazupon/vue-i18n) `<i18n>` custom blocks are supported in unit tests.
