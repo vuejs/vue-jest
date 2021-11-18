@@ -20,7 +20,7 @@ jobs:
   test:
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [12, 14, 16]
     runs-on: ubuntu-latest
 
     steps:
