@@ -51,13 +51,14 @@ function processScriptSetup(descriptor, filePath, config) {
   if (!descriptor.scriptSetup) {
     return null
   }
+  const vueJestConfig = getVueJestConfig(config)
   const content = compileScript(descriptor, {
     id: filePath,
-    refTransform: true
+    refTransform: true,
+    ...vueJestConfig.compilerOptions
   })
   const contentMap = mapLines(descriptor.scriptSetup.map, content.map)
 
-  const vueJestConfig = getVueJestConfig(config)
   const transformer = resolveTransformer(
     descriptor.scriptSetup.lang,
     vueJestConfig
@@ -77,7 +78,6 @@ function processTemplate(descriptor, filename, config) {
   }
 
   const vueJestConfig = getVueJestConfig(config)
-
   if (template.src) {
     template.content = loadSrc(template.src, filename)
   }
@@ -86,7 +86,8 @@ function processTemplate(descriptor, filename, config) {
   if (scriptSetup) {
     const scriptSetupResult = compileScript(descriptor, {
       id: filename,
-      refTransform: true
+      refTransform: true,
+      ...vueJestConfig.compilerOptions
     })
     bindings = scriptSetupResult.bindings
   }
