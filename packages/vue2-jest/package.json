@@ -1,5 +1,5 @@
 {
-  "name": "vue2-jest",
+  "name": "@vue/vue2-jest",
   "version": "26.0.1",
   "description": "Jest transformer for Vue 2",
   "main": "lib/index.js",
