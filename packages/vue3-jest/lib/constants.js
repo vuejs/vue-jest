@@ -1,5 +1,5 @@
 module.exports = {
-  vueOptionsNamespace: '__options__',
+  vueComponentNamespace: 'Component',
   defaultVueJestConfig: {
     transform: {}
   }

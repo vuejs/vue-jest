@@ -15,13 +15,15 @@ function addToSourceMap(node, result) {
   }
 }
 
-module.exports = function generateCode(
+module.exports = function generateCode({
   scriptResult,
   scriptSetupResult,
   templateResult,
+  customBlocksResult,
+  componentNamespace,
   filename,
   stylesResult
-) {
+}) {
   var node = new SourceNode(null, null, null)
   addToSourceMap(node, scriptResult)
   addToSourceMap(node, scriptSetupResult)
@@ -61,6 +63,14 @@ module.exports = function generateCode(
         mergedStyle
       )}}`
     )
+  }
+
+  if (Array.isArray(customBlocksResult)) {
+    customBlocksResult.forEach(codes => {
+      codes.forEach(code => {
+        node.add(`;((${componentNamespace}) => { ${code} })(exports.default);`)
+      })
+    })
   }
 
   return node.toStringWithSourceMap({ file: filename })
