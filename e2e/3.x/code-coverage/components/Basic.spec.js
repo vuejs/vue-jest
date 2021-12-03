@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils'
 import Basic from './Basic.vue'
 
 describe('Basic', () => {
-  it('renders', () => {
+  it('collects test coverage', () => {
     expect.assertions(4)
 
     const wrapper = shallowMount(Basic)
