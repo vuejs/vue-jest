@@ -1,4 +1,3 @@
-import { assert } from '@vue/compiler-core'
 import { shallowMount } from '@vue/test-utils'
 
 import Basic from './Basic.vue'
