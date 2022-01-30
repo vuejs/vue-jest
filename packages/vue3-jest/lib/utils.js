@@ -69,11 +69,8 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
 }
 
 const getTsJestConfig = function getTsJestConfig(config) {
-  const tsConfigPath = path.resolve(
-    process.cwd(),
-    getVueJestConfig(config).tsConfig || ''
-  )
-  const isUsingTs = resolveTsConfigSync(tsConfigPath)
+  const tsConfigPath = getVueJestConfig(config).tsConfig || ''
+  const isUsingTs = resolveTsConfigSync(process.cwd(), tsConfigPath)
   if (!isUsingTs) {
     return null
   }
