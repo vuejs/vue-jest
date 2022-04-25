@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div :class="$style.c"></div>
-    <div :class="style.d"></div>
+    <div :class="$style.c" />
+    <div :class="style.d" />
   </section>
 </template>
 
@@ -18,8 +18,21 @@ export default defineComponent({
 </script>
 
 <style module lang="postcss">
+:root {
+  --theme_color_background_base: #f00;
+}
+
+@define-mixin hover {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme_color_background_base);
+}
+
 .c {
   background: color(purple a(90%));
+}
+
+.c:hover {
+  @mixin hover;
 }
 </style>
 

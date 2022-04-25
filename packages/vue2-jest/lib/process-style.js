@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const cssExtract = require('extract-from-css')
+const cssTree = require('css-tree')
 const getVueJestConfig = require('./utils').getVueJestConfig
 const compileStyle = require('@vue/component-compiler-utils').compileStyle
 const applyModuleNameMapper = require('./module-name-mapper-helper')
@@ -21,12 +21,15 @@ function getGlobalResources(resources, lang) {
 }
 
 function extractClassMap(cssCode) {
-  const cssNames = cssExtract.extractClasses(cssCode)
-  const cssMap = {}
-  for (let i = 0, l = cssNames.length; i < l; i++) {
-    cssMap[cssNames[i]] = cssNames[i]
-  }
-  return cssMap
+  const ast = cssTree.parse(cssCode)
+
+  return cssTree
+    .findAll(ast, node => node.type === 'ClassSelector')
+    .reduce((acc, cssNode) => {
+      acc[cssNode.name] = cssNode.name
+
+      return acc
+    }, {})
 }
 
 function getPreprocessOptions(lang, filePath, jestConfig) {

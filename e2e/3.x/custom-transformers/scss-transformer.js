@@ -1,14 +1,18 @@
-const cssExtract = require('extract-from-css')
+const cssTree = require('css-tree')
+
 module.exports = {
   preprocess: function preprocess(src, filepath, config, attrs) {
     return `${src}\n .g{width: 10px}`
   },
   postprocess: function postprocess(src, filepath, config, attrs) {
-    const cssNames = cssExtract.extractClasses(src)
-    const obj = {}
-    for (let i = 0, l = cssNames.length; i < l; i++) {
-      obj[cssNames[i]] = cssNames[i]
-    }
+    const ast = cssTree.parse(src)
+    const obj = cssTree
+      .findAll(ast, node => node.type === 'ClassSelector')
+      .reduce((acc, cssNode) => {
+        acc[cssNode.name] = cssNode.name
+
+        return acc
+      }, {})
 
     if (!attrs.themed) {
       return JSON.stringify(obj)
