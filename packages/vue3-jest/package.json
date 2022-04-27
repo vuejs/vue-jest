@@ -26,20 +26,20 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^27.0.0",
+    "babel-jest": "^28.0.2",
     "conventional-changelog": "^1.1.5",
-    "jest": "^27.0.0",
-    "jest-cli": "^27.0.0",
+    "jest": "^28.0.2",
+    "jest-cli": "^28.0.2",
     "semantic-release": "^15.13.2",
-    "ts-jest": "^27.0.1",
+    "ts-jest": "^v28.0.0-next.1",
     "typescript": "^4.1.2",
     "vue": "^3.2.22"
   },
   "peerDependencies": {
     "@babel/core": "7.x",
-    "babel-jest": "27.x",
-    "jest": "27.x",
-    "ts-jest": "27.x",
+    "babel-jest": "28.x",
+    "jest": "28.x",
+    "ts-jest": "28.x",
     "typescript": ">= 3.x",
     "vue": "^3.0.0-0"
   },

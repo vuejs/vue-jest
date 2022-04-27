@@ -21,7 +21,7 @@ function resolveTransformer(lang = 'js', vueJestConfig) {
   } else if (/^coffee$|coffeescript$/.test(lang)) {
     return transformer || coffeescriptTransformer
   } else {
-    return transformer || babelTransformer
+    return transformer || babelTransformer.createTransformer()
   }
 }
 

@@ -14,9 +14,10 @@
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^2.0.0-rc.10",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
-    "babel-jest": "^27.0.0",
+    "babel-jest": "^28.0.2",
     "css-tree": "^2.0.1",
-    "jest": "^27.0.0",
+    "jest": "^28.0.2",
+    "jest-environment-jsdom": "28.0.2",
     "postcss": "^7.0.13",
     "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7"

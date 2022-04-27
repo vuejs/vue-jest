@@ -75,7 +75,7 @@ const getTsJestConfig = function getTsJestConfig(config) {
     return null
   }
 
-  const { ConfigSet } = require('ts-jest/dist/config/config-set')
+  const { ConfigSet } = require('ts-jest/dist/legacy/config/config-set')
   const configSet = new ConfigSet(config.config)
   const tsConfig = configSet.typescript || configSet.parsedTsConfig
   // Force es5 to prevent const vue_1 = require('vue') from conflicting

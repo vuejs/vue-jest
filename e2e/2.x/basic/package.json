@@ -19,10 +19,11 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "coffeescript": "^2.3.2",
     "jade": "^1.11.0",
-    "jest": "27.x",
+    "jest": "28.x",
+    "jest-environment-jsdom": "28.0.2",
     "pug": "^3.0.1",
     "sass": "^1.23.7",
-    "ts-jest": "^27.0.4",
+    "ts-jest": "^v28.0.0-next.1",
     "typescript": "^3.2.2",
     "@vue/vue2-jest": "~27.0.0-alpha.1"
   },

@@ -10,7 +10,7 @@ module.exports = {
     return crypto
       .createHash('md5')
       .update(
-        babelJest.getCacheKey(fileData, filename, {
+        babelJest.createTransformer().getCacheKey(fileData, filename, {
           config,
           configString,
           instrument,
