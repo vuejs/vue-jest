@@ -21,8 +21,7 @@ module.exports = scriptLang => ({
 
     res.outputText = stripInlineSourceMap(res.outputText)
 
-    const inputSourceMap =
-      res.sourceMapText !== undefined ? JSON.parse(res.sourceMapText) : ''
+    const inputSourceMap = res.sourceMapText && JSON.parse(res.sourceMapText)
 
     const customTransformer =
       getCustomTransformer(vueJestConfig['transform'], 'js') || {}
