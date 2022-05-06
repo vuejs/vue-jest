@@ -24,7 +24,7 @@
     "pug": "^3.0.1",
     "sass": "^1.23.7",
     "ts-jest": "^28.0.1",
-    "typescript": "^3.2.2",
+    "typescript": "^4.6.4",
     "@vue/vue2-jest": "~27.0.0-alpha.1"
   },
   "jest": {

@@ -32,7 +32,7 @@
     "jest-cli": "^28.0.2",
     "semantic-release": "^15.13.2",
     "ts-jest": "^28.0.1",
-    "typescript": "^4.1.2",
+    "typescript": "^4.6.4",
     "vue": "^3.2.22"
   },
   "peerDependencies": {
@@ -40,7 +40,7 @@
     "babel-jest": "28.x",
     "jest": "28.x",
     "ts-jest": "28.x",
-    "typescript": ">= 3.x",
+    "typescript": ">= 4.3",
     "vue": "^3.0.0-0"
   },
   "peerDependenciesMeta": {
