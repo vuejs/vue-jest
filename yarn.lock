@@ -10485,10 +10485,10 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.yarnpkg.com/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-jest@^v28.0.0-next.1:
-  version "28.0.0-next.1"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.0-next.1.tgz#b9961b0220d797a09ffc98d93caa73879794b122"
-  integrity sha512-rhxVFSOOcJLCjGvh/RXmvz0fSpnQrB0PjiC3JL25oNeuHH/bC3BVlanLg9AtPm/AnW3l0JCBfgACm2xAT9DPxw==
+ts-jest@^28.0.1:
+  version "28.0.1"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.1.tgz#626b4d7d5c386f88f4813d959ffc4ca0a8ffef96"
+  integrity sha512-PbkbitaT/9ZYAqqzk3UYTvCq080Seo46T3m/AdwcZ0D8WH2uBhG6PvA8oOAWsZIknzPQU66fYobvFCL8IqIhmg==
   dependencies:
     bs-logger "0.x"
     fast-json-stable-stringify "2.x"

@@ -31,7 +31,7 @@
     "jest": "^28.0.2",
     "jest-cli": "^28.0.2",
     "semantic-release": "^15.13.2",
-    "ts-jest": "^v28.0.0-next.1",
+    "ts-jest": "^28.0.1",
     "typescript": "^4.1.2",
     "vue": "^3.2.22"
   },

@@ -20,7 +20,7 @@
     "jest": "^28.0.2",
     "jest-environment-jsdom": "28.0.2",
     "pug": "^2.0.3",
-    "ts-jest": "^v28.0.0-next.1",
+    "ts-jest": "^28.0.1",
     "typescript": "^4.1.2",
     "vue-class-component": "^8.0.0-beta.4",
     "@vue/vue3-jest": "^27.0.0-alpha.1",

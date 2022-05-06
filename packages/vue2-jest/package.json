@@ -32,7 +32,7 @@
     "conventional-changelog": "^1.1.5",
     "jest": "^28.0.2",
     "semantic-release": "^15.13.2",
-    "ts-jest": "^v28.0.0-next.1",
+    "ts-jest": "^28.0.1",
     "typescript": "^3.2.2",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2"
