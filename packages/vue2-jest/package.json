@@ -71,5 +71,8 @@
       "yarn format",
       "git add"
     ]
+  },
+  "engines": {
+    "node": ">10"
   }
 }
