@@ -6,12 +6,14 @@ Jest transformer for Vue Single File Components.
 
 Since we need to support a variety of Vue and Jest versions, vue-jest doesn't follow semantic versioning.
 
-| Vue version | Jest Version      | Package          |
-| ----------- | ----------------- | ---------------- |
-| Vue 2       | Jest 26 and below | `vue-jest@4`     |
-| Vue 3       | Jest 26 and below | `vue-jest@5`     |
-| Vue 2       | Jest 28           | `@vue/vue2-jest` |
-| Vue 3       | Jest 28           | `@vue/vue3-jest` |
+| Vue version | Jest Version      | Package             |
+| ----------- | ----------------- | ------------------- |
+| Vue 2       | Jest 26 and below | `vue-jest@4`        |
+| Vue 3       | Jest 26 and below | `vue-jest@5`        |
+| Vue 2       | Jest 27 and above | `@vue/vue2-jest@xx` |
+| Vue 3       | Jest 27 and above | `@vue/vue3-jest@xx` |
+
+**xx**: Major version of Jest
 
 ```bash
 npm install --save-dev @vue/vue2-jest # (use the appropriate version)
