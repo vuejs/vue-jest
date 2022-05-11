@@ -89,6 +89,7 @@ const getTypeScriptConfig = function getTypeScriptConfig(path) {
 
 function isValidTransformer(transformer) {
   return (
+    isFunction(transformer.createTransformer) ||
     isFunction(transformer.process) ||
     isFunction(transformer.postprocess) ||
     isFunction(transformer.preprocess)
@@ -121,12 +122,13 @@ const getCustomTransformer = function getCustomTransformer(
 
   if (!isValidTransformer(transformer)) {
     throwError(
-      `transformer must contain at least one process, preprocess, or ` +
-        `postprocess method`
+      `transformer must contain at least one createTransformer(), process(), preprocess(), or postprocess() method`
     )
   }
 
-  return transformer
+  return isFunction(transformer.createTransformer)
+    ? transformer.createTransformer()
+    : transformer
 }
 
 const throwError = function error(msg) {
