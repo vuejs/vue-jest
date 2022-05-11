@@ -76,10 +76,9 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
 const getTypeScriptConfig = function getTypeScriptConfig(path) {
   const tsconfig = loadTsConfigSync(process.cwd(), path || '')
   if (!tsconfig.path) {
-    info(`Not found tsconfig.json.`)
+    warn(`Not found tsconfig.json.`)
     return null
   }
-  info(`Loaded TypeScript config from "${tsconfig.path}".`)
   const compilerOptions =
     (tsconfig.config && tsconfig.config.compilerOptions) || {}
 
