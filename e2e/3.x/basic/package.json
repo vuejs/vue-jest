@@ -12,6 +12,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@vue/vue3-jest": "^28.0.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
@@ -23,7 +24,6 @@
     "ts-jest": "^28.0.1",
     "typescript": "^4.6.4",
     "vue-class-component": "^8.0.0-beta.4",
-    "@vue/vue3-jest": "^28.0.0",
     "vue-property-decorator": "^10.0.0-rc.3"
   }
 }
