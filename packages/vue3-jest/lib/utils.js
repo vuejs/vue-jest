@@ -1,9 +1,6 @@
 const constants = require('./constants')
 const loadPartialConfig = require('@babel/core').loadPartialConfig
-const {
-  loadSync: loadTsConfigSync,
-  resolveSync: resolveTsConfigSync
-} = require('tsconfig')
+const { loadSync: loadTsConfigSync } = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -69,22 +66,6 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
     sourceMaps: 'both'
   })
   return loadPartialConfig(opts).options
-}
-
-const getTsJestConfig = function getTsJestConfig(config) {
-  const tsConfigPath = getVueJestConfig(config).tsConfig || ''
-  const isUsingTs = resolveTsConfigSync(process.cwd(), tsConfigPath)
-  if (!isUsingTs) {
-    return null
-  }
-
-  const { ConfigSet } = require('ts-jest/dist/legacy/config/config-set')
-  const configSet = new ConfigSet(config.config)
-  const tsConfig = configSet.typescript || configSet.parsedTsConfig
-  // Force es5 to prevent const vue_1 = require('vue') from conflicting
-  return {
-    compilerOptions: { ...tsConfig.options, target: 'es5', module: 'commonjs' }
-  }
 }
 
 /**
@@ -185,7 +166,6 @@ module.exports = {
   throwError,
   logResultErrors,
   getCustomTransformer,
-  getTsJestConfig,
   getTypeScriptConfig,
   getBabelOptions,
   getVueJestConfig,

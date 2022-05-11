@@ -68,15 +68,6 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
   return loadPartialConfig(opts).options
 }
 
-const getTsJestConfig = function getTsJestConfig(config) {
-  const { ConfigSet } = require('ts-jest/dist/legacy/config/config-set')
-  const configSet = new ConfigSet(config.config)
-  var tsConfig = configSet.typescript || configSet.parsedTsConfig
-  return {
-    compilerOptions: { ...tsConfig.options, module: 'commonjs' }
-  }
-}
-
 /**
  * Load TypeScript config from tsconfig.json.
  * @param {string | undefined} path tsconfig.json file path (default: root)
@@ -173,7 +164,6 @@ module.exports = {
   throwError,
   logResultErrors,
   getCustomTransformer,
-  getTsJestConfig,
   getTypeScriptConfig,
   getBabelOptions,
   getVueJestConfig,
