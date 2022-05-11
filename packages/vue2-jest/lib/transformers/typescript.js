@@ -1,9 +1,9 @@
 const ensureRequire = require('../ensure-require')
 const babelJest = require('babel-jest').default
 const {
-  getTsJestConfig,
   stripInlineSourceMap,
   getCustomTransformer,
+  getTypeScriptConfig,
   getVueJestConfig
 } = require('../utils')
 
@@ -12,7 +12,7 @@ module.exports = scriptLang => ({
     ensureRequire('typescript', ['typescript'])
     const typescript = require('typescript')
     const vueJestConfig = getVueJestConfig(config)
-    const tsconfig = getTsJestConfig(config)
+    const tsconfig = getTypeScriptConfig(vueJestConfig.tsConfig)
 
     const res = typescript.transpileModule(scriptContent, {
       ...tsconfig,
