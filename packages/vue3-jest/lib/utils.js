@@ -1,6 +1,9 @@
 const constants = require('./constants')
 const loadPartialConfig = require('@babel/core').loadPartialConfig
-const { resolveSync: resolveTsConfigSync } = require('tsconfig')
+const {
+  loadSync: loadTsConfigSync,
+  resolveSync: resolveTsConfigSync
+} = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -84,6 +87,27 @@ const getTsJestConfig = function getTsJestConfig(config) {
   }
 }
 
+/**
+ * Load TypeScript config from tsconfig.json.
+ * @param {string | undefined} path tsconfig.json file path (default: root)
+ * @returns {import('typescript').TranspileOptions | null} TypeScript compilerOptions or null
+ */
+const getTypeScriptConfig = function getTypeScriptConfig(path) {
+  const tsconfig = loadTsConfigSync(process.cwd(), path || '')
+  if (!tsconfig.path) {
+    info(`Not found tsconfig.json.`)
+    return null
+  }
+  info(`Loaded TypeScript config from "${tsconfig.path}".`)
+  const compilerOptions =
+    (tsconfig.config && tsconfig.config.compilerOptions) || {}
+
+  // Force es5 to prevent const vue_1 = require('vue') from conflicting
+  return {
+    compilerOptions: { ...compilerOptions, target: 'es5', module: 'commonjs' }
+  }
+}
+
 function isValidTransformer(transformer) {
   return (
     isFunction(transformer.process) ||
@@ -162,6 +186,7 @@ module.exports = {
   logResultErrors,
   getCustomTransformer,
   getTsJestConfig,
+  getTypeScriptConfig,
   getBabelOptions,
   getVueJestConfig,
   transformContent,

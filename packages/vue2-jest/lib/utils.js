@@ -1,5 +1,6 @@
 const constants = require('./constants')
 const loadPartialConfig = require('@babel/core').loadPartialConfig
+const { loadSync: loadTsConfigSync } = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -73,6 +74,26 @@ const getTsJestConfig = function getTsJestConfig(config) {
   var tsConfig = configSet.typescript || configSet.parsedTsConfig
   return {
     compilerOptions: { ...tsConfig.options, module: 'commonjs' }
+  }
+}
+
+/**
+ * Load TypeScript config from tsconfig.json.
+ * @param {string | undefined} path tsconfig.json file path (default: root)
+ * @returns {import('typescript').TranspileOptions | null} TypeScript compilerOptions or null
+ */
+const getTypeScriptConfig = function getTypeScriptConfig(path) {
+  const tsconfig = loadTsConfigSync(process.cwd(), path || '')
+  if (!tsconfig.path) {
+    info(`Not found tsconfig.json.`)
+    return null
+  }
+  info(`Loaded TypeScript config from "${tsconfig.path}".`)
+  const compilerOptions =
+    (tsconfig.config && tsconfig.config.compilerOptions) || {}
+
+  return {
+    compilerOptions: { ...compilerOptions, module: 'commonjs' }
   }
 }
 
@@ -153,6 +174,7 @@ module.exports = {
   logResultErrors,
   getCustomTransformer,
   getTsJestConfig,
+  getTypeScriptConfig,
   getBabelOptions,
   getVueJestConfig,
   transformContent,
