@@ -23,7 +23,7 @@
     "ts-jest": "^28.0.1",
     "typescript": "^4.6.4",
     "vue-class-component": "^8.0.0-beta.4",
-    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "@vue/vue3-jest": "^28.0.0",
     "vue-property-decorator": "^10.0.0-rc.3"
   }
 }
