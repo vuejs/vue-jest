@@ -68,7 +68,7 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
 }
 
 const getTsJestConfig = function getTsJestConfig(config) {
-  const { ConfigSet } = require('ts-jest/dist/config/config-set')
+  const { ConfigSet } = require('ts-jest/dist/legacy/config/config-set')
   const configSet = new ConfigSet(config.config)
   var tsConfig = configSet.typescript || configSet.parsedTsConfig
   return {

@@ -14,7 +14,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@vue/test-utils": "^1.1.0",
-    "jest": "27.x",
+    "jest": "28.x",
     "less": "^3.9.0",
     "postcss": "^7.0.13",
     "sass": "^1.23.7",
