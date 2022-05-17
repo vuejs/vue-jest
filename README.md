@@ -13,7 +13,7 @@ Since we need to support a variety of Vue and Jest versions, vue-jest doesn't fo
 | Vue 2       | Jest 27 and above | `@vue/vue2-jest@27` | 27.x   |
 | Vue 3       | Jest 27 and above | `@vue/vue3-jest@27` | 27.x   |
 | Vue 2       | Jest 28 and above | `@vue/vue2-jest@28` | 28.x   |
-| Vue 3       | Jest 27 and above | `@vue/vue3-jest@28` | 28.x   |
+| Vue 3       | Jest 28 and above | `@vue/vue3-jest@28` | 28.x   |
 
 ```bash
 # Vue 2
