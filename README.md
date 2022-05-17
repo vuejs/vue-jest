@@ -6,18 +6,23 @@ Jest transformer for Vue Single File Components.
 
 Since we need to support a variety of Vue and Jest versions, vue-jest doesn't follow semantic versioning.
 
-| Vue version | Jest Version      | Package             |
-| ----------- | ----------------- | ------------------- |
-| Vue 2       | Jest 26 and below | `vue-jest@4`        |
-| Vue 3       | Jest 26 and below | `vue-jest@5`        |
-| Vue 2       | Jest 27 and above | `@vue/vue2-jest@xx` |
-| Vue 3       | Jest 27 and above | `@vue/vue3-jest@xx` |
-
-**xx**: Major version of Jest
+| Vue version | Jest Version      | npm Package         | Branch |
+| ----------- | ----------------- | ------------------- | ------ |
+| Vue 2       | Jest 26 and below | `vue-jest@4`        |        |
+| Vue 3       | Jest 26 and below | `vue-jest@5`        |        |
+| Vue 2       | Jest 27 and above | `@vue/vue2-jest@27` | 27.x   |
+| Vue 3       | Jest 27 and above | `@vue/vue3-jest@27` | 27.x   |
+| Vue 2       | Jest 28 and above | `@vue/vue2-jest@28` | 28.x   |
+| Vue 3       | Jest 27 and above | `@vue/vue3-jest@28` | 28.x   |
 
 ```bash
-npm install --save-dev @vue/vue2-jest # (use the appropriate version)
-yarn add @vue/vue2-jest --dev
+# Vue 2
+npm install --save-dev @vue/vue2-jest@28 # (use the appropriate version)
+yarn add @vue/vue2-jest@28 --dev
+
+# Vue 3
+npm install --save-dev @vue/vue3-jest@28 # (use the appropriate version)
+yarn add @vue/vue3-jest@28 --dev
 ```
 
 ## Setup
