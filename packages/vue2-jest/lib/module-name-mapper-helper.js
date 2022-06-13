@@ -31,7 +31,7 @@ function resolveSass(to, importPath, fileType) {
 
     for (const filename of filenames) {
       try {
-        return require.resolve(path.join(dirname, filename))
+        return require.resolve(path.join(dirname, filename), { paths: [to] })
       } catch (_) {}
     }
   }
