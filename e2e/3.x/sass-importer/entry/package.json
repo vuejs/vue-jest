@@ -1,0 +1,48 @@
+{
+  "name": "vue3-sass-importer-entry",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache --coverage test.js"
+  },
+  "dependencies": {
+    "vue": "^3.2.22",
+    "vue3-sass-importer-lib": "file:../lib",
+    "vue3-sass-importer-sass-lib": "file:../sass-lib-v2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@vue/test-utils": "^2.0.0-rc.10",
+    "babel-jest": "^28.0.2",
+    "jest": "28.x",
+    "jest-environment-jsdom": "28.0.2",
+    "postcss": "^7.0.13",
+    "postcss-color-function": "^4.0.1",
+    "sass": "^1.23.7",
+    "@vue/vue3-jest": "^28.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/.*(?<!.vue)$"
+    ],
+    "transform": {
+      "^.+\\.js$": "./babel-transformer.js",
+      "^.+\\.vue$": "@vue/vue3-jest"
+    },
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "^js$": "./babel-transformer.js"
+        }
+      }
+    }
+  }
+}

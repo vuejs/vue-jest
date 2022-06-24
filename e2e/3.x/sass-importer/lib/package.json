@@ -1,0 +1,19 @@
+{
+  "name": "vue3-sass-importer-lib",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "index.vue",
+  "files": [
+    "index.vue"
+  ],
+  "scripts": {
+    "test": "echo 'No tests found.'"
+  },
+  "dependencies": {
+    "vue3-sass-importer-sass-lib": "file:../sass-lib-v1"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.22"
+  }
+}
