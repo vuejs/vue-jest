@@ -10865,6 +10865,28 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
+"vue2-sass-importer-lib@file:e2e/2.x/sass-importer/lib":
+  version "1.0.0"
+  dependencies:
+    vue2-sass-importer-sass-lib "file:../../.cache/yarn/v6/npm-vue2-sass-importer-lib-1.0.0-1087f856-8699-4ac6-a0fa-2288988256c2-1656107462461/node_modules/sass-lib-v1"
+
+"vue2-sass-importer-sass-lib@file:e2e/2.x/sass-importer/sass-lib-v1":
+  version "1.0.0"
+
+"vue2-sass-importer-sass-lib@file:e2e/2.x/sass-importer/sass-lib-v2":
+  version "2.0.0"
+
+"vue3-sass-importer-lib@file:e2e/3.x/sass-importer/lib":
+  version "1.0.0"
+  dependencies:
+    vue3-sass-importer-sass-lib "file:../../.cache/yarn/v6/npm-vue3-sass-importer-lib-1.0.0-c866bb73-f527-47b9-932d-498dea4cf3d0-1656107462461/node_modules/sass-lib-v1"
+
+"vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v1":
+  version "1.0.0"
+
+"vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v2":
+  version "2.0.0"
+
 vue@^2.4.2, vue@^2.5.21:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"

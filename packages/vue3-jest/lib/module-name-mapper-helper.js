@@ -14,7 +14,9 @@ function resolve(to, importPath, fileType) {
   if (path.isAbsolute(importPath)) {
     return importPath
   } else if (matchModuleImport.test(importPath)) {
-    return require.resolve(importPath.replace(matchModuleImport, ''))
+    return require.resolve(importPath.replace(matchModuleImport, ''), {
+      paths: [to]
+    })
   }
   return path.join(path.dirname(to), importPath)
 }

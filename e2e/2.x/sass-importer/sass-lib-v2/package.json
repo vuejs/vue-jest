@@ -1,0 +1,12 @@
+{
+  "name": "vue2-sass-importer-sass-lib",
+  "version": "2.0.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "index.scss"
+  ],
+  "scripts": {
+    "test": "echo 'No tests found.'"
+  }
+}
