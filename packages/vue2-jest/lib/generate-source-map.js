@@ -4,6 +4,7 @@ const splitRE = /\r?\n/g
 
 module.exports = function generateSourceMap(
   scriptResult,
+  scriptSetupResult,
   src,
   filename,
   renderFnStartLine,
@@ -20,10 +21,13 @@ module.exports = function generateSourceMap(
   const srcContent = scriptFromExternalSrc ? scriptResult.externalSrc : src
 
   map.setSourceContent(file, srcContent)
-  if (scriptResult) {
+
+  const finalScriptResult = scriptResult || scriptSetupResult
+  if (finalScriptResult) {
     let inputMapConsumer =
-      scriptResult.map && new sourceMap.SourceMapConsumer(scriptResult.map)
-    scriptResult.code.split(splitRE).forEach(function(line, index) {
+      finalScriptResult.map &&
+      new sourceMap.SourceMapConsumer(finalScriptResult.map)
+    finalScriptResult.code.split(splitRE).forEach(function(line, index) {
       let ln = index + 1
       let originalLine = inputMapConsumer
         ? inputMapConsumer.originalPositionFor({ line: ln, column: 0 }).line

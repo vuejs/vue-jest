@@ -164,8 +164,8 @@ module.exports = function(src, filename, config) {
   )
 
   const map = generateSourceMap(
-    // TODO Add scriptSetup
     scriptResult,
+    scriptSetupResult,
     src,
     filename,
     output.renderFnStartLine,
