@@ -34,8 +34,8 @@
     "semantic-release": "^15.13.2",
     "ts-jest": "^28.0.1",
     "typescript": "^4.6.4",
-    "vue": "^2.4.2",
-    "vue-template-compiler": "^2.4.2"
+    "vue": "^2.7.2",
+    "vue-template-compiler": "^2.7.2"
   },
   "peerDependencies": {
     "@babel/core": "7.x",

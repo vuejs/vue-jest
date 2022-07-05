@@ -4,6 +4,7 @@ const splitRE = /\r?\n/g
 
 module.exports = function generateCode(
   scriptResult,
+  scriptSetupResult,
   templateResult,
   stylesResult,
   customBlocksResult,
@@ -13,8 +14,9 @@ module.exports = function generateCode(
   let renderFnStartLine
   let renderFnEndLine
 
-  if (scriptResult) {
-    output += `${scriptResult.code};\n`
+  const finalScriptResult = scriptResult || scriptSetupResult
+  if (finalScriptResult) {
+    output += `${finalScriptResult.code};\n`
   } else {
     output +=
       `Object.defineProperty(exports, "__esModule", {\n` +
