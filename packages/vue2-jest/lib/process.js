@@ -103,7 +103,6 @@ function processTemplate(descriptor, filename, config) {
     bindings,
     ...userTemplateCompilerOptions,
     compilerOptions: {
-      bindingMetadata: bindings,
       optimize: false,
       ...userTemplateCompilerOptions.compilerOptions
     }
