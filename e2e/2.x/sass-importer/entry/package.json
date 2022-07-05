@@ -7,8 +7,8 @@
     "test": "jest --no-cache --coverage test.js"
   },
   "dependencies": {
-    "vue": "^2.5.21",
-    "vue-template-compiler": "^2.5.21",
+    "vue": "^2.7.2",
+    "vue-template-compiler": "^2.7.2",
     "vue2-sass-importer-lib": "file:../lib",
     "vue2-sass-importer-sass-lib": "file:../sass-lib-v2"
   },

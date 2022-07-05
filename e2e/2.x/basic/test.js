@@ -20,6 +20,7 @@ import PugRelative from './components/PugRelativeExtends.vue'
 import Jsx from './components/Jsx.vue'
 import Constructor from './components/Constructor.vue'
 import { compileStyle } from '@vue/component-compiler-utils'
+import ScriptSetup from './components/ScriptSetup'
 jest.mock('@vue/component-compiler-utils', () => ({
   ...jest.requireActual('@vue/component-compiler-utils'),
   compileStyle: jest.fn(() => ({ errors: [], code: '' }))
@@ -154,6 +155,12 @@ test('supports relative paths when extending templates from .pug files', () => {
 test('processes SFC with no template', () => {
   const wrapper = mount(RenderFunction)
   expect(wrapper.element.tagName).toBe('SECTION')
+})
+
+test('processes SFC with <script setup>', () => {
+  const wrapper = mount(ScriptSetup)
+  expect(wrapper.html()).toContain('Count: 5')
+  expect(wrapper.html()).toContain('Welcome to Your Vue.js App')
 })
 
 test('should pass properly "styleOptions" into "preprocessOptions"', () => {

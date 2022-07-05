@@ -8,8 +8,9 @@ const stripInlineSourceMap = require('./utils').stripInlineSourceMap
 const getCustomTransformer = require('./utils').getCustomTransformer
 const loadSrc = require('./utils').loadSrc
 const babelTransformer = require('babel-jest').default
-const compilerUtils = require('@vue/component-compiler-utils')
+const { parse, compileTemplate, compileScript } = require('@vue/compiler-sfc')
 const generateCode = require('./generate-code')
+const mapLines = require('./map-lines')
 
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
@@ -42,7 +43,32 @@ function processScript(scriptPart, filePath, config) {
   return result
 }
 
-function processTemplate(template, filename, config) {
+function processScriptSetup(descriptor, filePath, config) {
+  if (!descriptor.scriptSetup) {
+    return null
+  }
+  const vueJestConfig = getVueJestConfig(config)
+  const content = compileScript(descriptor, {
+    id: filePath,
+    refTransform: true,
+    ...vueJestConfig.compilerOptions
+  })
+  const contentMap = mapLines(descriptor.scriptSetup.map, content.map)
+
+  const transformer = resolveTransformer(
+    descriptor.scriptSetup.lang,
+    vueJestConfig
+  )
+
+  const result = transformer.process(content.content, filePath, config)
+  result.map = mapLines(contentMap, result.map)
+
+  return result
+}
+
+function processTemplate(descriptor, filename, config) {
+  const { template, scriptSetup } = descriptor
+
   if (!template) {
     return null
   }
@@ -53,16 +79,28 @@ function processTemplate(template, filename, config) {
     template.content = loadSrc(template.src, filename)
   }
 
+  let bindings
+  if (scriptSetup) {
+    const scriptSetupResult = compileScript(descriptor, {
+      id: filename,
+      refTransform: true,
+      ...vueJestConfig.compilerOptions
+    })
+    bindings = scriptSetupResult.bindings
+  }
+
   const userTemplateCompilerOptions = vueJestConfig.templateCompiler || {}
-  const result = compilerUtils.compileTemplate({
+  const result = compileTemplate({
     source: template.content,
     compiler: VueTemplateCompiler,
     filename: filename,
     isFunctional: template.attrs.functional,
     preprocessLang: template.lang,
     preprocessOptions: vueJestConfig[template.lang],
+    bindings,
     ...userTemplateCompilerOptions,
     compilerOptions: {
+      bindingMetadata: bindings,
       optimize: false,
       ...userTemplateCompilerOptions.compilerOptions
     }
@@ -89,14 +127,15 @@ function processStyle(styles, filename, config) {
 }
 
 module.exports = function(src, filename, config) {
-  const descriptor = compilerUtils.parse({
+  const descriptor = parse({
     source: src,
     compiler: VueTemplateCompiler,
     filename
   })
 
-  const templateResult = processTemplate(descriptor.template, filename, config)
+  const templateResult = processTemplate(descriptor, filename, config)
   const scriptResult = processScript(descriptor.script, filename, config)
+  const scriptSetupResult = processScriptSetup(descriptor, filename, config)
   const stylesResult = processStyle(descriptor.styles, filename, config)
   const customBlocksResult = processCustomBlocks(
     descriptor.customBlocks,
@@ -114,6 +153,7 @@ module.exports = function(src, filename, config) {
 
   const output = generateCode(
     scriptResult,
+    scriptSetupResult,
     templateResult,
     stylesResult,
     customBlocksResult,
@@ -121,8 +161,18 @@ module.exports = function(src, filename, config) {
     filename
   )
 
+  const map = generateSourceMap(
+    // TODO Add scriptSetup
+    scriptResult,
+    src,
+    filename,
+    output.renderFnStartLine,
+    output.renderFnEndLine,
+    templateLine
+  ).toJSON()
+
   return {
     code: output.code,
-    map: output.map.toString()
+    map
   }
 }

@@ -18,6 +18,7 @@ function addToSourceMap(node, result) {
 
 module.exports = function generateCode(
   scriptResult,
+  scriptSetupResult,
   templateResult,
   stylesResult,
   customBlocksResult,
@@ -26,8 +27,9 @@ module.exports = function generateCode(
 ) {
   var node = new SourceNode(null, null)
 
-  if (scriptResult) {
-    addToSourceMap(node, scriptResult)
+  const finalScriptResult = scriptResult || scriptSetupResult
+  if (finalScriptResult) {
+    addToSourceMap(node, finalScriptResult)
   } else {
     node.add(
       `Object.defineProperty(exports, "__esModule", {\n` +
