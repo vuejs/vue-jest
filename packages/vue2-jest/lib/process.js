@@ -50,7 +50,6 @@ function processScriptSetup(descriptor, filePath, config) {
   const vueJestConfig = getVueJestConfig(config)
   const content = compileScript(descriptor, {
     id: filePath,
-    refTransform: true,
     ...vueJestConfig.compilerOptions
   })
   const contentMap = mapLines(descriptor.scriptSetup.map, content.map)
@@ -83,7 +82,6 @@ function processTemplate(descriptor, filename, config) {
   if (scriptSetup) {
     const scriptSetupResult = compileScript(descriptor, {
       id: filename,
-      refTransform: true,
       ...vueJestConfig.compilerOptions
     })
     bindings = scriptSetupResult.bindings
