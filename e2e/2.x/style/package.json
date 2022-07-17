@@ -7,8 +7,8 @@
     "test": "node setup.js && jest --no-cache test.js"
   },
   "dependencies": {
-    "vue": "^2.7.2",
-    "vue-template-compiler": "^2.7.2"
+    "vue": "^2.7.7",
+    "vue-template-compiler": "^2.7.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

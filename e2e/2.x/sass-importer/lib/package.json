@@ -14,6 +14,6 @@
     "vue2-sass-importer-sass-lib": "file:../sass-lib-v1"
   },
   "peerDependencies": {
-    "vue": "^2.7.2"
+    "vue": "^2.7.7"
   }
 }
