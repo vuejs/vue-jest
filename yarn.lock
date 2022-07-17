@@ -1681,10 +1681,10 @@
     "@vue/compiler-core" "3.2.23"
     "@vue/shared" "3.2.23"
 
-"@vue/compiler-sfc@2.7.2":
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-2.7.2.tgz#15ec0a39c81dad831add7da45d28de37e75fa577"
-  integrity sha512-khG5m63A4DSeHEOe5yyjHQY2TAE0pUXqKqxgauNUcFaa8M4+J55OWhagy8Bk8O6cO4GhKbQf2NDYzceijmOy8A==
+"@vue/compiler-sfc@2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-2.7.7.tgz#74aebb24c1ebfa22642c70f27ffaeca4dabdf692"
+  integrity sha512-Ah8dIuo6ZVPHTq9+s4rBU/YpJu3vGSNyeOTCrPrVPQnkUfnT5Ig+IKBhePuQWFXguYb2TuEWrEfiiX9DZ3aJlA==
   dependencies:
     "@babel/parser" "^7.18.4"
     postcss "^8.4.14"
@@ -10661,10 +10661,10 @@ vue-property-decorator@^10.0.0-rc.3:
   resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-10.0.0-rc.3.tgz#bb0cb2c7c31dc41149eb432f2104fb82dc3d95be"
   integrity sha512-EGqjf8Lq+kTausZzfLB1ynWOcyay8ZLAc5p2VlKGEX2q+BjYw84oZxr6IcdwuxGIdNmriZqPUX6AlAluBdnbEg==
 
-vue-template-compiler@^2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.7.2.tgz#656c2ccfd53696c52a9740645b7a9fda421d84e6"
-  integrity sha512-3PDLIPankm7b1YZHk6/mTz9kMZaDSd1Vhp1tFPITot5uW9WjnIyv6zRax3+j1kwF0DHmvfIVXMX8G+Rn/BHfaQ==
+vue-template-compiler@^2.7.7:
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.7.7.tgz#9ac85dc50216d01fb5e2fb16b6c3f5ed11b4b104"
+  integrity sha512-vxOsjWhvDPyMW7QwXPecNmTNwKyXiF+j4KjBFjDxYPuY0xvqCT5o9WrapVItR/Nrh0XThfBaL19kXFSNYtbKmw==
   dependencies:
     de-indent "^1.0.2"
     he "^1.2.0"
@@ -10677,7 +10677,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue2-sass-importer-lib@file:e2e/2.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue2-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue2-sass-importer-lib-1.0.0-8173eb07-74dd-4f87-b80c-57dc71227233-1657017062306/node_modules/sass-lib-v1"
+    vue2-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue2-sass-importer-lib-1.0.0-7ea9c798-4187-4843-8438-890703751297-1658071612744/node_modules/sass-lib-v1"
 
 "vue2-sass-importer-sass-lib@file:e2e/2.x/sass-importer/sass-lib-v1":
   version "1.0.0"
@@ -10688,7 +10688,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue3-sass-importer-lib@file:e2e/3.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue3-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue3-sass-importer-lib-1.0.0-ffdc36b5-3387-41da-ae0b-a90940b3f3ab-1657017062307/node_modules/sass-lib-v1"
+    vue3-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue3-sass-importer-lib-1.0.0-6f2c27b2-1a8d-453e-a6a3-12b82bb6e5f4-1658071612745/node_modules/sass-lib-v1"
 
 "vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v1":
   version "1.0.0"
@@ -10696,12 +10696,12 @@ vue-template-es2015-compiler@^1.9.0:
 "vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v2":
   version "2.0.0"
 
-vue@^2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.2.tgz#d42aba8d03c4e82d4b127f7b764a822cf19f9cdc"
-  integrity sha512-fQPKEfdiUP4bDlrGEjI5MOTkC5s/XIbnfKAx0B3MxJHI4qwh8FPLSo8/9tFkgFiRH3HwvcHjZQ1tCTifOUH0tg==
+vue@^2.7.7:
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.7.tgz#e3a966944e461e4abb496c82362e8763e98e6527"
+  integrity sha512-osfkncsGCWqtch+YWYxbqTNQ9hl/UQ6TFRkdmK/VqAjuMpxzr5QotFsYpmJ1AB1ez2LJeIKXDmtMkXUotMOTsA==
   dependencies:
-    "@vue/compiler-sfc" "2.7.2"
+    "@vue/compiler-sfc" "2.7.7"
     csstype "^3.1.0"
 
 vue@^3.0.3:
