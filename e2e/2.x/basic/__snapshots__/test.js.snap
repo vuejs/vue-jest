@@ -2,35 +2,48 @@
 
 exports[`generates source maps for .vue files 1`] = `
 Object {
-  "mappings": ";;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAGA;AACA;AACA;AACA;AACA;AACA;AACA;AAHA;AAKA;AAPA;AASA;AACA;AACA;AACA;AAFA;AAIA;AACA;AACA;AACA;AACA;AAHA;AAjBA;;;;AAvBA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA",
-  "names": Array [],
+  "file": "/Volumes/repos/vue-jest/e2e/2.x/basic/components/Basic.vue",
+  "mappings": ";;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;eAEe;AACbA,MAAI,EAAE,OADO;AAEbC,UAAQ,EAAE;AACRC,kBAAc,EAAE,SAASA,cAAT,GAA0B;AACxC,aAAO;AACLC,WAAG,EAAE,KAAKC,OADL;AAELC,YAAI,EAAE,CAAC,KAAKD,OAFP;AAGLE,cAAM,EAAE,KAAKF;AAHR,OAAP;AAKD;AAPO,GAFG;AAWbG,MAAI,EAAE,SAASA,IAAT,GAAgB;AACpB,WAAO;AACLC,SAAG,EAAE,4BADA;AAELJ,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBbK,SAAO,EAAE;AACPC,eAAW,EAAE,SAASA,WAAT,GAAuB;AAClC,WAAKN,OAAL,GAAe,CAAC,KAAKA,OAArB;AACD;AAHM;AAjBI,C",
+  "names": Array [
+    "name",
+    "computed",
+    "headingClasses",
+    "red",
+    "isCrazy",
+    "blue",
+    "shadow",
+    "data",
+    "msg",
+    "methods",
+    "toggleClass",
+  ],
   "sources": Array [
     "Basic.vue",
   ],
   "sourcesContent": Array [
-    "<template>
-  <div class=\\"hello\\">
-    <h1 :class=\\"headingClasses\\">{{ msg }}</h1>
-  </div>
-</template>
+    "//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-<style module=\\"css\\">
-.testA {
-  background-color: red;
-}
-</style>
-<style module>
-.testB {
-  background-color: blue;
-}
-</style>
-<style>
-.testC {
-  background-color: blue;
-}
-</style>
-
-<script>
 export default {
   name: 'basic',
   computed: {
@@ -54,7 +67,6 @@ export default {
     }
   }
 }
-</script>
 ",
   ],
   "version": 3,
@@ -63,8 +75,21 @@ export default {
 
 exports[`generates source maps using src attributes 1`] = `
 Object {
-  "mappings": ";;;;;;;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAHA;AAKA;AAPA;AASA;AACA;AACA;AACA;AAFA;AAIA;AACA;AACA;AACA;AACA;AAHA;AAjBA",
-  "names": Array [],
+  "file": "/Volumes/repos/vue-jest/e2e/2.x/basic/components/SourceMapsSrc.vue",
+  "mappings": ";;;;;;eAAe;AACbA,MAAI,EAAE,OADO;AAEbC,UAAQ,EAAE;AACRC,kBAAc,EAAE,SAASA,cAAT,GAA0B;AACxC,aAAO;AACLC,WAAG,EAAE,KAAKC,OADL;AAELC,YAAI,EAAE,CAAC,KAAKD,OAFP;AAGLE,cAAM,EAAE,KAAKF;AAHR,OAAP;AAKD;AAPO,GAFG;AAWbG,MAAI,EAAE,SAASA,IAAT,GAAgB;AACpB,WAAO;AACLC,SAAG,EAAE,4BADA;AAELJ,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBbK,SAAO,EAAE;AACPC,eAAW,EAAE,SAASA,WAAT,GAAuB;AAClC,WAAKN,OAAL,GAAe,CAAC,KAAKA,OAArB;AACD;AAHM;AAjBI,C",
+  "names": Array [
+    "name",
+    "computed",
+    "headingClasses",
+    "red",
+    "isCrazy",
+    "blue",
+    "shadow",
+    "data",
+    "msg",
+    "methods",
+    "toggleClass",
+  ],
   "sources": Array [
     "SourceMapsSrc.vue",
   ],

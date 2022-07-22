@@ -52,7 +52,7 @@ test('generates source maps for .vue files', () => {
     config
   })
 
-  expect(map).toMatchSnapshot()
+  expect(JSON.parse(map)).toMatchSnapshot()
 })
 
 test('generates source maps using src attributes', () => {
@@ -67,7 +67,7 @@ test('generates source maps using src attributes', () => {
     config
   })
 
-  expect(map).toMatchSnapshot()
+  expect(JSON.parse(map)).toMatchSnapshot()
 })
 
 test('processes .vue file using jsx', () => {
