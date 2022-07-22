@@ -59,8 +59,6 @@ module.exports = function generateCode(
       node.add(`${namespace}.functional = true\n`)
       node.add(`${namespace}._compiled = true\n`)
     }
-
-    addToSourceMap(node, templateResult)
   }
 
   if (stylesResult) {
