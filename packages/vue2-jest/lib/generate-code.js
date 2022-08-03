@@ -25,9 +25,10 @@ module.exports = function generateCode(
   filename
 ) {
   var node = new SourceNode(null, null)
-  addToSourceMap(node, scriptResult)
 
-  if (!scriptResult) {
+  if (scriptResult) {
+    addToSourceMap(node, scriptResult)
+  } else {
     node.add(
       `Object.defineProperty(exports, "__esModule", {\n` +
         `  value: true\n` +
@@ -72,6 +73,7 @@ module.exports = function generateCode(
           `this['${moduleName}'], ${code});\n`
       )
       .join('')
+
     if (isFunctional) {
       node.add(
         `;(function() {\n` +
