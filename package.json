@@ -45,6 +45,10 @@
       "pre-commit": "lint-staged"
     }
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "lint-staged": {
     "*.{js,json,css,md,vue}": [
       "yarn format",

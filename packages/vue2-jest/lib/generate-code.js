@@ -1,50 +1,64 @@
 const namespace = require('./constants').vueOptionsNamespace
+const { SourceNode, SourceMapConsumer } = require('source-map')
 
-const splitRE = /\r?\n/g
+function addToSourceMap(node, result) {
+  if (result && result.code) {
+    if (result.map) {
+      node.add(
+        SourceNode.fromStringWithSourceMap(
+          result.code,
+          new SourceMapConsumer(result.map)
+        )
+      )
+    } else {
+      node.add(result.code)
+    }
+  }
+}
 
 module.exports = function generateCode(
   scriptResult,
   templateResult,
   stylesResult,
   customBlocksResult,
-  isFunctional
+  isFunctional,
+  filename
 ) {
-  let output = ''
-  let renderFnStartLine
-  let renderFnEndLine
+  var node = new SourceNode(null, null)
 
   if (scriptResult) {
-    output += `${scriptResult.code};\n`
+    addToSourceMap(node, scriptResult)
   } else {
-    output +=
+    node.add(
       `Object.defineProperty(exports, "__esModule", {\n` +
-      `  value: true\n` +
-      `});\n` +
-      'module.exports.default = {};\n'
+        `  value: true\n` +
+        `});\n` +
+        'module.exports.default = {};\n'
+    )
   }
 
-  output +=
+  node.add(
     `var ${namespace} = typeof exports.default === 'function' ` +
-    `? exports.default.options ` +
-    `: exports.default\n`
+      `? exports.default.options ` +
+      `: exports.default\n`
+  )
 
   if (templateResult) {
-    renderFnStartLine = output.split(splitRE).length
-    templateResult.code = templateResult.code.replace(
+    addToSourceMap(node, templateResult)
+
+    node.replaceRight(
       'var _c = _vm._self._c || _h',
       '/* istanbul ignore next */\nvar _c = _vm._self._c || _h'
     )
-    output += `${templateResult.code}\n`
 
-    renderFnEndLine = output.split(splitRE).length
-
-    output +=
+    node.add(
       `__options__.render = render\n` +
-      `${namespace}.staticRenderFns = staticRenderFns\n`
+        `${namespace}.staticRenderFns = staticRenderFns\n`
+    )
 
     if (isFunctional) {
-      output += `${namespace}.functional = true\n`
-      output += `${namespace}._compiled = true\n`
+      node.add(`${namespace}.functional = true\n`)
+      node.add(`${namespace}._compiled = true\n`)
     }
   }
 
@@ -59,32 +73,32 @@ module.exports = function generateCode(
           `this['${moduleName}'], ${code});\n`
       )
       .join('')
+
     if (isFunctional) {
-      output +=
+      node.add(
         `;(function() {\n` +
-        `  var originalRender = ${namespace}.render\n` +
-        `  var styleFn = function () { ${styleStr} }\n` +
-        `  ${namespace}.render = function renderWithStyleInjection (h, context) {\n` +
-        `    styleFn.call(context)\n` +
-        `    return originalRender(h, context)\n` +
-        `  }\n` +
-        `})()\n`
+          `  var originalRender = ${namespace}.render\n` +
+          `  var styleFn = function () { ${styleStr} }\n` +
+          `  ${namespace}.render = function renderWithStyleInjection (h, context) {\n` +
+          `    styleFn.call(context)\n` +
+          `    return originalRender(h, context)\n` +
+          `  }\n` +
+          `})()\n`
+      )
     } else {
-      output +=
+      node.add(
         `;(function() {\n` +
-        `  var beforeCreate = ${namespace}.beforeCreate\n` +
-        `  var styleFn = function () { ${styleStr} }\n` +
-        `  ${namespace}.beforeCreate = beforeCreate ? [].concat(beforeCreate, styleFn) : [styleFn]\n` +
-        `})()\n`
+          `  var beforeCreate = ${namespace}.beforeCreate\n` +
+          `  var styleFn = function () { ${styleStr} }\n` +
+          `  ${namespace}.beforeCreate = beforeCreate ? [].concat(beforeCreate, styleFn) : [styleFn]\n` +
+          `})()\n`
+      )
     }
   }
 
   if (customBlocksResult) {
-    output += `;\n ${customBlocksResult}`
+    node.add(`;\n ${customBlocksResult}`)
   }
-  return {
-    code: output,
-    renderFnStartLine,
-    renderFnEndLine
-  }
+
+  return node.toStringWithSourceMap({ file: filename })
 }
