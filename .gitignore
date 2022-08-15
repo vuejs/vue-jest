@@ -27,3 +27,4 @@ pids
 package-lock.json
 /e2e/**/yarn.lock
 
+.vscode

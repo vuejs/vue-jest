@@ -8,10 +8,14 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "e2e/**"
+      "e2e/2.x/*",
+      "e2e/2.x/**/entry",
+      "e2e/3.x/*",
+      "e2e/3.x/**/entry"
     ],
     "nohoist": [
-      "**/vue"
+      "**/vue",
+      "**/vue2-sass-importer-sass-lib"
     ]
   },
   "scripts": {
@@ -40,6 +44,10 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "lint-staged": {
     "*.{js,json,css,md,vue}": [

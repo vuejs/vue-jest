@@ -1,7 +1,4 @@
-const splitRE = /\r?\n/g
-
 const VueTemplateCompiler = require('vue-template-compiler')
-const generateSourceMap = require('./generate-source-map')
 const coffeescriptTransformer = require('./transformers/coffee')
 const _processStyle = require('./process-style')
 const processCustomBlocks = require('./process-custom-blocks')
@@ -115,28 +112,17 @@ module.exports = function(src, filename, config) {
       descriptor.script.content &&
       /functional:\s*true/.test(descriptor.script.content))
 
-  const templateStart = descriptor.template && descriptor.template.start
-  const templateLine = src.slice(0, templateStart).split(splitRE).length
-
   const output = generateCode(
     scriptResult,
     templateResult,
     stylesResult,
     customBlocksResult,
-    isFunctional
+    isFunctional,
+    filename
   )
-
-  const map = generateSourceMap(
-    scriptResult,
-    src,
-    filename,
-    output.renderFnStartLine,
-    output.renderFnEndLine,
-    templateLine
-  ).toJSON()
 
   return {
     code: output.code,
-    map
+    map: output.map.toString()
   }
 }
