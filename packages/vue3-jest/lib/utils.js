@@ -1,6 +1,6 @@
 const constants = require('./constants')
 const loadPartialConfig = require('@babel/core').loadPartialConfig
-const { resolveSync: resolveTsConfigSync } = require('tsconfig')
+const { loadSync: loadTsConfigSync } = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -68,24 +68,29 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
   return loadPartialConfig(opts).options
 }
 
-const getTsJestConfig = function getTsJestConfig(config) {
-  const tsConfigPath = getVueJestConfig(config).tsConfig || ''
-  const isUsingTs = resolveTsConfigSync(process.cwd(), tsConfigPath)
-  if (!isUsingTs) {
+/**
+ * Load TypeScript config from tsconfig.json.
+ * @param {string | undefined} path tsconfig.json file path (default: root)
+ * @returns {import('typescript').TranspileOptions | null} TypeScript compilerOptions or null
+ */
+const getTypeScriptConfig = function getTypeScriptConfig(path) {
+  const tsconfig = loadTsConfigSync(process.cwd(), path || '')
+  if (!tsconfig.path) {
+    warn(`Not found tsconfig.json.`)
     return null
   }
+  const compilerOptions =
+    (tsconfig.config && tsconfig.config.compilerOptions) || {}
 
-  const { ConfigSet } = require('ts-jest/dist/legacy/config/config-set')
-  const configSet = new ConfigSet(config.config)
-  const tsConfig = configSet.typescript || configSet.parsedTsConfig
   // Force es5 to prevent const vue_1 = require('vue') from conflicting
   return {
-    compilerOptions: { ...tsConfig.options, target: 'es5', module: 'commonjs' }
+    compilerOptions: { ...compilerOptions, target: 'es5', module: 'commonjs' }
   }
 }
 
 function isValidTransformer(transformer) {
   return (
+    isFunction(transformer.createTransformer) ||
     isFunction(transformer.process) ||
     isFunction(transformer.postprocess) ||
     isFunction(transformer.preprocess)
@@ -119,12 +124,13 @@ const getCustomTransformer = function getCustomTransformer(
 
   if (!isValidTransformer(transformer)) {
     throwError(
-      `transformer must contain at least one process, preprocess, or ` +
-        `postprocess method`
+      `transformer must contain at least one createTransformer(), process(), preprocess(), or postprocess() method`
     )
   }
 
-  return transformer
+  return isFunction(transformer.createTransformer)
+    ? transformer.createTransformer()
+    : transformer
 }
 
 const throwError = function error(msg) {
@@ -161,7 +167,7 @@ module.exports = {
   throwError,
   logResultErrors,
   getCustomTransformer,
-  getTsJestConfig,
+  getTypeScriptConfig,
   getBabelOptions,
   getVueJestConfig,
   transformContent,

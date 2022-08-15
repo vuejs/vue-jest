@@ -6,8 +6,8 @@ const typescriptTransformer = require('./transformers/typescript')
 const coffeescriptTransformer = require('./transformers/coffee')
 const _processStyle = require('./process-style')
 const processCustomBlocks = require('./process-custom-blocks')
+const getTypeScriptConfig = require('./utils').getTypeScriptConfig
 const getVueJestConfig = require('./utils').getVueJestConfig
-const getTsJestConfig = require('./utils').getTsJestConfig
 const logResultErrors = require('./utils').logResultErrors
 const stripInlineSourceMap = require('./utils').stripInlineSourceMap
 const getCustomTransformer = require('./utils').getCustomTransformer
@@ -118,7 +118,7 @@ function processTemplate(descriptor, filename, config) {
 
   logResultErrors(result)
 
-  const tsconfig = getTsJestConfig(config)
+  const tsconfig = getTypeScriptConfig(vueJestConfig.tsConfig)
 
   if (tsconfig) {
     // they are using TypeScript.
