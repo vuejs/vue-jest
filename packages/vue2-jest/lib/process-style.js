@@ -45,7 +45,7 @@ function getPreprocessOptions(lang, filePath, jestConfig) {
       })
     }
   }
-  if (lang === 'styl' || lang === 'stylus') {
+  if (lang === 'styl' || lang === 'stylus' || lang === 'less') {
     return {
       paths: [path.dirname(filePath), process.cwd()]
     }
