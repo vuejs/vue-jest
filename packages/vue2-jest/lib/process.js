@@ -60,6 +60,7 @@ function processScriptSetup(descriptor, filePath, config) {
   )
 
   const result = transformer.process(content.content, filePath, config)
+  result.code = stripInlineSourceMap(result.code)
   result.map = mapLines(contentMap, result.map)
 
   return result
@@ -157,16 +158,6 @@ module.exports = function(src, filename, config) {
     isFunctional,
     filename
   )
-
-  const map = generateSourceMap(
-    scriptResult,
-    scriptSetupResult,
-    src,
-    filename,
-    output.renderFnStartLine,
-    output.renderFnEndLine,
-    templateLine
-  ).toJSON()
 
   return {
     code: output.code,
