@@ -71,6 +71,12 @@ function processScriptSetup(descriptor, filePath, config) {
   return result
 }
 
+/**
+ * Process SFC <template> section.
+ * @param {import('@vue/compiler-sfc').SFCDescriptor} descriptor
+ * @param {string} filename
+ * @param {import('@jest/transform').TransformOptions} config
+ */
 function processTemplate(descriptor, filename, config) {
   const { template, scriptSetup } = descriptor
 
@@ -118,24 +124,23 @@ function processTemplate(descriptor, filename, config) {
 
   logResultErrors(result)
 
-  const tsconfig = getTypeScriptConfig(vueJestConfig.tsConfig)
-
-  if (tsconfig) {
-    // they are using TypeScript.
-    const { transpileModule } = require('typescript')
-    const { outputText } = transpileModule(result.code, { tsconfig })
-    return { code: outputText }
-  } else {
-    // babel
-    const babelify = transform(result.code, {
-      filename: 'file.js',
-      presets: ['@babel/preset-env']
-    })
-
-    return {
-      code: babelify.code
+  // TypeScript
+  if (isTS) {
+    const tsconfig = getTypeScriptConfig(vueJestConfig.tsConfig)
+    if (tsconfig) {
+      const { transpileModule } = require('typescript')
+      const { outputText } = transpileModule(result.code, { tsconfig })
+      return { code: outputText }
     }
   }
+
+  // babel
+  const babelify = transform(result.code, {
+    filename: 'file.js',
+    presets: ['@babel/preset-env']
+  })
+
+  return { code: babelify.code }
 }
 
 function processStyle(styles, filename, config) {
