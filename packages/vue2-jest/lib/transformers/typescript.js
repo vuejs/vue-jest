@@ -21,13 +21,11 @@ module.exports = scriptLang => ({
 
     res.outputText = stripInlineSourceMap(res.outputText)
 
-    const inputSourceMap = res.sourceMapText && JSON.parse(res.sourceMapText)
-
     const customTransformer =
       getCustomTransformer(vueJestConfig['transform'], 'js') || {}
     const transformer = customTransformer.process
       ? customTransformer
-      : babelJest.createTransformer({ inputSourceMap })
+      : babelJest.createTransformer()
 
     return transformer.process(res.outputText, filePath, config)
   }
