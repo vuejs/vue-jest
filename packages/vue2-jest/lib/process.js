@@ -8,9 +8,18 @@ const stripInlineSourceMap = require('./utils').stripInlineSourceMap
 const getCustomTransformer = require('./utils').getCustomTransformer
 const loadSrc = require('./utils').loadSrc
 const babelTransformer = require('babel-jest').default
-const { parse, compileTemplate, compileScript } = require('@vue/compiler-sfc')
 const generateCode = require('./generate-code')
 const mapLines = require('./map-lines')
+
+let isVue27 = false
+let compilerUtils
+
+try {
+  compilerUtils = require('@vue/compiler-sfc')
+  isVue27 = true
+} catch (e) {
+  compilerUtils = require('@vue/component-compiler-utils')
+}
 
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
@@ -48,7 +57,7 @@ function processScriptSetup(descriptor, filePath, config) {
     return null
   }
   const vueJestConfig = getVueJestConfig(config)
-  const content = compileScript(descriptor, {
+  const content = compilerUtils.compileScript(descriptor, {
     id: filePath,
     ...vueJestConfig.compilerOptions
   })
@@ -80,8 +89,8 @@ function processTemplate(descriptor, filename, config) {
   }
 
   let bindings
-  if (scriptSetup) {
-    const scriptSetupResult = compileScript(descriptor, {
+  if (isVue27 && scriptSetup) {
+    const scriptSetupResult = compilerUtils.compileScript(descriptor, {
       id: filename,
       ...vueJestConfig.compilerOptions
     })
@@ -89,19 +98,19 @@ function processTemplate(descriptor, filename, config) {
   }
 
   const userTemplateCompilerOptions = vueJestConfig.templateCompiler || {}
-  const result = compileTemplate({
+  const result = compilerUtils.compileTemplate({
     source: template.content,
     compiler: VueTemplateCompiler,
     filename: filename,
     isFunctional: template.attrs.functional,
     preprocessLang: template.lang,
     preprocessOptions: vueJestConfig[template.lang],
-    bindings,
     ...userTemplateCompilerOptions,
     compilerOptions: {
       optimize: false,
       ...userTemplateCompilerOptions.compilerOptions
-    }
+    },
+    ...(isVue27 ? { bindings } : {})
   })
 
   logResultErrors(result)
@@ -125,7 +134,7 @@ function processStyle(styles, filename, config) {
 }
 
 module.exports = function(src, filename, config) {
-  const descriptor = parse({
+  const descriptor = compilerUtils.parse({
     source: src,
     compiler: VueTemplateCompiler,
     filename
