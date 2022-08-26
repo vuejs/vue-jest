@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic 1`] = `
-Array [
-  Object {
-    "en": Object {
+[
+  {
+    "en": {
       "hello": "Hello!",
     },
-    "ja": Object {
+    "ja": {
       "hello": "こんにちは！",
     },
   },
@@ -14,16 +14,16 @@ Array [
 `;
 
 exports[`Multiple blocks 1`] = `
-Array [
-  Object {
-    "en": Object {
+[
+  {
+    "en": {
       "hello": "Hello!",
     },
-    "ja": Object {
+    "ja": {
       "hello": "こんにちは！",
     },
   },
-  Object {
+  {
     "foo": "foo",
   },
 ]

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generates source maps for .vue files 1`] = `
-Object {
-  "file": "/home/runner/work/vue-jest/vue-jest/e2e/2.x/basic/components/Basic.vue",
+{
+  "file": "/workspaces/vue-jest/e2e/2.x/basic/components/Basic.vue",
   "mappings": ";;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;eAEe;AACbA,MAAI,EAAE,OADO;AAEbC,UAAQ,EAAE;AACRC,kBAAc,EAAE,SAASA,cAAT,GAA0B;AACxC,aAAO;AACLC,WAAG,EAAE,KAAKC,OADL;AAELC,YAAI,EAAE,CAAC,KAAKD,OAFP;AAGLE,cAAM,EAAE,KAAKF;AAHR,OAAP;AAKD;AAPO,GAFG;AAWbG,MAAI,EAAE,SAASA,IAAT,GAAgB;AACpB,WAAO;AACLC,SAAG,EAAE,4BADA;AAELJ,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBbK,SAAO,EAAE;AACPC,eAAW,EAAE,SAASA,WAAT,GAAuB;AAClC,WAAKN,OAAL,GAAe,CAAC,KAAKA,OAArB;AACD;AAHM;AAjBI,C",
-  "names": Array [
+  "names": [
     "name",
     "computed",
     "headingClasses",
@@ -17,10 +17,10 @@ Object {
     "methods",
     "toggleClass",
   ],
-  "sources": Array [
+  "sources": [
     "Basic.vue",
   ],
-  "sourcesContent": Array [
+  "sourcesContent": [
     "//
 //
 //
@@ -74,10 +74,10 @@ export default {
 `;
 
 exports[`generates source maps using src attributes 1`] = `
-Object {
-  "file": "/home/runner/work/vue-jest/vue-jest/e2e/2.x/basic/components/SourceMapsSrc.vue",
+{
+  "file": "/workspaces/vue-jest/e2e/2.x/basic/components/SourceMapsSrc.vue",
   "mappings": ";;;;;;eAAe;AACbA,MAAI,EAAE,OADO;AAEbC,UAAQ,EAAE;AACRC,kBAAc,EAAE,SAASA,cAAT,GAA0B;AACxC,aAAO;AACLC,WAAG,EAAE,KAAKC,OADL;AAELC,YAAI,EAAE,CAAC,KAAKD,OAFP;AAGLE,cAAM,EAAE,KAAKF;AAHR,OAAP;AAKD;AAPO,GAFG;AAWbG,MAAI,EAAE,SAASA,IAAT,GAAgB;AACpB,WAAO;AACLC,SAAG,EAAE,4BADA;AAELJ,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBbK,SAAO,EAAE;AACPC,eAAW,EAAE,SAASA,WAAT,GAAuB;AAClC,WAAKN,OAAL,GAAe,CAAC,KAAKA,OAArB;AACD;AAHM;AAjBI,C",
-  "names": Array [
+  "names": [
     "name",
     "computed",
     "headingClasses",
@@ -90,10 +90,10 @@ Object {
     "methods",
     "toggleClass",
   ],
-  "sources": Array [
+  "sources": [
     "SourceMapsSrc.vue",
   ],
-  "sourcesContent": Array [
+  "sourcesContent": [
     "export default {
   name: 'basic',
   computed: {
