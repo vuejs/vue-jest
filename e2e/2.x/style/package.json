@@ -21,33 +21,5 @@
     "postcss": "^7.0.13",
     "sass": "^1.23.7",
     "stylus": "^0.54.5"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "@vue/vue2-jest"
-    },
-    "moduleNameMapper": {
-      "^~tmp/(.*)": "/tmp/$1",
-      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
-    },
-    "globals": {
-      "vue-jest": {
-        "resources": {
-          "scss": [
-            "variables.scss"
-          ],
-          "less": [
-            "variables.less"
-          ]
-        }
-      }
-    }
   }
 }
