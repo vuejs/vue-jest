@@ -170,6 +170,6 @@ module.exports = function(src, filename, config) {
 
   return {
     code: output.code,
-    map
+    map: output.map.toString()
   }
 }
