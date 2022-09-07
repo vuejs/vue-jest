@@ -10,12 +10,13 @@ const loadSrc = require('./utils').loadSrc
 const babelTransformer = require('babel-jest').default
 const generateCode = require('./generate-code')
 const mapLines = require('./map-lines')
+const vueComponentNamespace = require('./constants').vueComponentNamespace
 
 let isVue27 = false
 let compilerUtils
 
 try {
-  compilerUtils = require('@vue/compiler-sfc')
+  compilerUtils = require('vue/compiler-sfc')
   isVue27 = true
 } catch (e) {
   compilerUtils = require('@vue/component-compiler-utils')
@@ -59,6 +60,7 @@ function processScriptSetup(descriptor, filePath, config) {
   const vueJestConfig = getVueJestConfig(config)
   const content = compilerUtils.compileScript(descriptor, {
     id: filePath,
+    reactivityTransform: true,
     ...vueJestConfig.compilerOptions
   })
   const contentMap = mapLines(descriptor.scriptSetup.map, content.map)
@@ -92,6 +94,7 @@ function processTemplate(descriptor, filename, config) {
   if (isVue27 && scriptSetup) {
     const scriptSetupResult = compilerUtils.compileScript(descriptor, {
       id: filename,
+      reactivityTransform: true,
       ...vueJestConfig.compilerOptions
     })
     bindings = scriptSetupResult.bindings
@@ -107,7 +110,7 @@ function processTemplate(descriptor, filename, config) {
     preprocessOptions: vueJestConfig[template.lang],
     ...userTemplateCompilerOptions,
     compilerOptions: {
-      optimize: false,
+      ...(!isVue27 ? { optimize: false } : {}),
       ...userTemplateCompilerOptions.compilerOptions
     },
     ...(isVue27 ? { bindings } : {})
@@ -136,9 +139,12 @@ function processStyle(styles, filename, config) {
 module.exports = function(src, filename, config) {
   const descriptor = compilerUtils.parse({
     source: src,
-    compiler: VueTemplateCompiler,
+    compiler: isVue27 ? undefined : VueTemplateCompiler,
     filename
   })
+
+  const componentNamespace =
+    getVueJestConfig(config)['componentNamespace'] || vueComponentNamespace
 
   const templateResult = processTemplate(descriptor, filename, config)
   const scriptResult = processScript(descriptor.script, filename, config)
@@ -147,6 +153,7 @@ module.exports = function(src, filename, config) {
   const customBlocksResult = processCustomBlocks(
     descriptor.customBlocks,
     filename,
+    componentNamespace,
     config
   )
 

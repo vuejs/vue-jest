@@ -27,9 +27,9 @@ module.exports = function generateCode(
 ) {
   var node = new SourceNode(null, null)
 
-  const finalScriptResult = scriptResult || scriptSetupResult
-  if (finalScriptResult) {
-    addToSourceMap(node, finalScriptResult)
+  if (scriptResult || scriptSetupResult) {
+    scriptResult && addToSourceMap(node, scriptResult)
+    scriptSetupResult && addToSourceMap(node, scriptSetupResult)
   } else {
     node.add(
       `Object.defineProperty(exports, "__esModule", {\n` +
