@@ -7,8 +7,8 @@
     "test": "jest --no-cache --coverage test.js"
   },
   "dependencies": {
-    "vue": "^2.5.21",
-    "vue-template-compiler": "^2.5.21"
+    "vue": "^2.7.7",
+    "vue-template-compiler": "^2.7.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
