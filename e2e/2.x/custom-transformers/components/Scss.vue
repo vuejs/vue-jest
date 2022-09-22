@@ -1,7 +1,7 @@
 <template>
   <div>
-    <span :class="this.$style.g"></span>
-    <span :class="this.$style.dark.f"></span>
+    <span :class="$style.g"></span>
+    <span :class="$style.dark.f"></span>
   </div>
 </template>
 
