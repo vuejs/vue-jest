@@ -1,4 +1,5 @@
 const { getVueJestConfig, getCustomTransformer } = require('./utils')
+const vueOptionsNamespace = require('./constants').vueOptionsNamespace
 
 function applyTransformer(
   transformer,
@@ -16,7 +17,7 @@ function groupByType(acc, block) {
   return acc
 }
 
-module.exports = function(allBlocks, filename, componentNamespace, config) {
+module.exports = function(allBlocks, filename, config) {
   const blocksByType = allBlocks.reduce(groupByType, {})
   const code = []
   for (const [type, blocks] of Object.entries(blocksByType)) {
@@ -28,7 +29,7 @@ module.exports = function(allBlocks, filename, componentNamespace, config) {
       const codeStr = applyTransformer(
         transformer,
         blocks,
-        componentNamespace,
+        vueOptionsNamespace,
         filename,
         config
       )
