@@ -1,0 +1,41 @@
+{
+  "name": "vue2-custom-block",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest --no-cache --coverage test.js"
+  },
+  "dependencies": {
+    "vue": "^2.7.7",
+    "vue-template-compiler": "^2.7.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@vue/vue2-jest": "^29.0.0",
+    "jest": "29.x",
+    "jest-environment-jsdom": "29.x"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "@vue/vue2-jest"
+    },
+    "moduleNameMapper": {
+      "^~?__styles/(.*)$": "<rootDir>/components/styles/$1"
+    },
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "custom": "./transformer.js"
+        }
+      }
+    }
+  }
+}
