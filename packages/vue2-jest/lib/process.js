@@ -10,7 +10,6 @@ const loadSrc = require('./utils').loadSrc
 const babelTransformer = require('babel-jest').default
 const generateCode = require('./generate-code')
 const mapLines = require('./map-lines')
-const vueComponentNamespace = require('./constants').vueComponentNamespace
 
 let isVue27 = false
 let compilerUtils
@@ -143,9 +142,6 @@ module.exports = function(src, filename, config) {
     filename
   })
 
-  const componentNamespace =
-    getVueJestConfig(config)['componentNamespace'] || vueComponentNamespace
-
   const templateResult = processTemplate(descriptor, filename, config)
   const scriptResult = processScript(descriptor.script, filename, config)
   const scriptSetupResult = processScriptSetup(descriptor, filename, config)
@@ -153,7 +149,6 @@ module.exports = function(src, filename, config) {
   const customBlocksResult = processCustomBlocks(
     descriptor.customBlocks,
     filename,
-    componentNamespace,
     config
   )
 
