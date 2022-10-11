@@ -70,12 +70,18 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
   return loadPartialConfig(opts).options
 }
 
+const tsConfigCache = new Map()
+
 /**
  * Load TypeScript config from tsconfig.json.
  * @param {string | undefined} path tsconfig.json file path (default: root)
  * @returns {import('typescript').TranspileOptions | null} TypeScript compilerOptions or null
  */
 const getTypeScriptConfig = function getTypeScriptConfig(path) {
+  if (tsConfigCache.has(path)) {
+    return tsConfigCache.get(path)
+  }
+
   ensureRequire('typescript', ['typescript'])
   const typescript = require('typescript')
 
@@ -103,12 +109,16 @@ const getTypeScriptConfig = function getTypeScriptConfig(path) {
 
   const compilerOptions = parsedConfig ? parsedConfig.options : {}
 
-  return {
+  const transpileConfig = {
     compilerOptions: {
       ...compilerOptions,
       module: typescript.ModuleKind.CommonJS
     }
   }
+
+  tsConfigCache.set(path, transpileConfig)
+
+  return transpileConfig
 }
 
 function isValidTransformer(transformer) {
