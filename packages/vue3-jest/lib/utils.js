@@ -1,6 +1,8 @@
+const ensureRequire = require('./ensure-require')
+const throwError = require('./throw-error')
 const constants = require('./constants')
 const loadPartialConfig = require('@babel/core').loadPartialConfig
-const { loadSync: loadTsConfigSync } = require('tsconfig')
+const { resolveSync: resolveTsConfigSync } = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -68,24 +70,57 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
   return loadPartialConfig(opts).options
 }
 
+const tsConfigCache = new Map()
+
 /**
  * Load TypeScript config from tsconfig.json.
  * @param {string | undefined} path tsconfig.json file path (default: root)
  * @returns {import('typescript').TranspileOptions | null} TypeScript compilerOptions or null
  */
 const getTypeScriptConfig = function getTypeScriptConfig(path) {
-  const tsconfig = loadTsConfigSync(process.cwd(), path || '')
-  if (!tsconfig.path) {
+  if (tsConfigCache.has(path)) {
+    return tsConfigCache.get(path)
+  }
+
+  ensureRequire('typescript', ['typescript'])
+  const typescript = require('typescript')
+
+  const tsconfigPath = resolveTsConfigSync(process.cwd(), path || '')
+  if (!tsconfigPath) {
     warn(`Not found tsconfig.json.`)
     return null
   }
-  const compilerOptions =
-    (tsconfig.config && tsconfig.config.compilerOptions) || {}
 
-  // Force es5 to prevent const vue_1 = require('vue') from conflicting
-  return {
-    compilerOptions: { ...compilerOptions, target: 'es5', module: 'commonjs' }
+  const parsedConfig = typescript.getParsedCommandLineOfConfigFile(
+    tsconfigPath,
+    {},
+    {
+      ...typescript.sys,
+      onUnRecoverableConfigFileDiagnostic: e => {
+        const errorMessage = typescript.formatDiagnostic(e, {
+          getCurrentDirectory: () => process.cwd(),
+          getNewLine: () => `\n`,
+          getCanonicalFileName: file => file.replace(/\\/g, '/')
+        })
+        warn(errorMessage)
+      }
+    }
+  )
+
+  const compilerOptions = parsedConfig ? parsedConfig.options : {}
+
+  const transpileConfig = {
+    compilerOptions: {
+      ...compilerOptions,
+      // Force es5 to prevent const vue_1 = require('vue') from conflicting
+      target: typescript.ScriptTarget.ES5,
+      module: typescript.ModuleKind.CommonJS
+    }
   }
+
+  tsConfigCache.set(path, transpileConfig)
+
+  return transpileConfig
 }
 
 function isValidTransformer(transformer) {
@@ -131,10 +166,6 @@ const getCustomTransformer = function getCustomTransformer(
   return isFunction(transformer.createTransformer)
     ? transformer.createTransformer()
     : transformer
-}
-
-const throwError = function error(msg) {
-  throw new Error('\n[vue-jest] Error: ' + msg + '\n')
 }
 
 const stripInlineSourceMap = function(str) {

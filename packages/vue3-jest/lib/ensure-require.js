@@ -1,4 +1,4 @@
-const throwError = require('./utils').throwError
+const throwError = require('./throw-error')
 
 module.exports = function(name, deps) {
   let i, len

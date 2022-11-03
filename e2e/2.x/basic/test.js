@@ -21,6 +21,8 @@ import Jsx from './components/Jsx.vue'
 import Constructor from './components/Constructor.vue'
 import { compileStyle } from '@vue/component-compiler-utils'
 import ScriptSetup from './components/ScriptSetup'
+import ExtendedTsConfig from './components/ExtendedTsConfig.vue'
+
 jest.mock('@vue/component-compiler-utils', () => ({
   ...jest.requireActual('@vue/component-compiler-utils'),
   compileStyle: jest.fn(() => ({ errors: [], code: '' }))
@@ -161,6 +163,11 @@ test('processes SFC with <script setup>', () => {
   const wrapper = mount(ScriptSetup)
   expect(wrapper.html()).toContain('Count: 5')
   expect(wrapper.html()).toContain('Welcome to Your Vue.js App')
+})
+
+test('handles extended tsconfig.json files', () => {
+  const wrapper = mount(ExtendedTsConfig)
+  expect(wrapper.element.tagName).toBe('DIV')
 })
 
 test('should pass properly "styleOptions" into "preprocessOptions"', () => {

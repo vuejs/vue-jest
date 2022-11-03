@@ -23,6 +23,7 @@ import ScriptSetup from './components/ScriptSetup.vue'
 import ScriptSetupSugarRef from './components/ScriptSetupSugarRef.vue'
 import FunctionalRenderFn from './components/FunctionalRenderFn.vue'
 import CompilerDirective from './components/CompilerDirective.vue'
+import ExtendedTsConfig from './components/ExtendedTsConfig.vue'
 
 // TODO: JSX for Vue 3? TSX?
 import Jsx from './components/Jsx.vue'
@@ -206,4 +207,10 @@ test('ensure compilerOptions is passed down', () => {
 
   const elm = document.querySelector('h1')
   expect(elm.hasAttribute('data-test')).toBe(false)
+})
+
+test('handles extended tsconfig.json files', () => {
+  mount(ExtendedTsConfig)
+  const elm = document.querySelector('div')
+  expect(elm).toBeDefined()
 })
