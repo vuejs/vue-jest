@@ -54,7 +54,7 @@ module.exports = function generateCode(
     )
 
     node.add(
-      `__options__.render = render\n` +
+      `\n__options__.render = render\n` +
         `${namespace}.staticRenderFns = staticRenderFns\n`
     )
 
