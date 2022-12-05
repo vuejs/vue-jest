@@ -3,25 +3,35 @@
 exports[`generates source maps for .vue files 1`] = `
 {
   "file": "./components/Basic.vue",
-  "mappings": ";;;;;;eACe;AACbA,MAAI,EAAE,OADO;AAEbC,UAAQ,EAAE;AACRC,kBAAc,EAAE,SAASA,cAAT,GAA0B;AACxC,aAAO;AACLC,WAAG,EAAE,KAAKC,OADL;AAELC,YAAI,EAAE,CAAC,KAAKD,OAFP;AAGLE,cAAM,EAAE,KAAKF;AAHR,OAAP;AAKD;AAPO,GAFG;AAWbG,MAAI,EAAE,SAASA,IAAT,GAAgB;AACpB,WAAO;AACLC,SAAG,EAAE,4BADA;AAELJ,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBbK,SAAO,EAAE;AACPC,eAAW,EAAE,SAASA,WAAT,GAAuB;AAClC,WAAKN,OAAL,GAAe,CAAC,KAAKA,OAArB;AACD;AAHM;AAjBI,C",
-  "names": [
-    "name",
-    "computed",
-    "headingClasses",
-    "red",
-    "isCrazy",
-    "blue",
-    "shadow",
-    "data",
-    "msg",
-    "methods",
-    "toggleClass",
-  ],
+  "mappings": ";;;;;;eAuBe;AACb,MAAI,EAAE,OADO;AAEb,UAAQ,EAAE;AACR,kBAAc,EAAE,SAAS,cAAT,GAA0B;AACxC,aAAO;AACL,WAAG,EAAE,KAAK,OADL;AAEL,YAAI,EAAE,CAAC,KAAK,OAFP;AAGL,cAAM,EAAE,KAAK;AAHR,OAAP;AAKD;AAPO,GAFG;AAWb,MAAI,EAAE,SAAS,IAAT,GAAgB;AACpB,WAAO;AACL,SAAG,EAAE,4BADA;AAEL,aAAO,EAAE;AAFJ,KAAP;AAID,GAhBY;AAiBb,SAAO,EAAE;AACP,eAAW,EAAE,SAAS,WAAT,GAAuB;AAClC,WAAK,OAAL,GAAe,CAAC,KAAK,OAArB;AACD;AAHM;AAjBI",
+  "names": [],
   "sources": [
-    "Basic.vue",
+    "components/Basic.vue",
   ],
   "sourcesContent": [
-    "
+    "<template>
+  <div class="hello">
+    <h1 :class="headingClasses">{{ msg }}</h1>
+  </div>
+</template>
+
+<style module="css">
+.testA {
+  background-color: red;
+}
+</style>
+<style module>
+.testB {
+  background-color: blue;
+}
+</style>
+<style>
+.testC {
+  background-color: blue;
+}
+</style>
+
+<script>
 export default {
   name: 'basic',
   computed: {
@@ -45,6 +55,7 @@ export default {
     }
   }
 }
+</script>
 ",
   ],
   "version": 3,
