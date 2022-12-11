@@ -48,6 +48,7 @@ function processScript(scriptPart, filePath, config) {
 
   const result = transformer.process(scriptPart.content, filePath, config)
   result.code = stripInlineSourceMap(result.code)
+  result.map = mapLines(scriptPart.map, result.map)
   result.externalSrc = externalSrc
   return result
 }
