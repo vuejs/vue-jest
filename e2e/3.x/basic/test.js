@@ -24,6 +24,7 @@ import ScriptSetupSugarRef from './components/ScriptSetupSugarRef.vue'
 import FunctionalRenderFn from './components/FunctionalRenderFn.vue'
 import CompilerDirective from './components/CompilerDirective.vue'
 import ExtendedTsConfig from './components/ExtendedTsConfig.vue'
+import ScriptAndScriptSetup from './components/ScriptAndScriptSetup.vue'
 
 // TODO: JSX for Vue 3? TSX?
 import Jsx from './components/Jsx.vue'
@@ -213,4 +214,10 @@ test('handles extended tsconfig.json files', () => {
   mount(ExtendedTsConfig)
   const elm = document.querySelector('div')
   expect(elm).toBeDefined()
+})
+
+test('processes SFC with both <script> and <script setup> in same component file', () => {
+  mount(ScriptAndScriptSetup)
+  expect(document.body.outerHTML).toContain('Products: 10')
+  expect(document.body.outerHTML).toContain('Welcome to Your Vue.js App')
 })
