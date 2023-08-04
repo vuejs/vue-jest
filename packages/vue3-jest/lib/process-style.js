@@ -1,6 +1,5 @@
 const { compileStyle } = require('@vue/compiler-sfc')
 const path = require('path')
-const fs = require('fs')
 const cssTree = require('css-tree')
 const getVueJestConfig = require('./utils').getVueJestConfig
 const applyModuleNameMapper = require('./module-name-mapper-helper')
@@ -12,12 +11,21 @@ function getGlobalResources(resources, lang) {
   let globalResources = ''
   if (resources && resources[lang]) {
     globalResources = resources[lang]
-      .map(resource => path.resolve(process.cwd(), resource))
-      .filter(resourcePath => fs.existsSync(resourcePath))
-      .map(resourcePath => fs.readFileSync(resourcePath).toString())
-      .join('\n')
+      .map(resource => {
+        const absolutePath = path.resolve(process.cwd(), resource)
+        return `${getImportLine(lang, absolutePath)}\n`
+      })
+      .join('')
   }
   return globalResources
+}
+
+function getImportLine(lang, filePath) {
+  const importLines = {
+    default: `@import "${filePath}";`,
+    sass: `@import "${filePath}"`
+  }
+  return importLines[lang] || importLines.default
 }
 
 function extractClassMap(cssCode) {
@@ -35,6 +43,7 @@ function extractClassMap(cssCode) {
 function getPreprocessOptions(lang, filePath, jestConfig) {
   if (lang === 'scss' || lang === 'sass') {
     return {
+      filename: filePath,
       importer: (url, prev) => ({
         file: applyModuleNameMapper(
           url,
