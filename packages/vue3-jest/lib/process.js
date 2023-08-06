@@ -19,7 +19,7 @@ const vueComponentNamespace = require('./constants').vueComponentNamespace
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
   if (/^typescript$|tsx?$/.test(lang)) {
-    return transformer || typescriptTransformer
+    return transformer || typescriptTransformer(lang)
   } else if (/^coffee$|coffeescript$/.test(lang)) {
     return transformer || coffeescriptTransformer
   } else {
@@ -164,8 +164,6 @@ module.exports = function(src, filename, config) {
     getVueJestConfig(config)['componentNamespace'] || vueComponentNamespace
 
   const templateResult = processTemplate(descriptor, filename, config)
-  const scriptResult = processScript(descriptor.script, filename, config)
-  const scriptSetupResult = processScriptSetup(descriptor, filename, config)
   const stylesResult = processStyle(descriptor.styles, filename, config)
   const customBlocksResult = processCustomBlocks(
     descriptor.customBlocks,
@@ -173,6 +171,14 @@ module.exports = function(src, filename, config) {
     componentNamespace,
     config
   )
+
+  let scriptResult
+  const scriptSetupResult = processScriptSetup(descriptor, filename, config)
+
+  if (!scriptSetupResult) {
+    scriptResult = processScript(descriptor.script, filename, config)
+  }
+
   const output = generateCode({
     scriptResult,
     scriptSetupResult,
