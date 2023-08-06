@@ -12,6 +12,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@vue/babel-plugin-jsx": "^1.1.5",
     "@vue/vue3-jest": "^29.0.0",
     "coffeescript": "^2.3.2",
     "jest": "29.x",
@@ -34,6 +35,9 @@
   "babel": {
     "presets": [
       "@babel/env"
+    ],
+    "plugins": [
+      "@vue/babel-plugin-jsx"
     ]
   }
 }

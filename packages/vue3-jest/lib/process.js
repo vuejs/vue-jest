@@ -19,7 +19,7 @@ const vueComponentNamespace = require('./constants').vueComponentNamespace
 function resolveTransformer(lang = 'js', vueJestConfig) {
   const transformer = getCustomTransformer(vueJestConfig['transform'], lang)
   if (/^typescript$|tsx?$/.test(lang)) {
-    return transformer || typescriptTransformer
+    return transformer || typescriptTransformer(lang)
   } else if (/^coffee$|coffeescript$/.test(lang)) {
     return transformer || coffeescriptTransformer
   } else {

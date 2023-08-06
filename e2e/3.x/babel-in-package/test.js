@@ -3,6 +3,7 @@ import { createApp, h } from 'vue'
 import TypeScript from './components/TypeScript.vue'
 import Basic from './components/Basic.vue'
 import Coffee from './components/Coffee.vue'
+import Tsx from './components/Tsx.vue'
 
 function mount(Component, props, slots) {
   document.getElementsByTagName('html')[0].innerHTML = ''
@@ -33,4 +34,9 @@ test('processes .vue files with lang set to typescript', () => {
   mount(TypeScript)
   expect(document.querySelector('#parent').textContent).toBe('Parent')
   expect(document.querySelector('#child').textContent).toBe('Child')
+})
+
+test('processes .vue files with lang set to tsx(typescript)', () => {
+  mount(Tsx)
+  expect(document.querySelector('div').textContent).toContain('tsx components')
 })
