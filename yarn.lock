@@ -6530,9 +6530,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json5@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
-  integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
   dependencies:
     minimist "^1.2.0"
 
@@ -7410,9 +7410,9 @@ minimist-options@^3.0.1:
     is-plain-obj "^1.1.0"
 
 minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minipass@^2.3.5, minipass@^2.6.0, minipass@^2.9.0:
   version "2.9.0"
@@ -10860,7 +10860,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue2-sass-importer-lib@file:e2e/2.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue2-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue2-sass-importer-lib-1.0.0-ccaeac9e-c707-4bf2-843f-2b6514207308-1690815365364/node_modules/sass-lib-v1"
+    vue2-sass-importer-sass-lib "file:../../../Library/Caches/Yarn/v6/npm-vue2-sass-importer-lib-1.0.0-c8ecb622-3c66-45e7-a49b-7fe0cf212f02-1691365665246/node_modules/sass-lib-v1"
 
 "vue2-sass-importer-sass-lib@file:e2e/2.x/sass-importer/sass-lib-v1":
   version "1.0.0"
@@ -10871,7 +10871,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue3-sass-importer-lib@file:e2e/3.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue3-sass-importer-sass-lib "file:../../Library/Caches/Yarn/v6/npm-vue3-sass-importer-lib-1.0.0-32edd869-08a1-4b33-835d-626fdeb0344c-1690815365364/node_modules/sass-lib-v1"
+    vue3-sass-importer-sass-lib "file:../../../Library/Caches/Yarn/v6/npm-vue3-sass-importer-lib-1.0.0-8ffc19e9-f75c-4094-8154-77cbd93d14ce-1691365665246/node_modules/sass-lib-v1"
 
 "vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v1":
   version "1.0.0"
