@@ -37,7 +37,7 @@
     "nanoid": "3.3.3",
     "husky": "^1.1.4",
     "lint-staged": "^8.0.5",
-    "postcss": "8.4.12",
+    "postcss": "8.4.31",
     "prettier": "^1.16.1"
   },
   "husky": {
