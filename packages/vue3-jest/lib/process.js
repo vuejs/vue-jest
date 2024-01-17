@@ -14,6 +14,7 @@ const getCustomTransformer = require('./utils').getCustomTransformer
 const loadSrc = require('./utils').loadSrc
 const generateCode = require('./generate-code')
 const mapLines = require('./map-lines')
+const { generateFileId } = require('./utils')
 const vueComponentNamespace = require('./constants').vueComponentNamespace
 
 function resolveTransformer(lang = 'js', vueJestConfig) {
@@ -54,7 +55,7 @@ function processScriptSetup(descriptor, filePath, config) {
   }
   const vueJestConfig = getVueJestConfig(config)
   const content = compileScript(descriptor, {
-    id: filePath,
+    id: generateFileId(filePath),
     refTransform: true,
     ...vueJestConfig.compilerOptions
   })
@@ -92,7 +93,7 @@ function processTemplate(descriptor, filename, config) {
   let bindings
   if (scriptSetup) {
     const scriptSetupResult = compileScript(descriptor, {
-      id: filename,
+      id: generateFileId(filename),
       refTransform: true,
       ...vueJestConfig.compilerOptions
     })
@@ -109,7 +110,7 @@ function processTemplate(descriptor, filename, config) {
   const isTS = /^typescript$|tsx?$/.test(lang)
 
   const result = compileTemplate({
-    id: filename,
+    id: generateFileId(filename),
     source: template.content,
     filename,
     preprocessLang: template.lang,

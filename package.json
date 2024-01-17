@@ -2,7 +2,7 @@
   "name": "vue-jest-monorepo",
   "private": true,
   "engines": {
-    "node": ">=10",
+    "node": ">=18",
     "yarn": "^1.17.3"
   },
   "workspaces": {
@@ -34,9 +34,9 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
-    "nanoid": "3.3.3",
     "husky": "^1.1.4",
     "lint-staged": "^8.0.5",
+    "nanoid": "3.3.3",
     "postcss": "8.4.12",
     "prettier": "^1.16.1"
   },

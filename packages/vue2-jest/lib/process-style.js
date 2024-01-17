@@ -12,7 +12,10 @@ function getGlobalResources(resources, lang) {
   if (resources && resources[lang]) {
     globalResources = resources[lang]
       .map(resource => {
-        const absolutePath = path.resolve(process.cwd(), resource)
+        // need replace \ to / in windows
+        const absolutePath = path
+          .resolve(process.cwd(), resource)
+          .replaceAll('\\', '/')
         return `${getImportLine(lang, absolutePath)}\n`
       })
       .join('')
