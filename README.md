@@ -118,7 +118,7 @@ A `package.json` Example
       "^.+\\.vue$": "@vue/vue2-jest"
     },
     "globals": {
-      "@vue/vue2-jest": {
+      "vue-jest": {
         "transform": {
           "your-custom-block": "./custom-block-processor.js"
         }
@@ -135,7 +135,7 @@ A `jest.config.js` Example - If you're using a dedicated configuration file like
 ```js
 module.exports = {
   globals: {
-    '@vue/vue2-jest': {
+    'vue-jest': {
       transform: {
         'your-custom-block': require('./custom-block-processor')
       }
@@ -170,7 +170,7 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
 {
   "jest": {
     "globals": {
-      "@vue/vue2-jest": {
+      "vue-jest": {
         "templateCompiler": {
           "transpileOptions": {
             "transforms": {
@@ -195,7 +195,7 @@ You can provide [TemplateCompileOptions](https://github.com/vuejs/component-comp
   {
     "jest": {
       "globals": {
-        "@vue/vue2-jest": {
+        "vue-jest": {
           "pug": {
             "basedir": "mybasedir"
           }
