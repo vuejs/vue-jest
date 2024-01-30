@@ -3,6 +3,7 @@ const path = require('path')
 const cssTree = require('css-tree')
 const getVueJestConfig = require('./utils').getVueJestConfig
 const applyModuleNameMapper = require('./module-name-mapper-helper')
+const { generateFileId } = require('./utils')
 const getCustomTransformer = require('./utils').getCustomTransformer
 const logResultErrors = require('./utils').logResultErrors
 const loadSrc = require('./utils').loadSrc
@@ -12,7 +13,10 @@ function getGlobalResources(resources, lang) {
   if (resources && resources[lang]) {
     globalResources = resources[lang]
       .map(resource => {
-        const absolutePath = path.resolve(process.cwd(), resource)
+        // need replace \ to / in windows
+        const absolutePath = path
+          .resolve(process.cwd(), resource)
+          .replaceAll('\\', '/')
         return `${getImportLine(lang, absolutePath)}\n`
       })
       .join('')
@@ -111,7 +115,7 @@ module.exports = function processStyle(stylePart, filePath, config = {}) {
       config.config
     )
     const result = compileStyle({
-      id: `vue-jest-${filePath}`,
+      id: `vue-jest-${generateFileId(filePath)}`,
       source: content,
       filePath,
       preprocessLang: stylePart.lang,

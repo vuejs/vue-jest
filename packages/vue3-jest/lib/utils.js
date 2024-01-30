@@ -193,6 +193,17 @@ const loadSrc = (src, filePath) => {
   }
 }
 
+/**
+ * Replace windows path \ to ~ , and for consistency, also replace linux / to ~ .
+ *
+ * Fix issue:
+ * https://github.com/vuejs/vue-jest/issues/544
+ * https://github.com/vuejs/vue-jest/issues/549
+ */
+const generateFileId = filePath => {
+  return filePath.replace(/[\\/]/g, '~')
+}
+
 module.exports = {
   stripInlineSourceMap,
   throwError,
@@ -206,5 +217,6 @@ module.exports = {
   warn,
   resolvePath,
   fetchTransformer,
-  loadSrc
+  loadSrc,
+  generateFileId
 }
