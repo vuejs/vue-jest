@@ -17,7 +17,7 @@
     "jest": "29.x",
     "jest-environment-jsdom": "29.x",
     "less": "^3.9.0",
-    "postcss": "^7.0.13",
+    "postcss": "^8.4.31",
     "sass": "^1.23.7",
     "stylus": "^0.54.5"
   },

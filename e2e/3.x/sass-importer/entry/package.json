@@ -19,7 +19,7 @@
     "babel-jest": "29.x",
     "jest": "29.x",
     "jest-environment-jsdom": "29.x",
-    "postcss": "^7.0.13",
+    "postcss": "^8.4.31",
     "postcss-color-function": "^4.0.1",
     "sass": "^1.23.7"
   },
