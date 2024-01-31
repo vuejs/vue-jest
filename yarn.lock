@@ -10860,7 +10860,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue2-sass-importer-lib@file:e2e/2.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue2-sass-importer-sass-lib "file:../../../Library/Caches/Yarn/v6/npm-vue2-sass-importer-lib-1.0.0-c8ecb622-3c66-45e7-a49b-7fe0cf212f02-1691365665246/node_modules/sass-lib-v1"
+    vue2-sass-importer-sass-lib "file:e2e/2.x/sass-importer/sass-lib-v1"
 
 "vue2-sass-importer-sass-lib@file:e2e/2.x/sass-importer/sass-lib-v1":
   version "1.0.0"
@@ -10871,7 +10871,7 @@ vue-template-es2015-compiler@^1.9.0:
 "vue3-sass-importer-lib@file:e2e/3.x/sass-importer/lib":
   version "1.0.0"
   dependencies:
-    vue3-sass-importer-sass-lib "file:../../../Library/Caches/Yarn/v6/npm-vue3-sass-importer-lib-1.0.0-8ffc19e9-f75c-4094-8154-77cbd93d14ce-1691365665246/node_modules/sass-lib-v1"
+    vue3-sass-importer-sass-lib "file:e2e/3.x/sass-importer/sass-lib-v1"
 
 "vue3-sass-importer-sass-lib@file:e2e/3.x/sass-importer/sass-lib-v1":
   version "1.0.0"
@@ -11045,9 +11045,9 @@ with@~4.0.0:
     acorn-globals "^1.0.3"
 
 word-wrap@~1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
-  integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
+  integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
 
 wordwrap@0.0.2:
   version "0.0.2"
