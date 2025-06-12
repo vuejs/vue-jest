@@ -2,7 +2,7 @@
   "name": "vue-jest-monorepo",
   "private": true,
   "engines": {
-    "node": ">=10",
+    "node": ">=18",
     "yarn": "^1.17.3"
   },
   "workspaces": {

@@ -37,19 +37,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.render = render;
-
 var _vue = require("vue");
-
 var _hoisted_1 = {
   "class": "hello"
 };
-
 function render(_ctx, _cache) {
   return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, [(0, _vue.createElementVNode)("h1", {
     "class": (0, _vue.normalizeClass)(_ctx.headingClasses)
-  }, (0, _vue.toDisplayString)(_ctx.msg), 3
-  /* TEXT, CLASS */
-  )]);
+  }, (0, _vue.toDisplayString)(_ctx.msg), 3 /* TEXT, CLASS */)]);
 };exports.default = {...exports.default, render};;exports.default = {...exports.default, __cssModules: {"css":{"testA":"testA"},"$style":{"testB":"testB"}}}"
 `;
 
@@ -90,18 +85,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.render = render;
-
 var _vue = require("vue");
-
 var _hoisted_1 = {
   "class": "hello"
 };
-
 function render(_ctx, _cache) {
   return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, [(0, _vue.createElementVNode)("h1", {
     "class": (0, _vue.normalizeClass)(_ctx.headingClasses)
-  }, (0, _vue.toDisplayString)(_ctx.msg), 3
-  /* TEXT, CLASS */
-  )]);
+  }, (0, _vue.toDisplayString)(_ctx.msg), 3 /* TEXT, CLASS */)]);
 };exports.default = {...exports.default, render};"
 `;

@@ -11,11 +11,11 @@
     "vue-template-compiler": "^2.7.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@vue/vue2-jest": "^29.0.0",
-    "jest": "29.x",
-    "jest-environment-jsdom": "29.x"
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "@vue/vue2-jest": "^30.0.0",
+    "jest": "30.x",
+    "jest-environment-jsdom": "30.x"
   },
   "jest": {
     "moduleFileExtensions": [
