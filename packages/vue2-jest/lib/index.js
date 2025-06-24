@@ -1,5 +1,10 @@
 const crypto = require('crypto')
 const babelJest = require('babel-jest').default
+
+// get FIPS status and set hash algorithm accordingly
+const isFips = crypto.getFips ? crypto.getFips() : false
+const hashAlgorithm = isFips ? 'sha256' : 'md5'
+
 module.exports = {
   process: require('./process'),
   getCacheKey: function getCacheKey(
@@ -8,7 +13,7 @@ module.exports = {
     { config, configString, instrument, rootDir }
   ) {
     return crypto
-      .createHash('md5')
+      .createHash(hashAlgorithm)
       .update(
         babelJest.createTransformer().getCacheKey(fileData, filename, {
           config,
