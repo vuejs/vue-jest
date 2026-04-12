@@ -130,7 +130,7 @@ function processTemplate(descriptor, filename, config) {
     if (tsconfig) {
       const { transpileModule } = require('typescript')
       const { outputText } = transpileModule(result.code, { tsconfig })
-      return { code: outputText }
+      result.code = outputText // do NOT return yet as we still need to babelify the code for Jest to understand it
     }
   }
 
