@@ -57,6 +57,10 @@
     "type": "git",
     "url": "git+https://github.com/vuejs/vue-jest.git"
   },
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-jest/issues"
+  },
+  "homepage": "https://github.com/vuejs/vue-jest/tree/master/packages/vue3-jest#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
