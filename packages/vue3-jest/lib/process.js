@@ -1,5 +1,5 @@
 const { parse, compileTemplate, compileScript } = require('@vue/compiler-sfc')
-const { transform } = require('@babel/core')
+const { transformSync } = require('@babel/core')
 const babelTransformer = require('babel-jest').default
 
 const typescriptTransformer = require('./transformers/typescript')
@@ -135,7 +135,7 @@ function processTemplate(descriptor, filename, config) {
   }
 
   // babel
-  const babelify = transform(result.code, {
+  const babelify = transformSync(result.code, {
     filename: 'file.js',
     presets: ['@babel/preset-env']
   })
