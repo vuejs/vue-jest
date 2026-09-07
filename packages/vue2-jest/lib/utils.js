@@ -1,7 +1,7 @@
 const ensureRequire = require('./ensure-require')
 const throwError = require('./throw-error')
 const constants = require('./constants')
-const loadPartialConfig = require('@babel/core').loadPartialConfig
+const loadPartialConfigSync = require('@babel/core').loadPartialConfigSync
 const { resolveSync: resolveTsConfigSync } = require('tsconfig')
 const chalk = require('chalk')
 const path = require('path')
@@ -67,7 +67,7 @@ const getBabelOptions = function loadBabelOptions(filename, options = {}) {
     filename,
     sourceMaps: 'both'
   })
-  return loadPartialConfig(opts).options
+  return loadPartialConfigSync(opts).options
 }
 
 const tsConfigCache = new Map()
